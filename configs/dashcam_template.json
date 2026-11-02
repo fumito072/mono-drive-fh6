@@ -1,0 +1,41 @@
+{
+ "_note": "ドライブレコーダー・車載カメラのひな形。値は例。tools/check_camera.py で地面の格子が道に合うよう直す(docs/CAMERA.md)",
+ "camera": {
+  "name": "車載カメラ(例: 1920x1080・横の画角 100°・フロントガラスの上)",
+  "width": 1920,
+  "height": 1080,
+  "crop_top": 0,
+  "hfov_deg": 100.0,
+  "pitch_deg": 3.0,
+  "roll_deg": 0.0,
+  "yaw_deg": 0.0,
+  "height_m": 1.35,
+  "fwd_m": 1.6,
+  "right_m": 0.0,
+  "model": "pinhole",
+  "dist": null,
+  "hood": null
+ },
+ "vehicle": {
+  "wheelbase_m": 2.7,
+  "max_steer_deg": 35.0,
+  "width_m": 1.8,
+  "max_kmh": 40.0,
+  "a_lat_g": 0.3,
+  "a_brake_g": 0.35,
+  "react_s": 0.5,
+  "accel_mps2": 1.5
+ },
+ "planner": {
+  "cue_turn_m": 16.0
+ },
+ "models": {
+  "pathnet": "models/pathnet.onnx",
+  "obstacle": "models/obstacle.onnx",
+  "obstacle_thr": 0.84,
+  "depth": "models/depth_anything_v2_small_266x420.onnx",
+  "depth_every": 2,
+  "use_depth": true,
+  "use_chevrons": true
+ }
+}

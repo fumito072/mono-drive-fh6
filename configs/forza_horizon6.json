@@ -1,0 +1,44 @@
+{
+  "_note": "Example FH6 configuration. Supply separately licensed model weights and locally calibrated game assets.",
+  "camera": {
+    "name": "FH6 cockpit initial estimate",
+    "width": 1920,
+    "height": 1080,
+    "hfov_deg": 90,
+    "pitch_deg": 3,
+    "height_m": 1.15,
+    "fwd_m": 1.0,
+    "right_m": -0.35
+  },
+  "vehicle": {
+    "wheelbase_m": 2.64,
+    "max_steer_deg": 35,
+    "width_m": 1.85,
+    "max_kmh": 60.0,
+    "a_lat_g": 0.22,
+    "a_brake_g": 0.2,
+    "react_s": 0.45,
+    "accel_mps2": 1.0
+  },
+  "planner": {
+    "lost_kmh": 0,
+    "sight_end_kmh": 15
+  },
+  "models": {
+    "use_depth": false,
+    "depth_every": 3,
+    "use_obstacle": true,
+    "use_chevrons": false,
+    "pathnet": "models/pathnet.onnx"
+  },
+  "forza": {
+    "port": 20066,
+    "max_kmh": 60.0,
+    "min_confidence": 0.5,
+    "fps": 15,
+    "driving_side": "left",
+    "semantic_road": true,
+    "steering_inner": 0.28,
+    "steering_outer": 0.98
+  }
+}

@@ -1,0 +1,58 @@
+{
+ "_note": "小さな車両・ロボット(カメラが低い・遅い)のひな形。値は例",
+ "camera": {
+  "name": "Web カメラ(例: 1280x720・横の画角 90°・高さ 0.5m)",
+  "width": 1280,
+  "height": 720,
+  "crop_top": 0,
+  "hfov_deg": 90.0,
+  "pitch_deg": 8.0,
+  "roll_deg": 0.0,
+  "yaw_deg": 0.0,
+  "height_m": 0.5,
+  "fwd_m": 0.2,
+  "right_m": 0.0,
+  "model": "pinhole",
+  "dist": null,
+  "hood": null
+ },
+ "vehicle": {
+  "wheelbase_m": 0.5,
+  "max_steer_deg": 30.0,
+  "width_m": 0.5,
+  "max_kmh": 8.0,
+  "a_lat_g": 0.2,
+  "a_brake_g": 0.3,
+  "react_s": 0.3,
+  "accel_mps2": 1.0
+ },
+ "planner": {
+  "la_base_m": 1.5,
+  "la_gain_s": 0.6,
+  "la_min_m": 2.0,
+  "la_max_m": 6.0,
+  "reach_min_m": 3.0,
+  "reach_max_m": 10.0,
+  "stop_margin_m": 0.7,
+  "back_m": 1.2,
+  "back_kmh": 2.0,
+  "max_off_path_m": 1.0,
+  "cue_turn_m": 5.0,
+  "cue_side_m": 0.8,
+  "cue_slow_m": 2.0,
+  "cue_kmh": 3.0,
+  "lost_kmh": 2.0,
+  "sight_sd_m": 0.6,
+  "sight_end_kmh": 4.0,
+  "margin_m": 0.1
+ },
+ "models": {
+  "pathnet": "models/pathnet.onnx",
+  "obstacle": "models/obstacle.onnx",
+  "obstacle_thr": 0.84,
+  "depth": "models/depth_anything_v2_small_266x420.onnx",
+  "depth_every": 2,
+  "use_depth": true,
+  "use_chevrons": true
+ }
+}

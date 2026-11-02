@@ -1,0 +1,5 @@
+-r requirements.txt
+-r requirements-train.txt
+mss>=10.2,<11
+psutil>=6
+Pillow>=10

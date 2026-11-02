@@ -1,0 +1,6 @@
+# mono_drive を動かすのに要るもの(推論だけ。torch は要らない)
+numpy>=1.23
+opencv-python>=4.8
+onnxruntime>=1.16
+# NVIDIA の GPU で深度を速くするなら、onnxruntime の代わりに onnxruntime-gpu を入れる(CUDA の版を合わせる)
+# 画面の無い Linux(サーバー)なら opencv-python の代わりに opencv-python-headless

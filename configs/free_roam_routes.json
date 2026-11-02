@@ -1,0 +1,6 @@
+{
+  "enabled": false,
+  "interval_seconds": 900,
+  "mode": "free_roam_only",
+  "destinations": []
+}

@@ -1,0 +1,8 @@
+{
+  "delete_verified_decode_caches": false,
+  "retain_source_recordings": true,
+  "retain_training_partitions": true,
+  "retain_incident_logs": true,
+  "delete_old_autonomous_runs": false,
+  "autonomous_recent_hours": 6
+}

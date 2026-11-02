@@ -1,0 +1,11 @@
+{
+  "enabled": false,
+  "expected_account": "",
+  "folder_url": "",
+  "local_folder": "",
+  "stable_seconds": 120,
+  "max_new_sessions_per_cycle": 2,
+  "max_session_gib": 30,
+  "reserve_gib": 25,
+  "mode": "read_only_recorder_sessions"
+}

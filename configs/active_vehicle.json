@@ -1,0 +1,8 @@
+{
+  "name": "WRX",
+  "car_ordinal": 3819,
+  "performance_index": 538,
+  "visibility_file": "models/vehicle_profiles/wrx_3819_visibility.npz",
+  "camera_source": "Reviewed current WRX dashboard view; projection calibrated from lane observations",
+  "time": 1793174875.5103056
+}

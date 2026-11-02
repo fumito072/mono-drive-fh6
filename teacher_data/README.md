@@ -53,6 +53,14 @@ python tools/train_pathnet.py --dataset-manifest datasets/public-human-20261102/
 
 将来の軌跡ラベルは位置・向きの時系列から作ります。停止・後退や十分な先の軌跡がないフレームなどを学習器が除くため、実際の学習サンプル数は公開画像数より少なくなります。学習器は学習用区間の一部も内部検証に回すため、その検証枚数は上記の専用検証用94,724枚より多くなる場合があります。
 
+直線に偏った記録から曲がる場面を重点的に学習するには、学習コマンドに `--balance-maneuvers --curve-weight 2 --epochs 8` を追加できます。学習用の目標軌跡だけを使って出現頻度を調整し、検証用画像は増幅しません。学習器は最終回だけでなく、検証誤差が最も小さかった回の重みを保存します。条件を増やしても実走性能が改善するとは限らないため、独立した検証と実走評価を行ってください。
+
+復元した教師データの速度・曲がり方・同期情報を再集計する例です。
+
+```powershell
+python tools/analyze_human_curriculum.py --manifest teacher_data/catalog.json --data-root datasets/public-human-20261102
+```
+
 `poses.csv` は `frame,t,x,y,z,yaw_deg,pitch_deg,kmh` を持ちます。位置はゲーム内のメートル座標を右手系・z上向きに変換した値、角度は度、速度はkm/hです。カメラの位置・画角は初期推定値であり、精密な実測校正ではありません。
 
 `actions.csv` は記録方式に応じて2種類あります。

@@ -31,6 +31,7 @@ from mono_drive.pathnet import ARC_S, NET_H, NET_W, net_input, net_input_u8  # n
 from mono_drive.teacher import Drive, load_config_camera  # noqa: E402
 from mono_drive.training_arguments import dataset_arguments, resolve_dataset_arguments
 from mono_drive.training_refresh import HumanRevisionGuard,TrainingDataChanged
+from mono_drive.training_curriculum import enabled as curriculum_enabled, sampling_weights, BestValidationCheckpoint
 
 MID = (ARC_S >= 8) & (ARC_S <= 22)
 #: 自信 0.5(横の標準偏差 1.55m)の所で、任せた絵のずれの平均をこれ以下にそろえる [m・基準の世界]
@@ -166,6 +167,7 @@ def main() -> int:
     ap.add_argument("--device", default="auto", help="auto | cpu | cuda | mps")
     ap.add_argument("--seed", type=int, default=0)
     ap.add_argument("--curve-weight", type=float, default=1.0, help="Training-only curve sampling weight, bounded to 1..2")
+    ap.add_argument('--balance-maneuvers',action='store_true',help='Bounded sampling of underrepresented bend directions')
     ap.add_argument('--human-revision',help='Refresh at a preprocessing/epoch boundary if verified human data changes')
     a = resolve_dataset_arguments(ap.parse_args(), ap)
 
@@ -181,17 +183,20 @@ def main() -> int:
     if a.extra_validation:
         held,_=load_items(a.extra_validation,a.config,a.stride,0.,refresh_check=refresh)
         val.extend(held)
+        del held
     if len(train) < 10:
         print("教師のある絵が少なすぎる(位置の記録が 65m 先まで続いているか、poses.csv の frame が合っているか)")
         return 1
     Xt, Tt, OKt, Kt = stack(train)
+    del train
     if not 1. <= a.curve_weight <= 2.:
         raise ValueError('curve-weight must be within 1..2')
     # Draw only from the training partition; never oversample validation images.
-    curved = np.max(np.where(OKt, np.abs(Tt[...,1]), 0.), axis=1) > 3.
-    sampling = np.where(curved, a.curve_weight, 1.)
-    sampling = sampling / sampling.sum()
+    balanced=a.balance_maneuvers or curriculum_enabled(Path(HERE).parent)
+    sampling,group_counts=sampling_weights(Tt,OKt,ARC_S,a.curve_weight,balanced)
     Xv, Tv, OKv, Kv = stack(val) if val else (None, None, None, None)
+    del val
+    print(f"Maneuver curriculum: {balanced}; training groups {group_counts}",flush=True)
     print(f"学習 {len(Xt)} 枚・検証 {0 if Xv is None else len(Xv)} 枚・{device}", flush=True)
     model = build_pathnet()
     if not a.scratch:
@@ -209,11 +214,12 @@ def main() -> int:
         e0 = None
     Tt_t = torch.from_numpy(Tt)
     OKt_t = torch.from_numpy(OKt)
+    best=BestValidationCheckpoint()
     t0 = time.time()
     for ep in range(a.epochs):
         if refresh is not None:refresh()
         model.train()
-        order = (rng.choice(len(Xt),len(Xt),replace=True,p=sampling) if a.curve_weight>1.
+        order = (rng.choice(len(Xt),len(Xt),replace=True,p=sampling) if a.curve_weight>1. or balanced
                  else rng.permutation(len(Xt)))
         tot, nb = 0.0, 0
         for b in range(0, len(order), a.batch):
@@ -232,8 +238,11 @@ def main() -> int:
         msg = f"  {ep + 1}/{a.epochs}: 損失 {tot / max(1, nb):.3f}"
         if Xv is not None and len(Xv):
             e, _, _ = scores(predict(model, Xv, device), Tv, OKv, Kv)
+            best.consider(model,float(np.nanmean(e)),ep+1)
             msg += f"  検証のずれ 平均 {np.nanmean(e):.2f}m・中央 {np.nanmedian(e):.2f}m"
         print(msg + f"({time.time() - t0:.0f} 秒)", flush=True)
+    if best.restore(model):
+        print(f"Restored best validation epoch {best.epoch}: {best.score:.4f}m",flush=True)
     # 自信の物差し(検証で。検証が少なければ学習の絵で)
     Xc, Tc, OKc, Kc = (Xv, Tv, OKv, Kv) if Xv is not None and len(Xv) >= 20 else (Xt, Tt, OKt, Kt)
     _, sd_raw, e_ref = scores(predict(model, Xc, device), Tc, OKc, Kc)
@@ -251,7 +260,9 @@ def main() -> int:
             "frames_val": 0 if Xv is None else int(len(Xv)),
             "val_err_before_m": None if e0 is None else round(float(np.nanmean(e0)), 3),
             "val_err_m": None if e_fin is None else round(float(np.nanmean(e_fin)), 3),
-            "epochs": a.epochs, "lr": lr, "curve_weight": a.curve_weight}
+            "epochs": a.epochs, "lr": lr, "curve_weight": a.curve_weight,
+            "best_validation_epoch":best.epoch,"balanced_maneuvers":balanced,
+            "training_maneuver_counts":group_counts}
     with open(os.path.splitext(a.out)[0] + ".json", "w", encoding="utf-8") as f:
         json.dump(meta, f, ensure_ascii=False, indent=1)
     print(f"書いた: {a.out}(torch との差 {diff:.1e})と {os.path.splitext(a.out)[0]}.json")

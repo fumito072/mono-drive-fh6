@@ -26,6 +26,10 @@ class CurriculumTests(unittest.TestCase):
             self.assertFalse(enabled(d))
             (p/'training-curriculum.json').write_text(json.dumps({'revision':'a','balanced_maneuvers':True}))
             self.assertTrue(enabled(d))
+            (p/'training-curriculum.json').write_text(json.dumps({'revision':'old','balanced_maneuvers':True,'follow_new_verified_data':True}))
+            self.assertTrue(enabled(d))
+            (p/'human-dataset.json').write_text(json.dumps({'revision':'new','frames':10}))
+            self.assertFalse(enabled(d))
 
     def test_restores_the_best_epoch_instead_of_the_last(self):
         try:import torch

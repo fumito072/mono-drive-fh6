@@ -11,7 +11,8 @@ def enabled(root):
         root=Path(root)
         plan=json.loads((root/'out/training-curriculum.json').read_text(encoding='utf-8'))
         data=json.loads((root/'out/human-dataset.json').read_text(encoding='utf-8'))
-        return (plan.get('balanced_maneuvers') is True and plan.get('revision')==data.get('revision')
+        current=(plan.get('revision')==data.get('revision') or plan.get('follow_new_verified_data') is True)
+        return (plan.get('balanced_maneuvers') is True and bool(data.get('revision')) and current
                 and int(data.get('frames',0))>=10000)
     except (OSError,ValueError,TypeError):
         return False

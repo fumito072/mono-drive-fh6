@@ -1,0 +1,2724 @@
+{
+  "schema_version": 1,
+  "created_utc": "2026-11-02T13:16:28Z",
+  "files": [
+    {
+      "path": "models/candidates/pathnet_fh6_20261027_020531.json",
+      "bytes": 378,
+      "sha256": "865c60ddd85d4923479c84e9afbc022c100bc8568c760e55d13fd409a0fb1c57",
+      "archive": "runtime-models.zip",
+      "family": "Mono Drive",
+      "license": "Project owner; no new redistribution license",
+      "status": "archived_candidate_not_auto_selected"
+    },
+    {
+      "path": "models/candidates/pathnet_fh6_20261027_020531.onnx",
+      "bytes": 5005212,
+      "sha256": "96f8dd8a2b1fcbe6e42fd8518123367b2f8ee2b56b5d4f46dfab3f528c013aa4",
+      "archive": "runtime-models.zip",
+      "family": "Mono Drive",
+      "license": "Project owner; no new redistribution license",
+      "status": "archived_candidate_not_auto_selected"
+    },
+    {
+      "path": "models/candidates/pathnet_fh6_20261027_020758.json",
+      "bytes": 378,
+      "sha256": "8576b5380d3885ec5c047265c79756d804dcf0d89f087495ae086cf0b60f422f",
+      "archive": "runtime-models.zip",
+      "family": "Mono Drive",
+      "license": "Project owner; no new redistribution license",
+      "status": "archived_candidate_not_auto_selected"
+    },
+    {
+      "path": "models/candidates/pathnet_fh6_20261027_020758.onnx",
+      "bytes": 5005212,
+      "sha256": "ed88c3f8f12b907729e56f53286cb65fc204c50c5ecd14ef3f5d6ff1da237bba",
+      "archive": "runtime-models.zip",
+      "family": "Mono Drive",
+      "license": "Project owner; no new redistribution license",
+      "status": "archived_candidate_not_auto_selected"
+    },
+    {
+      "path": "models/candidates/pathnet_fh6_20261027_055959.json",
+      "bytes": 377,
+      "sha256": "39c5b58d07235e95032031bee21595795aca2a052f9b0691e37618d08e34d055",
+      "archive": "runtime-models.zip",
+      "family": "Mono Drive",
+      "license": "Project owner; no new redistribution license",
+      "status": "archived_candidate_not_auto_selected"
+    },
+    {
+      "path": "models/candidates/pathnet_fh6_20261027_055959.onnx",
+      "bytes": 5005212,
+      "sha256": "fcc43dc9f4c80b94f77c04563896d998b64589084051d5a86b2819b2a4dea640",
+      "archive": "runtime-models.zip",
+      "family": "Mono Drive",
+      "license": "Project owner; no new redistribution license",
+      "status": "archived_candidate_not_auto_selected"
+    },
+    {
+      "path": "models/candidates/pathnet_fh6_20261027_100351.json",
+      "bytes": 400,
+      "sha256": "eba79868ba863fd214c3526018e11437e5c79aeed5bdb2a62090f87ca3101810",
+      "archive": "runtime-models.zip",
+      "family": "Mono Drive",
+      "license": "Project owner; no new redistribution license",
+      "status": "archived_candidate_not_auto_selected"
+    },
+    {
+      "path": "models/candidates/pathnet_fh6_20261027_100351.onnx",
+      "bytes": 5005212,
+      "sha256": "9cac59f85dadb7eaff7a6e8d0f25601fab786e8e5105ccd3199f1b188a895939",
+      "archive": "runtime-models.zip",
+      "family": "Mono Drive",
+      "license": "Project owner; no new redistribution license",
+      "status": "archived_candidate_not_auto_selected"
+    },
+    {
+      "path": "models/candidates/pathnet_fh6_20261027_101343.json",
+      "bytes": 399,
+      "sha256": "61c2e81ed982c892981d9dfc60770ff994dc22f47e9daa8fff4f758a6f4a3d73",
+      "archive": "runtime-models.zip",
+      "family": "Mono Drive",
+      "license": "Project owner; no new redistribution license",
+      "status": "archived_candidate_not_auto_selected"
+    },
+    {
+      "path": "models/candidates/pathnet_fh6_20261027_101343.onnx",
+      "bytes": 5005212,
+      "sha256": "a8bc5e98125013a3c476a7916a1acc419715a2dc2fe8443728f2453840606ca4",
+      "archive": "runtime-models.zip",
+      "family": "Mono Drive",
+      "license": "Project owner; no new redistribution license",
+      "status": "archived_candidate_not_auto_selected"
+    },
+    {
+      "path": "models/candidates/pathnet_fh6_20261027_102909.json",
+      "bytes": 402,
+      "sha256": "1abff483157e59b963ac3a1d78bfb2702d9ed82de6f312bdafd373480277b4a7",
+      "archive": "runtime-models.zip",
+      "family": "Mono Drive",
+      "license": "Project owner; no new redistribution license",
+      "status": "archived_candidate_not_auto_selected"
+    },
+    {
+      "path": "models/candidates/pathnet_fh6_20261027_102909.onnx",
+      "bytes": 5005212,
+      "sha256": "811c924a1bff08b3b8c3987bc05150e84b3dbdc8a38308a440104a0cda38120e",
+      "archive": "runtime-models.zip",
+      "family": "Mono Drive",
+      "license": "Project owner; no new redistribution license",
+      "status": "archived_candidate_not_auto_selected"
+    },
+    {
+      "path": "models/candidates/pathnet_fh6_20261027_105720.json",
+      "bytes": 402,
+      "sha256": "6e76ba8aa0145b4cb4dcba9d9cacea9c5eaa4e8c1b134b53616934935f3254ee",
+      "archive": "runtime-models.zip",
+      "family": "Mono Drive",
+      "license": "Project owner; no new redistribution license",
+      "status": "archived_candidate_not_auto_selected"
+    },
+    {
+      "path": "models/candidates/pathnet_fh6_20261027_105720.onnx",
+      "bytes": 5005212,
+      "sha256": "b3369626d414017f767aa669a3db07f78d28d10eca151fec34cbd3f94de807cf",
+      "archive": "runtime-models.zip",
+      "family": "Mono Drive",
+      "license": "Project owner; no new redistribution license",
+      "status": "archived_candidate_not_auto_selected"
+    },
+    {
+      "path": "models/candidates/pathnet_fh6_20261027_113806.json",
+      "bytes": 401,
+      "sha256": "51edbc402fcbe19abd76462bdb3271623b8cc2c6c4e9f5f96fbfdc113919d130",
+      "archive": "runtime-models.zip",
+      "family": "Mono Drive",
+      "license": "Project owner; no new redistribution license",
+      "status": "archived_candidate_not_auto_selected"
+    },
+    {
+      "path": "models/candidates/pathnet_fh6_20261027_113806.onnx",
+      "bytes": 5005212,
+      "sha256": "fcf56873b7a5ea2f1bc2583d595a3e795cb0e7e92bd0222ff5c632a017df04c0",
+      "archive": "runtime-models.zip",
+      "family": "Mono Drive",
+      "license": "Project owner; no new redistribution license",
+      "status": "archived_candidate_not_auto_selected"
+    },
+    {
+      "path": "models/candidates/pathnet_fh6_20261027_115545.json",
+      "bytes": 401,
+      "sha256": "393c17534d715bcdcffac614909e840c703739ebecf29b241bdc0bb54e46d1bc",
+      "archive": "runtime-models.zip",
+      "family": "Mono Drive",
+      "license": "Project owner; no new redistribution license",
+      "status": "archived_candidate_not_auto_selected"
+    },
+    {
+      "path": "models/candidates/pathnet_fh6_20261027_115545.onnx",
+      "bytes": 5005212,
+      "sha256": "9f422eb90f35e7e8184ed3fe6182131ccdba53751a8b8b89079b03a489baba02",
+      "archive": "runtime-models.zip",
+      "family": "Mono Drive",
+      "license": "Project owner; no new redistribution license",
+      "status": "archived_candidate_not_auto_selected"
+    },
+    {
+      "path": "models/candidates/pathnet_fh6_20261027_121131.json",
+      "bytes": 402,
+      "sha256": "5d5283f01beae14a33e287ce18d01e1004165608d64fe78922d9106e68d168b5",
+      "archive": "runtime-models.zip",
+      "family": "Mono Drive",
+      "license": "Project owner; no new redistribution license",
+      "status": "archived_candidate_not_auto_selected"
+    },
+    {
+      "path": "models/candidates/pathnet_fh6_20261027_121131.onnx",
+      "bytes": 5005212,
+      "sha256": "f6500c2d6b7c8f34b5a2b7ae20bc7d713551c3ebd3628a03d10156ad1040df0e",
+      "archive": "runtime-models.zip",
+      "family": "Mono Drive",
+      "license": "Project owner; no new redistribution license",
+      "status": "archived_candidate_not_auto_selected"
+    },
+    {
+      "path": "models/candidates/pathnet_fh6_20261027_123118.json",
+      "bytes": 402,
+      "sha256": "7c19c03154ad2f05bd80033d16fa8c1db4ee50361c2d32ae221e1bb8bacb116e",
+      "archive": "runtime-models.zip",
+      "family": "Mono Drive",
+      "license": "Project owner; no new redistribution license",
+      "status": "archived_candidate_not_auto_selected"
+    },
+    {
+      "path": "models/candidates/pathnet_fh6_20261027_123118.onnx",
+      "bytes": 5005212,
+      "sha256": "cc707ee7fecd97fef62d6bfe6e1a2e472f1f35680914941bbde421f0e21e6a67",
+      "archive": "runtime-models.zip",
+      "family": "Mono Drive",
+      "license": "Project owner; no new redistribution license",
+      "status": "archived_candidate_not_auto_selected"
+    },
+    {
+      "path": "models/candidates/pathnet_fh6_20261027_125112.json",
+      "bytes": 402,
+      "sha256": "d48b89cfb98f7bd87cfa031121b193c148d99a442800fae6f3b5f418f0adacf0",
+      "archive": "runtime-models.zip",
+      "family": "Mono Drive",
+      "license": "Project owner; no new redistribution license",
+      "status": "archived_candidate_not_auto_selected"
+    },
+    {
+      "path": "models/candidates/pathnet_fh6_20261027_125112.onnx",
+      "bytes": 5005212,
+      "sha256": "5ae81484f62ca2ab6a32014e6e992decfe91296115079e88c92486cee7b30337",
+      "archive": "runtime-models.zip",
+      "family": "Mono Drive",
+      "license": "Project owner; no new redistribution license",
+      "status": "archived_candidate_not_auto_selected"
+    },
+    {
+      "path": "models/candidates/pathnet_fh6_20261027_130649.json",
+      "bytes": 400,
+      "sha256": "6e05673d9c9374db3ded60457ba610191e3505e36725a2ca229a4fe3066e7dd9",
+      "archive": "runtime-models.zip",
+      "family": "Mono Drive",
+      "license": "Project owner; no new redistribution license",
+      "status": "archived_candidate_not_auto_selected"
+    },
+    {
+      "path": "models/candidates/pathnet_fh6_20261027_130649.onnx",
+      "bytes": 5005212,
+      "sha256": "c758f8fb5236eed980874fd0556e764c48b2beac68a858600561301af0ff4ac7",
+      "archive": "runtime-models.zip",
+      "family": "Mono Drive",
+      "license": "Project owner; no new redistribution license",
+      "status": "archived_candidate_not_auto_selected"
+    },
+    {
+      "path": "models/candidates/pathnet_fh6_20261027_133300.json",
+      "bytes": 402,
+      "sha256": "fade7f5db600b9fe87084adadc8e98c199314a05a99d6a6330946802fe8f6c71",
+      "archive": "runtime-models.zip",
+      "family": "Mono Drive",
+      "license": "Project owner; no new redistribution license",
+      "status": "archived_candidate_not_auto_selected"
+    },
+    {
+      "path": "models/candidates/pathnet_fh6_20261027_133300.onnx",
+      "bytes": 5005212,
+      "sha256": "d4a180ad9a0b6ff8c7457af8676147c62069f88914765cc4bfe81b5ceb61361e",
+      "archive": "runtime-models.zip",
+      "family": "Mono Drive",
+      "license": "Project owner; no new redistribution license",
+      "status": "archived_candidate_not_auto_selected"
+    },
+    {
+      "path": "models/candidates/pathnet_fh6_20261027_135052.json",
+      "bytes": 387,
+      "sha256": "92610226d7b331b845f6b3b1ac0fcc22fd39dfad0a6ccaabdc01a06592c4c197",
+      "archive": "runtime-models.zip",
+      "family": "Mono Drive",
+      "license": "Project owner; no new redistribution license",
+      "status": "archived_candidate_not_auto_selected"
+    },
+    {
+      "path": "models/candidates/pathnet_fh6_20261027_135052.onnx",
+      "bytes": 5005212,
+      "sha256": "e6582e2ef80fda1aff660a6a1ab4c737ee9e0ee0f50bd226af04ef4807d48171",
+      "archive": "runtime-models.zip",
+      "family": "Mono Drive",
+      "license": "Project owner; no new redistribution license",
+      "status": "archived_candidate_not_auto_selected"
+    },
+    {
+      "path": "models/candidates/pathnet_fh6_20261027_143409.json",
+      "bytes": 387,
+      "sha256": "f519e59b671e94b42674b1d1bbd109b9ce7cab07e06f13e378fd5005d55c7472",
+      "archive": "runtime-models.zip",
+      "family": "Mono Drive",
+      "license": "Project owner; no new redistribution license",
+      "status": "archived_candidate_not_auto_selected"
+    },
+    {
+      "path": "models/candidates/pathnet_fh6_20261027_143409.onnx",
+      "bytes": 5005212,
+      "sha256": "62f1661e826ada4d551eb5a185708c2de92def35ffb2d5e47a9ecfddf6dab2f4",
+      "archive": "runtime-models.zip",
+      "family": "Mono Drive",
+      "license": "Project owner; no new redistribution license",
+      "status": "archived_candidate_not_auto_selected"
+    },
+    {
+      "path": "models/candidates/pathnet_fh6_20261027_150027.json",
+      "bytes": 387,
+      "sha256": "1e9ec3b9eeca8187fe530d86928df91b6a4c9e2797bf6531dd78c4124336e750",
+      "archive": "runtime-models.zip",
+      "family": "Mono Drive",
+      "license": "Project owner; no new redistribution license",
+      "status": "archived_candidate_not_auto_selected"
+    },
+    {
+      "path": "models/candidates/pathnet_fh6_20261027_150027.onnx",
+      "bytes": 5005212,
+      "sha256": "568c8e3033cc8d8f29f89714ea223032745bfc703f153e5c75f649725eea89df",
+      "archive": "runtime-models.zip",
+      "family": "Mono Drive",
+      "license": "Project owner; no new redistribution license",
+      "status": "archived_candidate_not_auto_selected"
+    },
+    {
+      "path": "models/candidates/pathnet_fh6_20261027_153733.json",
+      "bytes": 387,
+      "sha256": "f7b892a5f679e2c10b88ed90af466d5f60fd240fc1977faff5072aaca1cf4297",
+      "archive": "runtime-models.zip",
+      "family": "Mono Drive",
+      "license": "Project owner; no new redistribution license",
+      "status": "archived_candidate_not_auto_selected"
+    },
+    {
+      "path": "models/candidates/pathnet_fh6_20261027_153733.onnx",
+      "bytes": 5005212,
+      "sha256": "7540f5e731c41cb57dfb9a91208d0e4ed14114f455132857603a3523c8dc41f0",
+      "archive": "runtime-models.zip",
+      "family": "Mono Drive",
+      "license": "Project owner; no new redistribution license",
+      "status": "archived_candidate_not_auto_selected"
+    },
+    {
+      "path": "models/candidates/pathnet_fh6_20261027_155324.json",
+      "bytes": 387,
+      "sha256": "bc65a973e6a09b0bb6d32931657ad55c547f5ab27269dd2dad64280f5fb1e918",
+      "archive": "runtime-models.zip",
+      "family": "Mono Drive",
+      "license": "Project owner; no new redistribution license",
+      "status": "archived_candidate_not_auto_selected"
+    },
+    {
+      "path": "models/candidates/pathnet_fh6_20261027_155324.onnx",
+      "bytes": 5005212,
+      "sha256": "652019470adec1b44a75782e2038add1782fc590db003f2b036c9c565b5f6378",
+      "archive": "runtime-models.zip",
+      "family": "Mono Drive",
+      "license": "Project owner; no new redistribution license",
+      "status": "archived_candidate_not_auto_selected"
+    },
+    {
+      "path": "models/candidates/pathnet_fh6_20261027_160925.json",
+      "bytes": 387,
+      "sha256": "4bd7cb2b823596538bdd4ac7b955a4bc242f94d5d7f1b498eb68664547cc17b8",
+      "archive": "runtime-models.zip",
+      "family": "Mono Drive",
+      "license": "Project owner; no new redistribution license",
+      "status": "archived_candidate_not_auto_selected"
+    },
+    {
+      "path": "models/candidates/pathnet_fh6_20261027_160925.onnx",
+      "bytes": 5005212,
+      "sha256": "1475c434555817bae435369558daae1662407b389fa77aae95de7dbb215e994b",
+      "archive": "runtime-models.zip",
+      "family": "Mono Drive",
+      "license": "Project owner; no new redistribution license",
+      "status": "archived_candidate_not_auto_selected"
+    },
+    {
+      "path": "models/candidates/pathnet_fh6_20261027_162522.json",
+      "bytes": 387,
+      "sha256": "e60d15e5dac75e0af5cd9ead2e8d3763121d95632081b35c6ac41a635cab2a83",
+      "archive": "runtime-models.zip",
+      "family": "Mono Drive",
+      "license": "Project owner; no new redistribution license",
+      "status": "archived_candidate_not_auto_selected"
+    },
+    {
+      "path": "models/candidates/pathnet_fh6_20261027_162522.onnx",
+      "bytes": 5005212,
+      "sha256": "cb0b0917d43e016fd184b3fa1b741bc358a779422db7a660216d6d51f97d8bfe",
+      "archive": "runtime-models.zip",
+      "family": "Mono Drive",
+      "license": "Project owner; no new redistribution license",
+      "status": "archived_candidate_not_auto_selected"
+    },
+    {
+      "path": "models/candidates/pathnet_fh6_20261027_170043.json",
+      "bytes": 387,
+      "sha256": "3bed16949664a95f751e3a3edaa2962dfdde21e22d1cbb7073f21a311d673817",
+      "archive": "runtime-models.zip",
+      "family": "Mono Drive",
+      "license": "Project owner; no new redistribution license",
+      "status": "archived_candidate_not_auto_selected"
+    },
+    {
+      "path": "models/candidates/pathnet_fh6_20261027_170043.onnx",
+      "bytes": 5005212,
+      "sha256": "256f4eedb57e1724b34ff69a5f3a142678e82ca3b65a62f2166a040e92ffe600",
+      "archive": "runtime-models.zip",
+      "family": "Mono Drive",
+      "license": "Project owner; no new redistribution license",
+      "status": "archived_candidate_not_auto_selected"
+    },
+    {
+      "path": "models/candidates/pathnet_fh6_20261027_171657.json",
+      "bytes": 387,
+      "sha256": "f7e2c331df1fcdf681398fa9b5f890551a4d42ac5f599215fe82ec13af03bd42",
+      "archive": "runtime-models.zip",
+      "family": "Mono Drive",
+      "license": "Project owner; no new redistribution license",
+      "status": "archived_candidate_not_auto_selected"
+    },
+    {
+      "path": "models/candidates/pathnet_fh6_20261027_171657.onnx",
+      "bytes": 5005212,
+      "sha256": "f075971cd05c63002753a45eca5c389ea69b4b56448b143aaea67ea89f7e491b",
+      "archive": "runtime-models.zip",
+      "family": "Mono Drive",
+      "license": "Project owner; no new redistribution license",
+      "status": "archived_candidate_not_auto_selected"
+    },
+    {
+      "path": "models/candidates/pathnet_fh6_20261027_174139.json",
+      "bytes": 387,
+      "sha256": "c4da6af74bf3744f40f8f3d29ea7e65be0397b8e6d3068db1a2192143e216d08",
+      "archive": "runtime-models.zip",
+      "family": "Mono Drive",
+      "license": "Project owner; no new redistribution license",
+      "status": "archived_candidate_not_auto_selected"
+    },
+    {
+      "path": "models/candidates/pathnet_fh6_20261027_174139.onnx",
+      "bytes": 5005212,
+      "sha256": "d9bc7134e4a64b07ebd2d6f7c4c1ea6a57d9af3534308d8aac2d5ce103e3a05b",
+      "archive": "runtime-models.zip",
+      "family": "Mono Drive",
+      "license": "Project owner; no new redistribution license",
+      "status": "archived_candidate_not_auto_selected"
+    },
+    {
+      "path": "models/candidates/pathnet_fh6_20261027_175745.json",
+      "bytes": 385,
+      "sha256": "55ccfa4b11e6df27384d1e4b379d9acb16090438def2fcdbb251d1ea4106d74d",
+      "archive": "runtime-models.zip",
+      "family": "Mono Drive",
+      "license": "Project owner; no new redistribution license",
+      "status": "archived_candidate_not_auto_selected"
+    },
+    {
+      "path": "models/candidates/pathnet_fh6_20261027_175745.onnx",
+      "bytes": 5005212,
+      "sha256": "4be6aba2045d3cc90e6260ca22dd09d07b65a0ccbc0c8f708ba3c68e1095b56f",
+      "archive": "runtime-models.zip",
+      "family": "Mono Drive",
+      "license": "Project owner; no new redistribution license",
+      "status": "archived_candidate_not_auto_selected"
+    },
+    {
+      "path": "models/candidates/pathnet_fh6_20261027_185705.json",
+      "bytes": 386,
+      "sha256": "24a2747cfaebec2d08100853ff829c0604514f11dbf695ecbc1ce6f5b3043243",
+      "archive": "runtime-models.zip",
+      "family": "Mono Drive",
+      "license": "Project owner; no new redistribution license",
+      "status": "archived_candidate_not_auto_selected"
+    },
+    {
+      "path": "models/candidates/pathnet_fh6_20261027_185705.onnx",
+      "bytes": 5005212,
+      "sha256": "7b6ae0b76017d79e8aa541079600a413d85483815a1a090897c9e2caa7f270d5",
+      "archive": "runtime-models.zip",
+      "family": "Mono Drive",
+      "license": "Project owner; no new redistribution license",
+      "status": "archived_candidate_not_auto_selected"
+    },
+    {
+      "path": "models/candidates/pathnet_fh6_20261027_191323.json",
+      "bytes": 387,
+      "sha256": "9ce3685556f6cda2db1ab11cd1fe98da9da4ecd99a02ebff28d92854d8b0618d",
+      "archive": "runtime-models.zip",
+      "family": "Mono Drive",
+      "license": "Project owner; no new redistribution license",
+      "status": "archived_candidate_not_auto_selected"
+    },
+    {
+      "path": "models/candidates/pathnet_fh6_20261027_191323.onnx",
+      "bytes": 5005212,
+      "sha256": "cbbb2ab9d1ab811e5a45f345faf421475a184b6be0286dd3599f8b43de71c6c9",
+      "archive": "runtime-models.zip",
+      "family": "Mono Drive",
+      "license": "Project owner; no new redistribution license",
+      "status": "archived_candidate_not_auto_selected"
+    },
+    {
+      "path": "models/candidates/pathnet_fh6_20261027_201057.json",
+      "bytes": 387,
+      "sha256": "42a08bec81960a919f00198919e0c9570671d3f9407c7897f2efc2e0c1afa805",
+      "archive": "runtime-models.zip",
+      "family": "Mono Drive",
+      "license": "Project owner; no new redistribution license",
+      "status": "archived_candidate_not_auto_selected"
+    },
+    {
+      "path": "models/candidates/pathnet_fh6_20261027_201057.onnx",
+      "bytes": 5005212,
+      "sha256": "089852c91638978b4a8999238760395b542f2399abd53d50643b14befc68f86b",
+      "archive": "runtime-models.zip",
+      "family": "Mono Drive",
+      "license": "Project owner; no new redistribution license",
+      "status": "archived_candidate_not_auto_selected"
+    },
+    {
+      "path": "models/candidates/pathnet_fh6_20261027_203135.json",
+      "bytes": 387,
+      "sha256": "9d4b77889c454a07300bf78f544bb5384c88a5a0439217da695c30c520d28d79",
+      "archive": "runtime-models.zip",
+      "family": "Mono Drive",
+      "license": "Project owner; no new redistribution license",
+      "status": "archived_candidate_not_auto_selected"
+    },
+    {
+      "path": "models/candidates/pathnet_fh6_20261027_203135.onnx",
+      "bytes": 5005212,
+      "sha256": "05cc521892ea7ad4432444dc40e2d0f282a9354d5b1921d66269c979d2ae0242",
+      "archive": "runtime-models.zip",
+      "family": "Mono Drive",
+      "license": "Project owner; no new redistribution license",
+      "status": "archived_candidate_not_auto_selected"
+    },
+    {
+      "path": "models/candidates/pathnet_fh6_20261027_205224.json",
+      "bytes": 387,
+      "sha256": "bcbf4c366be71f9f5711b089c97e58fb0845eaf0a12180b9e0e839ce87183242",
+      "archive": "runtime-models.zip",
+      "family": "Mono Drive",
+      "license": "Project owner; no new redistribution license",
+      "status": "archived_candidate_not_auto_selected"
+    },
+    {
+      "path": "models/candidates/pathnet_fh6_20261027_205224.onnx",
+      "bytes": 5005212,
+      "sha256": "309885fbefc8e051d8c6e82fbe312b8542a623bd7fa3b982260df629e20c2e85",
+      "archive": "runtime-models.zip",
+      "family": "Mono Drive",
+      "license": "Project owner; no new redistribution license",
+      "status": "archived_candidate_not_auto_selected"
+    },
+    {
+      "path": "models/candidates/pathnet_fh6_20261027_210842.json",
+      "bytes": 387,
+      "sha256": "8fdf62686c8f14b4ec41dea32c93fa83dda6c29ec9fd6ab7c4d915b96264d3bc",
+      "archive": "runtime-models.zip",
+      "family": "Mono Drive",
+      "license": "Project owner; no new redistribution license",
+      "status": "archived_candidate_not_auto_selected"
+    },
+    {
+      "path": "models/candidates/pathnet_fh6_20261027_210842.onnx",
+      "bytes": 5005212,
+      "sha256": "4b8e22fdb0c2411c1c9bc9a69b05db1ca95260ee62166948fe3b0c69b0f15b17",
+      "archive": "runtime-models.zip",
+      "family": "Mono Drive",
+      "license": "Project owner; no new redistribution license",
+      "status": "archived_candidate_not_auto_selected"
+    },
+    {
+      "path": "models/candidates/pathnet_fh6_20261027_212509.json",
+      "bytes": 386,
+      "sha256": "bf97fb23b73a437132c3c64d46a1f0114869554b389a10a0fc4732e24cd1b5ec",
+      "archive": "runtime-models.zip",
+      "family": "Mono Drive",
+      "license": "Project owner; no new redistribution license",
+      "status": "archived_candidate_not_auto_selected"
+    },
+    {
+      "path": "models/candidates/pathnet_fh6_20261027_212509.onnx",
+      "bytes": 5005212,
+      "sha256": "c0a3aebba52d959e9720c86e0bbc3696b1b1112c46edb62d5f0c0cb7d25552e1",
+      "archive": "runtime-models.zip",
+      "family": "Mono Drive",
+      "license": "Project owner; no new redistribution license",
+      "status": "archived_candidate_not_auto_selected"
+    },
+    {
+      "path": "models/candidates/pathnet_fh6_20261027_214812.json",
+      "bytes": 387,
+      "sha256": "6df6a5c894dd69e7fc3a00c82e370df1bbbd9d560639c0ac9669ec4ab0f266d1",
+      "archive": "runtime-models.zip",
+      "family": "Mono Drive",
+      "license": "Project owner; no new redistribution license",
+      "status": "archived_candidate_not_auto_selected"
+    },
+    {
+      "path": "models/candidates/pathnet_fh6_20261027_214812.onnx",
+      "bytes": 5005212,
+      "sha256": "a66fe870ecc6b8f57913c2e99f901c8aafa68cdb5e895c716853c50bafbf9430",
+      "archive": "runtime-models.zip",
+      "family": "Mono Drive",
+      "license": "Project owner; no new redistribution license",
+      "status": "archived_candidate_not_auto_selected"
+    },
+    {
+      "path": "models/candidates/pathnet_fh6_20261027_220651.json",
+      "bytes": 387,
+      "sha256": "06411bc25749b6740d3e4ac8ef65b43962f609b2a66de90a40800103ff72a816",
+      "archive": "runtime-models.zip",
+      "family": "Mono Drive",
+      "license": "Project owner; no new redistribution license",
+      "status": "archived_candidate_not_auto_selected"
+    },
+    {
+      "path": "models/candidates/pathnet_fh6_20261027_220651.onnx",
+      "bytes": 5005212,
+      "sha256": "fb8921d5263358f894854f3cccd4a5f16675b6ebb4f8e0ea8d650039648fe0ad",
+      "archive": "runtime-models.zip",
+      "family": "Mono Drive",
+      "license": "Project owner; no new redistribution license",
+      "status": "archived_candidate_not_auto_selected"
+    },
+    {
+      "path": "models/candidates/pathnet_fh6_20261027_222532.json",
+      "bytes": 387,
+      "sha256": "942e8abf1919007314c3930748b8940a4d4e88897617f8b8b965647af8d4f016",
+      "archive": "runtime-models.zip",
+      "family": "Mono Drive",
+      "license": "Project owner; no new redistribution license",
+      "status": "archived_candidate_not_auto_selected"
+    },
+    {
+      "path": "models/candidates/pathnet_fh6_20261027_222532.onnx",
+      "bytes": 5005212,
+      "sha256": "0fe7c3a931fe307924aa6384ae6b578d474802f7e11016c54c22b074472c69e6",
+      "archive": "runtime-models.zip",
+      "family": "Mono Drive",
+      "license": "Project owner; no new redistribution license",
+      "status": "archived_candidate_not_auto_selected"
+    },
+    {
+      "path": "models/candidates/pathnet_fh6_20261027_224204.json",
+      "bytes": 387,
+      "sha256": "dc7ff85bd084f1854f0641d2cf2174fafb18cbc12428a7ce3e22d061029745db",
+      "archive": "runtime-models.zip",
+      "family": "Mono Drive",
+      "license": "Project owner; no new redistribution license",
+      "status": "archived_candidate_not_auto_selected"
+    },
+    {
+      "path": "models/candidates/pathnet_fh6_20261027_224204.onnx",
+      "bytes": 5005212,
+      "sha256": "3e28f4e4e6b8513f75c4a216dedaaa9ac3e380d5a70767754145d167ce63f80b",
+      "archive": "runtime-models.zip",
+      "family": "Mono Drive",
+      "license": "Project owner; no new redistribution license",
+      "status": "archived_candidate_not_auto_selected"
+    },
+    {
+      "path": "models/candidates/pathnet_fh6_20261028_082750.json",
+      "bytes": 387,
+      "sha256": "38c236c0870af8efc515fac464d2f1e1556de3027d2f135f3614d7ca9f3aa349",
+      "archive": "runtime-models.zip",
+      "family": "Mono Drive",
+      "license": "Project owner; no new redistribution license",
+      "status": "archived_candidate_not_auto_selected"
+    },
+    {
+      "path": "models/candidates/pathnet_fh6_20261028_082750.onnx",
+      "bytes": 5005212,
+      "sha256": "8af1fd4123acb9114806b3578969442c5be2015f5f6aa3a50f7f5cb63fa07223",
+      "archive": "runtime-models.zip",
+      "family": "Mono Drive",
+      "license": "Project owner; no new redistribution license",
+      "status": "archived_candidate_not_auto_selected"
+    },
+    {
+      "path": "models/candidates/pathnet_fh6_20261028_084449.json",
+      "bytes": 387,
+      "sha256": "fc2531e1819e77dc371a4f0c316eb83db949dd77d0b6d4ca73073ddd044eaaf5",
+      "archive": "runtime-models.zip",
+      "family": "Mono Drive",
+      "license": "Project owner; no new redistribution license",
+      "status": "archived_candidate_not_auto_selected"
+    },
+    {
+      "path": "models/candidates/pathnet_fh6_20261028_084449.onnx",
+      "bytes": 5005212,
+      "sha256": "b9777a71f631c04bd2bd43bef7a1b19e51032deb361e15842597cef044f5138c",
+      "archive": "runtime-models.zip",
+      "family": "Mono Drive",
+      "license": "Project owner; no new redistribution license",
+      "status": "archived_candidate_not_auto_selected"
+    },
+    {
+      "path": "models/candidates/pathnet_fh6_20261028_104605.json",
+      "bytes": 387,
+      "sha256": "e90fb2f59e77a78174484a1c69befe2440283ee4bf22f4c4b09f395e20565aef",
+      "archive": "runtime-models.zip",
+      "family": "Mono Drive",
+      "license": "Project owner; no new redistribution license",
+      "status": "archived_candidate_not_auto_selected"
+    },
+    {
+      "path": "models/candidates/pathnet_fh6_20261028_104605.onnx",
+      "bytes": 5005212,
+      "sha256": "a4ea1fabb3ef0bae8a76df55769dbab513db047dfe1df0646b6cdbd0777850d7",
+      "archive": "runtime-models.zip",
+      "family": "Mono Drive",
+      "license": "Project owner; no new redistribution license",
+      "status": "archived_candidate_not_auto_selected"
+    },
+    {
+      "path": "models/candidates/pathnet_fh6_20261028_110259.json",
+      "bytes": 387,
+      "sha256": "5f5b1966dcdf993850007a90f66bb681952c0658cb06b29a344be5b7982e53e7",
+      "archive": "runtime-models.zip",
+      "family": "Mono Drive",
+      "license": "Project owner; no new redistribution license",
+      "status": "archived_candidate_not_auto_selected"
+    },
+    {
+      "path": "models/candidates/pathnet_fh6_20261028_110259.onnx",
+      "bytes": 5005212,
+      "sha256": "d80be93a84869b507cca5c04218bc7eeae0a36e193eb748d3fe83cc318aa3bed",
+      "archive": "runtime-models.zip",
+      "family": "Mono Drive",
+      "license": "Project owner; no new redistribution license",
+      "status": "archived_candidate_not_auto_selected"
+    },
+    {
+      "path": "models/candidates/pathnet_fh6_20261028_113324.json",
+      "bytes": 387,
+      "sha256": "1420b27a7e36d39419a431201c8e5804513423614093691dd8824bb637bdbf9e",
+      "archive": "runtime-models.zip",
+      "family": "Mono Drive",
+      "license": "Project owner; no new redistribution license",
+      "status": "archived_candidate_not_auto_selected"
+    },
+    {
+      "path": "models/candidates/pathnet_fh6_20261028_113324.onnx",
+      "bytes": 5005212,
+      "sha256": "5ba1b27a37d9d278c4c29aa7d7a2c1a8335a591fb440debcad4eeed27bca8fc7",
+      "archive": "runtime-models.zip",
+      "family": "Mono Drive",
+      "license": "Project owner; no new redistribution license",
+      "status": "archived_candidate_not_auto_selected"
+    },
+    {
+      "path": "models/candidates/pathnet_fh6_20261028_115021.json",
+      "bytes": 387,
+      "sha256": "f51c5da818f6860f9e8e27bd2236c0e91ee05819b09d30cfc50817a626fec4b6",
+      "archive": "runtime-models.zip",
+      "family": "Mono Drive",
+      "license": "Project owner; no new redistribution license",
+      "status": "archived_candidate_not_auto_selected"
+    },
+    {
+      "path": "models/candidates/pathnet_fh6_20261028_115021.onnx",
+      "bytes": 5005212,
+      "sha256": "901494206dc3d9b28b3e281358ff47764a04b3c81b19c8173df62fb7961c115f",
+      "archive": "runtime-models.zip",
+      "family": "Mono Drive",
+      "license": "Project owner; no new redistribution license",
+      "status": "archived_candidate_not_auto_selected"
+    },
+    {
+      "path": "models/candidates/pathnet_fh6_20261028_123000.json",
+      "bytes": 387,
+      "sha256": "d7d8ad98e6cac6d8fac688cd53882039acb33db639d1a550e865ecd4a8abc405",
+      "archive": "runtime-models.zip",
+      "family": "Mono Drive",
+      "license": "Project owner; no new redistribution license",
+      "status": "archived_candidate_not_auto_selected"
+    },
+    {
+      "path": "models/candidates/pathnet_fh6_20261028_123000.onnx",
+      "bytes": 5005212,
+      "sha256": "19b6fa2edabcf54db4c516bc73b847e500145192b16c9a136291ae0f0de3652d",
+      "archive": "runtime-models.zip",
+      "family": "Mono Drive",
+      "license": "Project owner; no new redistribution license",
+      "status": "archived_candidate_not_auto_selected"
+    },
+    {
+      "path": "models/candidates/pathnet_fh6_20261028_124712.json",
+      "bytes": 386,
+      "sha256": "c522981735a53f3733e347fb9b8eb2f0b66f6f79299d08b1986b5eeb3de60a35",
+      "archive": "runtime-models.zip",
+      "family": "Mono Drive",
+      "license": "Project owner; no new redistribution license",
+      "status": "archived_candidate_not_auto_selected"
+    },
+    {
+      "path": "models/candidates/pathnet_fh6_20261028_124712.onnx",
+      "bytes": 5005212,
+      "sha256": "500f013b014c997a2a81a94c39ece7a5a6ecfb9129cb86d315e4544a81e4a381",
+      "archive": "runtime-models.zip",
+      "family": "Mono Drive",
+      "license": "Project owner; no new redistribution license",
+      "status": "archived_candidate_not_auto_selected"
+    },
+    {
+      "path": "models/candidates/pathnet_fh6_20261028_132908.json",
+      "bytes": 387,
+      "sha256": "aa5b5adf37eb4d84c7bc9914250f8d8b9424a9eadfd0eef21a156a9d5ba82873",
+      "archive": "runtime-models.zip",
+      "family": "Mono Drive",
+      "license": "Project owner; no new redistribution license",
+      "status": "archived_candidate_not_auto_selected"
+    },
+    {
+      "path": "models/candidates/pathnet_fh6_20261028_132908.onnx",
+      "bytes": 5005212,
+      "sha256": "706343ee00227a03e2f593bc942c288ef47e84142b14e7158fd354a633b4c67e",
+      "archive": "runtime-models.zip",
+      "family": "Mono Drive",
+      "license": "Project owner; no new redistribution license",
+      "status": "archived_candidate_not_auto_selected"
+    },
+    {
+      "path": "models/candidates/pathnet_fh6_20261028_134554.json",
+      "bytes": 385,
+      "sha256": "fe374a52da709e49a35d7dda60b8cc6b1728486459e93e4f0475f9d1c6abf9cd",
+      "archive": "runtime-models.zip",
+      "family": "Mono Drive",
+      "license": "Project owner; no new redistribution license",
+      "status": "archived_candidate_not_auto_selected"
+    },
+    {
+      "path": "models/candidates/pathnet_fh6_20261028_134554.onnx",
+      "bytes": 5005212,
+      "sha256": "a719b0258a26a93cf0d8b0a4cd2b6c951cd13fab120f24d793349b6c22273a94",
+      "archive": "runtime-models.zip",
+      "family": "Mono Drive",
+      "license": "Project owner; no new redistribution license",
+      "status": "archived_candidate_not_auto_selected"
+    },
+    {
+      "path": "models/candidates/pathnet_fh6_20261028_170949.json",
+      "bytes": 387,
+      "sha256": "d8a7977e4d3fcea43c9f192bf8d9542096db64d59230a676870b3f6c7163f792",
+      "archive": "runtime-models.zip",
+      "family": "Mono Drive",
+      "license": "Project owner; no new redistribution license",
+      "status": "archived_candidate_not_auto_selected"
+    },
+    {
+      "path": "models/candidates/pathnet_fh6_20261028_170949.onnx",
+      "bytes": 5005212,
+      "sha256": "dc2e67cabaf7395a1e79c43ffa5724aa71bb55bd6535ad46a1cff47fc0a5c56f",
+      "archive": "runtime-models.zip",
+      "family": "Mono Drive",
+      "license": "Project owner; no new redistribution license",
+      "status": "archived_candidate_not_auto_selected"
+    },
+    {
+      "path": "models/candidates/pathnet_fh6_20261028_171637.json",
+      "bytes": 386,
+      "sha256": "07f45423a0515872bebe4fd34eb387d08cf1df7581972b2350ccf567228ee6d2",
+      "archive": "runtime-models.zip",
+      "family": "Mono Drive",
+      "license": "Project owner; no new redistribution license",
+      "status": "archived_candidate_not_auto_selected"
+    },
+    {
+      "path": "models/candidates/pathnet_fh6_20261028_171637.onnx",
+      "bytes": 5005212,
+      "sha256": "6ad45dcf10e8bc4721a352a7d0b98ac94c2d8865cd3daa2222101b1bd63c3450",
+      "archive": "runtime-models.zip",
+      "family": "Mono Drive",
+      "license": "Project owner; no new redistribution license",
+      "status": "archived_candidate_not_auto_selected"
+    },
+    {
+      "path": "models/candidates/pathnet_fh6_20261028_172521.json",
+      "bytes": 387,
+      "sha256": "3a61d17fd1dfaf2c75adea491af0db013ac5a01e0225eb7a7b1c661c8f99b971",
+      "archive": "runtime-models.zip",
+      "family": "Mono Drive",
+      "license": "Project owner; no new redistribution license",
+      "status": "archived_candidate_not_auto_selected"
+    },
+    {
+      "path": "models/candidates/pathnet_fh6_20261028_172521.onnx",
+      "bytes": 5005212,
+      "sha256": "706c5a223cebb5151950ba01bd58977efae4880a5e9aa55e65d64e8b520eafa6",
+      "archive": "runtime-models.zip",
+      "family": "Mono Drive",
+      "license": "Project owner; no new redistribution license",
+      "status": "archived_candidate_not_auto_selected"
+    },
+    {
+      "path": "models/candidates/pathnet_fh6_20261028_173634.json",
+      "bytes": 387,
+      "sha256": "fbe41c09851a1e952066c927b88ffa8ce5c6cf96b61696bfb22faeb302d1222c",
+      "archive": "runtime-models.zip",
+      "family": "Mono Drive",
+      "license": "Project owner; no new redistribution license",
+      "status": "archived_candidate_not_auto_selected"
+    },
+    {
+      "path": "models/candidates/pathnet_fh6_20261028_173634.onnx",
+      "bytes": 5005212,
+      "sha256": "5fdf1d71d37f6766a400aba4e4c1ae2f13aa05c2b62c61daa529777c3abea527",
+      "archive": "runtime-models.zip",
+      "family": "Mono Drive",
+      "license": "Project owner; no new redistribution license",
+      "status": "archived_candidate_not_auto_selected"
+    },
+    {
+      "path": "models/candidates/pathnet_fh6_20261028_175154.json",
+      "bytes": 387,
+      "sha256": "54c729ec5c3243e0169d34418afef85d119b477acb5a5e2ebdfc8b43f6face25",
+      "archive": "runtime-models.zip",
+      "family": "Mono Drive",
+      "license": "Project owner; no new redistribution license",
+      "status": "archived_candidate_not_auto_selected"
+    },
+    {
+      "path": "models/candidates/pathnet_fh6_20261028_175154.onnx",
+      "bytes": 5005212,
+      "sha256": "c43edcc692295dad14758f263f4bd6e2c298ad98a08dc55c70770148da59fb0b",
+      "archive": "runtime-models.zip",
+      "family": "Mono Drive",
+      "license": "Project owner; no new redistribution license",
+      "status": "archived_candidate_not_auto_selected"
+    },
+    {
+      "path": "models/candidates/pathnet_fh6_20261028_190710.json",
+      "bytes": 388,
+      "sha256": "420bd8bcefd407cb2171efab122e0ae37e4b4cd03b1c29cb6c2ad01b4ebf7b7f",
+      "archive": "runtime-models.zip",
+      "family": "Mono Drive",
+      "license": "Project owner; no new redistribution license",
+      "status": "archived_candidate_not_auto_selected"
+    },
+    {
+      "path": "models/candidates/pathnet_fh6_20261028_190710.onnx",
+      "bytes": 5005212,
+      "sha256": "2fc00c46af460a97a7920aaf76fad1ce19af7373ce37bdf2550e2d8cdcfeec12",
+      "archive": "runtime-models.zip",
+      "family": "Mono Drive",
+      "license": "Project owner; no new redistribution license",
+      "status": "archived_candidate_not_auto_selected"
+    },
+    {
+      "path": "models/candidates/pathnet_fh6_20261028_191500.json",
+      "bytes": 388,
+      "sha256": "98f5177d0e791dd2d231e842d123fa503c52ccad1f5efed404f0709e0c6a5059",
+      "archive": "runtime-models.zip",
+      "family": "Mono Drive",
+      "license": "Project owner; no new redistribution license",
+      "status": "archived_candidate_not_auto_selected"
+    },
+    {
+      "path": "models/candidates/pathnet_fh6_20261028_191500.onnx",
+      "bytes": 5005212,
+      "sha256": "624f44eabad7a444a7011c167eab8dbf6f3d6401526fae11f6150032abb7baa6",
+      "archive": "runtime-models.zip",
+      "family": "Mono Drive",
+      "license": "Project owner; no new redistribution license",
+      "status": "archived_candidate_not_auto_selected"
+    },
+    {
+      "path": "models/candidates/pathnet_fh6_20261028_192433.json",
+      "bytes": 387,
+      "sha256": "0698f306b2578ab183e7a140c3f1976344dad3d86f20bce1b4c67b462faabbcb",
+      "archive": "runtime-models.zip",
+      "family": "Mono Drive",
+      "license": "Project owner; no new redistribution license",
+      "status": "archived_candidate_not_auto_selected"
+    },
+    {
+      "path": "models/candidates/pathnet_fh6_20261028_192433.onnx",
+      "bytes": 5005212,
+      "sha256": "a057cfd1282299a820cd3e4f1d5cf1f54a15501b9d58bd0d1815c9655defd401",
+      "archive": "runtime-models.zip",
+      "family": "Mono Drive",
+      "license": "Project owner; no new redistribution license",
+      "status": "archived_candidate_not_auto_selected"
+    },
+    {
+      "path": "models/candidates/pathnet_fh6_20261028_193229.json",
+      "bytes": 388,
+      "sha256": "ea44285175f461e2f9a247f918f47cde7ba9ee003c25a861d81d4c21ed5e30a3",
+      "archive": "runtime-models.zip",
+      "family": "Mono Drive",
+      "license": "Project owner; no new redistribution license",
+      "status": "archived_candidate_not_auto_selected"
+    },
+    {
+      "path": "models/candidates/pathnet_fh6_20261028_193229.onnx",
+      "bytes": 5005212,
+      "sha256": "4597563f4882511c06347b187ae229967c98bc1421d4b1a6f98ddfcdc3351ee8",
+      "archive": "runtime-models.zip",
+      "family": "Mono Drive",
+      "license": "Project owner; no new redistribution license",
+      "status": "archived_candidate_not_auto_selected"
+    },
+    {
+      "path": "models/candidates/pathnet_fh6_20261028_194229.json",
+      "bytes": 388,
+      "sha256": "6ac018098bbd6ec8a8fbde10a195709883bd1093e7542ca517911cc432274f89",
+      "archive": "runtime-models.zip",
+      "family": "Mono Drive",
+      "license": "Project owner; no new redistribution license",
+      "status": "archived_candidate_not_auto_selected"
+    },
+    {
+      "path": "models/candidates/pathnet_fh6_20261028_194229.onnx",
+      "bytes": 5005212,
+      "sha256": "a32b700a6ab4346f2f8caea74c50b3972c3eb83bc89654ec4e0dfac439496832",
+      "archive": "runtime-models.zip",
+      "family": "Mono Drive",
+      "license": "Project owner; no new redistribution license",
+      "status": "archived_candidate_not_auto_selected"
+    },
+    {
+      "path": "models/candidates/pathnet_fh6_20261028_194956.json",
+      "bytes": 387,
+      "sha256": "80199330b416130d0e7bfb20e1149496d9a5d78c9a48b053ae80e5a7a3c0eb86",
+      "archive": "runtime-models.zip",
+      "family": "Mono Drive",
+      "license": "Project owner; no new redistribution license",
+      "status": "archived_candidate_not_auto_selected"
+    },
+    {
+      "path": "models/candidates/pathnet_fh6_20261028_194956.onnx",
+      "bytes": 5005212,
+      "sha256": "8afc0544984e83819a0393bd8911b2d4f2ca84b5e3af2e3720236190deaa9c72",
+      "archive": "runtime-models.zip",
+      "family": "Mono Drive",
+      "license": "Project owner; no new redistribution license",
+      "status": "archived_candidate_not_auto_selected"
+    },
+    {
+      "path": "models/candidates/pathnet_fh6_20261028_195734.json",
+      "bytes": 387,
+      "sha256": "21d7ae57e8d246cb6b4fe4dbc91d48f1c9a3afcb7ac86318d09df426eaca57ea",
+      "archive": "runtime-models.zip",
+      "family": "Mono Drive",
+      "license": "Project owner; no new redistribution license",
+      "status": "archived_candidate_not_auto_selected"
+    },
+    {
+      "path": "models/candidates/pathnet_fh6_20261028_195734.onnx",
+      "bytes": 5005212,
+      "sha256": "14b5493ae70c967506b9748de0c85deefbfded7e316d78eea0d01d9ece8f81ce",
+      "archive": "runtime-models.zip",
+      "family": "Mono Drive",
+      "license": "Project owner; no new redistribution license",
+      "status": "archived_candidate_not_auto_selected"
+    },
+    {
+      "path": "models/candidates/pathnet_fh6_20261028_201208.json",
+      "bytes": 388,
+      "sha256": "01b52bf6e3598d1c6a1aba698062f82b1b17731302dbcc6a5781e21c7fca3652",
+      "archive": "runtime-models.zip",
+      "family": "Mono Drive",
+      "license": "Project owner; no new redistribution license",
+      "status": "archived_candidate_not_auto_selected"
+    },
+    {
+      "path": "models/candidates/pathnet_fh6_20261028_201208.onnx",
+      "bytes": 5005212,
+      "sha256": "84c36f55939725f3f7867f2096cc658024b16c6436d16c6f51556b88d5f2dea1",
+      "archive": "runtime-models.zip",
+      "family": "Mono Drive",
+      "license": "Project owner; no new redistribution license",
+      "status": "archived_candidate_not_auto_selected"
+    },
+    {
+      "path": "models/candidates/pathnet_fh6_20261028_202707.json",
+      "bytes": 388,
+      "sha256": "5dc6abb9bf6e95b007c0f48c42e491ed5c419aacd74cdccb06a021f2bf99ac97",
+      "archive": "runtime-models.zip",
+      "family": "Mono Drive",
+      "license": "Project owner; no new redistribution license",
+      "status": "archived_candidate_not_auto_selected"
+    },
+    {
+      "path": "models/candidates/pathnet_fh6_20261028_202707.onnx",
+      "bytes": 5005212,
+      "sha256": "fc59b90ff78dfe42d7f7ef2fcd9fda07c52da5aff839d040cf34b421e351d06b",
+      "archive": "runtime-models.zip",
+      "family": "Mono Drive",
+      "license": "Project owner; no new redistribution license",
+      "status": "archived_candidate_not_auto_selected"
+    },
+    {
+      "path": "models/candidates/pathnet_fh6_20261028_204214.json",
+      "bytes": 388,
+      "sha256": "c5f0d0e2ada69d98dc57df228e6753c7d4e3277d82619bb509af54d1cba53599",
+      "archive": "runtime-models.zip",
+      "family": "Mono Drive",
+      "license": "Project owner; no new redistribution license",
+      "status": "archived_candidate_not_auto_selected"
+    },
+    {
+      "path": "models/candidates/pathnet_fh6_20261028_204214.onnx",
+      "bytes": 5005212,
+      "sha256": "5aaefa2b06617aca0865fc1e30d395a1b663f859ceeb4727512297ab88cf478c",
+      "archive": "runtime-models.zip",
+      "family": "Mono Drive",
+      "license": "Project owner; no new redistribution license",
+      "status": "archived_candidate_not_auto_selected"
+    },
+    {
+      "path": "models/candidates/pathnet_fh6_20261028_205013.json",
+      "bytes": 388,
+      "sha256": "caac25ac7bbb3c051b01c3db2abdf80298a8997361add439b7b22c136a38a266",
+      "archive": "runtime-models.zip",
+      "family": "Mono Drive",
+      "license": "Project owner; no new redistribution license",
+      "status": "archived_candidate_not_auto_selected"
+    },
+    {
+      "path": "models/candidates/pathnet_fh6_20261028_205013.onnx",
+      "bytes": 5005212,
+      "sha256": "0aa3551296a9cb72c9089704cd8761d637b72bad31ae256fc32352a313ea9616",
+      "archive": "runtime-models.zip",
+      "family": "Mono Drive",
+      "license": "Project owner; no new redistribution license",
+      "status": "archived_candidate_not_auto_selected"
+    },
+    {
+      "path": "models/candidates/pathnet_fh6_20261028_205811.json",
+      "bytes": 388,
+      "sha256": "e35c8ec423198f9b0ae431dfb1d33a208ab0d7a98fa9a059fba9f24a5483b5d9",
+      "archive": "runtime-models.zip",
+      "family": "Mono Drive",
+      "license": "Project owner; no new redistribution license",
+      "status": "archived_candidate_not_auto_selected"
+    },
+    {
+      "path": "models/candidates/pathnet_fh6_20261028_205811.onnx",
+      "bytes": 5005212,
+      "sha256": "24955c101bcc20e85d96cd8202c44f38adff321510383c61efae09d4db406ab5",
+      "archive": "runtime-models.zip",
+      "family": "Mono Drive",
+      "license": "Project owner; no new redistribution license",
+      "status": "archived_candidate_not_auto_selected"
+    },
+    {
+      "path": "models/candidates/pathnet_fh6_20261028_210625.json",
+      "bytes": 388,
+      "sha256": "240673a59c997370a6153415ef54284eeb150797a797b04a1cb08639c76e00b5",
+      "archive": "runtime-models.zip",
+      "family": "Mono Drive",
+      "license": "Project owner; no new redistribution license",
+      "status": "archived_candidate_not_auto_selected"
+    },
+    {
+      "path": "models/candidates/pathnet_fh6_20261028_210625.onnx",
+      "bytes": 5005212,
+      "sha256": "44d6597cb5883a38f499cb51bec9c8503db9698037b934d506b39014ade0ded3",
+      "archive": "runtime-models.zip",
+      "family": "Mono Drive",
+      "license": "Project owner; no new redistribution license",
+      "status": "archived_candidate_not_auto_selected"
+    },
+    {
+      "path": "models/candidates/pathnet_fh6_20261028_211700.json",
+      "bytes": 387,
+      "sha256": "60abe0c5babbdead1770bb0426f3fb5bd7af2461e9d6dae74610a82a5cb86da1",
+      "archive": "runtime-models.zip",
+      "family": "Mono Drive",
+      "license": "Project owner; no new redistribution license",
+      "status": "archived_candidate_not_auto_selected"
+    },
+    {
+      "path": "models/candidates/pathnet_fh6_20261028_211700.onnx",
+      "bytes": 5005212,
+      "sha256": "5574035e3d09ead8d25d90a3525976834d39c985992ebd46819e1ca5495258b5",
+      "archive": "runtime-models.zip",
+      "family": "Mono Drive",
+      "license": "Project owner; no new redistribution license",
+      "status": "archived_candidate_not_auto_selected"
+    },
+    {
+      "path": "models/candidates/pathnet_fh6_20261028_212532.json",
+      "bytes": 387,
+      "sha256": "d83e1dbbbf3f13665b2eb9ce5e5aeca97e6c2d576c99c15154d716e05d1e4f1a",
+      "archive": "runtime-models.zip",
+      "family": "Mono Drive",
+      "license": "Project owner; no new redistribution license",
+      "status": "archived_candidate_not_auto_selected"
+    },
+    {
+      "path": "models/candidates/pathnet_fh6_20261028_212532.onnx",
+      "bytes": 5005212,
+      "sha256": "31e677adb609bdbe754d40a73dc2f123e71e25d024b963dc916839e0aec84d63",
+      "archive": "runtime-models.zip",
+      "family": "Mono Drive",
+      "license": "Project owner; no new redistribution license",
+      "status": "archived_candidate_not_auto_selected"
+    },
+    {
+      "path": "models/candidates/pathnet_fh6_20261028_213847.json",
+      "bytes": 388,
+      "sha256": "780a64b3a29770180e225dad5a13c180d9b7c837041db450aa243b6913c67690",
+      "archive": "runtime-models.zip",
+      "family": "Mono Drive",
+      "license": "Project owner; no new redistribution license",
+      "status": "archived_candidate_not_auto_selected"
+    },
+    {
+      "path": "models/candidates/pathnet_fh6_20261028_213847.onnx",
+      "bytes": 5005212,
+      "sha256": "7191f317c38648145b73acaec39821b8554237edcd98b3f60d93081abf5e1f7c",
+      "archive": "runtime-models.zip",
+      "family": "Mono Drive",
+      "license": "Project owner; no new redistribution license",
+      "status": "archived_candidate_not_auto_selected"
+    },
+    {
+      "path": "models/candidates/pathnet_fh6_20261028_214735.json",
+      "bytes": 387,
+      "sha256": "208cafd87437149e680ee437baadf73f572f5fbf83e610640a5bf9c091687886",
+      "archive": "runtime-models.zip",
+      "family": "Mono Drive",
+      "license": "Project owner; no new redistribution license",
+      "status": "archived_candidate_not_auto_selected"
+    },
+    {
+      "path": "models/candidates/pathnet_fh6_20261028_214735.onnx",
+      "bytes": 5005212,
+      "sha256": "29abfb1ad218fbf770a4c1c6f1817da36570c035431674a83fbe648a2791b0b5",
+      "archive": "runtime-models.zip",
+      "family": "Mono Drive",
+      "license": "Project owner; no new redistribution license",
+      "status": "archived_candidate_not_auto_selected"
+    },
+    {
+      "path": "models/candidates/pathnet_fh6_20261028_215617.json",
+      "bytes": 388,
+      "sha256": "8071265a8db0a1ac0b0b4e297ece687e691f71857da514ae88515ced8899ebe2",
+      "archive": "runtime-models.zip",
+      "family": "Mono Drive",
+      "license": "Project owner; no new redistribution license",
+      "status": "archived_candidate_not_auto_selected"
+    },
+    {
+      "path": "models/candidates/pathnet_fh6_20261028_215617.onnx",
+      "bytes": 5005212,
+      "sha256": "b096fba97c6f48cf9609b969dd0e048183348f3f9e11f5ba33c5eb12f53ca53b",
+      "archive": "runtime-models.zip",
+      "family": "Mono Drive",
+      "license": "Project owner; no new redistribution license",
+      "status": "archived_candidate_not_auto_selected"
+    },
+    {
+      "path": "models/candidates/pathnet_fh6_20261028_221434.json",
+      "bytes": 388,
+      "sha256": "d12f4d4aef3e654418f8ab97841e18ceb8ff9d0ead31fc35a807d5417c5c44b5",
+      "archive": "runtime-models.zip",
+      "family": "Mono Drive",
+      "license": "Project owner; no new redistribution license",
+      "status": "archived_candidate_not_auto_selected"
+    },
+    {
+      "path": "models/candidates/pathnet_fh6_20261028_221434.onnx",
+      "bytes": 5005212,
+      "sha256": "496b601de8d668fb068c18b8f824a84e14a0dbd0f9498f3428caebdd48148f3b",
+      "archive": "runtime-models.zip",
+      "family": "Mono Drive",
+      "license": "Project owner; no new redistribution license",
+      "status": "archived_candidate_not_auto_selected"
+    },
+    {
+      "path": "models/candidates/pathnet_fh6_20261028_222342.json",
+      "bytes": 387,
+      "sha256": "6ded843e80f21f706d4a1b5acb6f8caac5f431c68c3d55844292bdcb82fd40af",
+      "archive": "runtime-models.zip",
+      "family": "Mono Drive",
+      "license": "Project owner; no new redistribution license",
+      "status": "archived_candidate_not_auto_selected"
+    },
+    {
+      "path": "models/candidates/pathnet_fh6_20261028_222342.onnx",
+      "bytes": 5005212,
+      "sha256": "d4cede053fe52b65d090391adb6816f7765d84576719f24b88c41149baf667db",
+      "archive": "runtime-models.zip",
+      "family": "Mono Drive",
+      "license": "Project owner; no new redistribution license",
+      "status": "archived_candidate_not_auto_selected"
+    },
+    {
+      "path": "models/candidates/pathnet_fh6_20261028_223255.json",
+      "bytes": 388,
+      "sha256": "eb30141d8aa94c209c1599c79c47338939238d68fc84205be8736308966338af",
+      "archive": "runtime-models.zip",
+      "family": "Mono Drive",
+      "license": "Project owner; no new redistribution license",
+      "status": "archived_candidate_not_auto_selected"
+    },
+    {
+      "path": "models/candidates/pathnet_fh6_20261028_223255.onnx",
+      "bytes": 5005212,
+      "sha256": "9d56e2fe00379b0c34a75137425f9a2af68ac7f58b134814198797fc53a6b0a0",
+      "archive": "runtime-models.zip",
+      "family": "Mono Drive",
+      "license": "Project owner; no new redistribution license",
+      "status": "archived_candidate_not_auto_selected"
+    },
+    {
+      "path": "models/candidates/pathnet_fh6_20261028_224209.json",
+      "bytes": 387,
+      "sha256": "af14aebeddbf3d2cd7c6b8e40429504be9bc15450102a7268f8529a69e5927e7",
+      "archive": "runtime-models.zip",
+      "family": "Mono Drive",
+      "license": "Project owner; no new redistribution license",
+      "status": "archived_candidate_not_auto_selected"
+    },
+    {
+      "path": "models/candidates/pathnet_fh6_20261028_224209.onnx",
+      "bytes": 5005212,
+      "sha256": "a30addd60133e0c231acb791eb96a19eaf5b38ccce0250f98cddfc28dbcd00c9",
+      "archive": "runtime-models.zip",
+      "family": "Mono Drive",
+      "license": "Project owner; no new redistribution license",
+      "status": "archived_candidate_not_auto_selected"
+    },
+    {
+      "path": "models/candidates/pathnet_fh6_20261028_225601.json",
+      "bytes": 388,
+      "sha256": "d42434c2b3aadd440b85076a64ae99cf54c369ebd70800eddeea9b5f59b5bfbb",
+      "archive": "runtime-models.zip",
+      "family": "Mono Drive",
+      "license": "Project owner; no new redistribution license",
+      "status": "archived_candidate_not_auto_selected"
+    },
+    {
+      "path": "models/candidates/pathnet_fh6_20261028_225601.onnx",
+      "bytes": 5005212,
+      "sha256": "7d5cd64af41faaaaf8b5e333f2882e33498656afacce398376759e72b141f774",
+      "archive": "runtime-models.zip",
+      "family": "Mono Drive",
+      "license": "Project owner; no new redistribution license",
+      "status": "archived_candidate_not_auto_selected"
+    },
+    {
+      "path": "models/candidates/pathnet_fh6_20261028_230528.json",
+      "bytes": 388,
+      "sha256": "a7c2fc7eb67bf71110e817ef40960da552f0a941ce87e28601c3749e4a81e6bd",
+      "archive": "runtime-models.zip",
+      "family": "Mono Drive",
+      "license": "Project owner; no new redistribution license",
+      "status": "archived_candidate_not_auto_selected"
+    },
+    {
+      "path": "models/candidates/pathnet_fh6_20261028_230528.onnx",
+      "bytes": 5005212,
+      "sha256": "af6db6bb76ea98aa5d730591e5896f980bde9001d4a18a77b67ea3d0fba49503",
+      "archive": "runtime-models.zip",
+      "family": "Mono Drive",
+      "license": "Project owner; no new redistribution license",
+      "status": "archived_candidate_not_auto_selected"
+    },
+    {
+      "path": "models/candidates/pathnet_fh6_20261029_212053.json",
+      "bytes": 389,
+      "sha256": "48adb0b44a28447940fdfe5d28ed7d275e0f9a429b5f42f3890fb2b962575b87",
+      "archive": "runtime-models.zip",
+      "family": "Mono Drive",
+      "license": "Project owner; no new redistribution license",
+      "status": "archived_candidate_not_auto_selected"
+    },
+    {
+      "path": "models/candidates/pathnet_fh6_20261029_212053.onnx",
+      "bytes": 5005212,
+      "sha256": "357d0139a687dd2f35d4df1685ffdcc3c1f16bdabd8a6ff61d0bacd85777d68a",
+      "archive": "runtime-models.zip",
+      "family": "Mono Drive",
+      "license": "Project owner; no new redistribution license",
+      "status": "archived_candidate_not_auto_selected"
+    },
+    {
+      "path": "models/candidates/pathnet_fh6_20261029_214500.json",
+      "bytes": 390,
+      "sha256": "f17808367f2d204939222970e9c7e03b7d4b27d8a0e85880105cd90fc7482436",
+      "archive": "runtime-models.zip",
+      "family": "Mono Drive",
+      "license": "Project owner; no new redistribution license",
+      "status": "archived_candidate_not_auto_selected"
+    },
+    {
+      "path": "models/candidates/pathnet_fh6_20261029_214500.onnx",
+      "bytes": 5005212,
+      "sha256": "bba0c8e16ffe1b75e0bf6821a1b44161da1335299f862fc31736e0ff393065ee",
+      "archive": "runtime-models.zip",
+      "family": "Mono Drive",
+      "license": "Project owner; no new redistribution license",
+      "status": "archived_candidate_not_auto_selected"
+    },
+    {
+      "path": "models/candidates/pathnet_fh6_20261029_220157.json",
+      "bytes": 389,
+      "sha256": "8052688d26a173b66c23e077c1ef8e9678c2ae1570ce3fa614df43446162f306",
+      "archive": "runtime-models.zip",
+      "family": "Mono Drive",
+      "license": "Project owner; no new redistribution license",
+      "status": "archived_candidate_not_auto_selected"
+    },
+    {
+      "path": "models/candidates/pathnet_fh6_20261029_220157.onnx",
+      "bytes": 5005212,
+      "sha256": "95eb80dad28103e928aca82713e6bdafbb8eb9fdb42efb9974c11db20ef31b00",
+      "archive": "runtime-models.zip",
+      "family": "Mono Drive",
+      "license": "Project owner; no new redistribution license",
+      "status": "archived_candidate_not_auto_selected"
+    },
+    {
+      "path": "models/candidates/pathnet_fh6_20261029_221828.json",
+      "bytes": 389,
+      "sha256": "60327bbffaf1d378e102e831fb53c14b6488b061d6e3934502aac7906e5d24c6",
+      "archive": "runtime-models.zip",
+      "family": "Mono Drive",
+      "license": "Project owner; no new redistribution license",
+      "status": "archived_candidate_not_auto_selected"
+    },
+    {
+      "path": "models/candidates/pathnet_fh6_20261029_221828.onnx",
+      "bytes": 5005212,
+      "sha256": "66283866d14af49c4ed98ab84b699fa7c2b69b7c687a8dbc459a2a6ee5451fa5",
+      "archive": "runtime-models.zip",
+      "family": "Mono Drive",
+      "license": "Project owner; no new redistribution license",
+      "status": "active_runtime_baseline_at_snapshot"
+    },
+    {
+      "path": "models/candidates/pathnet_fh6_20261029_223431.json",
+      "bytes": 404,
+      "sha256": "8627ee2aa547841f1464b17da97ad30924024da6dd79147e7061849b40f7fdcb",
+      "archive": "runtime-models.zip",
+      "family": "Mono Drive",
+      "license": "Project owner; no new redistribution license",
+      "status": "archived_candidate_not_auto_selected"
+    },
+    {
+      "path": "models/candidates/pathnet_fh6_20261029_223431.onnx",
+      "bytes": 5005212,
+      "sha256": "d8a52d76325d5f1e4c2432bf440032e3c00456df1eb9c62658f66e548d7ca62a",
+      "archive": "runtime-models.zip",
+      "family": "Mono Drive",
+      "license": "Project owner; no new redistribution license",
+      "status": "archived_candidate_not_auto_selected"
+    },
+    {
+      "path": "models/candidates/pathnet_fh6_20261029_225427.json",
+      "bytes": 390,
+      "sha256": "f32917c81be5259dfb8fd138197a24ae9b91d0fb6318d39fa3975a589d289152",
+      "archive": "runtime-models.zip",
+      "family": "Mono Drive",
+      "license": "Project owner; no new redistribution license",
+      "status": "archived_candidate_not_auto_selected"
+    },
+    {
+      "path": "models/candidates/pathnet_fh6_20261029_225427.onnx",
+      "bytes": 5005212,
+      "sha256": "264eefc2bc80c288eec2dcf753e5936e5989a8375b8e19c752ccff9082eb6307",
+      "archive": "runtime-models.zip",
+      "family": "Mono Drive",
+      "license": "Project owner; no new redistribution license",
+      "status": "archived_candidate_not_auto_selected"
+    },
+    {
+      "path": "models/candidates/pathnet_fh6_20261029_231625.json",
+      "bytes": 389,
+      "sha256": "8482cd27fc240789082fa638d5d8f55712b594620c2cad026138d5a6fa719e99",
+      "archive": "runtime-models.zip",
+      "family": "Mono Drive",
+      "license": "Project owner; no new redistribution license",
+      "status": "archived_candidate_not_auto_selected"
+    },
+    {
+      "path": "models/candidates/pathnet_fh6_20261029_231625.onnx",
+      "bytes": 5005212,
+      "sha256": "6a49f4863723ee447b5def2e4d07c2a62a0171a7be2d9805f037fc41c85cb9f7",
+      "archive": "runtime-models.zip",
+      "family": "Mono Drive",
+      "license": "Project owner; no new redistribution license",
+      "status": "archived_candidate_not_auto_selected"
+    },
+    {
+      "path": "models/candidates/pathnet_fh6_20261029_233735.json",
+      "bytes": 391,
+      "sha256": "54ccd9609cb3f97465c0315ffbc9860cb343bed47651d6e05437986a404e0cd3",
+      "archive": "runtime-models.zip",
+      "family": "Mono Drive",
+      "license": "Project owner; no new redistribution license",
+      "status": "archived_candidate_not_auto_selected"
+    },
+    {
+      "path": "models/candidates/pathnet_fh6_20261029_233735.onnx",
+      "bytes": 5005212,
+      "sha256": "5bd6df9f4f2605c4e8281cdd2c82bd8167b9f997a852e4665a695ae1f4da646a",
+      "archive": "runtime-models.zip",
+      "family": "Mono Drive",
+      "license": "Project owner; no new redistribution license",
+      "status": "archived_candidate_not_auto_selected"
+    },
+    {
+      "path": "models/candidates/pathnet_fh6_20261030_000138.json",
+      "bytes": 390,
+      "sha256": "fb8b0a929d47e661eb39d858e2c2f3fc48a8c225a0c9d76ab73bd49fff6a4390",
+      "archive": "runtime-models.zip",
+      "family": "Mono Drive",
+      "license": "Project owner; no new redistribution license",
+      "status": "archived_candidate_not_auto_selected"
+    },
+    {
+      "path": "models/candidates/pathnet_fh6_20261030_000138.onnx",
+      "bytes": 5005212,
+      "sha256": "e3a0240adc2ad80c92984f946ad86772cee3a94015e2e8e0a15df6adb622a2ca",
+      "archive": "runtime-models.zip",
+      "family": "Mono Drive",
+      "license": "Project owner; no new redistribution license",
+      "status": "archived_candidate_not_auto_selected"
+    },
+    {
+      "path": "models/candidates/pathnet_fh6_20261030_002926.json",
+      "bytes": 391,
+      "sha256": "4084180cda04cf0756c96c6e5670242a1ba6eb866acd4a1fd91b397ebfffe3e9",
+      "archive": "runtime-models.zip",
+      "family": "Mono Drive",
+      "license": "Project owner; no new redistribution license",
+      "status": "archived_candidate_not_auto_selected"
+    },
+    {
+      "path": "models/candidates/pathnet_fh6_20261030_002926.onnx",
+      "bytes": 5005212,
+      "sha256": "26fd1e21b21133c1041645b179a235bdf1fb42c2325d9c4e8088cdaedd3e5f3b",
+      "archive": "runtime-models.zip",
+      "family": "Mono Drive",
+      "license": "Project owner; no new redistribution license",
+      "status": "archived_candidate_not_auto_selected"
+    },
+    {
+      "path": "models/candidates/pathnet_fh6_20261030_010419.json",
+      "bytes": 375,
+      "sha256": "77f4fd3d74571a3c2f21fc0a82767745b27338b7e56092befbfff29a0eb11d04",
+      "archive": "runtime-models.zip",
+      "family": "Mono Drive",
+      "license": "Project owner; no new redistribution license",
+      "status": "archived_candidate_not_auto_selected"
+    },
+    {
+      "path": "models/candidates/pathnet_fh6_20261030_010419.onnx",
+      "bytes": 5005212,
+      "sha256": "b0cf2c75ec698101b174fc8595013ce1439ce98ec2a0d45862bf9eec111c0c11",
+      "archive": "runtime-models.zip",
+      "family": "Mono Drive",
+      "license": "Project owner; no new redistribution license",
+      "status": "archived_candidate_not_auto_selected"
+    },
+    {
+      "path": "models/candidates/pathnet_fh6_20261030_102155.json",
+      "bytes": 375,
+      "sha256": "7b1187c56cc4ce35eb8e0a3ac22f29f69ebee0c4ca4a916f4cf95057d72dc3e8",
+      "archive": "runtime-models.zip",
+      "family": "Mono Drive",
+      "license": "Project owner; no new redistribution license",
+      "status": "archived_candidate_not_auto_selected"
+    },
+    {
+      "path": "models/candidates/pathnet_fh6_20261030_102155.onnx",
+      "bytes": 5005212,
+      "sha256": "df964f1924567417f6900ac3404cbd4c60d1c004bf47ec28ef5c6a3903a676d9",
+      "archive": "runtime-models.zip",
+      "family": "Mono Drive",
+      "license": "Project owner; no new redistribution license",
+      "status": "archived_candidate_not_auto_selected"
+    },
+    {
+      "path": "models/candidates/pathnet_fh6_20261030_110107.json",
+      "bytes": 375,
+      "sha256": "75bc491ee3f836fe056138d30ba720d828b7f22c5c1787058b9c358d96033c7f",
+      "archive": "runtime-models.zip",
+      "family": "Mono Drive",
+      "license": "Project owner; no new redistribution license",
+      "status": "archived_candidate_not_auto_selected"
+    },
+    {
+      "path": "models/candidates/pathnet_fh6_20261030_110107.onnx",
+      "bytes": 5005212,
+      "sha256": "aa22b106da6b870789d82d1063dcf551936d018bcf004cc4800a5a49c6bcccd5",
+      "archive": "runtime-models.zip",
+      "family": "Mono Drive",
+      "license": "Project owner; no new redistribution license",
+      "status": "archived_candidate_not_auto_selected"
+    },
+    {
+      "path": "models/candidates/pathnet_fh6_20261030_113816.json",
+      "bytes": 375,
+      "sha256": "d882977d5576a3f8589b2ac633222e4f27e04253e0f739bedb8824e8260fcee3",
+      "archive": "runtime-models.zip",
+      "family": "Mono Drive",
+      "license": "Project owner; no new redistribution license",
+      "status": "archived_candidate_not_auto_selected"
+    },
+    {
+      "path": "models/candidates/pathnet_fh6_20261030_113816.onnx",
+      "bytes": 5005212,
+      "sha256": "ec68351a81d848e13959824dd6084158385541f0d978659b8b17b7140e6b5f63",
+      "archive": "runtime-models.zip",
+      "family": "Mono Drive",
+      "license": "Project owner; no new redistribution license",
+      "status": "archived_candidate_not_auto_selected"
+    },
+    {
+      "path": "models/candidates/pathnet_fh6_20261030_121741.json",
+      "bytes": 375,
+      "sha256": "a57451e684deef4fb6f1a8d1decbbbef50592607ca90af04bf983fb31d2960c3",
+      "archive": "runtime-models.zip",
+      "family": "Mono Drive",
+      "license": "Project owner; no new redistribution license",
+      "status": "archived_candidate_not_auto_selected"
+    },
+    {
+      "path": "models/candidates/pathnet_fh6_20261030_121741.onnx",
+      "bytes": 5005212,
+      "sha256": "2fb43314fab947022b7fbaa263651e57d66df76eb199fff247e94719c9070c5e",
+      "archive": "runtime-models.zip",
+      "family": "Mono Drive",
+      "license": "Project owner; no new redistribution license",
+      "status": "archived_candidate_not_auto_selected"
+    },
+    {
+      "path": "models/candidates/pathnet_fh6_20261030_130213.json",
+      "bytes": 375,
+      "sha256": "5725ba66ff9b296f8ff5afda6310fc6ec0bb377637e6f015fa8bf27c397b2cb8",
+      "archive": "runtime-models.zip",
+      "family": "Mono Drive",
+      "license": "Project owner; no new redistribution license",
+      "status": "archived_candidate_not_auto_selected"
+    },
+    {
+      "path": "models/candidates/pathnet_fh6_20261030_130213.onnx",
+      "bytes": 5005212,
+      "sha256": "5ffc7df6530f493464eb46bfcd7d5c4ac05a9d94e10ee539ff48d4f8f87c5248",
+      "archive": "runtime-models.zip",
+      "family": "Mono Drive",
+      "license": "Project owner; no new redistribution license",
+      "status": "archived_candidate_not_auto_selected"
+    },
+    {
+      "path": "models/candidates/pathnet_fh6_20261030_134830.json",
+      "bytes": 375,
+      "sha256": "eb8928dfa97b80a7d97239766b22858c7b168a991715b290e9bb427f62dbf659",
+      "archive": "runtime-models.zip",
+      "family": "Mono Drive",
+      "license": "Project owner; no new redistribution license",
+      "status": "archived_candidate_not_auto_selected"
+    },
+    {
+      "path": "models/candidates/pathnet_fh6_20261030_134830.onnx",
+      "bytes": 5005212,
+      "sha256": "870d0144e6bae23a4df1e72b0fddff26472addb11c8463f69492d19d1e120c2e",
+      "archive": "runtime-models.zip",
+      "family": "Mono Drive",
+      "license": "Project owner; no new redistribution license",
+      "status": "archived_candidate_not_auto_selected"
+    },
+    {
+      "path": "models/candidates/pathnet_fh6_20261030_144648.json",
+      "bytes": 374,
+      "sha256": "8d848e647247a1c17db0d0b42230b348c52f2bb392bdea086dd514a338726234",
+      "archive": "runtime-models.zip",
+      "family": "Mono Drive",
+      "license": "Project owner; no new redistribution license",
+      "status": "archived_candidate_not_auto_selected"
+    },
+    {
+      "path": "models/candidates/pathnet_fh6_20261030_144648.onnx",
+      "bytes": 5005212,
+      "sha256": "ed99735f454c6acdd3a6be2fafebea8c7bb2d70d5ef4b572f387e92b4ed75617",
+      "archive": "runtime-models.zip",
+      "family": "Mono Drive",
+      "license": "Project owner; no new redistribution license",
+      "status": "archived_candidate_not_auto_selected"
+    },
+    {
+      "path": "models/candidates/pathnet_fh6_20261030_154751.json",
+      "bytes": 375,
+      "sha256": "13e55827d4b94900aeca5c855651359204ecc69b8eb4d5418eb50acf81facff5",
+      "archive": "runtime-models.zip",
+      "family": "Mono Drive",
+      "license": "Project owner; no new redistribution license",
+      "status": "archived_candidate_not_auto_selected"
+    },
+    {
+      "path": "models/candidates/pathnet_fh6_20261030_154751.onnx",
+      "bytes": 5005212,
+      "sha256": "fa6aba331d06404e0d0342a42a5e3dff4cc138919aa10532868d3c5cc7d98b17",
+      "archive": "runtime-models.zip",
+      "family": "Mono Drive",
+      "license": "Project owner; no new redistribution license",
+      "status": "archived_candidate_not_auto_selected"
+    },
+    {
+      "path": "models/candidates/pathnet_fh6_20261030_165748.json",
+      "bytes": 374,
+      "sha256": "d2fde24e6ae0c4e6832777cdc6abd4080fb24b5427c039d27d57d35310d90434",
+      "archive": "runtime-models.zip",
+      "family": "Mono Drive",
+      "license": "Project owner; no new redistribution license",
+      "status": "archived_candidate_not_auto_selected"
+    },
+    {
+      "path": "models/candidates/pathnet_fh6_20261030_165748.onnx",
+      "bytes": 5005212,
+      "sha256": "9c6d9274ef8dc1b80e1c2a96c1df8eded89f2db7103feaa0814478374e7524a8",
+      "archive": "runtime-models.zip",
+      "family": "Mono Drive",
+      "license": "Project owner; no new redistribution license",
+      "status": "archived_candidate_not_auto_selected"
+    },
+    {
+      "path": "models/candidates/pathnet_fh6_20261030_182354.json",
+      "bytes": 375,
+      "sha256": "0dbfcf436ec3119a88039024c6bd09a14bd5456c6ce74d30f5e3bb5644bb2deb",
+      "archive": "runtime-models.zip",
+      "family": "Mono Drive",
+      "license": "Project owner; no new redistribution license",
+      "status": "archived_candidate_not_auto_selected"
+    },
+    {
+      "path": "models/candidates/pathnet_fh6_20261030_182354.onnx",
+      "bytes": 5005212,
+      "sha256": "07dbf3d453f2698d825b2873aafeb1a371297c07ab85c12e5d6956f4c5dc4b27",
+      "archive": "runtime-models.zip",
+      "family": "Mono Drive",
+      "license": "Project owner; no new redistribution license",
+      "status": "archived_candidate_not_auto_selected"
+    },
+    {
+      "path": "models/candidates/pathnet_fh6_20261030_195643.json",
+      "bytes": 374,
+      "sha256": "81db383d4e5ecc984dd72e2d4b58091cceef58fcb862cd596544e98a6d2de1a6",
+      "archive": "runtime-models.zip",
+      "family": "Mono Drive",
+      "license": "Project owner; no new redistribution license",
+      "status": "archived_candidate_not_auto_selected"
+    },
+    {
+      "path": "models/candidates/pathnet_fh6_20261030_195643.onnx",
+      "bytes": 5005212,
+      "sha256": "66c8e0ea0e5ac7033f613d46637a45e8258e539de6bd81296550594400260eb7",
+      "archive": "runtime-models.zip",
+      "family": "Mono Drive",
+      "license": "Project owner; no new redistribution license",
+      "status": "archived_candidate_not_auto_selected"
+    },
+    {
+      "path": "models/candidates/pathnet_fh6_20261030_220037.json",
+      "bytes": 375,
+      "sha256": "5bba3b169ee27f27631be90e76e7a7c008b712cfc622b43df7f1db20b7488994",
+      "archive": "runtime-models.zip",
+      "family": "Mono Drive",
+      "license": "Project owner; no new redistribution license",
+      "status": "archived_candidate_not_auto_selected"
+    },
+    {
+      "path": "models/candidates/pathnet_fh6_20261030_220037.onnx",
+      "bytes": 5005212,
+      "sha256": "c3cc47dd1aa6c77d25e92edc5ffccd820ccfe87538299330eb0159d82006ff09",
+      "archive": "runtime-models.zip",
+      "family": "Mono Drive",
+      "license": "Project owner; no new redistribution license",
+      "status": "archived_candidate_not_auto_selected"
+    },
+    {
+      "path": "models/candidates/pathnet_fh6_20261031_000120.json",
+      "bytes": 375,
+      "sha256": "2dfb94d58b795c72e434042bc33175c6ebe6213c850d5e7ed674565860a9d1d2",
+      "archive": "runtime-models.zip",
+      "family": "Mono Drive",
+      "license": "Project owner; no new redistribution license",
+      "status": "archived_candidate_not_auto_selected"
+    },
+    {
+      "path": "models/candidates/pathnet_fh6_20261031_000120.onnx",
+      "bytes": 5005212,
+      "sha256": "01c466a9d64de5e12bb015a4833e3d82910d38a4c45be4393f7efc615b4d3359",
+      "archive": "runtime-models.zip",
+      "family": "Mono Drive",
+      "license": "Project owner; no new redistribution license",
+      "status": "archived_candidate_not_auto_selected"
+    },
+    {
+      "path": "models/candidates/pathnet_fh6_20261031_021533.json",
+      "bytes": 374,
+      "sha256": "8370740e419f11e5b18ec3b6c32da5cca29f1df2b8d31a29d015864b761be2a9",
+      "archive": "runtime-models.zip",
+      "family": "Mono Drive",
+      "license": "Project owner; no new redistribution license",
+      "status": "archived_candidate_not_auto_selected"
+    },
+    {
+      "path": "models/candidates/pathnet_fh6_20261031_021533.onnx",
+      "bytes": 5005212,
+      "sha256": "7c8ba6201c009dd486715a230fabc431be828430abcdb379ef757472f5196a21",
+      "archive": "runtime-models.zip",
+      "family": "Mono Drive",
+      "license": "Project owner; no new redistribution license",
+      "status": "archived_candidate_not_auto_selected"
+    },
+    {
+      "path": "models/candidates/pathnet_fh6_20261031_050023.json",
+      "bytes": 374,
+      "sha256": "a3075c1c6bb1c3d631f859e83aed04469c7590447e1f815950c503730e1a8594",
+      "archive": "runtime-models.zip",
+      "family": "Mono Drive",
+      "license": "Project owner; no new redistribution license",
+      "status": "archived_candidate_not_auto_selected"
+    },
+    {
+      "path": "models/candidates/pathnet_fh6_20261031_050023.onnx",
+      "bytes": 5005212,
+      "sha256": "87b706038f682460ef2833a084cd7b92a5b9e9edd45c8b59e981168ef7c14f20",
+      "archive": "runtime-models.zip",
+      "family": "Mono Drive",
+      "license": "Project owner; no new redistribution license",
+      "status": "archived_candidate_not_auto_selected"
+    },
+    {
+      "path": "models/candidates/pathnet_fh6_20261031_073734.json",
+      "bytes": 375,
+      "sha256": "3044f76faf872e7761b6925d58c166f2c978ecb25f95568224f1cf6e8e380162",
+      "archive": "runtime-models.zip",
+      "family": "Mono Drive",
+      "license": "Project owner; no new redistribution license",
+      "status": "archived_candidate_not_auto_selected"
+    },
+    {
+      "path": "models/candidates/pathnet_fh6_20261031_073734.onnx",
+      "bytes": 5005212,
+      "sha256": "0194b69ecabd5212a133ec1193bc304d3b331dd4b45faa6fb15fd59db9791dc2",
+      "archive": "runtime-models.zip",
+      "family": "Mono Drive",
+      "license": "Project owner; no new redistribution license",
+      "status": "archived_candidate_not_auto_selected"
+    },
+    {
+      "path": "models/candidates/pathnet_fh6_20261031_101212.json",
+      "bytes": 374,
+      "sha256": "a90391bf4d857cb608094bfaa999a90075e9616dd73d365302d5c15fcf005151",
+      "archive": "runtime-models.zip",
+      "family": "Mono Drive",
+      "license": "Project owner; no new redistribution license",
+      "status": "archived_candidate_not_auto_selected"
+    },
+    {
+      "path": "models/candidates/pathnet_fh6_20261031_101212.onnx",
+      "bytes": 5005212,
+      "sha256": "25b75fd9bd2a9e305698be21aaebd904c01f96b035e0a43625ac33d4e35f663b",
+      "archive": "runtime-models.zip",
+      "family": "Mono Drive",
+      "license": "Project owner; no new redistribution license",
+      "status": "archived_candidate_not_auto_selected"
+    },
+    {
+      "path": "models/candidates/pathnet_fh6_20261031_130004.json",
+      "bytes": 374,
+      "sha256": "fb0af61d861da47875561295ebe5c7c12c1e268435cbee7b687b5cf36b6c062d",
+      "archive": "runtime-models.zip",
+      "family": "Mono Drive",
+      "license": "Project owner; no new redistribution license",
+      "status": "archived_candidate_not_auto_selected"
+    },
+    {
+      "path": "models/candidates/pathnet_fh6_20261031_130004.onnx",
+      "bytes": 5005212,
+      "sha256": "ff8aa7392ba7a8e11351e7030c8a41a6a9ec0bf5793bdfde7a69aa058932eca7",
+      "archive": "runtime-models.zip",
+      "family": "Mono Drive",
+      "license": "Project owner; no new redistribution license",
+      "status": "live_trial_rolled_back"
+    },
+    {
+      "path": "models/candidates/pathnet_fh6_20261101_094747.json",
+      "bytes": 374,
+      "sha256": "a5873dbfcd33b75ec2f5bd6eda6e7d559baba5668187bf6d73e7dc328ba3b5bd",
+      "archive": "runtime-models.zip",
+      "family": "Mono Drive",
+      "license": "Project owner; no new redistribution license",
+      "status": "archived_candidate_not_auto_selected"
+    },
+    {
+      "path": "models/candidates/pathnet_fh6_20261101_094747.onnx",
+      "bytes": 5005212,
+      "sha256": "1a5c5d55023aa23c572f77936768190303b194c146447932493f7e969f140c4a",
+      "archive": "runtime-models.zip",
+      "family": "Mono Drive",
+      "license": "Project owner; no new redistribution license",
+      "status": "archived_candidate_not_auto_selected"
+    },
+    {
+      "path": "models/candidates/pathnet_fh6_20261101_120134.json",
+      "bytes": 374,
+      "sha256": "c87f4bfcd2a2258a6b9429a6322f49fedc908b7adbe5ac5489e8ea5fbe524cbe",
+      "archive": "runtime-models.zip",
+      "family": "Mono Drive",
+      "license": "Project owner; no new redistribution license",
+      "status": "archived_candidate_not_auto_selected"
+    },
+    {
+      "path": "models/candidates/pathnet_fh6_20261101_120134.onnx",
+      "bytes": 5005212,
+      "sha256": "28010db6f2df6a60ab4c884ebd586b2c88d0502d2f04616b3471568f8dfc70e1",
+      "archive": "runtime-models.zip",
+      "family": "Mono Drive",
+      "license": "Project owner; no new redistribution license",
+      "status": "archived_candidate_not_auto_selected"
+    },
+    {
+      "path": "models/candidates/pathnet_fh6_20261101_135002.json",
+      "bytes": 375,
+      "sha256": "334bf2d7291071db23b18d036c889124eb2ac66eabea2bda191446a036ab4859",
+      "archive": "runtime-models.zip",
+      "family": "Mono Drive",
+      "license": "Project owner; no new redistribution license",
+      "status": "archived_candidate_not_auto_selected"
+    },
+    {
+      "path": "models/candidates/pathnet_fh6_20261101_135002.onnx",
+      "bytes": 5005212,
+      "sha256": "5d9d8368de70a136212a6956197abe0e0a23efd94ee7a6d67466111d2eb09037",
+      "archive": "runtime-models.zip",
+      "family": "Mono Drive",
+      "license": "Project owner; no new redistribution license",
+      "status": "archived_candidate_not_auto_selected"
+    },
+    {
+      "path": "models/candidates/pathnet_fh6_20261101_170124.json",
+      "bytes": 376,
+      "sha256": "3cae0471f749cc2bbf3c50f074709c9c76bdd55229f8cf1c55c4aca8f851c483",
+      "archive": "runtime-models.zip",
+      "family": "Mono Drive",
+      "license": "Project owner; no new redistribution license",
+      "status": "archived_candidate_not_auto_selected"
+    },
+    {
+      "path": "models/candidates/pathnet_fh6_20261101_170124.onnx",
+      "bytes": 5005212,
+      "sha256": "c41431aca8920a4e16ce6730ee54a621c80ecb6380298f47b2c0efe54278201c",
+      "archive": "runtime-models.zip",
+      "family": "Mono Drive",
+      "license": "Project owner; no new redistribution license",
+      "status": "archived_candidate_not_auto_selected"
+    },
+    {
+      "path": "models/candidates/pathnet_fh6_20261101_202859.json",
+      "bytes": 376,
+      "sha256": "1c085596c690835d1158a778f6edba8a9557d53f56b3905204bd057a7f610833",
+      "archive": "runtime-models.zip",
+      "family": "Mono Drive",
+      "license": "Project owner; no new redistribution license",
+      "status": "archived_candidate_not_auto_selected"
+    },
+    {
+      "path": "models/candidates/pathnet_fh6_20261101_202859.onnx",
+      "bytes": 5005212,
+      "sha256": "8a46cf579df1c11ff70bdc70639f668a311218233d24e603f5e405578bdc8517",
+      "archive": "runtime-models.zip",
+      "family": "Mono Drive",
+      "license": "Project owner; no new redistribution license",
+      "status": "archived_candidate_not_auto_selected"
+    },
+    {
+      "path": "models/candidates/pathnet_fh6_20261101_234526.json",
+      "bytes": 376,
+      "sha256": "3f8a7f8ea1c6330b3571479a5a1dae29d85e5089785e6065c203e6c318c42959",
+      "archive": "runtime-models.zip",
+      "family": "Mono Drive",
+      "license": "Project owner; no new redistribution license",
+      "status": "archived_candidate_not_auto_selected"
+    },
+    {
+      "path": "models/candidates/pathnet_fh6_20261101_234526.onnx",
+      "bytes": 5005212,
+      "sha256": "9e0a64d9d870e1c22ef60a224c69ed63542609509d4e9d210f7b8703fc2055db",
+      "archive": "runtime-models.zip",
+      "family": "Mono Drive",
+      "license": "Project owner; no new redistribution license",
+      "status": "live_trial_rolled_back"
+    },
+    {
+      "path": "models/candidates/pathnet_fh6_20261102_030739.json",
+      "bytes": 376,
+      "sha256": "56edb288c8a3134442085e45a3c10d48fa30443269929fa15a2e500ccb10de3d",
+      "archive": "runtime-models.zip",
+      "family": "Mono Drive",
+      "license": "Project owner; no new redistribution license",
+      "status": "archived_candidate_not_auto_selected"
+    },
+    {
+      "path": "models/candidates/pathnet_fh6_20261102_030739.onnx",
+      "bytes": 5005212,
+      "sha256": "547a84b35642756fc3c007e5a125383b6a858aa065d1a407beb5a001da694f9a",
+      "archive": "runtime-models.zip",
+      "family": "Mono Drive",
+      "license": "Project owner; no new redistribution license",
+      "status": "archived_candidate_not_auto_selected"
+    },
+    {
+      "path": "models/candidates/pathnet_fh6_20261102_050803.json",
+      "bytes": 376,
+      "sha256": "a35b171e733cddafd02f45e2c00dbbfaeee3f400ecac5ad1292503828c460610",
+      "archive": "runtime-models.zip",
+      "family": "Mono Drive",
+      "license": "Project owner; no new redistribution license",
+      "status": "archived_candidate_not_auto_selected"
+    },
+    {
+      "path": "models/candidates/pathnet_fh6_20261102_050803.onnx",
+      "bytes": 5005212,
+      "sha256": "b85dcd51186220b087e19255af1ee3be944db4c65eb9268377edb794678eb832",
+      "archive": "runtime-models.zip",
+      "family": "Mono Drive",
+      "license": "Project owner; no new redistribution license",
+      "status": "live_trial_rolled_back"
+    },
+    {
+      "path": "models/candidates/pathnet_fh6_20261102_103304.json",
+      "bytes": 376,
+      "sha256": "674b0170ad799cb43ba1a57721e62afbd60b8c0e8e8c6e8745812a4bf295e105",
+      "archive": "runtime-models.zip",
+      "family": "Mono Drive",
+      "license": "Project owner; no new redistribution license",
+      "status": "archived_candidate_not_auto_selected"
+    },
+    {
+      "path": "models/candidates/pathnet_fh6_20261102_103304.onnx",
+      "bytes": 5005212,
+      "sha256": "6e99c7f0522d0427bbb05dccdd959a1038800eee700d3fa9aa070f02ab7cd55b",
+      "archive": "runtime-models.zip",
+      "family": "Mono Drive",
+      "license": "Project owner; no new redistribution license",
+      "status": "archived_candidate_not_auto_selected"
+    },
+    {
+      "path": "models/candidates/pathnet_fh6_20261102_130931.json",
+      "bytes": 376,
+      "sha256": "4c5656b434dc97e52ddddb692abfb086f21fb4e871bee0ab6bc0cefa20cdfa83",
+      "archive": "runtime-models.zip",
+      "family": "Mono Drive",
+      "license": "Project owner; no new redistribution license",
+      "status": "archived_candidate_not_auto_selected"
+    },
+    {
+      "path": "models/candidates/pathnet_fh6_20261102_130931.onnx",
+      "bytes": 5005212,
+      "sha256": "b5389198d12302fe2da57b1beb914ee6f2082a12f563081cc23670af6577b39e",
+      "archive": "runtime-models.zip",
+      "family": "Mono Drive",
+      "license": "Project owner; no new redistribution license",
+      "status": "archived_candidate_not_auto_selected"
+    },
+    {
+      "path": "models/candidates/pathnet_fh6_20261102_161641.json",
+      "bytes": 377,
+      "sha256": "4a751bc91f41a3206a305be52d45327e619db948240bb3a4026732c317539d84",
+      "archive": "runtime-models.zip",
+      "family": "Mono Drive",
+      "license": "Project owner; no new redistribution license",
+      "status": "archived_candidate_not_auto_selected"
+    },
+    {
+      "path": "models/candidates/pathnet_fh6_20261102_161641.onnx",
+      "bytes": 5005212,
+      "sha256": "1926e1a948965c1d8213407ba78fbcf9706f573a1c38b7c60f2da56ee691a90b",
+      "archive": "runtime-models.zip",
+      "family": "Mono Drive",
+      "license": "Project owner; no new redistribution license",
+      "status": "archived_candidate_not_auto_selected"
+    },
+    {
+      "path": "models/candidates/pathnet_fh6_20261102_192516.json",
+      "bytes": 377,
+      "sha256": "ea70e2611205befbad146b53ca3602e1fae8a226b6985391586f9c8c22fd0886",
+      "archive": "runtime-models.zip",
+      "family": "Mono Drive",
+      "license": "Project owner; no new redistribution license",
+      "status": "archived_candidate_not_auto_selected"
+    },
+    {
+      "path": "models/candidates/pathnet_fh6_20261102_192516.onnx",
+      "bytes": 5005212,
+      "sha256": "e304e4703466ee7c9df8d820cdb70d398a3fff79b0437f038742db458078edfa",
+      "archive": "runtime-models.zip",
+      "family": "Mono Drive",
+      "license": "Project owner; no new redistribution license",
+      "status": "offline_evaluation_in_progress_at_snapshot"
+    },
+    {
+      "path": "models/depth_anything_v2_small_266x420.onnx",
+      "bytes": 99102362,
+      "sha256": "7a26b2bae42d72aa558b32fd82ce9c33cb5af09adc088411ef0c0b470baa225e",
+      "archive": "runtime-models.zip",
+      "family": "Depth Anything V2 Small",
+      "license": "Apache-2.0",
+      "status": "available_not_a_driving_quality_guarantee"
+    },
+    {
+      "path": "models/fh6-yoloe-26s.pt",
+      "bytes": 31015030,
+      "sha256": "4410e781f9813714d8806fdf157cfb04ebf4c486aec97ff0f35c337f598cdbe4",
+      "archive": "runtime-models.zip",
+      "family": "Ultralytics",
+      "license": "AGPL-3.0",
+      "status": "available_not_a_driving_quality_guarantee"
+    },
+    {
+      "path": "models/fh6-yoloe-prompts.npz",
+      "bytes": 17978,
+      "sha256": "b1aa3ee3528fe7d733d7ecbd7e779220674edf8b36b9ff92a49967bea88bff27",
+      "archive": "runtime-models.zip",
+      "family": "Ultralytics",
+      "license": "AGPL-3.0",
+      "status": "available_not_a_driving_quality_guarantee"
+    },
+    {
+      "path": "models/fh6_driver_visibility.json",
+      "bytes": 51,
+      "sha256": "8306b9bdbe050af0a4f3b12f4bff4a95dca55524ed69e72abfaf36b2c20dc9c5",
+      "archive": "runtime-models.zip",
+      "family": "Mono Drive",
+      "license": "Project owner; no new redistribution license",
+      "status": "available_not_a_driving_quality_guarantee"
+    },
+    {
+      "path": "models/fh6_driver_visibility.npz",
+      "bytes": 41390,
+      "sha256": "653ffe224df724468844b830b6b069b4564ad5f6ab6b0412c371fb5b1257b401",
+      "archive": "runtime-models.zip",
+      "family": "Mono Drive",
+      "license": "Project owner; no new redistribution license",
+      "status": "available_not_a_driving_quality_guarantee"
+    },
+    {
+      "path": "models/obstacle.json",
+      "bytes": 73,
+      "sha256": "dff2417e863d53b4d87806bf9fe372aa536321f13dac1a6d7012c23470315333",
+      "archive": "runtime-models.zip",
+      "family": "Mono Drive",
+      "license": "Project owner; no new redistribution license",
+      "status": "available_not_a_driving_quality_guarantee"
+    },
+    {
+      "path": "models/obstacle.onnx",
+      "bytes": 1145337,
+      "sha256": "13d28b4c7b6d9613844f576c3d4a14b2c5f99f136e2b7e692876754f4dff5b4d",
+      "archive": "runtime-models.zip",
+      "family": "Mono Drive",
+      "license": "Project owner; no new redistribution license",
+      "status": "available_not_a_driving_quality_guarantee"
+    },
+    {
+      "path": "models/pathnet.json",
+      "bytes": 240,
+      "sha256": "9f9f3a832981ec9dba088390c52cf78fc7b3e031abb39e26cfc5522a525f1034",
+      "archive": "runtime-models.zip",
+      "family": "Mono Drive",
+      "license": "Project owner; no new redistribution license",
+      "status": "available_not_a_driving_quality_guarantee"
+    },
+    {
+      "path": "models/pathnet.onnx",
+      "bytes": 5005664,
+      "sha256": "81e5b67cfec55feb232a76e6cc9857759d51c279f1b789a3862935e59ec6b861",
+      "archive": "runtime-models.zip",
+      "family": "Mono Drive",
+      "license": "Project owner; no new redistribution license",
+      "status": "available_not_a_driving_quality_guarantee"
+    },
+    {
+      "path": "models/pathnet_fh6_candidate.json",
+      "bytes": 362,
+      "sha256": "7b4b3ca05d95bd995cfd51957a093fb31ba06c6f96368f03ee22cf4d5396e514",
+      "archive": "runtime-models.zip",
+      "family": "Mono Drive",
+      "license": "Project owner; no new redistribution license",
+      "status": "available_not_a_driving_quality_guarantee"
+    },
+    {
+      "path": "models/pathnet_fh6_candidate.onnx",
+      "bytes": 5005212,
+      "sha256": "578e75064e8c8c6df3ca9158d984bc9280fb4563eec4c02ce2d94a255c725946",
+      "archive": "runtime-models.zip",
+      "family": "Mono Drive",
+      "license": "Project owner; no new redistribution license",
+      "status": "available_not_a_driving_quality_guarantee"
+    },
+    {
+      "path": "models/pathnet_gpu_candidate.json",
+      "bytes": 362,
+      "sha256": "78853aac3ab37e5431f099e3eb5ba0464df7926de5dd49ef852d4d9a42f6c95c",
+      "archive": "runtime-models.zip",
+      "family": "Mono Drive",
+      "license": "Project owner; no new redistribution license",
+      "status": "available_not_a_driving_quality_guarantee"
+    },
+    {
+      "path": "models/pathnet_gpu_candidate.onnx",
+      "bytes": 5005212,
+      "sha256": "a0b17d6ebdeddf6ad7085c18fccfb946f7ad94c66c27f07ab757d45ea143bcce",
+      "archive": "runtime-models.zip",
+      "family": "Mono Drive",
+      "license": "Project owner; no new redistribution license",
+      "status": "available_not_a_driving_quality_guarantee"
+    },
+    {
+      "path": "models/qwen-drive-1.0-4b/chat_template.jinja",
+      "bytes": 7756,
+      "sha256": "a4aee8afcf2e0711942cf848899be66016f8d14a889ff9ede07bca099c28f715",
+      "archive": "runtime-models.zip",
+      "family": "Qwen",
+      "license": "Apache-2.0",
+      "status": "available_not_a_driving_quality_guarantee"
+    },
+    {
+      "path": "models/qwen-drive-1.0-4b/chat_template.json",
+      "bytes": 5143,
+      "sha256": "539a99faa82b28397b7e8cc3c63473a42905438f07c1692de0c3f46e31202aec",
+      "archive": "runtime-models.zip",
+      "family": "Qwen",
+      "license": "Apache-2.0",
+      "status": "available_not_a_driving_quality_guarantee"
+    },
+    {
+      "path": "models/qwen-drive-1.0-4b/config.json",
+      "bytes": 6091,
+      "sha256": "91e765ca4a46e63b364b7e79f16bdb2b5d0e271684c566c03ae87d259c2d9ff8",
+      "archive": "runtime-models.zip",
+      "family": "Qwen",
+      "license": "Apache-2.0",
+      "status": "available_not_a_driving_quality_guarantee"
+    },
+    {
+      "path": "models/qwen-drive-1.0-4b/generation_config.json",
+      "bytes": 244,
+      "sha256": "303aba891d66ab63908a7b3cc9163bcb835fdf8b9f6301c73216f3f1eb3992dd",
+      "archive": "runtime-models.zip",
+      "family": "Qwen",
+      "license": "Apache-2.0",
+      "status": "available_not_a_driving_quality_guarantee"
+    },
+    {
+      "path": "models/qwen-drive-1.0-4b/merges.txt",
+      "bytes": 3353259,
+      "sha256": "a9d356d7bdf1ef4949e3e748e95b8e10ad9d4e2e838eddc38a0a7b6b94d1db8d",
+      "archive": "runtime-models.zip",
+      "family": "Qwen",
+      "license": "Apache-2.0",
+      "status": "available_not_a_driving_quality_guarantee"
+    },
+    {
+      "path": "models/qwen-drive-1.0-4b/preprocessor_config.json",
+      "bytes": 390,
+      "sha256": "27225450ac9c6529872ee1924fcb0962ff5634834f817040f444118116f4e516",
+      "archive": "runtime-models.zip",
+      "family": "Qwen",
+      "license": "Apache-2.0",
+      "status": "available_not_a_driving_quality_guarantee"
+    },
+    {
+      "path": "models/qwen-drive-1.0-4b/README.md",
+      "bytes": 44350,
+      "sha256": "18e864bce847ff4c045e137ca26342df1e0c544a959cfdbb28529ab905841725",
+      "archive": "runtime-models.zip",
+      "family": "Qwen",
+      "license": "Apache-2.0",
+      "status": "available_not_a_driving_quality_guarantee"
+    },
+    {
+      "path": "models/qwen-drive-1.0-4b/tokenizer.json",
+      "bytes": 12807970,
+      "sha256": "9825446f866dd1d1f6ab843f10af4014c168334d50d977f0afbd3ee304c4856a",
+      "archive": "runtime-models.zip",
+      "family": "Qwen",
+      "license": "Apache-2.0",
+      "status": "available_not_a_driving_quality_guarantee"
+    },
+    {
+      "path": "models/qwen-drive-1.0-4b/tokenizer_config.json",
+      "bytes": 13815,
+      "sha256": "28ed2feadb6891c10cd943b2b978f05ccca1f8b0093ec4e42809f43c7dc4a1a0",
+      "archive": "runtime-models.zip",
+      "family": "Qwen",
+      "license": "Apache-2.0",
+      "status": "available_not_a_driving_quality_guarantee"
+    },
+    {
+      "path": "models/qwen-drive-1.0-4b/vocab.json",
+      "bytes": 6722759,
+      "sha256": "ce99b4cb2983d118806ce0a8b777a35b093e2000a503ebde25853284c9dfa003",
+      "archive": "runtime-models.zip",
+      "family": "Qwen",
+      "license": "Apache-2.0",
+      "status": "available_not_a_driving_quality_guarantee"
+    },
+    {
+      "path": "models/qwen-drive-1.0-4b-vlm/chat_template.jinja",
+      "bytes": 7756,
+      "sha256": "a4aee8afcf2e0711942cf848899be66016f8d14a889ff9ede07bca099c28f715",
+      "archive": "runtime-models.zip",
+      "family": "Qwen",
+      "license": "Apache-2.0",
+      "status": "available_not_a_driving_quality_guarantee"
+    },
+    {
+      "path": "models/qwen-drive-1.0-4b-vlm/config.json",
+      "bytes": 3983,
+      "sha256": "73700bc195beab88a4fd7ab18e5006410a988c3b5c8e16cdb2232bfb0737fdb3",
+      "archive": "runtime-models.zip",
+      "family": "Qwen",
+      "license": "Apache-2.0",
+      "status": "available_not_a_driving_quality_guarantee"
+    },
+    {
+      "path": "models/qwen-drive-1.0-4b-vlm/generation_config.json",
+      "bytes": 244,
+      "sha256": "303aba891d66ab63908a7b3cc9163bcb835fdf8b9f6301c73216f3f1eb3992dd",
+      "archive": "runtime-models.zip",
+      "family": "Qwen",
+      "license": "Apache-2.0",
+      "status": "available_not_a_driving_quality_guarantee"
+    },
+    {
+      "path": "models/qwen-drive-1.0-4b-vlm/merges.txt",
+      "bytes": 3353259,
+      "sha256": "a9d356d7bdf1ef4949e3e748e95b8e10ad9d4e2e838eddc38a0a7b6b94d1db8d",
+      "archive": "runtime-models.zip",
+      "family": "Qwen",
+      "license": "Apache-2.0",
+      "status": "available_not_a_driving_quality_guarantee"
+    },
+    {
+      "path": "models/qwen-drive-1.0-4b-vlm/preprocessor_config.json",
+      "bytes": 390,
+      "sha256": "27225450ac9c6529872ee1924fcb0962ff5634834f817040f444118116f4e516",
+      "archive": "runtime-models.zip",
+      "family": "Qwen",
+      "license": "Apache-2.0",
+      "status": "available_not_a_driving_quality_guarantee"
+    },
+    {
+      "path": "models/qwen-drive-1.0-4b-vlm/source.json",
+      "bytes": 175,
+      "sha256": "688613a5e3f333ce9f5b967f6ed8cfde09a8dc8041e787a7819c3c038f7f36ed",
+      "archive": "runtime-models.zip",
+      "family": "Qwen",
+      "license": "Apache-2.0",
+      "status": "available_not_a_driving_quality_guarantee"
+    },
+    {
+      "path": "models/qwen-drive-1.0-4b-vlm/tokenizer.json",
+      "bytes": 12807970,
+      "sha256": "9825446f866dd1d1f6ab843f10af4014c168334d50d977f0afbd3ee304c4856a",
+      "archive": "runtime-models.zip",
+      "family": "Qwen",
+      "license": "Apache-2.0",
+      "status": "available_not_a_driving_quality_guarantee"
+    },
+    {
+      "path": "models/qwen-drive-1.0-4b-vlm/tokenizer_config.json",
+      "bytes": 13815,
+      "sha256": "28ed2feadb6891c10cd943b2b978f05ccca1f8b0093ec4e42809f43c7dc4a1a0",
+      "archive": "runtime-models.zip",
+      "family": "Qwen",
+      "license": "Apache-2.0",
+      "status": "available_not_a_driving_quality_guarantee"
+    },
+    {
+      "path": "models/qwen-drive-1.0-4b-vlm/video_preprocessor_config.json",
+      "bytes": 351,
+      "sha256": "9d350e6c4dcedeaefefc5d153072172a9a1481af75249daa02c2cdbdfff25567",
+      "archive": "runtime-models.zip",
+      "family": "Qwen",
+      "license": "Apache-2.0",
+      "status": "available_not_a_driving_quality_guarantee"
+    },
+    {
+      "path": "models/qwen-drive-1.0-4b-vlm/vocab.json",
+      "bytes": 6722759,
+      "sha256": "ce99b4cb2983d118806ce0a8b777a35b093e2000a503ebde25853284c9dfa003",
+      "archive": "runtime-models.zip",
+      "family": "Qwen",
+      "license": "Apache-2.0",
+      "status": "available_not_a_driving_quality_guarantee"
+    },
+    {
+      "path": "models/qwen3.5-4b/chat_template.jinja",
+      "bytes": 7756,
+      "sha256": "a4aee8afcf2e0711942cf848899be66016f8d14a889ff9ede07bca099c28f715",
+      "archive": "runtime-models.zip",
+      "family": "Qwen",
+      "license": "Apache-2.0",
+      "status": "available_not_a_driving_quality_guarantee"
+    },
+    {
+      "path": "models/qwen3.5-4b/config.json",
+      "bytes": 3161,
+      "sha256": "ddc63e1c717afa86c865bb5e01313d89d72bb53b97ad4a8a03ba8510c0621670",
+      "archive": "runtime-models.zip",
+      "family": "Qwen",
+      "license": "Apache-2.0",
+      "status": "available_not_a_driving_quality_guarantee"
+    },
+    {
+      "path": "models/qwen3.5-4b/merges.txt",
+      "bytes": 3353259,
+      "sha256": "a9d356d7bdf1ef4949e3e748e95b8e10ad9d4e2e838eddc38a0a7b6b94d1db8d",
+      "archive": "runtime-models.zip",
+      "family": "Qwen",
+      "license": "Apache-2.0",
+      "status": "available_not_a_driving_quality_guarantee"
+    },
+    {
+      "path": "models/qwen3.5-4b/model.safetensors.index.json",
+      "bytes": 76196,
+      "sha256": "cf3f798ee02ba45f9622aa8892a47369ab667d0afbf154ee7c2212de42e6302d",
+      "archive": "runtime-models.zip",
+      "family": "Qwen",
+      "license": "Apache-2.0",
+      "status": "available_not_a_driving_quality_guarantee"
+    },
+    {
+      "path": "models/qwen3.5-4b/preprocessor_config.json",
+      "bytes": 390,
+      "sha256": "27225450ac9c6529872ee1924fcb0962ff5634834f817040f444118116f4e516",
+      "archive": "runtime-models.zip",
+      "family": "Qwen",
+      "license": "Apache-2.0",
+      "status": "available_not_a_driving_quality_guarantee"
+    },
+    {
+      "path": "models/qwen3.5-4b/tokenizer.json",
+      "bytes": 12807982,
+      "sha256": "5f9e4d4901a92b997e463c1f46055088b6cca5ca61a6522d1b9f64c4bb81cb42",
+      "archive": "runtime-models.zip",
+      "family": "Qwen",
+      "license": "Apache-2.0",
+      "status": "available_not_a_driving_quality_guarantee"
+    },
+    {
+      "path": "models/qwen3.5-4b/tokenizer_config.json",
+      "bytes": 16710,
+      "sha256": "316230d6a809701f4db5ea8f8fc862bc3a6f3229c937c174e674ff3ca0a64ac8",
+      "archive": "runtime-models.zip",
+      "family": "Qwen",
+      "license": "Apache-2.0",
+      "status": "available_not_a_driving_quality_guarantee"
+    },
+    {
+      "path": "models/qwen3.5-4b/video_preprocessor_config.json",
+      "bytes": 385,
+      "sha256": "7768af27c1fafa9cc9011c1dc20067e03f8915e03b63504550e11d5066986d13",
+      "archive": "runtime-models.zip",
+      "family": "Qwen",
+      "license": "Apache-2.0",
+      "status": "available_not_a_driving_quality_guarantee"
+    },
+    {
+      "path": "models/qwen3.5-4b/vocab.json",
+      "bytes": 6722759,
+      "sha256": "ce99b4cb2983d118806ce0a8b777a35b093e2000a503ebde25853284c9dfa003",
+      "archive": "runtime-models.zip",
+      "family": "Qwen",
+      "license": "Apache-2.0",
+      "status": "available_not_a_driving_quality_guarantee"
+    },
+    {
+      "path": "models/vehicle_profiles/wrx_3819_visibility.npz",
+      "bytes": 2765,
+      "sha256": "9034f45b66c077603a43967d45468bc1a0fc3041b0c5ecd0377aa2a41c14a229",
+      "archive": "runtime-models.zip",
+      "family": "Mono Drive",
+      "license": "Project owner; no new redistribution license",
+      "status": "available_not_a_driving_quality_guarantee"
+    },
+    {
+      "path": "models/yoloe-26s-seg.pt",
+      "bytes": 31072171,
+      "sha256": "48f24206bc8680d60cbbfa296b0140da849669b9515058b72f5a945142df0654",
+      "archive": "runtime-models.zip",
+      "family": "Ultralytics",
+      "license": "AGPL-3.0",
+      "status": "available_not_a_driving_quality_guarantee"
+    },
+    {
+      "path": "yolo11s.pt",
+      "bytes": 19313732,
+      "sha256": "85a76fe86dd8afe384648546b56a7a78580c7cb7b404fc595f97969322d502d5",
+      "archive": "runtime-models.zip",
+      "family": "Ultralytics",
+      "license": "AGPL-3.0",
+      "status": "available_not_a_driving_quality_guarantee"
+    },
+    {
+      "path": "models/segformer-b0/config.json",
+      "bytes": 1680,
+      "sha256": "649ba4afbaa11ee730b14ad5e31bd50f2e2d5be661a291e31a91512510dba8d9",
+      "archive": "runtime-models.zip",
+      "family": "SegFormer",
+      "license": "NVIDIA non-commercial research/evaluation",
+      "status": "available_not_a_driving_quality_guarantee"
+    },
+    {
+      "path": "models/segformer-b0/preprocessor_config.json",
+      "bytes": 272,
+      "sha256": "d96ab2cb112985c19d5ea32f1d1f2369104fc78b1379f5ce26e33ca8646202a7",
+      "archive": "runtime-models.zip",
+      "family": "SegFormer",
+      "license": "NVIDIA non-commercial research/evaluation",
+      "status": "available_not_a_driving_quality_guarantee"
+    },
+    {
+      "path": "models/segformer-b0/pytorch_model.bin",
+      "bytes": 14957601,
+      "sha256": "027ed78d8ff9c535df5a66361c92b9673cca3cb923cbeb8c5802385b6b93194c",
+      "archive": "runtime-models.zip",
+      "family": "SegFormer",
+      "license": "NVIDIA non-commercial research/evaluation",
+      "status": "available_not_a_driving_quality_guarantee"
+    },
+    {
+      "path": "models/segformer-b0/model.safetensors",
+      "bytes": 14902260,
+      "sha256": "1ed65f56d8c76fc7e11988ed5b7b4302e1c78706ea86583a54c1c9e07133c1d5",
+      "archive": "runtime-models.zip",
+      "family": "SegFormer",
+      "license": "NVIDIA non-commercial research/evaluation",
+      "status": "available_not_a_driving_quality_guarantee"
+    },
+    {
+      "path": "models/segformer-b2/model.safetensors",
+      "bytes": 109496312,
+      "sha256": "9da37afadcec53d31c5f5c5c8a4eedd6b9d04f89bd1a31c7794c56599a97a550",
+      "archive": "runtime-models.zip",
+      "family": "SegFormer",
+      "license": "NVIDIA non-commercial research/evaluation",
+      "status": "available_not_a_driving_quality_guarantee"
+    },
+    {
+      "path": "models/segformer-b2/config.json",
+      "bytes": 1681,
+      "sha256": "3bafe3a84c87270732bb383f6ef33801d1cd441907da8cedc2c8a4986276945d",
+      "archive": "runtime-models.zip",
+      "family": "SegFormer",
+      "license": "NVIDIA non-commercial research/evaluation",
+      "status": "available_not_a_driving_quality_guarantee"
+    },
+    {
+      "path": "models/segformer-b2/pytorch_model.bin",
+      "bytes": 109597961,
+      "sha256": "584d72ace8c17c5683c198e1a4c3eda2e1026bafc02711ac5e5a4dc097bd05fe",
+      "archive": "runtime-models.zip",
+      "family": "SegFormer",
+      "license": "NVIDIA non-commercial research/evaluation",
+      "status": "available_not_a_driving_quality_guarantee"
+    },
+    {
+      "path": "models/qwen-drive-1.0-4b/model.safetensors",
+      "bytes": 9078630512,
+      "sha256": "b9de4bf448f57485fdaa45c60b1eea8e41a4b6ae82ec0cee8855a1e0301caccc",
+      "family": "Qwen",
+      "license": "Apache-2.0",
+      "status": "available_not_a_driving_quality_guarantee",
+      "parts": [
+        "weights-f2e9a3318b06098e884fdd6e0f1e9c205215a788030223a6440199c31e8ecdbc.part",
+        "weights-05f8ec45937635ce10139f5b066075ae6c12239d9949b530ae2b3ffcf98d10e5.part",
+        "weights-8acc9aad350dd98f938291737bc4838d6881e6655225937530f798197c471283.part",
+        "weights-5e91edb4596f6a3ee891262f1fd4e3cc9c41616bd971fb5e1d4f9b771d4ad1ed.part",
+        "weights-9a92b59dd4355d4673b207c1d76e92608a281ad3403452187b8bc9ef388075a5.part",
+        "weights-90a6f08dccedd46fb3126d651642777463bdd234a44c434ad2436403b5ac54e7.part"
+      ]
+    },
+    {
+      "path": "models/qwen-drive-1.0-4b-vlm/model.safetensors",
+      "bytes": 9078630512,
+      "sha256": "b9de4bf448f57485fdaa45c60b1eea8e41a4b6ae82ec0cee8855a1e0301caccc",
+      "family": "Qwen",
+      "license": "Apache-2.0",
+      "status": "available_not_a_driving_quality_guarantee",
+      "parts": [
+        "weights-f2e9a3318b06098e884fdd6e0f1e9c205215a788030223a6440199c31e8ecdbc.part",
+        "weights-05f8ec45937635ce10139f5b066075ae6c12239d9949b530ae2b3ffcf98d10e5.part",
+        "weights-8acc9aad350dd98f938291737bc4838d6881e6655225937530f798197c471283.part",
+        "weights-5e91edb4596f6a3ee891262f1fd4e3cc9c41616bd971fb5e1d4f9b771d4ad1ed.part",
+        "weights-9a92b59dd4355d4673b207c1d76e92608a281ad3403452187b8bc9ef388075a5.part",
+        "weights-90a6f08dccedd46fb3126d651642777463bdd234a44c434ad2436403b5ac54e7.part"
+      ]
+    },
+    {
+      "path": "models/qwen3.5-4b/model.safetensors-00001-of-00002.safetensors",
+      "bytes": 5329398688,
+      "sha256": "26a93f066e1916adb13453dae5a0c707c0fbc71299ed98779571a907b8e74c61",
+      "family": "Qwen",
+      "license": "Apache-2.0",
+      "status": "available_not_a_driving_quality_guarantee",
+      "parts": [
+        "weights-ef3756eca53d4473febf047eb260f88c12e72b57de6f3bdf824c6704bd8cc52e.part",
+        "weights-b2828b6e478d5334ab713484af9915d7af9def275e970aa3933c6dd566c5e6ea.part",
+        "weights-4ddb8f6908d1c762281c0fc9380f23aa91031dc0f0052c67cdb4f0d5f442aee0.part",
+        "weights-864fc975155869945df3b85d0c7f0a0d8b75a7676901d39a7b1a8e47f11f6e22.part"
+      ]
+    },
+    {
+      "path": "models/qwen3.5-4b/model.safetensors-00002-of-00002.safetensors",
+      "bytes": 3990429408,
+      "sha256": "cb544bd9bfae93dc59b0f22b292f5933573854a7f9b97835c67060d7d910e188",
+      "family": "Qwen",
+      "license": "Apache-2.0",
+      "status": "available_not_a_driving_quality_guarantee",
+      "parts": [
+        "weights-5313a8fb222522b82f7505295876ebc6f923b141367fd1b3a4a30f1d19c433d7.part",
+        "weights-4cd4e4ddfc49bda3fe707fa39ab44f65837fbb74f1f870e15b1c3424ce4bd0ca.part",
+        "weights-67745d27c6359000a8db923fa02def70ae4a25b5a6dcf1d6bd4dd16b18f39226.part"
+      ]
+    }
+  ],
+  "assets": [
+    {
+      "name": "runtime-models.zip",
+      "bytes": 1098135941,
+      "sha256": "01c76fb402ac92c504d8cb93822880cd604fa58908d1e48223fb1c37f8a04713",
+      "url": "https://github.com/fumito072/mono-drive-fh6/releases/download/model-weights-2026-11-02/runtime-models.zip"
+    },
+    {
+      "name": "weights-f2e9a3318b06098e884fdd6e0f1e9c205215a788030223a6440199c31e8ecdbc.part",
+      "bytes": 1610612736,
+      "sha256": "f2e9a3318b06098e884fdd6e0f1e9c205215a788030223a6440199c31e8ecdbc",
+      "url": "https://github.com/fumito072/mono-drive-fh6/releases/download/model-weights-2026-11-02/weights-f2e9a3318b06098e884fdd6e0f1e9c205215a788030223a6440199c31e8ecdbc.part"
+    },
+    {
+      "name": "weights-05f8ec45937635ce10139f5b066075ae6c12239d9949b530ae2b3ffcf98d10e5.part",
+      "bytes": 1610612736,
+      "sha256": "05f8ec45937635ce10139f5b066075ae6c12239d9949b530ae2b3ffcf98d10e5",
+      "url": "https://github.com/fumito072/mono-drive-fh6/releases/download/model-weights-2026-11-02/weights-05f8ec45937635ce10139f5b066075ae6c12239d9949b530ae2b3ffcf98d10e5.part"
+    },
+    {
+      "name": "weights-8acc9aad350dd98f938291737bc4838d6881e6655225937530f798197c471283.part",
+      "bytes": 1610612736,
+      "sha256": "8acc9aad350dd98f938291737bc4838d6881e6655225937530f798197c471283",
+      "url": "https://github.com/fumito072/mono-drive-fh6/releases/download/model-weights-2026-11-02/weights-8acc9aad350dd98f938291737bc4838d6881e6655225937530f798197c471283.part"
+    },
+    {
+      "name": "weights-5e91edb4596f6a3ee891262f1fd4e3cc9c41616bd971fb5e1d4f9b771d4ad1ed.part",
+      "bytes": 1610612736,
+      "sha256": "5e91edb4596f6a3ee891262f1fd4e3cc9c41616bd971fb5e1d4f9b771d4ad1ed",
+      "url": "https://github.com/fumito072/mono-drive-fh6/releases/download/model-weights-2026-11-02/weights-5e91edb4596f6a3ee891262f1fd4e3cc9c41616bd971fb5e1d4f9b771d4ad1ed.part"
+    },
+    {
+      "name": "weights-9a92b59dd4355d4673b207c1d76e92608a281ad3403452187b8bc9ef388075a5.part",
+      "bytes": 1610612736,
+      "sha256": "9a92b59dd4355d4673b207c1d76e92608a281ad3403452187b8bc9ef388075a5",
+      "url": "https://github.com/fumito072/mono-drive-fh6/releases/download/model-weights-2026-11-02/weights-9a92b59dd4355d4673b207c1d76e92608a281ad3403452187b8bc9ef388075a5.part"
+    },
+    {
+      "name": "weights-90a6f08dccedd46fb3126d651642777463bdd234a44c434ad2436403b5ac54e7.part",
+      "bytes": 1025566832,
+      "sha256": "90a6f08dccedd46fb3126d651642777463bdd234a44c434ad2436403b5ac54e7",
+      "url": "https://github.com/fumito072/mono-drive-fh6/releases/download/model-weights-2026-11-02/weights-90a6f08dccedd46fb3126d651642777463bdd234a44c434ad2436403b5ac54e7.part"
+    },
+    {
+      "name": "weights-ef3756eca53d4473febf047eb260f88c12e72b57de6f3bdf824c6704bd8cc52e.part",
+      "bytes": 1610612736,
+      "sha256": "ef3756eca53d4473febf047eb260f88c12e72b57de6f3bdf824c6704bd8cc52e",
+      "url": "https://github.com/fumito072/mono-drive-fh6/releases/download/model-weights-2026-11-02/weights-ef3756eca53d4473febf047eb260f88c12e72b57de6f3bdf824c6704bd8cc52e.part"
+    },
+    {
+      "name": "weights-b2828b6e478d5334ab713484af9915d7af9def275e970aa3933c6dd566c5e6ea.part",
+      "bytes": 1610612736,
+      "sha256": "b2828b6e478d5334ab713484af9915d7af9def275e970aa3933c6dd566c5e6ea",
+      "url": "https://github.com/fumito072/mono-drive-fh6/releases/download/model-weights-2026-11-02/weights-b2828b6e478d5334ab713484af9915d7af9def275e970aa3933c6dd566c5e6ea.part"
+    },
+    {
+      "name": "weights-4ddb8f6908d1c762281c0fc9380f23aa91031dc0f0052c67cdb4f0d5f442aee0.part",
+      "bytes": 1610612736,
+      "sha256": "4ddb8f6908d1c762281c0fc9380f23aa91031dc0f0052c67cdb4f0d5f442aee0",
+      "url": "https://github.com/fumito072/mono-drive-fh6/releases/download/model-weights-2026-11-02/weights-4ddb8f6908d1c762281c0fc9380f23aa91031dc0f0052c67cdb4f0d5f442aee0.part"
+    },
+    {
+      "name": "weights-864fc975155869945df3b85d0c7f0a0d8b75a7676901d39a7b1a8e47f11f6e22.part",
+      "bytes": 497560480,
+      "sha256": "864fc975155869945df3b85d0c7f0a0d8b75a7676901d39a7b1a8e47f11f6e22",
+      "url": "https://github.com/fumito072/mono-drive-fh6/releases/download/model-weights-2026-11-02/weights-864fc975155869945df3b85d0c7f0a0d8b75a7676901d39a7b1a8e47f11f6e22.part"
+    },
+    {
+      "name": "weights-5313a8fb222522b82f7505295876ebc6f923b141367fd1b3a4a30f1d19c433d7.part",
+      "bytes": 1610612736,
+      "sha256": "5313a8fb222522b82f7505295876ebc6f923b141367fd1b3a4a30f1d19c433d7",
+      "url": "https://github.com/fumito072/mono-drive-fh6/releases/download/model-weights-2026-11-02/weights-5313a8fb222522b82f7505295876ebc6f923b141367fd1b3a4a30f1d19c433d7.part"
+    },
+    {
+      "name": "weights-4cd4e4ddfc49bda3fe707fa39ab44f65837fbb74f1f870e15b1c3424ce4bd0ca.part",
+      "bytes": 1610612736,
+      "sha256": "4cd4e4ddfc49bda3fe707fa39ab44f65837fbb74f1f870e15b1c3424ce4bd0ca",
+      "url": "https://github.com/fumito072/mono-drive-fh6/releases/download/model-weights-2026-11-02/weights-4cd4e4ddfc49bda3fe707fa39ab44f65837fbb74f1f870e15b1c3424ce4bd0ca.part"
+    },
+    {
+      "name": "weights-67745d27c6359000a8db923fa02def70ae4a25b5a6dcf1d6bd4dd16b18f39226.part",
+      "bytes": 769203936,
+      "sha256": "67745d27c6359000a8db923fa02def70ae4a25b5a6dcf1d6bd4dd16b18f39226",
+      "url": "https://github.com/fumito072/mono-drive-fh6/releases/download/model-weights-2026-11-02/weights-67745d27c6359000a8db923fa02def70ae4a25b5a6dcf1d6bd4dd16b18f39226.part"
+    }
+  ],
+  "aliases": [
+    {
+      "path": "models/qwen-drive-1.0-4b-vlm/model.safetensors",
+      "identical_to": "models/qwen-drive-1.0-4b/model.safetensors"
+    }
+  ],
+  "complete_weight_files": 132,
+  "incomplete_downloads_excluded": 4,
+  "asset_bytes": 19496594549,
+  "logical_file_bytes": 28572285197,
+  "sources": {
+    "Qwen": "https://huggingface.co/Qwen/Qwen3.5-4B",
+    "Qwen-Drive": "https://huggingface.co/Qwen/Qwen-Drive-1.0-4B",
+    "SegFormer": "https://github.com/NVlabs/SegFormer",
+    "Depth Anything V2": "https://github.com/DepthAnything/Depth-Anything-V2",
+    "Ultralytics": "https://github.com/ultralytics/ultralytics/tree/v8.4.189"
+  }
+}

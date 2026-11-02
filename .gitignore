@@ -39,3 +39,4 @@ configs/*.local.json
 !teacher_data/
 !teacher_data/*.json
 !teacher_data/*.md
+model-licenses/

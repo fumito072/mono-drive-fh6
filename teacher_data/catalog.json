@@ -1,0 +1,5512 @@
+{
+  "schema_version": 1,
+  "game": "Forza Horizon 6",
+  "source": "human demonstrations",
+  "revision": "8b9e6755771117c8518a59790fb6a0acd60c5faa39acbced10d0296a7df13fb7",
+  "created_utc": "2026-11-02T13:05:31Z",
+  "pending_episodes_excluded": 2,
+  "episodes": [
+    {
+      "id": "episode-047c5a622b118f6c",
+      "frames": 1150,
+      "train_frames": 775,
+      "validation_frames": 375,
+      "segments": [
+        {
+          "path": "human/episode-047c5a622b118f6c/train_00",
+          "partition": "train",
+          "frames": 475
+        },
+        {
+          "path": "human/episode-047c5a622b118f6c/train_01",
+          "partition": "train",
+          "frames": 300
+        },
+        {
+          "path": "human/episode-047c5a622b118f6c/validation_00",
+          "partition": "validation",
+          "frames": 375
+        }
+      ],
+      "synchronization": {},
+      "offset_s": 1.06,
+      "offset_uncertainty_s": 0.060500000000020204,
+      "asset": "episode-047c5a622b118f6c.zip",
+      "bytes": 82074126,
+      "sha256": "4d15447d419afbd82d97f622b1eeac6a034a7b590374b43e69802a7b48839719",
+      "url": "https://github.com/fumito072/mono-drive-fh6/releases/download/human-data-2026-11-02/episode-047c5a622b118f6c.zip"
+    },
+    {
+      "id": "episode-3b7dc811d86aa3c6",
+      "frames": 2371,
+      "train_frames": 1517,
+      "validation_frames": 854,
+      "segments": [
+        {
+          "path": "human/episode-3b7dc811d86aa3c6/train_000",
+          "partition": "train",
+          "frames": 1091
+        },
+        {
+          "path": "human/episode-3b7dc811d86aa3c6/train_001",
+          "partition": "train",
+          "frames": 23
+        },
+        {
+          "path": "human/episode-3b7dc811d86aa3c6/train_002",
+          "partition": "train",
+          "frames": 368
+        },
+        {
+          "path": "human/episode-3b7dc811d86aa3c6/train_003",
+          "partition": "train",
+          "frames": 35
+        },
+        {
+          "path": "human/episode-3b7dc811d86aa3c6/validation_000",
+          "partition": "validation",
+          "frames": 854
+        }
+      ],
+      "synchronization": {
+        "verified": true,
+        "video_pts_verified": true,
+        "raw_packets_verified": 37631,
+        "matched_frames": 10592,
+        "corrected_alignment_rows": 0,
+        "clock_offset_correction_s": 0.0,
+        "frame_clock_span_ms": 0.0009,
+        "median_age_ms": 10.45525,
+        "max_age_ms": 33.594,
+        "excluded_frames_count": 112
+      },
+      "car_ordinals": [
+        3819
+      ],
+      "preparation_version": 2,
+      "asset": "episode-3b7dc811d86aa3c6.zip",
+      "bytes": 209335545,
+      "sha256": "d486f9dfa3123214ff0da88f81ebfa15179245504b5e2db353d883b7350a570a",
+      "url": "https://github.com/fumito072/mono-drive-fh6/releases/download/human-data-2026-11-02/episode-3b7dc811d86aa3c6.zip"
+    },
+    {
+      "id": "episode-ce6215ece902f17f",
+      "frames": 3697,
+      "train_frames": 2264,
+      "validation_frames": 1433,
+      "segments": [
+        {
+          "path": "human/episode-ce6215ece902f17f/train_000",
+          "partition": "train",
+          "frames": 96
+        },
+        {
+          "path": "human/episode-ce6215ece902f17f/train_001",
+          "partition": "train",
+          "frames": 61
+        },
+        {
+          "path": "human/episode-ce6215ece902f17f/train_002",
+          "partition": "train",
+          "frames": 718
+        },
+        {
+          "path": "human/episode-ce6215ece902f17f/train_003",
+          "partition": "train",
+          "frames": 161
+        },
+        {
+          "path": "human/episode-ce6215ece902f17f/train_004",
+          "partition": "train",
+          "frames": 94
+        },
+        {
+          "path": "human/episode-ce6215ece902f17f/train_005",
+          "partition": "train",
+          "frames": 356
+        },
+        {
+          "path": "human/episode-ce6215ece902f17f/train_006",
+          "partition": "train",
+          "frames": 95
+        },
+        {
+          "path": "human/episode-ce6215ece902f17f/train_007",
+          "partition": "train",
+          "frames": 381
+        },
+        {
+          "path": "human/episode-ce6215ece902f17f/train_008",
+          "partition": "train",
+          "frames": 302
+        },
+        {
+          "path": "human/episode-ce6215ece902f17f/validation_000",
+          "partition": "validation",
+          "frames": 907
+        },
+        {
+          "path": "human/episode-ce6215ece902f17f/validation_001",
+          "partition": "validation",
+          "frames": 526
+        }
+      ],
+      "synchronization": {
+        "verified": true,
+        "video_pts_verified": true,
+        "raw_packets_verified": 66848,
+        "matched_frames": 18309,
+        "corrected_alignment_rows": 0,
+        "clock_offset_correction_s": 0.0,
+        "frame_clock_span_ms": 0.0009,
+        "median_age_ms": 11.2029,
+        "max_age_ms": 35.2332,
+        "excluded_frames_count": 249
+      },
+      "car_ordinals": [
+        3819
+      ],
+      "preparation_version": 2,
+      "asset": "episode-ce6215ece902f17f.zip",
+      "bytes": 269082870,
+      "sha256": "6f8f6d0376c922d5d674e4a57b17fcf21d4d9a39945e32bb8c64b31739a9db7e",
+      "url": "https://github.com/fumito072/mono-drive-fh6/releases/download/human-data-2026-11-02/episode-ce6215ece902f17f.zip"
+    },
+    {
+      "id": "episode-1889271aa5f014be",
+      "frames": 9665,
+      "train_frames": 7040,
+      "validation_frames": 2625,
+      "segments": [
+        {
+          "path": "human/episode-1889271aa5f014be/train_000",
+          "partition": "train",
+          "frames": 99
+        },
+        {
+          "path": "human/episode-1889271aa5f014be/train_001",
+          "partition": "train",
+          "frames": 26
+        },
+        {
+          "path": "human/episode-1889271aa5f014be/train_002",
+          "partition": "train",
+          "frames": 285
+        },
+        {
+          "path": "human/episode-1889271aa5f014be/train_003",
+          "partition": "train",
+          "frames": 475
+        },
+        {
+          "path": "human/episode-1889271aa5f014be/train_004",
+          "partition": "train",
+          "frames": 1101
+        },
+        {
+          "path": "human/episode-1889271aa5f014be/train_005",
+          "partition": "train",
+          "frames": 301
+        },
+        {
+          "path": "human/episode-1889271aa5f014be/train_006",
+          "partition": "train",
+          "frames": 322
+        },
+        {
+          "path": "human/episode-1889271aa5f014be/train_007",
+          "partition": "train",
+          "frames": 607
+        },
+        {
+          "path": "human/episode-1889271aa5f014be/train_008",
+          "partition": "train",
+          "frames": 145
+        },
+        {
+          "path": "human/episode-1889271aa5f014be/train_009",
+          "partition": "train",
+          "frames": 389
+        },
+        {
+          "path": "human/episode-1889271aa5f014be/train_010",
+          "partition": "train",
+          "frames": 196
+        },
+        {
+          "path": "human/episode-1889271aa5f014be/train_011",
+          "partition": "train",
+          "frames": 37
+        },
+        {
+          "path": "human/episode-1889271aa5f014be/train_012",
+          "partition": "train",
+          "frames": 169
+        },
+        {
+          "path": "human/episode-1889271aa5f014be/train_013",
+          "partition": "train",
+          "frames": 1777
+        },
+        {
+          "path": "human/episode-1889271aa5f014be/train_014",
+          "partition": "train",
+          "frames": 27
+        },
+        {
+          "path": "human/episode-1889271aa5f014be/train_015",
+          "partition": "train",
+          "frames": 386
+        },
+        {
+          "path": "human/episode-1889271aa5f014be/train_016",
+          "partition": "train",
+          "frames": 38
+        },
+        {
+          "path": "human/episode-1889271aa5f014be/train_017",
+          "partition": "train",
+          "frames": 94
+        },
+        {
+          "path": "human/episode-1889271aa5f014be/train_018",
+          "partition": "train",
+          "frames": 29
+        },
+        {
+          "path": "human/episode-1889271aa5f014be/train_019",
+          "partition": "train",
+          "frames": 55
+        },
+        {
+          "path": "human/episode-1889271aa5f014be/train_020",
+          "partition": "train",
+          "frames": 62
+        },
+        {
+          "path": "human/episode-1889271aa5f014be/train_021",
+          "partition": "train",
+          "frames": 21
+        },
+        {
+          "path": "human/episode-1889271aa5f014be/train_022",
+          "partition": "train",
+          "frames": 25
+        },
+        {
+          "path": "human/episode-1889271aa5f014be/train_023",
+          "partition": "train",
+          "frames": 28
+        },
+        {
+          "path": "human/episode-1889271aa5f014be/train_024",
+          "partition": "train",
+          "frames": 29
+        },
+        {
+          "path": "human/episode-1889271aa5f014be/train_025",
+          "partition": "train",
+          "frames": 29
+        },
+        {
+          "path": "human/episode-1889271aa5f014be/train_026",
+          "partition": "train",
+          "frames": 36
+        },
+        {
+          "path": "human/episode-1889271aa5f014be/train_027",
+          "partition": "train",
+          "frames": 213
+        },
+        {
+          "path": "human/episode-1889271aa5f014be/train_028",
+          "partition": "train",
+          "frames": 39
+        },
+        {
+          "path": "human/episode-1889271aa5f014be/validation_000",
+          "partition": "validation",
+          "frames": 119
+        },
+        {
+          "path": "human/episode-1889271aa5f014be/validation_001",
+          "partition": "validation",
+          "frames": 430
+        },
+        {
+          "path": "human/episode-1889271aa5f014be/validation_002",
+          "partition": "validation",
+          "frames": 317
+        },
+        {
+          "path": "human/episode-1889271aa5f014be/validation_003",
+          "partition": "validation",
+          "frames": 383
+        },
+        {
+          "path": "human/episode-1889271aa5f014be/validation_004",
+          "partition": "validation",
+          "frames": 174
+        },
+        {
+          "path": "human/episode-1889271aa5f014be/validation_005",
+          "partition": "validation",
+          "frames": 393
+        },
+        {
+          "path": "human/episode-1889271aa5f014be/validation_006",
+          "partition": "validation",
+          "frames": 144
+        },
+        {
+          "path": "human/episode-1889271aa5f014be/validation_007",
+          "partition": "validation",
+          "frames": 77
+        },
+        {
+          "path": "human/episode-1889271aa5f014be/validation_008",
+          "partition": "validation",
+          "frames": 139
+        },
+        {
+          "path": "human/episode-1889271aa5f014be/validation_009",
+          "partition": "validation",
+          "frames": 395
+        },
+        {
+          "path": "human/episode-1889271aa5f014be/validation_010",
+          "partition": "validation",
+          "frames": 54
+        }
+      ],
+      "synchronization": {
+        "verified": true,
+        "video_pts_verified": true,
+        "raw_packets_verified": 205714,
+        "matched_frames": 51000,
+        "corrected_alignment_rows": 0,
+        "clock_offset_correction_s": 0.0,
+        "frame_clock_span_ms": 0.0009,
+        "median_age_ms": 10.118300000000001,
+        "max_age_ms": 28.4121,
+        "excluded_frames_count": 1348
+      },
+      "car_ordinals": [
+        3819
+      ],
+      "preparation_version": 2,
+      "asset": "episode-1889271aa5f014be.zip",
+      "bytes": 860450925,
+      "sha256": "acbfc8d42f673533e49e1cc7d3f6b4da1101d4a03abfadae742d59b5f0389a66",
+      "url": "https://github.com/fumito072/mono-drive-fh6/releases/download/human-data-2026-11-02/episode-1889271aa5f014be.zip"
+    },
+    {
+      "id": "episode-845d624d993f5cc2",
+      "frames": 1372,
+      "train_frames": 925,
+      "validation_frames": 447,
+      "segments": [
+        {
+          "path": "human/episode-845d624d993f5cc2/train_000",
+          "partition": "train",
+          "frames": 54
+        },
+        {
+          "path": "human/episode-845d624d993f5cc2/train_001",
+          "partition": "train",
+          "frames": 266
+        },
+        {
+          "path": "human/episode-845d624d993f5cc2/train_002",
+          "partition": "train",
+          "frames": 163
+        },
+        {
+          "path": "human/episode-845d624d993f5cc2/train_003",
+          "partition": "train",
+          "frames": 60
+        },
+        {
+          "path": "human/episode-845d624d993f5cc2/train_004",
+          "partition": "train",
+          "frames": 85
+        },
+        {
+          "path": "human/episode-845d624d993f5cc2/train_005",
+          "partition": "train",
+          "frames": 91
+        },
+        {
+          "path": "human/episode-845d624d993f5cc2/train_006",
+          "partition": "train",
+          "frames": 206
+        },
+        {
+          "path": "human/episode-845d624d993f5cc2/validation_000",
+          "partition": "validation",
+          "frames": 366
+        },
+        {
+          "path": "human/episode-845d624d993f5cc2/validation_001",
+          "partition": "validation",
+          "frames": 81
+        }
+      ],
+      "synchronization": {
+        "verified": true,
+        "video_pts_verified": true,
+        "raw_packets_verified": 30993,
+        "matched_frames": 7107,
+        "corrected_alignment_rows": 0,
+        "clock_offset_correction_s": 0.0,
+        "frame_clock_span_ms": 0.0009,
+        "median_age_ms": 10.5628,
+        "max_age_ms": 31.7956,
+        "excluded_frames_count": 0
+      },
+      "car_ordinals": [
+        3819
+      ],
+      "preparation_version": 2,
+      "asset": "episode-845d624d993f5cc2.zip",
+      "bytes": 164530039,
+      "sha256": "497b2079ebafb25c6767aabf66b1d20ba3bce026b4bcf7fc5d61c4768845e955",
+      "url": "https://github.com/fumito072/mono-drive-fh6/releases/download/human-data-2026-11-02/episode-845d624d993f5cc2.zip"
+    },
+    {
+      "id": "episode-4aeb144a8b32effb",
+      "frames": 2541,
+      "train_frames": 1610,
+      "validation_frames": 931,
+      "segments": [
+        {
+          "path": "human/episode-4aeb144a8b32effb/train_000",
+          "partition": "train",
+          "frames": 158
+        },
+        {
+          "path": "human/episode-4aeb144a8b32effb/train_001",
+          "partition": "train",
+          "frames": 827
+        },
+        {
+          "path": "human/episode-4aeb144a8b32effb/train_002",
+          "partition": "train",
+          "frames": 625
+        },
+        {
+          "path": "human/episode-4aeb144a8b32effb/validation_000",
+          "partition": "validation",
+          "frames": 145
+        },
+        {
+          "path": "human/episode-4aeb144a8b32effb/validation_001",
+          "partition": "validation",
+          "frames": 237
+        },
+        {
+          "path": "human/episode-4aeb144a8b32effb/validation_002",
+          "partition": "validation",
+          "frames": 549
+        }
+      ],
+      "synchronization": {
+        "verified": true,
+        "video_pts_verified": true,
+        "raw_packets_verified": 41673,
+        "matched_frames": 41362,
+        "corrected_alignment_rows": 0,
+        "clock_offset_correction_s": 0.0,
+        "frame_clock_span_ms": 0.0009,
+        "median_age_ms": 10.1981,
+        "max_age_ms": 27.5484,
+        "excluded_frames_count": 50
+      },
+      "car_ordinals": [
+        3819
+      ],
+      "preparation_version": 2,
+      "asset": "episode-4aeb144a8b32effb.zip",
+      "bytes": 745496115,
+      "sha256": "2df3793d3b72dba3dc30b59c2dd7fdfb81d74c9beaffed12dda218f2f9571628",
+      "url": "https://github.com/fumito072/mono-drive-fh6/releases/download/human-data-2026-11-02/episode-4aeb144a8b32effb.zip"
+    },
+    {
+      "id": "episode-5fae41be6dd2f836",
+      "frames": 5043,
+      "train_frames": 3157,
+      "validation_frames": 1886,
+      "segments": [
+        {
+          "path": "human/episode-5fae41be6dd2f836/train_000",
+          "partition": "train",
+          "frames": 2057
+        },
+        {
+          "path": "human/episode-5fae41be6dd2f836/train_001",
+          "partition": "train",
+          "frames": 144
+        },
+        {
+          "path": "human/episode-5fae41be6dd2f836/train_002",
+          "partition": "train",
+          "frames": 956
+        },
+        {
+          "path": "human/episode-5fae41be6dd2f836/validation_000",
+          "partition": "validation",
+          "frames": 28
+        },
+        {
+          "path": "human/episode-5fae41be6dd2f836/validation_001",
+          "partition": "validation",
+          "frames": 374
+        },
+        {
+          "path": "human/episode-5fae41be6dd2f836/validation_002",
+          "partition": "validation",
+          "frames": 519
+        },
+        {
+          "path": "human/episode-5fae41be6dd2f836/validation_003",
+          "partition": "validation",
+          "frames": 77
+        },
+        {
+          "path": "human/episode-5fae41be6dd2f836/validation_004",
+          "partition": "validation",
+          "frames": 362
+        },
+        {
+          "path": "human/episode-5fae41be6dd2f836/validation_005",
+          "partition": "validation",
+          "frames": 227
+        },
+        {
+          "path": "human/episode-5fae41be6dd2f836/validation_006",
+          "partition": "validation",
+          "frames": 217
+        },
+        {
+          "path": "human/episode-5fae41be6dd2f836/validation_007",
+          "partition": "validation",
+          "frames": 82
+        }
+      ],
+      "synchronization": {
+        "verified": true,
+        "video_pts_verified": true,
+        "raw_packets_verified": 82633,
+        "matched_frames": 81873,
+        "corrected_alignment_rows": 0,
+        "clock_offset_correction_s": 0.0,
+        "frame_clock_span_ms": 0.0009,
+        "median_age_ms": 14.6827,
+        "max_age_ms": 32.9805,
+        "excluded_frames_count": 0
+      },
+      "car_ordinals": [
+        3819
+      ],
+      "preparation_version": 2,
+      "asset": "episode-5fae41be6dd2f836.zip",
+      "bytes": 1074904976,
+      "sha256": "721b979547d053ac116d07c2ad8d7b665116824c82e7237b3e87a7723bc0e0d0",
+      "url": "https://github.com/fumito072/mono-drive-fh6/releases/download/human-data-2026-11-02/episode-5fae41be6dd2f836.zip"
+    },
+    {
+      "id": "episode-6c103de27e7e1a3d",
+      "frames": 3568,
+      "train_frames": 2536,
+      "validation_frames": 1032,
+      "segments": [
+        {
+          "path": "human/episode-6c103de27e7e1a3d/train_000",
+          "partition": "train",
+          "frames": 301
+        },
+        {
+          "path": "human/episode-6c103de27e7e1a3d/train_001",
+          "partition": "train",
+          "frames": 1988
+        },
+        {
+          "path": "human/episode-6c103de27e7e1a3d/train_002",
+          "partition": "train",
+          "frames": 224
+        },
+        {
+          "path": "human/episode-6c103de27e7e1a3d/train_003",
+          "partition": "train",
+          "frames": 23
+        },
+        {
+          "path": "human/episode-6c103de27e7e1a3d/validation_000",
+          "partition": "validation",
+          "frames": 316
+        },
+        {
+          "path": "human/episode-6c103de27e7e1a3d/validation_001",
+          "partition": "validation",
+          "frames": 498
+        },
+        {
+          "path": "human/episode-6c103de27e7e1a3d/validation_002",
+          "partition": "validation",
+          "frames": 218
+        }
+      ],
+      "synchronization": {
+        "verified": true,
+        "video_pts_verified": true,
+        "raw_packets_verified": 60900,
+        "matched_frames": 55615,
+        "corrected_alignment_rows": 0,
+        "clock_offset_correction_s": 0.0,
+        "frame_clock_span_ms": 0.0009,
+        "median_age_ms": 14.7161,
+        "max_age_ms": 30.9385,
+        "excluded_frames_count": 50
+      },
+      "car_ordinals": [
+        3819
+      ],
+      "preparation_version": 2,
+      "asset": "episode-6c103de27e7e1a3d.zip",
+      "bytes": 1102418027,
+      "sha256": "ae6f448a9b777d17ea0cabfde59ca65b9b3004af291d7690189e2e0cdf34cd3d",
+      "url": "https://github.com/fumito072/mono-drive-fh6/releases/download/human-data-2026-11-02/episode-6c103de27e7e1a3d.zip"
+    },
+    {
+      "id": "episode-88eb7722d330632c",
+      "frames": 1747,
+      "train_frames": 1172,
+      "validation_frames": 575,
+      "segments": [
+        {
+          "path": "human/episode-88eb7722d330632c/train_000",
+          "partition": "train",
+          "frames": 702
+        },
+        {
+          "path": "human/episode-88eb7722d330632c/train_001",
+          "partition": "train",
+          "frames": 255
+        },
+        {
+          "path": "human/episode-88eb7722d330632c/train_002",
+          "partition": "train",
+          "frames": 215
+        },
+        {
+          "path": "human/episode-88eb7722d330632c/validation_000",
+          "partition": "validation",
+          "frames": 171
+        },
+        {
+          "path": "human/episode-88eb7722d330632c/validation_001",
+          "partition": "validation",
+          "frames": 126
+        },
+        {
+          "path": "human/episode-88eb7722d330632c/validation_002",
+          "partition": "validation",
+          "frames": 55
+        },
+        {
+          "path": "human/episode-88eb7722d330632c/validation_003",
+          "partition": "validation",
+          "frames": 223
+        }
+      ],
+      "synchronization": {
+        "verified": true,
+        "video_pts_verified": true,
+        "raw_packets_verified": 32905,
+        "matched_frames": 31146,
+        "corrected_alignment_rows": 0,
+        "clock_offset_correction_s": 0.0,
+        "frame_clock_span_ms": 0.0009,
+        "median_age_ms": 10.0363,
+        "max_age_ms": 27.1879,
+        "excluded_frames_count": 545
+      },
+      "car_ordinals": [
+        3819
+      ],
+      "preparation_version": 2,
+      "asset": "episode-88eb7722d330632c.zip",
+      "bytes": 596479034,
+      "sha256": "35fc02d052436cace4dccfea8fcddc1b846de908afb93aa1582326b6d651c54b",
+      "url": "https://github.com/fumito072/mono-drive-fh6/releases/download/human-data-2026-11-02/episode-88eb7722d330632c.zip"
+    },
+    {
+      "id": "episode-cf185ddedbb21d17",
+      "frames": 4087,
+      "train_frames": 2509,
+      "validation_frames": 1578,
+      "segments": [
+        {
+          "path": "human/episode-cf185ddedbb21d17/train_000",
+          "partition": "train",
+          "frames": 1265
+        },
+        {
+          "path": "human/episode-cf185ddedbb21d17/train_001",
+          "partition": "train",
+          "frames": 1199
+        },
+        {
+          "path": "human/episode-cf185ddedbb21d17/train_002",
+          "partition": "train",
+          "frames": 45
+        },
+        {
+          "path": "human/episode-cf185ddedbb21d17/validation_000",
+          "partition": "validation",
+          "frames": 1578
+        }
+      ],
+      "synchronization": {
+        "verified": true,
+        "video_pts_verified": true,
+        "raw_packets_verified": 69522,
+        "matched_frames": 17946,
+        "corrected_alignment_rows": 0,
+        "clock_offset_correction_s": 0.0,
+        "frame_clock_span_ms": 0.0009,
+        "median_age_ms": 10.08085,
+        "max_age_ms": 25.1844,
+        "excluded_frames_count": 444
+      },
+      "car_ordinals": [
+        3819
+      ],
+      "preparation_version": 2,
+      "asset": "episode-cf185ddedbb21d17.zip",
+      "bytes": 335110798,
+      "sha256": "217268f37c97f559ca674b8475cd611407da2d9939d4253ea5800ca4d4acc2d1",
+      "url": "https://github.com/fumito072/mono-drive-fh6/releases/download/human-data-2026-11-02/episode-cf185ddedbb21d17.zip"
+    },
+    {
+      "id": "episode-38b5e69a3245b58d",
+      "frames": 1339,
+      "train_frames": 829,
+      "validation_frames": 510,
+      "segments": [
+        {
+          "path": "human/episode-38b5e69a3245b58d/train_000",
+          "partition": "train",
+          "frames": 563
+        },
+        {
+          "path": "human/episode-38b5e69a3245b58d/train_001",
+          "partition": "train",
+          "frames": 266
+        },
+        {
+          "path": "human/episode-38b5e69a3245b58d/validation_000",
+          "partition": "validation",
+          "frames": 510
+        }
+      ],
+      "synchronization": {
+        "verified": true,
+        "video_pts_verified": true,
+        "raw_packets_verified": 22362,
+        "matched_frames": 21768,
+        "corrected_alignment_rows": 0,
+        "clock_offset_correction_s": 0.0,
+        "frame_clock_span_ms": 0.0009,
+        "median_age_ms": 14.9867,
+        "max_age_ms": 32.82,
+        "excluded_frames_count": 0
+      },
+      "car_ordinals": [
+        3819
+      ],
+      "preparation_version": 2,
+      "asset": "episode-38b5e69a3245b58d.zip",
+      "bytes": 257319117,
+      "sha256": "4b6688a8d6523eeeabd43851af7cf233f0cb3bd190f8bf8906529c5e8e963a6f",
+      "url": "https://github.com/fumito072/mono-drive-fh6/releases/download/human-data-2026-11-02/episode-38b5e69a3245b58d.zip"
+    },
+    {
+      "id": "episode-520b9d1595bcd930",
+      "frames": 4083,
+      "train_frames": 2673,
+      "validation_frames": 1410,
+      "segments": [
+        {
+          "path": "human/episode-520b9d1595bcd930/train_000",
+          "partition": "train",
+          "frames": 2292
+        },
+        {
+          "path": "human/episode-520b9d1595bcd930/train_001",
+          "partition": "train",
+          "frames": 279
+        },
+        {
+          "path": "human/episode-520b9d1595bcd930/train_002",
+          "partition": "train",
+          "frames": 26
+        },
+        {
+          "path": "human/episode-520b9d1595bcd930/train_003",
+          "partition": "train",
+          "frames": 76
+        },
+        {
+          "path": "human/episode-520b9d1595bcd930/validation_000",
+          "partition": "validation",
+          "frames": 1376
+        },
+        {
+          "path": "human/episode-520b9d1595bcd930/validation_001",
+          "partition": "validation",
+          "frames": 34
+        }
+      ],
+      "synchronization": {
+        "verified": true,
+        "video_pts_verified": true,
+        "raw_packets_verified": 73952,
+        "matched_frames": 69431,
+        "corrected_alignment_rows": 0,
+        "clock_offset_correction_s": 0.0,
+        "frame_clock_span_ms": 0.0009,
+        "median_age_ms": 14.7939,
+        "max_age_ms": 34.0652,
+        "excluded_frames_count": 3987
+      },
+      "car_ordinals": [
+        3819
+      ],
+      "preparation_version": 2,
+      "asset": "episode-520b9d1595bcd930.zip",
+      "bytes": 371002769,
+      "sha256": "b3b32ccb3fc1a64eaed723c122056b1ec4601269658e7464119619f9e241aff2",
+      "url": "https://github.com/fumito072/mono-drive-fh6/releases/download/human-data-2026-11-02/episode-520b9d1595bcd930.zip"
+    },
+    {
+      "id": "episode-4cf401ec93ea8fd9",
+      "frames": 4697,
+      "train_frames": 2866,
+      "validation_frames": 1831,
+      "segments": [
+        {
+          "path": "human/episode-4cf401ec93ea8fd9/train_000",
+          "partition": "train",
+          "frames": 57
+        },
+        {
+          "path": "human/episode-4cf401ec93ea8fd9/train_001",
+          "partition": "train",
+          "frames": 248
+        },
+        {
+          "path": "human/episode-4cf401ec93ea8fd9/train_002",
+          "partition": "train",
+          "frames": 342
+        },
+        {
+          "path": "human/episode-4cf401ec93ea8fd9/train_003",
+          "partition": "train",
+          "frames": 131
+        },
+        {
+          "path": "human/episode-4cf401ec93ea8fd9/train_004",
+          "partition": "train",
+          "frames": 124
+        },
+        {
+          "path": "human/episode-4cf401ec93ea8fd9/train_005",
+          "partition": "train",
+          "frames": 613
+        },
+        {
+          "path": "human/episode-4cf401ec93ea8fd9/train_006",
+          "partition": "train",
+          "frames": 1351
+        },
+        {
+          "path": "human/episode-4cf401ec93ea8fd9/validation_000",
+          "partition": "validation",
+          "frames": 639
+        },
+        {
+          "path": "human/episode-4cf401ec93ea8fd9/validation_001",
+          "partition": "validation",
+          "frames": 22
+        },
+        {
+          "path": "human/episode-4cf401ec93ea8fd9/validation_002",
+          "partition": "validation",
+          "frames": 859
+        },
+        {
+          "path": "human/episode-4cf401ec93ea8fd9/validation_003",
+          "partition": "validation",
+          "frames": 311
+        }
+      ],
+      "synchronization": {
+        "verified": true,
+        "video_pts_verified": true,
+        "raw_packets_verified": 156224,
+        "matched_frames": 79323,
+        "corrected_alignment_rows": 0,
+        "clock_offset_correction_s": 0.0,
+        "frame_clock_span_ms": 0.0009,
+        "median_age_ms": 3.5846,
+        "max_age_ms": 25.5652,
+        "excluded_frames_count": 0
+      },
+      "car_ordinals": [
+        3819
+      ],
+      "preparation_version": 2,
+      "asset": "episode-4cf401ec93ea8fd9.zip",
+      "bytes": 1346749364,
+      "sha256": "e68b5f67954b129dfc8def6fbed702c130e20d17d447b1b5da84fc39743a6e2a",
+      "url": "https://github.com/fumito072/mono-drive-fh6/releases/download/human-data-2026-11-02/episode-4cf401ec93ea8fd9.zip"
+    },
+    {
+      "id": "episode-8694c465845e7055",
+      "frames": 2199,
+      "train_frames": 1379,
+      "validation_frames": 820,
+      "segments": [
+        {
+          "path": "human/episode-8694c465845e7055/train_000",
+          "partition": "train",
+          "frames": 1379
+        },
+        {
+          "path": "human/episode-8694c465845e7055/validation_000",
+          "partition": "validation",
+          "frames": 441
+        },
+        {
+          "path": "human/episode-8694c465845e7055/validation_001",
+          "partition": "validation",
+          "frames": 379
+        }
+      ],
+      "synchronization": {
+        "verified": true,
+        "video_pts_verified": true,
+        "raw_packets_verified": 46315,
+        "matched_frames": 10519,
+        "corrected_alignment_rows": 0,
+        "clock_offset_correction_s": 0.0,
+        "frame_clock_span_ms": 0.0009,
+        "median_age_ms": 10.3621,
+        "max_age_ms": 51.704,
+        "excluded_frames_count": 203
+      },
+      "car_ordinals": [
+        3819
+      ],
+      "preparation_version": 2,
+      "asset": "episode-8694c465845e7055.zip",
+      "bytes": 335534448,
+      "sha256": "efa872761881214048cfc65d9caff993d807e0b993e410fa5ee5391d744746d1",
+      "url": "https://github.com/fumito072/mono-drive-fh6/releases/download/human-data-2026-11-02/episode-8694c465845e7055.zip"
+    },
+    {
+      "id": "episode-7ec26878f2de463f",
+      "frames": 5602,
+      "train_frames": 3598,
+      "validation_frames": 2004,
+      "segments": [
+        {
+          "path": "human/episode-7ec26878f2de463f/train_000",
+          "partition": "train",
+          "frames": 1924
+        },
+        {
+          "path": "human/episode-7ec26878f2de463f/train_001",
+          "partition": "train",
+          "frames": 326
+        },
+        {
+          "path": "human/episode-7ec26878f2de463f/train_002",
+          "partition": "train",
+          "frames": 1348
+        },
+        {
+          "path": "human/episode-7ec26878f2de463f/validation_000",
+          "partition": "validation",
+          "frames": 1227
+        },
+        {
+          "path": "human/episode-7ec26878f2de463f/validation_001",
+          "partition": "validation",
+          "frames": 777
+        }
+      ],
+      "synchronization": {
+        "verified": true,
+        "video_pts_verified": true,
+        "raw_packets_verified": 81604,
+        "matched_frames": 22542,
+        "corrected_alignment_rows": 0,
+        "clock_offset_correction_s": 0.0,
+        "frame_clock_span_ms": 0.0009,
+        "median_age_ms": 9.636849999999999,
+        "max_age_ms": 28.2459,
+        "excluded_frames_count": 0
+      },
+      "car_ordinals": [
+        3819
+      ],
+      "preparation_version": 2,
+      "asset": "episode-7ec26878f2de463f.zip",
+      "bytes": 358078014,
+      "sha256": "91bc1711aac9d4ec139be52904609079a340315dbbe8d7e1bcbc0603a21d0b43",
+      "url": "https://github.com/fumito072/mono-drive-fh6/releases/download/human-data-2026-11-02/episode-7ec26878f2de463f.zip"
+    },
+    {
+      "id": "episode-51749fdce2d28247",
+      "frames": 1924,
+      "train_frames": 1215,
+      "validation_frames": 709,
+      "segments": [
+        {
+          "path": "human/episode-51749fdce2d28247/train_000",
+          "partition": "train",
+          "frames": 60
+        },
+        {
+          "path": "human/episode-51749fdce2d28247/train_001",
+          "partition": "train",
+          "frames": 263
+        },
+        {
+          "path": "human/episode-51749fdce2d28247/train_002",
+          "partition": "train",
+          "frames": 892
+        },
+        {
+          "path": "human/episode-51749fdce2d28247/validation_000",
+          "partition": "validation",
+          "frames": 709
+        }
+      ],
+      "synchronization": {
+        "verified": true,
+        "video_pts_verified": true,
+        "raw_packets_verified": 33695,
+        "matched_frames": 9385,
+        "corrected_alignment_rows": 0,
+        "clock_offset_correction_s": 0.0,
+        "frame_clock_span_ms": 0.0009,
+        "median_age_ms": 11.1163,
+        "max_age_ms": 36.2175,
+        "excluded_frames_count": 133
+      },
+      "car_ordinals": [
+        3819
+      ],
+      "preparation_version": 2,
+      "asset": "episode-51749fdce2d28247.zip",
+      "bytes": 146877319,
+      "sha256": "292080784c376a0cd424ad47f3e1cf0fa5cacb5a3c53da07cd2a95c11e83a8b5",
+      "url": "https://github.com/fumito072/mono-drive-fh6/releases/download/human-data-2026-11-02/episode-51749fdce2d28247.zip"
+    },
+    {
+      "id": "episode-1f38ee069c0cba6c",
+      "frames": 6952,
+      "train_frames": 4476,
+      "validation_frames": 2476,
+      "segments": [
+        {
+          "path": "human/episode-1f38ee069c0cba6c/train_000",
+          "partition": "train",
+          "frames": 962
+        },
+        {
+          "path": "human/episode-1f38ee069c0cba6c/train_001",
+          "partition": "train",
+          "frames": 428
+        },
+        {
+          "path": "human/episode-1f38ee069c0cba6c/train_002",
+          "partition": "train",
+          "frames": 235
+        },
+        {
+          "path": "human/episode-1f38ee069c0cba6c/train_003",
+          "partition": "train",
+          "frames": 32
+        },
+        {
+          "path": "human/episode-1f38ee069c0cba6c/train_004",
+          "partition": "train",
+          "frames": 1582
+        },
+        {
+          "path": "human/episode-1f38ee069c0cba6c/train_005",
+          "partition": "train",
+          "frames": 938
+        },
+        {
+          "path": "human/episode-1f38ee069c0cba6c/train_006",
+          "partition": "train",
+          "frames": 299
+        },
+        {
+          "path": "human/episode-1f38ee069c0cba6c/validation_000",
+          "partition": "validation",
+          "frames": 309
+        },
+        {
+          "path": "human/episode-1f38ee069c0cba6c/validation_001",
+          "partition": "validation",
+          "frames": 941
+        },
+        {
+          "path": "human/episode-1f38ee069c0cba6c/validation_002",
+          "partition": "validation",
+          "frames": 431
+        },
+        {
+          "path": "human/episode-1f38ee069c0cba6c/validation_003",
+          "partition": "validation",
+          "frames": 180
+        },
+        {
+          "path": "human/episode-1f38ee069c0cba6c/validation_004",
+          "partition": "validation",
+          "frames": 245
+        },
+        {
+          "path": "human/episode-1f38ee069c0cba6c/validation_005",
+          "partition": "validation",
+          "frames": 370
+        }
+      ],
+      "synchronization": {
+        "verified": true,
+        "video_pts_verified": true,
+        "raw_packets_verified": 102163,
+        "matched_frames": 29429,
+        "corrected_alignment_rows": 0,
+        "clock_offset_correction_s": 0.0,
+        "frame_clock_span_ms": 0.0009,
+        "median_age_ms": 10.2955,
+        "max_age_ms": 39.9828,
+        "excluded_frames_count": 275
+      },
+      "car_ordinals": [
+        3819
+      ],
+      "preparation_version": 2,
+      "asset": "episode-1f38ee069c0cba6c.zip",
+      "bytes": 680262604,
+      "sha256": "bbf801623d55cb9809eaf489d92206e74871c1a9f7cfc4fb5d5f1f78e2892284",
+      "url": "https://github.com/fumito072/mono-drive-fh6/releases/download/human-data-2026-11-02/episode-1f38ee069c0cba6c.zip"
+    },
+    {
+      "id": "episode-4cafe5cc3974f4c7",
+      "frames": 2624,
+      "train_frames": 1724,
+      "validation_frames": 900,
+      "segments": [
+        {
+          "path": "human/episode-4cafe5cc3974f4c7/train_000",
+          "partition": "train",
+          "frames": 1724
+        },
+        {
+          "path": "human/episode-4cafe5cc3974f4c7/validation_000",
+          "partition": "validation",
+          "frames": 399
+        },
+        {
+          "path": "human/episode-4cafe5cc3974f4c7/validation_001",
+          "partition": "validation",
+          "frames": 48
+        },
+        {
+          "path": "human/episode-4cafe5cc3974f4c7/validation_002",
+          "partition": "validation",
+          "frames": 21
+        },
+        {
+          "path": "human/episode-4cafe5cc3974f4c7/validation_003",
+          "partition": "validation",
+          "frames": 41
+        },
+        {
+          "path": "human/episode-4cafe5cc3974f4c7/validation_004",
+          "partition": "validation",
+          "frames": 391
+        }
+      ],
+      "synchronization": {
+        "verified": true,
+        "video_pts_verified": true,
+        "raw_packets_verified": 44714,
+        "matched_frames": 13172,
+        "corrected_alignment_rows": 0,
+        "clock_offset_correction_s": 0.0,
+        "frame_clock_span_ms": 0.0009,
+        "median_age_ms": 12.0196,
+        "max_age_ms": 33.623,
+        "excluded_frames_count": 64
+      },
+      "car_ordinals": [
+        3819
+      ],
+      "preparation_version": 2,
+      "asset": "episode-4cafe5cc3974f4c7.zip",
+      "bytes": 320395620,
+      "sha256": "9c18c5f2c5ce697fa555a9c1527b15973871c573839954f6531bff7e1aabda09",
+      "url": "https://github.com/fumito072/mono-drive-fh6/releases/download/human-data-2026-11-02/episode-4cafe5cc3974f4c7.zip"
+    },
+    {
+      "id": "episode-3d9973d0db0fa54a",
+      "frames": 597,
+      "train_frames": 323,
+      "validation_frames": 274,
+      "segments": [
+        {
+          "path": "human/episode-3d9973d0db0fa54a/train_000",
+          "partition": "train",
+          "frames": 52
+        },
+        {
+          "path": "human/episode-3d9973d0db0fa54a/train_001",
+          "partition": "train",
+          "frames": 29
+        },
+        {
+          "path": "human/episode-3d9973d0db0fa54a/train_002",
+          "partition": "train",
+          "frames": 33
+        },
+        {
+          "path": "human/episode-3d9973d0db0fa54a/train_003",
+          "partition": "train",
+          "frames": 64
+        },
+        {
+          "path": "human/episode-3d9973d0db0fa54a/train_004",
+          "partition": "train",
+          "frames": 145
+        },
+        {
+          "path": "human/episode-3d9973d0db0fa54a/validation_000",
+          "partition": "validation",
+          "frames": 34
+        },
+        {
+          "path": "human/episode-3d9973d0db0fa54a/validation_001",
+          "partition": "validation",
+          "frames": 71
+        },
+        {
+          "path": "human/episode-3d9973d0db0fa54a/validation_002",
+          "partition": "validation",
+          "frames": 136
+        },
+        {
+          "path": "human/episode-3d9973d0db0fa54a/validation_003",
+          "partition": "validation",
+          "frames": 33
+        }
+      ],
+      "synchronization": {
+        "verified": true,
+        "video_pts_verified": true,
+        "raw_packets_verified": 14946,
+        "matched_frames": 2937,
+        "corrected_alignment_rows": 0,
+        "clock_offset_correction_s": 0.0,
+        "frame_clock_span_ms": 0.0009,
+        "median_age_ms": 10.3669,
+        "max_age_ms": 32.7982,
+        "excluded_frames_count": 329
+      },
+      "car_ordinals": [
+        3819
+      ],
+      "preparation_version": 2,
+      "asset": "episode-3d9973d0db0fa54a.zip",
+      "bytes": 54571095,
+      "sha256": "5d5ef72a668176af7607a9639b6ed5bcf49a2952e08ea41d206abeb037e2dcf6",
+      "url": "https://github.com/fumito072/mono-drive-fh6/releases/download/human-data-2026-11-02/episode-3d9973d0db0fa54a.zip"
+    },
+    {
+      "id": "episode-70c3a6fea0bf23cb",
+      "frames": 2354,
+      "train_frames": 1562,
+      "validation_frames": 792,
+      "segments": [
+        {
+          "path": "human/episode-70c3a6fea0bf23cb/train_000",
+          "partition": "train",
+          "frames": 1165
+        },
+        {
+          "path": "human/episode-70c3a6fea0bf23cb/train_001",
+          "partition": "train",
+          "frames": 397
+        },
+        {
+          "path": "human/episode-70c3a6fea0bf23cb/validation_000",
+          "partition": "validation",
+          "frames": 160
+        },
+        {
+          "path": "human/episode-70c3a6fea0bf23cb/validation_001",
+          "partition": "validation",
+          "frames": 632
+        }
+      ],
+      "synchronization": {
+        "verified": true,
+        "video_pts_verified": true,
+        "raw_packets_verified": 45510,
+        "matched_frames": 11974,
+        "corrected_alignment_rows": 0,
+        "clock_offset_correction_s": 0.0,
+        "frame_clock_span_ms": 0.0009,
+        "median_age_ms": 10.8068,
+        "max_age_ms": 33.7733,
+        "excluded_frames_count": 938
+      },
+      "car_ordinals": [
+        3819
+      ],
+      "preparation_version": 2,
+      "asset": "episode-70c3a6fea0bf23cb.zip",
+      "bytes": 221182482,
+      "sha256": "71df428a6cbe4bc98b1a95b99935ad389a445e0ab81bf9a8c10685654094fb5f",
+      "url": "https://github.com/fumito072/mono-drive-fh6/releases/download/human-data-2026-11-02/episode-70c3a6fea0bf23cb.zip"
+    },
+    {
+      "id": "episode-542a90cf36c1265a",
+      "frames": 1885,
+      "train_frames": 1157,
+      "validation_frames": 728,
+      "segments": [
+        {
+          "path": "human/episode-542a90cf36c1265a/train_000",
+          "partition": "train",
+          "frames": 490
+        },
+        {
+          "path": "human/episode-542a90cf36c1265a/train_001",
+          "partition": "train",
+          "frames": 235
+        },
+        {
+          "path": "human/episode-542a90cf36c1265a/train_002",
+          "partition": "train",
+          "frames": 432
+        },
+        {
+          "path": "human/episode-542a90cf36c1265a/validation_000",
+          "partition": "validation",
+          "frames": 145
+        },
+        {
+          "path": "human/episode-542a90cf36c1265a/validation_001",
+          "partition": "validation",
+          "frames": 583
+        }
+      ],
+      "synchronization": {
+        "verified": true,
+        "video_pts_verified": true,
+        "raw_packets_verified": 37403,
+        "matched_frames": 8529,
+        "corrected_alignment_rows": 0,
+        "clock_offset_correction_s": 0.0,
+        "frame_clock_span_ms": 0.0009,
+        "median_age_ms": 10.916,
+        "max_age_ms": 31.9411,
+        "excluded_frames_count": 0
+      },
+      "car_ordinals": [
+        3819
+      ],
+      "preparation_version": 2,
+      "asset": "episode-542a90cf36c1265a.zip",
+      "bytes": 250051037,
+      "sha256": "2655fd6231ea0d576dc2e94a4ee57282c494096f161e9c373b0ea9f9cb76870d",
+      "url": "https://github.com/fumito072/mono-drive-fh6/releases/download/human-data-2026-11-02/episode-542a90cf36c1265a.zip"
+    },
+    {
+      "id": "episode-086ece5d5a32a977",
+      "frames": 14601,
+      "train_frames": 9264,
+      "validation_frames": 5337,
+      "segments": [
+        {
+          "path": "human/episode-086ece5d5a32a977/train_000",
+          "partition": "train",
+          "frames": 3505
+        },
+        {
+          "path": "human/episode-086ece5d5a32a977/train_001",
+          "partition": "train",
+          "frames": 121
+        },
+        {
+          "path": "human/episode-086ece5d5a32a977/train_002",
+          "partition": "train",
+          "frames": 203
+        },
+        {
+          "path": "human/episode-086ece5d5a32a977/train_003",
+          "partition": "train",
+          "frames": 696
+        },
+        {
+          "path": "human/episode-086ece5d5a32a977/train_004",
+          "partition": "train",
+          "frames": 1445
+        },
+        {
+          "path": "human/episode-086ece5d5a32a977/train_005",
+          "partition": "train",
+          "frames": 137
+        },
+        {
+          "path": "human/episode-086ece5d5a32a977/train_006",
+          "partition": "train",
+          "frames": 322
+        },
+        {
+          "path": "human/episode-086ece5d5a32a977/train_007",
+          "partition": "train",
+          "frames": 70
+        },
+        {
+          "path": "human/episode-086ece5d5a32a977/train_008",
+          "partition": "train",
+          "frames": 223
+        },
+        {
+          "path": "human/episode-086ece5d5a32a977/train_009",
+          "partition": "train",
+          "frames": 153
+        },
+        {
+          "path": "human/episode-086ece5d5a32a977/train_010",
+          "partition": "train",
+          "frames": 69
+        },
+        {
+          "path": "human/episode-086ece5d5a32a977/train_011",
+          "partition": "train",
+          "frames": 364
+        },
+        {
+          "path": "human/episode-086ece5d5a32a977/train_012",
+          "partition": "train",
+          "frames": 322
+        },
+        {
+          "path": "human/episode-086ece5d5a32a977/train_013",
+          "partition": "train",
+          "frames": 41
+        },
+        {
+          "path": "human/episode-086ece5d5a32a977/train_014",
+          "partition": "train",
+          "frames": 527
+        },
+        {
+          "path": "human/episode-086ece5d5a32a977/train_015",
+          "partition": "train",
+          "frames": 28
+        },
+        {
+          "path": "human/episode-086ece5d5a32a977/train_016",
+          "partition": "train",
+          "frames": 78
+        },
+        {
+          "path": "human/episode-086ece5d5a32a977/train_017",
+          "partition": "train",
+          "frames": 263
+        },
+        {
+          "path": "human/episode-086ece5d5a32a977/train_018",
+          "partition": "train",
+          "frames": 82
+        },
+        {
+          "path": "human/episode-086ece5d5a32a977/train_019",
+          "partition": "train",
+          "frames": 145
+        },
+        {
+          "path": "human/episode-086ece5d5a32a977/train_020",
+          "partition": "train",
+          "frames": 83
+        },
+        {
+          "path": "human/episode-086ece5d5a32a977/train_021",
+          "partition": "train",
+          "frames": 20
+        },
+        {
+          "path": "human/episode-086ece5d5a32a977/train_022",
+          "partition": "train",
+          "frames": 20
+        },
+        {
+          "path": "human/episode-086ece5d5a32a977/train_023",
+          "partition": "train",
+          "frames": 137
+        },
+        {
+          "path": "human/episode-086ece5d5a32a977/train_024",
+          "partition": "train",
+          "frames": 125
+        },
+        {
+          "path": "human/episode-086ece5d5a32a977/train_025",
+          "partition": "train",
+          "frames": 85
+        },
+        {
+          "path": "human/episode-086ece5d5a32a977/validation_000",
+          "partition": "validation",
+          "frames": 389
+        },
+        {
+          "path": "human/episode-086ece5d5a32a977/validation_001",
+          "partition": "validation",
+          "frames": 231
+        },
+        {
+          "path": "human/episode-086ece5d5a32a977/validation_002",
+          "partition": "validation",
+          "frames": 116
+        },
+        {
+          "path": "human/episode-086ece5d5a32a977/validation_003",
+          "partition": "validation",
+          "frames": 815
+        },
+        {
+          "path": "human/episode-086ece5d5a32a977/validation_004",
+          "partition": "validation",
+          "frames": 1245
+        },
+        {
+          "path": "human/episode-086ece5d5a32a977/validation_005",
+          "partition": "validation",
+          "frames": 711
+        },
+        {
+          "path": "human/episode-086ece5d5a32a977/validation_006",
+          "partition": "validation",
+          "frames": 1249
+        },
+        {
+          "path": "human/episode-086ece5d5a32a977/validation_007",
+          "partition": "validation",
+          "frames": 97
+        },
+        {
+          "path": "human/episode-086ece5d5a32a977/validation_008",
+          "partition": "validation",
+          "frames": 484
+        }
+      ],
+      "synchronization": {
+        "verified": true,
+        "video_pts_verified": true,
+        "raw_packets_verified": 225259,
+        "matched_frames": 63331,
+        "corrected_alignment_rows": 0,
+        "clock_offset_correction_s": 0.0,
+        "frame_clock_span_ms": 0.0009,
+        "median_age_ms": 10.2411,
+        "max_age_ms": 37.029,
+        "excluded_frames_count": 190
+      },
+      "car_ordinals": [
+        3819
+      ],
+      "preparation_version": 2,
+      "asset": "episode-086ece5d5a32a977.zip",
+      "bytes": 1362857955,
+      "sha256": "f1a25bfa1a9ae2a3046ec8be2a03fac5a2434da18ecf018de1b9b3e508659aac",
+      "url": "https://github.com/fumito072/mono-drive-fh6/releases/download/human-data-2026-11-02/episode-086ece5d5a32a977.zip"
+    },
+    {
+      "id": "episode-b4b5890d5852c59b",
+      "frames": 4756,
+      "train_frames": 3038,
+      "validation_frames": 1718,
+      "segments": [
+        {
+          "path": "human/episode-b4b5890d5852c59b/train_000",
+          "partition": "train",
+          "frames": 2463
+        },
+        {
+          "path": "human/episode-b4b5890d5852c59b/train_001",
+          "partition": "train",
+          "frames": 575
+        },
+        {
+          "path": "human/episode-b4b5890d5852c59b/validation_000",
+          "partition": "validation",
+          "frames": 167
+        },
+        {
+          "path": "human/episode-b4b5890d5852c59b/validation_001",
+          "partition": "validation",
+          "frames": 264
+        },
+        {
+          "path": "human/episode-b4b5890d5852c59b/validation_002",
+          "partition": "validation",
+          "frames": 792
+        },
+        {
+          "path": "human/episode-b4b5890d5852c59b/validation_003",
+          "partition": "validation",
+          "frames": 495
+        }
+      ],
+      "synchronization": {
+        "verified": true,
+        "video_pts_verified": true,
+        "raw_packets_verified": 79552,
+        "matched_frames": 21527,
+        "corrected_alignment_rows": 0,
+        "clock_offset_correction_s": 0.0,
+        "frame_clock_span_ms": 0.0009,
+        "median_age_ms": 10.276,
+        "max_age_ms": 35.6676,
+        "excluded_frames_count": 2
+      },
+      "car_ordinals": [
+        3819
+      ],
+      "preparation_version": 2,
+      "asset": "episode-b4b5890d5852c59b.zip",
+      "bytes": 386627597,
+      "sha256": "eb0d40c7ca06f5e7e5acf7abd3e1d5f8ff7bfd43dc93b9bdb2a1b2a5df3093f8",
+      "url": "https://github.com/fumito072/mono-drive-fh6/releases/download/human-data-2026-11-02/episode-b4b5890d5852c59b.zip"
+    },
+    {
+      "id": "episode-6e02baefb1f72b95",
+      "frames": 1994,
+      "train_frames": 1256,
+      "validation_frames": 738,
+      "segments": [
+        {
+          "path": "human/episode-6e02baefb1f72b95/train_000",
+          "partition": "train",
+          "frames": 687
+        },
+        {
+          "path": "human/episode-6e02baefb1f72b95/train_001",
+          "partition": "train",
+          "frames": 131
+        },
+        {
+          "path": "human/episode-6e02baefb1f72b95/train_002",
+          "partition": "train",
+          "frames": 438
+        },
+        {
+          "path": "human/episode-6e02baefb1f72b95/validation_000",
+          "partition": "validation",
+          "frames": 738
+        }
+      ],
+      "synchronization": {
+        "verified": true,
+        "video_pts_verified": true,
+        "raw_packets_verified": 36706,
+        "matched_frames": 10909,
+        "corrected_alignment_rows": 0,
+        "clock_offset_correction_s": 0.0,
+        "frame_clock_span_ms": 0.0009,
+        "median_age_ms": 10.5053,
+        "max_age_ms": 33.3486,
+        "excluded_frames_count": 0
+      },
+      "car_ordinals": [
+        3819
+      ],
+      "preparation_version": 2,
+      "asset": "episode-6e02baefb1f72b95.zip",
+      "bytes": 160245727,
+      "sha256": "65bb76a7f72509aeca580efd70692ada28c20b738a396a99019480662b79028a",
+      "url": "https://github.com/fumito072/mono-drive-fh6/releases/download/human-data-2026-11-02/episode-6e02baefb1f72b95.zip"
+    },
+    {
+      "id": "episode-c905d5e2508d86b6",
+      "frames": 2883,
+      "train_frames": 1789,
+      "validation_frames": 1094,
+      "segments": [
+        {
+          "path": "human/episode-c905d5e2508d86b6/train_000",
+          "partition": "train",
+          "frames": 29
+        },
+        {
+          "path": "human/episode-c905d5e2508d86b6/train_001",
+          "partition": "train",
+          "frames": 1760
+        },
+        {
+          "path": "human/episode-c905d5e2508d86b6/validation_000",
+          "partition": "validation",
+          "frames": 204
+        },
+        {
+          "path": "human/episode-c905d5e2508d86b6/validation_001",
+          "partition": "validation",
+          "frames": 345
+        },
+        {
+          "path": "human/episode-c905d5e2508d86b6/validation_002",
+          "partition": "validation",
+          "frames": 274
+        },
+        {
+          "path": "human/episode-c905d5e2508d86b6/validation_003",
+          "partition": "validation",
+          "frames": 171
+        },
+        {
+          "path": "human/episode-c905d5e2508d86b6/validation_004",
+          "partition": "validation",
+          "frames": 100
+        }
+      ],
+      "synchronization": {
+        "verified": true,
+        "video_pts_verified": true,
+        "raw_packets_verified": 49700,
+        "matched_frames": 49228,
+        "corrected_alignment_rows": 0,
+        "clock_offset_correction_s": 0.0,
+        "frame_clock_span_ms": 0.0009,
+        "median_age_ms": 14.4482,
+        "max_age_ms": 31.1622,
+        "excluded_frames_count": 0
+      },
+      "car_ordinals": [
+        3819
+      ],
+      "preparation_version": 2,
+      "asset": "episode-c905d5e2508d86b6.zip",
+      "bytes": 835308073,
+      "sha256": "a694eb01be2743238dd92196378d04e4cbbcb1700dbb01f690b1eca4a12c6b5d",
+      "url": "https://github.com/fumito072/mono-drive-fh6/releases/download/human-data-2026-11-02/episode-c905d5e2508d86b6.zip"
+    },
+    {
+      "id": "episode-8c76bd137951591f",
+      "frames": 1630,
+      "train_frames": 1022,
+      "validation_frames": 608,
+      "segments": [
+        {
+          "path": "human/episode-8c76bd137951591f/train_000",
+          "partition": "train",
+          "frames": 1022
+        },
+        {
+          "path": "human/episode-8c76bd137951591f/validation_000",
+          "partition": "validation",
+          "frames": 608
+        }
+      ],
+      "synchronization": {
+        "verified": true,
+        "video_pts_verified": true,
+        "raw_packets_verified": 27875,
+        "matched_frames": 26995,
+        "corrected_alignment_rows": 0,
+        "clock_offset_correction_s": 0.0,
+        "frame_clock_span_ms": 0.0009,
+        "median_age_ms": 11.0396,
+        "max_age_ms": 28.2062,
+        "excluded_frames_count": 0
+      },
+      "car_ordinals": [
+        3819
+      ],
+      "preparation_version": 2,
+      "asset": "episode-8c76bd137951591f.zip",
+      "bytes": 303165648,
+      "sha256": "5bc9a29b7a97a9b82c2defff28ead0298d9403d9689e9536c75fd3488d4718f2",
+      "url": "https://github.com/fumito072/mono-drive-fh6/releases/download/human-data-2026-11-02/episode-8c76bd137951591f.zip"
+    },
+    {
+      "id": "episode-ed40741b1198b773",
+      "frames": 1639,
+      "train_frames": 1033,
+      "validation_frames": 606,
+      "segments": [
+        {
+          "path": "human/episode-ed40741b1198b773/train_000",
+          "partition": "train",
+          "frames": 1033
+        },
+        {
+          "path": "human/episode-ed40741b1198b773/validation_000",
+          "partition": "validation",
+          "frames": 606
+        }
+      ],
+      "synchronization": {
+        "verified": true,
+        "video_pts_verified": true,
+        "raw_packets_verified": 31395,
+        "matched_frames": 8749,
+        "corrected_alignment_rows": 0,
+        "clock_offset_correction_s": 0.0,
+        "frame_clock_span_ms": 0.0009,
+        "median_age_ms": 11.2041,
+        "max_age_ms": 29.7253,
+        "excluded_frames_count": 0
+      },
+      "car_ordinals": [
+        3819
+      ],
+      "preparation_version": 2,
+      "asset": "episode-ed40741b1198b773.zip",
+      "bytes": 153227113,
+      "sha256": "7c41b83d8282cac19e960e96a1a2a5956ece374e3db2dddd428bf631e9135989",
+      "url": "https://github.com/fumito072/mono-drive-fh6/releases/download/human-data-2026-11-02/episode-ed40741b1198b773.zip"
+    },
+    {
+      "id": "episode-c0c79853a6544a47",
+      "frames": 2963,
+      "train_frames": 1809,
+      "validation_frames": 1154,
+      "segments": [
+        {
+          "path": "human/episode-c0c79853a6544a47/train_000",
+          "partition": "train",
+          "frames": 133
+        },
+        {
+          "path": "human/episode-c0c79853a6544a47/train_001",
+          "partition": "train",
+          "frames": 418
+        },
+        {
+          "path": "human/episode-c0c79853a6544a47/train_002",
+          "partition": "train",
+          "frames": 423
+        },
+        {
+          "path": "human/episode-c0c79853a6544a47/train_003",
+          "partition": "train",
+          "frames": 23
+        },
+        {
+          "path": "human/episode-c0c79853a6544a47/train_004",
+          "partition": "train",
+          "frames": 812
+        },
+        {
+          "path": "human/episode-c0c79853a6544a47/validation_000",
+          "partition": "validation",
+          "frames": 1154
+        }
+      ],
+      "synchronization": {
+        "verified": true,
+        "video_pts_verified": true,
+        "raw_packets_verified": 49393,
+        "matched_frames": 45734,
+        "corrected_alignment_rows": 0,
+        "clock_offset_correction_s": 0.0,
+        "frame_clock_span_ms": 0.0009,
+        "median_age_ms": 14.82215,
+        "max_age_ms": 33.6682,
+        "excluded_frames_count": 0
+      },
+      "car_ordinals": [
+        3819
+      ],
+      "preparation_version": 2,
+      "asset": "episode-c0c79853a6544a47.zip",
+      "bytes": 959851124,
+      "sha256": "428394b06f613daf932217b967513bbceb34af9a34b1e95051bfa1d7ecbaaf3a",
+      "url": "https://github.com/fumito072/mono-drive-fh6/releases/download/human-data-2026-11-02/episode-c0c79853a6544a47.zip"
+    },
+    {
+      "id": "episode-d76cc3683bc3d62b",
+      "frames": 2326,
+      "train_frames": 1463,
+      "validation_frames": 863,
+      "segments": [
+        {
+          "path": "human/episode-d76cc3683bc3d62b/train_000",
+          "partition": "train",
+          "frames": 717
+        },
+        {
+          "path": "human/episode-d76cc3683bc3d62b/train_001",
+          "partition": "train",
+          "frames": 746
+        },
+        {
+          "path": "human/episode-d76cc3683bc3d62b/validation_000",
+          "partition": "validation",
+          "frames": 863
+        }
+      ],
+      "synchronization": {
+        "verified": true,
+        "video_pts_verified": true,
+        "raw_packets_verified": 38517,
+        "matched_frames": 38326,
+        "corrected_alignment_rows": 0,
+        "clock_offset_correction_s": 0.0,
+        "frame_clock_span_ms": 0.0009,
+        "median_age_ms": 14.841149999999999,
+        "max_age_ms": 33.7201,
+        "excluded_frames_count": 0
+      },
+      "car_ordinals": [
+        3819
+      ],
+      "preparation_version": 2,
+      "asset": "episode-d76cc3683bc3d62b.zip",
+      "bytes": 743602347,
+      "sha256": "cc159a041b92aab6006ba5b6b437a73309bc7786b888593631c5a758589e7c5b",
+      "url": "https://github.com/fumito072/mono-drive-fh6/releases/download/human-data-2026-11-02/episode-d76cc3683bc3d62b.zip"
+    },
+    {
+      "id": "episode-1410db04bbeff7fa",
+      "frames": 2421,
+      "train_frames": 1504,
+      "validation_frames": 917,
+      "segments": [
+        {
+          "path": "human/episode-1410db04bbeff7fa/train_000",
+          "partition": "train",
+          "frames": 708
+        },
+        {
+          "path": "human/episode-1410db04bbeff7fa/train_001",
+          "partition": "train",
+          "frames": 260
+        },
+        {
+          "path": "human/episode-1410db04bbeff7fa/train_002",
+          "partition": "train",
+          "frames": 338
+        },
+        {
+          "path": "human/episode-1410db04bbeff7fa/train_003",
+          "partition": "train",
+          "frames": 98
+        },
+        {
+          "path": "human/episode-1410db04bbeff7fa/train_004",
+          "partition": "train",
+          "frames": 100
+        },
+        {
+          "path": "human/episode-1410db04bbeff7fa/validation_000",
+          "partition": "validation",
+          "frames": 195
+        },
+        {
+          "path": "human/episode-1410db04bbeff7fa/validation_001",
+          "partition": "validation",
+          "frames": 312
+        },
+        {
+          "path": "human/episode-1410db04bbeff7fa/validation_002",
+          "partition": "validation",
+          "frames": 410
+        }
+      ],
+      "synchronization": {
+        "verified": true,
+        "video_pts_verified": true,
+        "raw_packets_verified": 36579,
+        "matched_frames": 10654,
+        "corrected_alignment_rows": 0,
+        "clock_offset_correction_s": 0.0,
+        "frame_clock_span_ms": 0.0009,
+        "median_age_ms": 10.304300000000001,
+        "max_age_ms": 43.7625,
+        "excluded_frames_count": 1
+      },
+      "car_ordinals": [
+        3819
+      ],
+      "preparation_version": 2,
+      "asset": "episode-1410db04bbeff7fa.zip",
+      "bytes": 154245098,
+      "sha256": "961d8a43c6ee3d64ba1d877b44a0248052ae2425e967dbc8b21edcf02bee71fa",
+      "url": "https://github.com/fumito072/mono-drive-fh6/releases/download/human-data-2026-11-02/episode-1410db04bbeff7fa.zip"
+    },
+    {
+      "id": "episode-2bd9155e95f80ac9",
+      "frames": 2370,
+      "train_frames": 1447,
+      "validation_frames": 923,
+      "segments": [
+        {
+          "path": "human/episode-2bd9155e95f80ac9/train_000",
+          "partition": "train",
+          "frames": 295
+        },
+        {
+          "path": "human/episode-2bd9155e95f80ac9/train_001",
+          "partition": "train",
+          "frames": 288
+        },
+        {
+          "path": "human/episode-2bd9155e95f80ac9/train_002",
+          "partition": "train",
+          "frames": 131
+        },
+        {
+          "path": "human/episode-2bd9155e95f80ac9/train_003",
+          "partition": "train",
+          "frames": 733
+        },
+        {
+          "path": "human/episode-2bd9155e95f80ac9/validation_000",
+          "partition": "validation",
+          "frames": 923
+        }
+      ],
+      "synchronization": {
+        "verified": true,
+        "video_pts_verified": true,
+        "raw_packets_verified": 39833,
+        "matched_frames": 19557,
+        "corrected_alignment_rows": 0,
+        "clock_offset_correction_s": 0.0,
+        "frame_clock_span_ms": 0.0009,
+        "median_age_ms": 9.3471,
+        "max_age_ms": 36.1851,
+        "excluded_frames_count": 318
+      },
+      "car_ordinals": [
+        3819
+      ],
+      "preparation_version": 2,
+      "asset": "episode-2bd9155e95f80ac9.zip",
+      "bytes": 332030159,
+      "sha256": "50bdd81b335dadc00f914ba722b4c4329ddab693577754178252d1c228f7ff8a",
+      "url": "https://github.com/fumito072/mono-drive-fh6/releases/download/human-data-2026-11-02/episode-2bd9155e95f80ac9.zip"
+    },
+    {
+      "id": "episode-53e89130e8935f09",
+      "frames": 2256,
+      "train_frames": 1405,
+      "validation_frames": 851,
+      "segments": [
+        {
+          "path": "human/episode-53e89130e8935f09/train_000",
+          "partition": "train",
+          "frames": 344
+        },
+        {
+          "path": "human/episode-53e89130e8935f09/train_001",
+          "partition": "train",
+          "frames": 1061
+        },
+        {
+          "path": "human/episode-53e89130e8935f09/validation_000",
+          "partition": "validation",
+          "frames": 851
+        }
+      ],
+      "synchronization": {
+        "verified": true,
+        "video_pts_verified": true,
+        "raw_packets_verified": 36956,
+        "matched_frames": 36468,
+        "corrected_alignment_rows": 0,
+        "clock_offset_correction_s": 0.0,
+        "frame_clock_span_ms": 0.0009,
+        "median_age_ms": 14.8341,
+        "max_age_ms": 34.0041,
+        "excluded_frames_count": 0
+      },
+      "car_ordinals": [
+        3819
+      ],
+      "preparation_version": 2,
+      "asset": "episode-53e89130e8935f09.zip",
+      "bytes": 754670599,
+      "sha256": "562b67ec1eab6d1692c4e20b5480d02c091873f2829fd636425271f6ded6e09a",
+      "url": "https://github.com/fumito072/mono-drive-fh6/releases/download/human-data-2026-11-02/episode-53e89130e8935f09.zip"
+    },
+    {
+      "id": "episode-2680f32afd9b4afb",
+      "frames": 1389,
+      "train_frames": 841,
+      "validation_frames": 548,
+      "segments": [
+        {
+          "path": "human/episode-2680f32afd9b4afb/train_000",
+          "partition": "train",
+          "frames": 841
+        },
+        {
+          "path": "human/episode-2680f32afd9b4afb/validation_000",
+          "partition": "validation",
+          "frames": 548
+        }
+      ],
+      "synchronization": {
+        "verified": true,
+        "video_pts_verified": true,
+        "raw_packets_verified": 31872,
+        "matched_frames": 12137,
+        "corrected_alignment_rows": 0,
+        "clock_offset_correction_s": 0.0,
+        "frame_clock_span_ms": 0.0009,
+        "median_age_ms": 12.6809,
+        "max_age_ms": 29.7165,
+        "excluded_frames_count": 45
+      },
+      "car_ordinals": [
+        3819
+      ],
+      "preparation_version": 2,
+      "asset": "episode-2680f32afd9b4afb.zip",
+      "bytes": 170200878,
+      "sha256": "3668a0b9b5fec77e6fe4275ced66c31a9b0ed1f7fa817ed05b9f5108b0d4280d",
+      "url": "https://github.com/fumito072/mono-drive-fh6/releases/download/human-data-2026-11-02/episode-2680f32afd9b4afb.zip"
+    },
+    {
+      "id": "episode-4e60fddc15e9010c",
+      "frames": 3334,
+      "train_frames": 2059,
+      "validation_frames": 1275,
+      "segments": [
+        {
+          "path": "human/episode-4e60fddc15e9010c/train_000",
+          "partition": "train",
+          "frames": 626
+        },
+        {
+          "path": "human/episode-4e60fddc15e9010c/train_001",
+          "partition": "train",
+          "frames": 201
+        },
+        {
+          "path": "human/episode-4e60fddc15e9010c/train_002",
+          "partition": "train",
+          "frames": 621
+        },
+        {
+          "path": "human/episode-4e60fddc15e9010c/train_003",
+          "partition": "train",
+          "frames": 611
+        },
+        {
+          "path": "human/episode-4e60fddc15e9010c/validation_000",
+          "partition": "validation",
+          "frames": 1275
+        }
+      ],
+      "synchronization": {
+        "verified": true,
+        "video_pts_verified": true,
+        "raw_packets_verified": 58226,
+        "matched_frames": 16328,
+        "corrected_alignment_rows": 0,
+        "clock_offset_correction_s": 0.0,
+        "frame_clock_span_ms": 0.0009,
+        "median_age_ms": 11.3826,
+        "max_age_ms": 32.5683,
+        "excluded_frames_count": 0
+      },
+      "car_ordinals": [
+        3819
+      ],
+      "preparation_version": 2,
+      "asset": "episode-4e60fddc15e9010c.zip",
+      "bytes": 375938706,
+      "sha256": "d8ddd7009cc76880eb5857055763d83df1318602a320477084dfef83aae4e135",
+      "url": "https://github.com/fumito072/mono-drive-fh6/releases/download/human-data-2026-11-02/episode-4e60fddc15e9010c.zip"
+    },
+    {
+      "id": "episode-81444b8fd9b94b1b",
+      "frames": 3202,
+      "train_frames": 2037,
+      "validation_frames": 1165,
+      "segments": [
+        {
+          "path": "human/episode-81444b8fd9b94b1b/train_000",
+          "partition": "train",
+          "frames": 2037
+        },
+        {
+          "path": "human/episode-81444b8fd9b94b1b/validation_000",
+          "partition": "validation",
+          "frames": 486
+        },
+        {
+          "path": "human/episode-81444b8fd9b94b1b/validation_001",
+          "partition": "validation",
+          "frames": 37
+        },
+        {
+          "path": "human/episode-81444b8fd9b94b1b/validation_002",
+          "partition": "validation",
+          "frames": 26
+        },
+        {
+          "path": "human/episode-81444b8fd9b94b1b/validation_003",
+          "partition": "validation",
+          "frames": 616
+        }
+      ],
+      "synchronization": {
+        "verified": true,
+        "video_pts_verified": true,
+        "raw_packets_verified": 47131,
+        "matched_frames": 13768,
+        "corrected_alignment_rows": 0,
+        "clock_offset_correction_s": 0.0,
+        "frame_clock_span_ms": 0.0009,
+        "median_age_ms": 10.286,
+        "max_age_ms": 44.7229,
+        "excluded_frames_count": 149
+      },
+      "car_ordinals": [
+        3819
+      ],
+      "preparation_version": 2,
+      "asset": "episode-81444b8fd9b94b1b.zip",
+      "bytes": 264243247,
+      "sha256": "e4678eaec414f9bea7f6fd4fff2061043a4baaaddcd1f6831e4b569ee33bf4d3",
+      "url": "https://github.com/fumito072/mono-drive-fh6/releases/download/human-data-2026-11-02/episode-81444b8fd9b94b1b.zip"
+    },
+    {
+      "id": "episode-65503888377e5cdd",
+      "frames": 3839,
+      "train_frames": 2438,
+      "validation_frames": 1401,
+      "segments": [
+        {
+          "path": "human/episode-65503888377e5cdd/train_000",
+          "partition": "train",
+          "frames": 553
+        },
+        {
+          "path": "human/episode-65503888377e5cdd/train_001",
+          "partition": "train",
+          "frames": 485
+        },
+        {
+          "path": "human/episode-65503888377e5cdd/train_002",
+          "partition": "train",
+          "frames": 51
+        },
+        {
+          "path": "human/episode-65503888377e5cdd/train_003",
+          "partition": "train",
+          "frames": 316
+        },
+        {
+          "path": "human/episode-65503888377e5cdd/train_004",
+          "partition": "train",
+          "frames": 154
+        },
+        {
+          "path": "human/episode-65503888377e5cdd/train_005",
+          "partition": "train",
+          "frames": 404
+        },
+        {
+          "path": "human/episode-65503888377e5cdd/train_006",
+          "partition": "train",
+          "frames": 475
+        },
+        {
+          "path": "human/episode-65503888377e5cdd/validation_000",
+          "partition": "validation",
+          "frames": 1036
+        },
+        {
+          "path": "human/episode-65503888377e5cdd/validation_001",
+          "partition": "validation",
+          "frames": 365
+        }
+      ],
+      "synchronization": {
+        "verified": true,
+        "video_pts_verified": true,
+        "raw_packets_verified": 58810,
+        "matched_frames": 16794,
+        "corrected_alignment_rows": 0,
+        "clock_offset_correction_s": 0.0,
+        "frame_clock_span_ms": 0.0009,
+        "median_age_ms": 10.1752,
+        "max_age_ms": 33.9134,
+        "excluded_frames_count": 1
+      },
+      "car_ordinals": [
+        3819
+      ],
+      "preparation_version": 2,
+      "asset": "episode-65503888377e5cdd.zip",
+      "bytes": 342695285,
+      "sha256": "60fcf8ed17dfcfa9282a84052dcc2da088b40a4b28be66baa113449bd356cb4d",
+      "url": "https://github.com/fumito072/mono-drive-fh6/releases/download/human-data-2026-11-02/episode-65503888377e5cdd.zip"
+    },
+    {
+      "id": "episode-db2234838326bb02",
+      "frames": 7750,
+      "train_frames": 4912,
+      "validation_frames": 2838,
+      "segments": [
+        {
+          "path": "human/episode-db2234838326bb02/train_000",
+          "partition": "train",
+          "frames": 41
+        },
+        {
+          "path": "human/episode-db2234838326bb02/train_001",
+          "partition": "train",
+          "frames": 514
+        },
+        {
+          "path": "human/episode-db2234838326bb02/train_002",
+          "partition": "train",
+          "frames": 381
+        },
+        {
+          "path": "human/episode-db2234838326bb02/train_003",
+          "partition": "train",
+          "frames": 164
+        },
+        {
+          "path": "human/episode-db2234838326bb02/train_004",
+          "partition": "train",
+          "frames": 232
+        },
+        {
+          "path": "human/episode-db2234838326bb02/train_005",
+          "partition": "train",
+          "frames": 119
+        },
+        {
+          "path": "human/episode-db2234838326bb02/train_006",
+          "partition": "train",
+          "frames": 778
+        },
+        {
+          "path": "human/episode-db2234838326bb02/train_007",
+          "partition": "train",
+          "frames": 112
+        },
+        {
+          "path": "human/episode-db2234838326bb02/train_008",
+          "partition": "train",
+          "frames": 42
+        },
+        {
+          "path": "human/episode-db2234838326bb02/train_009",
+          "partition": "train",
+          "frames": 45
+        },
+        {
+          "path": "human/episode-db2234838326bb02/train_010",
+          "partition": "train",
+          "frames": 924
+        },
+        {
+          "path": "human/episode-db2234838326bb02/train_011",
+          "partition": "train",
+          "frames": 31
+        },
+        {
+          "path": "human/episode-db2234838326bb02/train_012",
+          "partition": "train",
+          "frames": 24
+        },
+        {
+          "path": "human/episode-db2234838326bb02/train_013",
+          "partition": "train",
+          "frames": 333
+        },
+        {
+          "path": "human/episode-db2234838326bb02/train_014",
+          "partition": "train",
+          "frames": 192
+        },
+        {
+          "path": "human/episode-db2234838326bb02/train_015",
+          "partition": "train",
+          "frames": 194
+        },
+        {
+          "path": "human/episode-db2234838326bb02/train_016",
+          "partition": "train",
+          "frames": 68
+        },
+        {
+          "path": "human/episode-db2234838326bb02/train_017",
+          "partition": "train",
+          "frames": 36
+        },
+        {
+          "path": "human/episode-db2234838326bb02/train_018",
+          "partition": "train",
+          "frames": 456
+        },
+        {
+          "path": "human/episode-db2234838326bb02/train_019",
+          "partition": "train",
+          "frames": 100
+        },
+        {
+          "path": "human/episode-db2234838326bb02/train_020",
+          "partition": "train",
+          "frames": 126
+        },
+        {
+          "path": "human/episode-db2234838326bb02/validation_000",
+          "partition": "validation",
+          "frames": 129
+        },
+        {
+          "path": "human/episode-db2234838326bb02/validation_001",
+          "partition": "validation",
+          "frames": 655
+        },
+        {
+          "path": "human/episode-db2234838326bb02/validation_002",
+          "partition": "validation",
+          "frames": 98
+        },
+        {
+          "path": "human/episode-db2234838326bb02/validation_003",
+          "partition": "validation",
+          "frames": 138
+        },
+        {
+          "path": "human/episode-db2234838326bb02/validation_004",
+          "partition": "validation",
+          "frames": 59
+        },
+        {
+          "path": "human/episode-db2234838326bb02/validation_005",
+          "partition": "validation",
+          "frames": 82
+        },
+        {
+          "path": "human/episode-db2234838326bb02/validation_006",
+          "partition": "validation",
+          "frames": 800
+        },
+        {
+          "path": "human/episode-db2234838326bb02/validation_007",
+          "partition": "validation",
+          "frames": 520
+        },
+        {
+          "path": "human/episode-db2234838326bb02/validation_008",
+          "partition": "validation",
+          "frames": 179
+        },
+        {
+          "path": "human/episode-db2234838326bb02/validation_009",
+          "partition": "validation",
+          "frames": 178
+        }
+      ],
+      "synchronization": {
+        "verified": true,
+        "video_pts_verified": true,
+        "raw_packets_verified": 141949,
+        "matched_frames": 35576,
+        "corrected_alignment_rows": 0,
+        "clock_offset_correction_s": 0.0,
+        "frame_clock_span_ms": 0.0009,
+        "median_age_ms": 9.84005,
+        "max_age_ms": 28.0073,
+        "excluded_frames_count": 1149
+      },
+      "car_ordinals": [
+        3819
+      ],
+      "preparation_version": 2,
+      "asset": "episode-db2234838326bb02.zip",
+      "bytes": 771145553,
+      "sha256": "2996ac837e6bf44432960979d22d7f93289400a702b888df67af4e6f9bd09dc1",
+      "url": "https://github.com/fumito072/mono-drive-fh6/releases/download/human-data-2026-11-02/episode-db2234838326bb02.zip"
+    },
+    {
+      "id": "episode-7bf749494074bef5",
+      "frames": 4879,
+      "train_frames": 3217,
+      "validation_frames": 1662,
+      "segments": [
+        {
+          "path": "human/episode-7bf749494074bef5/train_000",
+          "partition": "train",
+          "frames": 1512
+        },
+        {
+          "path": "human/episode-7bf749494074bef5/train_001",
+          "partition": "train",
+          "frames": 819
+        },
+        {
+          "path": "human/episode-7bf749494074bef5/train_002",
+          "partition": "train",
+          "frames": 164
+        },
+        {
+          "path": "human/episode-7bf749494074bef5/train_003",
+          "partition": "train",
+          "frames": 484
+        },
+        {
+          "path": "human/episode-7bf749494074bef5/train_004",
+          "partition": "train",
+          "frames": 238
+        },
+        {
+          "path": "human/episode-7bf749494074bef5/validation_000",
+          "partition": "validation",
+          "frames": 333
+        },
+        {
+          "path": "human/episode-7bf749494074bef5/validation_001",
+          "partition": "validation",
+          "frames": 48
+        },
+        {
+          "path": "human/episode-7bf749494074bef5/validation_002",
+          "partition": "validation",
+          "frames": 615
+        },
+        {
+          "path": "human/episode-7bf749494074bef5/validation_003",
+          "partition": "validation",
+          "frames": 199
+        },
+        {
+          "path": "human/episode-7bf749494074bef5/validation_004",
+          "partition": "validation",
+          "frames": 467
+        }
+      ],
+      "synchronization": {
+        "verified": true,
+        "video_pts_verified": true,
+        "raw_packets_verified": 86471,
+        "matched_frames": 82660,
+        "corrected_alignment_rows": 0,
+        "clock_offset_correction_s": 0.0,
+        "frame_clock_span_ms": 0.0009,
+        "median_age_ms": 11.7211,
+        "max_age_ms": 28.8209,
+        "excluded_frames_count": 3394
+      },
+      "car_ordinals": [
+        3819
+      ],
+      "preparation_version": 2,
+      "asset": "episode-7bf749494074bef5.zip",
+      "bytes": 473259270,
+      "sha256": "21258f06d2b49c3a02208ff0716011e7713936a87897011fa177a7fb6dadb596",
+      "url": "https://github.com/fumito072/mono-drive-fh6/releases/download/human-data-2026-11-02/episode-7bf749494074bef5.zip"
+    },
+    {
+      "id": "episode-1b0d15c23434a368",
+      "frames": 1466,
+      "train_frames": 919,
+      "validation_frames": 547,
+      "segments": [
+        {
+          "path": "human/episode-1b0d15c23434a368/train_000",
+          "partition": "train",
+          "frames": 919
+        },
+        {
+          "path": "human/episode-1b0d15c23434a368/validation_000",
+          "partition": "validation",
+          "frames": 547
+        }
+      ],
+      "synchronization": {
+        "verified": true,
+        "video_pts_verified": true,
+        "raw_packets_verified": 24664,
+        "matched_frames": 6144,
+        "corrected_alignment_rows": 0,
+        "clock_offset_correction_s": 0.0,
+        "frame_clock_span_ms": 0.0009,
+        "median_age_ms": 9.4714,
+        "max_age_ms": 32.6735,
+        "excluded_frames_count": 0
+      },
+      "car_ordinals": [
+        3819
+      ],
+      "preparation_version": 2,
+      "asset": "episode-1b0d15c23434a368.zip",
+      "bytes": 99376949,
+      "sha256": "b1ba3d890e695a17c14fdc74cac7fadbb1225a8b32f75b261f7fd5f7329e4d1e",
+      "url": "https://github.com/fumito072/mono-drive-fh6/releases/download/human-data-2026-11-02/episode-1b0d15c23434a368.zip"
+    },
+    {
+      "id": "episode-21265aad297e22aa",
+      "frames": 9301,
+      "train_frames": 5652,
+      "validation_frames": 3649,
+      "segments": [
+        {
+          "path": "human/episode-21265aad297e22aa/train_000",
+          "partition": "train",
+          "frames": 78
+        },
+        {
+          "path": "human/episode-21265aad297e22aa/train_001",
+          "partition": "train",
+          "frames": 39
+        },
+        {
+          "path": "human/episode-21265aad297e22aa/train_002",
+          "partition": "train",
+          "frames": 177
+        },
+        {
+          "path": "human/episode-21265aad297e22aa/train_003",
+          "partition": "train",
+          "frames": 30
+        },
+        {
+          "path": "human/episode-21265aad297e22aa/train_004",
+          "partition": "train",
+          "frames": 104
+        },
+        {
+          "path": "human/episode-21265aad297e22aa/train_005",
+          "partition": "train",
+          "frames": 586
+        },
+        {
+          "path": "human/episode-21265aad297e22aa/train_006",
+          "partition": "train",
+          "frames": 232
+        },
+        {
+          "path": "human/episode-21265aad297e22aa/train_007",
+          "partition": "train",
+          "frames": 149
+        },
+        {
+          "path": "human/episode-21265aad297e22aa/train_008",
+          "partition": "train",
+          "frames": 49
+        },
+        {
+          "path": "human/episode-21265aad297e22aa/train_009",
+          "partition": "train",
+          "frames": 176
+        },
+        {
+          "path": "human/episode-21265aad297e22aa/train_010",
+          "partition": "train",
+          "frames": 21
+        },
+        {
+          "path": "human/episode-21265aad297e22aa/train_011",
+          "partition": "train",
+          "frames": 20
+        },
+        {
+          "path": "human/episode-21265aad297e22aa/train_012",
+          "partition": "train",
+          "frames": 162
+        },
+        {
+          "path": "human/episode-21265aad297e22aa/train_013",
+          "partition": "train",
+          "frames": 121
+        },
+        {
+          "path": "human/episode-21265aad297e22aa/train_014",
+          "partition": "train",
+          "frames": 36
+        },
+        {
+          "path": "human/episode-21265aad297e22aa/train_015",
+          "partition": "train",
+          "frames": 424
+        },
+        {
+          "path": "human/episode-21265aad297e22aa/train_016",
+          "partition": "train",
+          "frames": 453
+        },
+        {
+          "path": "human/episode-21265aad297e22aa/train_017",
+          "partition": "train",
+          "frames": 329
+        },
+        {
+          "path": "human/episode-21265aad297e22aa/train_018",
+          "partition": "train",
+          "frames": 60
+        },
+        {
+          "path": "human/episode-21265aad297e22aa/train_019",
+          "partition": "train",
+          "frames": 164
+        },
+        {
+          "path": "human/episode-21265aad297e22aa/train_020",
+          "partition": "train",
+          "frames": 37
+        },
+        {
+          "path": "human/episode-21265aad297e22aa/train_021",
+          "partition": "train",
+          "frames": 127
+        },
+        {
+          "path": "human/episode-21265aad297e22aa/train_022",
+          "partition": "train",
+          "frames": 385
+        },
+        {
+          "path": "human/episode-21265aad297e22aa/train_023",
+          "partition": "train",
+          "frames": 105
+        },
+        {
+          "path": "human/episode-21265aad297e22aa/train_024",
+          "partition": "train",
+          "frames": 233
+        },
+        {
+          "path": "human/episode-21265aad297e22aa/train_025",
+          "partition": "train",
+          "frames": 476
+        },
+        {
+          "path": "human/episode-21265aad297e22aa/train_026",
+          "partition": "train",
+          "frames": 363
+        },
+        {
+          "path": "human/episode-21265aad297e22aa/train_027",
+          "partition": "train",
+          "frames": 27
+        },
+        {
+          "path": "human/episode-21265aad297e22aa/train_028",
+          "partition": "train",
+          "frames": 83
+        },
+        {
+          "path": "human/episode-21265aad297e22aa/train_029",
+          "partition": "train",
+          "frames": 80
+        },
+        {
+          "path": "human/episode-21265aad297e22aa/train_030",
+          "partition": "train",
+          "frames": 28
+        },
+        {
+          "path": "human/episode-21265aad297e22aa/train_031",
+          "partition": "train",
+          "frames": 193
+        },
+        {
+          "path": "human/episode-21265aad297e22aa/train_032",
+          "partition": "train",
+          "frames": 105
+        },
+        {
+          "path": "human/episode-21265aad297e22aa/validation_000",
+          "partition": "validation",
+          "frames": 56
+        },
+        {
+          "path": "human/episode-21265aad297e22aa/validation_001",
+          "partition": "validation",
+          "frames": 150
+        },
+        {
+          "path": "human/episode-21265aad297e22aa/validation_002",
+          "partition": "validation",
+          "frames": 116
+        },
+        {
+          "path": "human/episode-21265aad297e22aa/validation_003",
+          "partition": "validation",
+          "frames": 29
+        },
+        {
+          "path": "human/episode-21265aad297e22aa/validation_004",
+          "partition": "validation",
+          "frames": 24
+        },
+        {
+          "path": "human/episode-21265aad297e22aa/validation_005",
+          "partition": "validation",
+          "frames": 109
+        },
+        {
+          "path": "human/episode-21265aad297e22aa/validation_006",
+          "partition": "validation",
+          "frames": 214
+        },
+        {
+          "path": "human/episode-21265aad297e22aa/validation_007",
+          "partition": "validation",
+          "frames": 136
+        },
+        {
+          "path": "human/episode-21265aad297e22aa/validation_008",
+          "partition": "validation",
+          "frames": 164
+        },
+        {
+          "path": "human/episode-21265aad297e22aa/validation_009",
+          "partition": "validation",
+          "frames": 107
+        },
+        {
+          "path": "human/episode-21265aad297e22aa/validation_010",
+          "partition": "validation",
+          "frames": 43
+        },
+        {
+          "path": "human/episode-21265aad297e22aa/validation_011",
+          "partition": "validation",
+          "frames": 36
+        },
+        {
+          "path": "human/episode-21265aad297e22aa/validation_012",
+          "partition": "validation",
+          "frames": 103
+        },
+        {
+          "path": "human/episode-21265aad297e22aa/validation_013",
+          "partition": "validation",
+          "frames": 81
+        },
+        {
+          "path": "human/episode-21265aad297e22aa/validation_014",
+          "partition": "validation",
+          "frames": 47
+        },
+        {
+          "path": "human/episode-21265aad297e22aa/validation_015",
+          "partition": "validation",
+          "frames": 401
+        },
+        {
+          "path": "human/episode-21265aad297e22aa/validation_016",
+          "partition": "validation",
+          "frames": 194
+        },
+        {
+          "path": "human/episode-21265aad297e22aa/validation_017",
+          "partition": "validation",
+          "frames": 309
+        },
+        {
+          "path": "human/episode-21265aad297e22aa/validation_018",
+          "partition": "validation",
+          "frames": 182
+        },
+        {
+          "path": "human/episode-21265aad297e22aa/validation_019",
+          "partition": "validation",
+          "frames": 25
+        },
+        {
+          "path": "human/episode-21265aad297e22aa/validation_020",
+          "partition": "validation",
+          "frames": 62
+        },
+        {
+          "path": "human/episode-21265aad297e22aa/validation_021",
+          "partition": "validation",
+          "frames": 45
+        },
+        {
+          "path": "human/episode-21265aad297e22aa/validation_022",
+          "partition": "validation",
+          "frames": 50
+        },
+        {
+          "path": "human/episode-21265aad297e22aa/validation_023",
+          "partition": "validation",
+          "frames": 835
+        },
+        {
+          "path": "human/episode-21265aad297e22aa/validation_024",
+          "partition": "validation",
+          "frames": 131
+        }
+      ],
+      "synchronization": {
+        "verified": true,
+        "video_pts_verified": true,
+        "raw_packets_verified": 175140,
+        "matched_frames": 50201,
+        "corrected_alignment_rows": 0,
+        "clock_offset_correction_s": 0.0,
+        "frame_clock_span_ms": 0.0009,
+        "median_age_ms": 11.6907,
+        "max_age_ms": 29.0221,
+        "excluded_frames_count": 1604
+      },
+      "car_ordinals": [
+        3819
+      ],
+      "preparation_version": 2,
+      "asset": "episode-21265aad297e22aa.zip",
+      "bytes": 795750221,
+      "sha256": "0063cdbfd9ca565ba60312deddee39bbece881ea27619539d90b8088a22fc31f",
+      "url": "https://github.com/fumito072/mono-drive-fh6/releases/download/human-data-2026-11-02/episode-21265aad297e22aa.zip"
+    },
+    {
+      "id": "episode-5449fc3ed99c5b4b",
+      "frames": 5752,
+      "train_frames": 3456,
+      "validation_frames": 2296,
+      "segments": [
+        {
+          "path": "human/episode-5449fc3ed99c5b4b/train_000",
+          "partition": "train",
+          "frames": 93
+        },
+        {
+          "path": "human/episode-5449fc3ed99c5b4b/train_001",
+          "partition": "train",
+          "frames": 307
+        },
+        {
+          "path": "human/episode-5449fc3ed99c5b4b/train_002",
+          "partition": "train",
+          "frames": 76
+        },
+        {
+          "path": "human/episode-5449fc3ed99c5b4b/train_003",
+          "partition": "train",
+          "frames": 652
+        },
+        {
+          "path": "human/episode-5449fc3ed99c5b4b/train_004",
+          "partition": "train",
+          "frames": 275
+        },
+        {
+          "path": "human/episode-5449fc3ed99c5b4b/train_005",
+          "partition": "train",
+          "frames": 293
+        },
+        {
+          "path": "human/episode-5449fc3ed99c5b4b/train_006",
+          "partition": "train",
+          "frames": 23
+        },
+        {
+          "path": "human/episode-5449fc3ed99c5b4b/train_007",
+          "partition": "train",
+          "frames": 119
+        },
+        {
+          "path": "human/episode-5449fc3ed99c5b4b/train_008",
+          "partition": "train",
+          "frames": 78
+        },
+        {
+          "path": "human/episode-5449fc3ed99c5b4b/train_009",
+          "partition": "train",
+          "frames": 89
+        },
+        {
+          "path": "human/episode-5449fc3ed99c5b4b/train_010",
+          "partition": "train",
+          "frames": 41
+        },
+        {
+          "path": "human/episode-5449fc3ed99c5b4b/train_011",
+          "partition": "train",
+          "frames": 38
+        },
+        {
+          "path": "human/episode-5449fc3ed99c5b4b/train_012",
+          "partition": "train",
+          "frames": 167
+        },
+        {
+          "path": "human/episode-5449fc3ed99c5b4b/train_013",
+          "partition": "train",
+          "frames": 159
+        },
+        {
+          "path": "human/episode-5449fc3ed99c5b4b/train_014",
+          "partition": "train",
+          "frames": 236
+        },
+        {
+          "path": "human/episode-5449fc3ed99c5b4b/train_015",
+          "partition": "train",
+          "frames": 470
+        },
+        {
+          "path": "human/episode-5449fc3ed99c5b4b/train_016",
+          "partition": "train",
+          "frames": 340
+        },
+        {
+          "path": "human/episode-5449fc3ed99c5b4b/validation_000",
+          "partition": "validation",
+          "frames": 528
+        },
+        {
+          "path": "human/episode-5449fc3ed99c5b4b/validation_001",
+          "partition": "validation",
+          "frames": 31
+        },
+        {
+          "path": "human/episode-5449fc3ed99c5b4b/validation_002",
+          "partition": "validation",
+          "frames": 49
+        },
+        {
+          "path": "human/episode-5449fc3ed99c5b4b/validation_003",
+          "partition": "validation",
+          "frames": 1688
+        }
+      ],
+      "synchronization": {
+        "verified": true,
+        "video_pts_verified": true,
+        "raw_packets_verified": 101713,
+        "matched_frames": 28101,
+        "corrected_alignment_rows": 0,
+        "clock_offset_correction_s": 0.0,
+        "frame_clock_span_ms": 0.0009,
+        "median_age_ms": 10.5957,
+        "max_age_ms": 31.8312,
+        "excluded_frames_count": 626
+      },
+      "car_ordinals": [
+        3819
+      ],
+      "preparation_version": 2,
+      "asset": "episode-5449fc3ed99c5b4b.zip",
+      "bytes": 490493245,
+      "sha256": "19c6ecedd092fe21ed520fa1c02af9589d7ee62de5141cac5424a7fa581bc40f",
+      "url": "https://github.com/fumito072/mono-drive-fh6/releases/download/human-data-2026-11-02/episode-5449fc3ed99c5b4b.zip"
+    },
+    {
+      "id": "episode-833a724c73af9127",
+      "frames": 2812,
+      "train_frames": 1739,
+      "validation_frames": 1073,
+      "segments": [
+        {
+          "path": "human/episode-833a724c73af9127/train_000",
+          "partition": "train",
+          "frames": 1422
+        },
+        {
+          "path": "human/episode-833a724c73af9127/train_001",
+          "partition": "train",
+          "frames": 317
+        },
+        {
+          "path": "human/episode-833a724c73af9127/validation_000",
+          "partition": "validation",
+          "frames": 254
+        },
+        {
+          "path": "human/episode-833a724c73af9127/validation_001",
+          "partition": "validation",
+          "frames": 291
+        },
+        {
+          "path": "human/episode-833a724c73af9127/validation_002",
+          "partition": "validation",
+          "frames": 20
+        },
+        {
+          "path": "human/episode-833a724c73af9127/validation_003",
+          "partition": "validation",
+          "frames": 306
+        },
+        {
+          "path": "human/episode-833a724c73af9127/validation_004",
+          "partition": "validation",
+          "frames": 171
+        },
+        {
+          "path": "human/episode-833a724c73af9127/validation_005",
+          "partition": "validation",
+          "frames": 31
+        }
+      ],
+      "synchronization": {
+        "verified": true,
+        "video_pts_verified": true,
+        "raw_packets_verified": 47444,
+        "matched_frames": 46654,
+        "corrected_alignment_rows": 0,
+        "clock_offset_correction_s": 0.0,
+        "frame_clock_span_ms": 0.0009,
+        "median_age_ms": 14.6933,
+        "max_age_ms": 46.4664,
+        "excluded_frames_count": 82
+      },
+      "car_ordinals": [
+        3819
+      ],
+      "preparation_version": 2,
+      "asset": "episode-833a724c73af9127.zip",
+      "bytes": 853430407,
+      "sha256": "4a2e35aa6e2bdd743fd00aa5c70d03b73cb5e9c44995986a25512a8c039db868",
+      "url": "https://github.com/fumito072/mono-drive-fh6/releases/download/human-data-2026-11-02/episode-833a724c73af9127.zip"
+    },
+    {
+      "id": "episode-5a32b1a780e0976f",
+      "frames": 8038,
+      "train_frames": 5070,
+      "validation_frames": 2968,
+      "segments": [
+        {
+          "path": "human/episode-5a32b1a780e0976f/train_000",
+          "partition": "train",
+          "frames": 233
+        },
+        {
+          "path": "human/episode-5a32b1a780e0976f/train_001",
+          "partition": "train",
+          "frames": 759
+        },
+        {
+          "path": "human/episode-5a32b1a780e0976f/train_002",
+          "partition": "train",
+          "frames": 1338
+        },
+        {
+          "path": "human/episode-5a32b1a780e0976f/train_003",
+          "partition": "train",
+          "frames": 965
+        },
+        {
+          "path": "human/episode-5a32b1a780e0976f/train_004",
+          "partition": "train",
+          "frames": 174
+        },
+        {
+          "path": "human/episode-5a32b1a780e0976f/train_005",
+          "partition": "train",
+          "frames": 59
+        },
+        {
+          "path": "human/episode-5a32b1a780e0976f/train_006",
+          "partition": "train",
+          "frames": 54
+        },
+        {
+          "path": "human/episode-5a32b1a780e0976f/train_007",
+          "partition": "train",
+          "frames": 346
+        },
+        {
+          "path": "human/episode-5a32b1a780e0976f/train_008",
+          "partition": "train",
+          "frames": 77
+        },
+        {
+          "path": "human/episode-5a32b1a780e0976f/train_009",
+          "partition": "train",
+          "frames": 66
+        },
+        {
+          "path": "human/episode-5a32b1a780e0976f/train_010",
+          "partition": "train",
+          "frames": 398
+        },
+        {
+          "path": "human/episode-5a32b1a780e0976f/train_011",
+          "partition": "train",
+          "frames": 115
+        },
+        {
+          "path": "human/episode-5a32b1a780e0976f/train_012",
+          "partition": "train",
+          "frames": 486
+        },
+        {
+          "path": "human/episode-5a32b1a780e0976f/validation_000",
+          "partition": "validation",
+          "frames": 137
+        },
+        {
+          "path": "human/episode-5a32b1a780e0976f/validation_001",
+          "partition": "validation",
+          "frames": 208
+        },
+        {
+          "path": "human/episode-5a32b1a780e0976f/validation_002",
+          "partition": "validation",
+          "frames": 129
+        },
+        {
+          "path": "human/episode-5a32b1a780e0976f/validation_003",
+          "partition": "validation",
+          "frames": 1863
+        },
+        {
+          "path": "human/episode-5a32b1a780e0976f/validation_004",
+          "partition": "validation",
+          "frames": 631
+        }
+      ],
+      "synchronization": {
+        "verified": true,
+        "video_pts_verified": true,
+        "raw_packets_verified": 139449,
+        "matched_frames": 34894,
+        "corrected_alignment_rows": 0,
+        "clock_offset_correction_s": 0.0,
+        "frame_clock_span_ms": 0.0009,
+        "median_age_ms": 9.93695,
+        "max_age_ms": 39.657,
+        "excluded_frames_count": 556
+      },
+      "car_ordinals": [
+        3819
+      ],
+      "preparation_version": 2,
+      "asset": "episode-5a32b1a780e0976f.zip",
+      "bytes": 725175039,
+      "sha256": "66e9d3b4b38a1da0cbd8bd806c16327bbfeb3bf07d261997c1f5c777379f37d9",
+      "url": "https://github.com/fumito072/mono-drive-fh6/releases/download/human-data-2026-11-02/episode-5a32b1a780e0976f.zip"
+    },
+    {
+      "id": "episode-8dbf9cd84959f1e3",
+      "frames": 783,
+      "train_frames": 496,
+      "validation_frames": 287,
+      "segments": [
+        {
+          "path": "human/episode-8dbf9cd84959f1e3/train_000",
+          "partition": "train",
+          "frames": 254
+        },
+        {
+          "path": "human/episode-8dbf9cd84959f1e3/train_001",
+          "partition": "train",
+          "frames": 242
+        },
+        {
+          "path": "human/episode-8dbf9cd84959f1e3/validation_000",
+          "partition": "validation",
+          "frames": 207
+        },
+        {
+          "path": "human/episode-8dbf9cd84959f1e3/validation_001",
+          "partition": "validation",
+          "frames": 32
+        },
+        {
+          "path": "human/episode-8dbf9cd84959f1e3/validation_002",
+          "partition": "validation",
+          "frames": 48
+        }
+      ],
+      "synchronization": {
+        "verified": true,
+        "video_pts_verified": true,
+        "raw_packets_verified": 13148,
+        "matched_frames": 6473,
+        "corrected_alignment_rows": 0,
+        "clock_offset_correction_s": 0.0,
+        "frame_clock_span_ms": 0.0009,
+        "median_age_ms": 10.2951,
+        "max_age_ms": 29.4069,
+        "excluded_frames_count": 79
+      },
+      "car_ordinals": [
+        3819
+      ],
+      "preparation_version": 2,
+      "asset": "episode-8dbf9cd84959f1e3.zip",
+      "bytes": 114051010,
+      "sha256": "f943efdef6a940e2afad0c4a6120272dc150be3f33b76e53ad1f581bb0db6a5f",
+      "url": "https://github.com/fumito072/mono-drive-fh6/releases/download/human-data-2026-11-02/episode-8dbf9cd84959f1e3.zip"
+    },
+    {
+      "id": "episode-f9dfe646bce07a21",
+      "frames": 14028,
+      "train_frames": 8706,
+      "validation_frames": 5322,
+      "segments": [
+        {
+          "path": "human/episode-f9dfe646bce07a21/train_000",
+          "partition": "train",
+          "frames": 479
+        },
+        {
+          "path": "human/episode-f9dfe646bce07a21/train_001",
+          "partition": "train",
+          "frames": 276
+        },
+        {
+          "path": "human/episode-f9dfe646bce07a21/train_002",
+          "partition": "train",
+          "frames": 443
+        },
+        {
+          "path": "human/episode-f9dfe646bce07a21/train_003",
+          "partition": "train",
+          "frames": 181
+        },
+        {
+          "path": "human/episode-f9dfe646bce07a21/train_004",
+          "partition": "train",
+          "frames": 52
+        },
+        {
+          "path": "human/episode-f9dfe646bce07a21/train_005",
+          "partition": "train",
+          "frames": 280
+        },
+        {
+          "path": "human/episode-f9dfe646bce07a21/train_006",
+          "partition": "train",
+          "frames": 1076
+        },
+        {
+          "path": "human/episode-f9dfe646bce07a21/train_007",
+          "partition": "train",
+          "frames": 99
+        },
+        {
+          "path": "human/episode-f9dfe646bce07a21/train_008",
+          "partition": "train",
+          "frames": 44
+        },
+        {
+          "path": "human/episode-f9dfe646bce07a21/train_009",
+          "partition": "train",
+          "frames": 431
+        },
+        {
+          "path": "human/episode-f9dfe646bce07a21/train_010",
+          "partition": "train",
+          "frames": 4083
+        },
+        {
+          "path": "human/episode-f9dfe646bce07a21/train_011",
+          "partition": "train",
+          "frames": 318
+        },
+        {
+          "path": "human/episode-f9dfe646bce07a21/train_012",
+          "partition": "train",
+          "frames": 944
+        },
+        {
+          "path": "human/episode-f9dfe646bce07a21/validation_000",
+          "partition": "validation",
+          "frames": 515
+        },
+        {
+          "path": "human/episode-f9dfe646bce07a21/validation_001",
+          "partition": "validation",
+          "frames": 1273
+        },
+        {
+          "path": "human/episode-f9dfe646bce07a21/validation_002",
+          "partition": "validation",
+          "frames": 305
+        },
+        {
+          "path": "human/episode-f9dfe646bce07a21/validation_003",
+          "partition": "validation",
+          "frames": 25
+        },
+        {
+          "path": "human/episode-f9dfe646bce07a21/validation_004",
+          "partition": "validation",
+          "frames": 38
+        },
+        {
+          "path": "human/episode-f9dfe646bce07a21/validation_005",
+          "partition": "validation",
+          "frames": 217
+        },
+        {
+          "path": "human/episode-f9dfe646bce07a21/validation_006",
+          "partition": "validation",
+          "frames": 245
+        },
+        {
+          "path": "human/episode-f9dfe646bce07a21/validation_007",
+          "partition": "validation",
+          "frames": 1301
+        },
+        {
+          "path": "human/episode-f9dfe646bce07a21/validation_008",
+          "partition": "validation",
+          "frames": 345
+        },
+        {
+          "path": "human/episode-f9dfe646bce07a21/validation_009",
+          "partition": "validation",
+          "frames": 58
+        },
+        {
+          "path": "human/episode-f9dfe646bce07a21/validation_010",
+          "partition": "validation",
+          "frames": 22
+        },
+        {
+          "path": "human/episode-f9dfe646bce07a21/validation_011",
+          "partition": "validation",
+          "frames": 978
+        }
+      ],
+      "synchronization": {
+        "verified": true,
+        "video_pts_verified": true,
+        "raw_packets_verified": 253021,
+        "matched_frames": 64855,
+        "corrected_alignment_rows": 0,
+        "clock_offset_correction_s": 0.0,
+        "frame_clock_span_ms": 0.0009,
+        "median_age_ms": 10.5959,
+        "max_age_ms": 37.3618,
+        "excluded_frames_count": 2510
+      },
+      "car_ordinals": [
+        3819
+      ],
+      "preparation_version": 2,
+      "asset": "episode-f9dfe646bce07a21.zip",
+      "bytes": 1112057775,
+      "sha256": "0bbc39cb4ef5adcd53822a0ff812be4be7c7a9bcdabb1ae085300f33797fa5bd",
+      "url": "https://github.com/fumito072/mono-drive-fh6/releases/download/human-data-2026-11-02/episode-f9dfe646bce07a21.zip"
+    },
+    {
+      "id": "episode-b693ec1810f18f94",
+      "frames": 3831,
+      "train_frames": 2414,
+      "validation_frames": 1417,
+      "segments": [
+        {
+          "path": "human/episode-b693ec1810f18f94/train_000",
+          "partition": "train",
+          "frames": 975
+        },
+        {
+          "path": "human/episode-b693ec1810f18f94/train_001",
+          "partition": "train",
+          "frames": 236
+        },
+        {
+          "path": "human/episode-b693ec1810f18f94/train_002",
+          "partition": "train",
+          "frames": 476
+        },
+        {
+          "path": "human/episode-b693ec1810f18f94/train_003",
+          "partition": "train",
+          "frames": 107
+        },
+        {
+          "path": "human/episode-b693ec1810f18f94/train_004",
+          "partition": "train",
+          "frames": 23
+        },
+        {
+          "path": "human/episode-b693ec1810f18f94/train_005",
+          "partition": "train",
+          "frames": 379
+        },
+        {
+          "path": "human/episode-b693ec1810f18f94/train_006",
+          "partition": "train",
+          "frames": 218
+        },
+        {
+          "path": "human/episode-b693ec1810f18f94/validation_000",
+          "partition": "validation",
+          "frames": 55
+        },
+        {
+          "path": "human/episode-b693ec1810f18f94/validation_001",
+          "partition": "validation",
+          "frames": 820
+        },
+        {
+          "path": "human/episode-b693ec1810f18f94/validation_002",
+          "partition": "validation",
+          "frames": 111
+        },
+        {
+          "path": "human/episode-b693ec1810f18f94/validation_003",
+          "partition": "validation",
+          "frames": 44
+        },
+        {
+          "path": "human/episode-b693ec1810f18f94/validation_004",
+          "partition": "validation",
+          "frames": 60
+        },
+        {
+          "path": "human/episode-b693ec1810f18f94/validation_005",
+          "partition": "validation",
+          "frames": 37
+        },
+        {
+          "path": "human/episode-b693ec1810f18f94/validation_006",
+          "partition": "validation",
+          "frames": 33
+        },
+        {
+          "path": "human/episode-b693ec1810f18f94/validation_007",
+          "partition": "validation",
+          "frames": 257
+        }
+      ],
+      "synchronization": {
+        "verified": true,
+        "video_pts_verified": true,
+        "raw_packets_verified": 71385,
+        "matched_frames": 18615,
+        "corrected_alignment_rows": 0,
+        "clock_offset_correction_s": 0.0,
+        "frame_clock_span_ms": 0.0009,
+        "median_age_ms": 11.2697,
+        "max_age_ms": 44.3793,
+        "excluded_frames_count": 1776
+      },
+      "car_ordinals": [
+        3819
+      ],
+      "preparation_version": 2,
+      "asset": "episode-b693ec1810f18f94.zip",
+      "bytes": 324676722,
+      "sha256": "0ee60585c3c18a0a72f1d49d0754cc8430205ce223d4376dd870bdc33246b018",
+      "url": "https://github.com/fumito072/mono-drive-fh6/releases/download/human-data-2026-11-02/episode-b693ec1810f18f94.zip"
+    },
+    {
+      "id": "episode-3fb994521b57f9b4",
+      "frames": 8218,
+      "train_frames": 5093,
+      "validation_frames": 3125,
+      "segments": [
+        {
+          "path": "human/episode-3fb994521b57f9b4/train_000",
+          "partition": "train",
+          "frames": 550
+        },
+        {
+          "path": "human/episode-3fb994521b57f9b4/train_001",
+          "partition": "train",
+          "frames": 918
+        },
+        {
+          "path": "human/episode-3fb994521b57f9b4/train_002",
+          "partition": "train",
+          "frames": 1197
+        },
+        {
+          "path": "human/episode-3fb994521b57f9b4/train_003",
+          "partition": "train",
+          "frames": 1716
+        },
+        {
+          "path": "human/episode-3fb994521b57f9b4/train_004",
+          "partition": "train",
+          "frames": 586
+        },
+        {
+          "path": "human/episode-3fb994521b57f9b4/train_005",
+          "partition": "train",
+          "frames": 126
+        },
+        {
+          "path": "human/episode-3fb994521b57f9b4/validation_000",
+          "partition": "validation",
+          "frames": 693
+        },
+        {
+          "path": "human/episode-3fb994521b57f9b4/validation_001",
+          "partition": "validation",
+          "frames": 220
+        },
+        {
+          "path": "human/episode-3fb994521b57f9b4/validation_002",
+          "partition": "validation",
+          "frames": 1173
+        },
+        {
+          "path": "human/episode-3fb994521b57f9b4/validation_003",
+          "partition": "validation",
+          "frames": 154
+        },
+        {
+          "path": "human/episode-3fb994521b57f9b4/validation_004",
+          "partition": "validation",
+          "frames": 289
+        },
+        {
+          "path": "human/episode-3fb994521b57f9b4/validation_005",
+          "partition": "validation",
+          "frames": 596
+        }
+      ],
+      "synchronization": {
+        "verified": true,
+        "video_pts_verified": true,
+        "raw_packets_verified": 128320,
+        "matched_frames": 35107,
+        "corrected_alignment_rows": 0,
+        "clock_offset_correction_s": 0.0,
+        "frame_clock_span_ms": 0.0009,
+        "median_age_ms": 9.8206,
+        "max_age_ms": 36.9917,
+        "excluded_frames_count": 0
+      },
+      "car_ordinals": [
+        3819
+      ],
+      "preparation_version": 2,
+      "asset": "episode-3fb994521b57f9b4.zip",
+      "bytes": 642879352,
+      "sha256": "cdf91004ece85b1803d3f9d88d77922b2a746dc930e608cb29be739dd00ecd67",
+      "url": "https://github.com/fumito072/mono-drive-fh6/releases/download/human-data-2026-11-02/episode-3fb994521b57f9b4.zip"
+    },
+    {
+      "id": "episode-664084e2b157d1bd",
+      "frames": 1606,
+      "train_frames": 992,
+      "validation_frames": 614,
+      "segments": [
+        {
+          "path": "human/episode-664084e2b157d1bd/train_000",
+          "partition": "train",
+          "frames": 43
+        },
+        {
+          "path": "human/episode-664084e2b157d1bd/train_001",
+          "partition": "train",
+          "frames": 618
+        },
+        {
+          "path": "human/episode-664084e2b157d1bd/train_002",
+          "partition": "train",
+          "frames": 84
+        },
+        {
+          "path": "human/episode-664084e2b157d1bd/train_003",
+          "partition": "train",
+          "frames": 247
+        },
+        {
+          "path": "human/episode-664084e2b157d1bd/validation_000",
+          "partition": "validation",
+          "frames": 42
+        },
+        {
+          "path": "human/episode-664084e2b157d1bd/validation_001",
+          "partition": "validation",
+          "frames": 85
+        },
+        {
+          "path": "human/episode-664084e2b157d1bd/validation_002",
+          "partition": "validation",
+          "frames": 274
+        },
+        {
+          "path": "human/episode-664084e2b157d1bd/validation_003",
+          "partition": "validation",
+          "frames": 26
+        },
+        {
+          "path": "human/episode-664084e2b157d1bd/validation_004",
+          "partition": "validation",
+          "frames": 55
+        },
+        {
+          "path": "human/episode-664084e2b157d1bd/validation_005",
+          "partition": "validation",
+          "frames": 132
+        }
+      ],
+      "synchronization": {
+        "verified": true,
+        "video_pts_verified": true,
+        "raw_packets_verified": 31555,
+        "matched_frames": 7376,
+        "corrected_alignment_rows": 0,
+        "clock_offset_correction_s": 0.0,
+        "frame_clock_span_ms": 0.0009,
+        "median_age_ms": 10.609300000000001,
+        "max_age_ms": 34.3417,
+        "excluded_frames_count": 0
+      },
+      "car_ordinals": [
+        3819
+      ],
+      "preparation_version": 2,
+      "asset": "episode-664084e2b157d1bd.zip",
+      "bytes": 223334427,
+      "sha256": "33bb5e057ce94f84c0dbcc4e80c6fd8dd96eb252ad4def7e390573ee15c627ae",
+      "url": "https://github.com/fumito072/mono-drive-fh6/releases/download/human-data-2026-11-02/episode-664084e2b157d1bd.zip"
+    },
+    {
+      "id": "episode-dce2db4f7fa2059c",
+      "frames": 350,
+      "train_frames": 217,
+      "validation_frames": 133,
+      "segments": [
+        {
+          "path": "human/episode-dce2db4f7fa2059c/train_000",
+          "partition": "train",
+          "frames": 217
+        },
+        {
+          "path": "human/episode-dce2db4f7fa2059c/validation_000",
+          "partition": "validation",
+          "frames": 133
+        }
+      ],
+      "synchronization": {
+        "verified": true,
+        "video_pts_verified": true,
+        "raw_packets_verified": 5979,
+        "matched_frames": 5925,
+        "corrected_alignment_rows": 0,
+        "clock_offset_correction_s": 0.0,
+        "frame_clock_span_ms": 0.0009,
+        "median_age_ms": 10.368,
+        "max_age_ms": 23.6419,
+        "excluded_frames_count": 0
+      },
+      "car_ordinals": [
+        3819
+      ],
+      "preparation_version": 2,
+      "asset": "episode-dce2db4f7fa2059c.zip",
+      "bytes": 97626205,
+      "sha256": "e8192fd1f49d0cf903b6548db236509a06f1a74d459be17ca8019de62ca85bc7",
+      "url": "https://github.com/fumito072/mono-drive-fh6/releases/download/human-data-2026-11-02/episode-dce2db4f7fa2059c.zip"
+    },
+    {
+      "id": "episode-267339c00e99b0ae",
+      "frames": 2428,
+      "train_frames": 1537,
+      "validation_frames": 891,
+      "segments": [
+        {
+          "path": "human/episode-267339c00e99b0ae/train_000",
+          "partition": "train",
+          "frames": 112
+        },
+        {
+          "path": "human/episode-267339c00e99b0ae/train_001",
+          "partition": "train",
+          "frames": 822
+        },
+        {
+          "path": "human/episode-267339c00e99b0ae/train_002",
+          "partition": "train",
+          "frames": 143
+        },
+        {
+          "path": "human/episode-267339c00e99b0ae/train_003",
+          "partition": "train",
+          "frames": 41
+        },
+        {
+          "path": "human/episode-267339c00e99b0ae/train_004",
+          "partition": "train",
+          "frames": 181
+        },
+        {
+          "path": "human/episode-267339c00e99b0ae/train_005",
+          "partition": "train",
+          "frames": 238
+        },
+        {
+          "path": "human/episode-267339c00e99b0ae/validation_000",
+          "partition": "validation",
+          "frames": 891
+        }
+      ],
+      "synchronization": {
+        "verified": true,
+        "video_pts_verified": true,
+        "raw_packets_verified": 55902,
+        "matched_frames": 17329,
+        "corrected_alignment_rows": 0,
+        "clock_offset_correction_s": 0.0,
+        "frame_clock_span_ms": 0.0009,
+        "median_age_ms": 11.6887,
+        "max_age_ms": 27.505,
+        "excluded_frames_count": 244
+      },
+      "car_ordinals": [
+        3819
+      ],
+      "preparation_version": 2,
+      "asset": "episode-267339c00e99b0ae.zip",
+      "bytes": 166738440,
+      "sha256": "1b47e2a3c17da3b1a8fbff386081ed620fcf778caf0344c26fefc98ae792f72a",
+      "url": "https://github.com/fumito072/mono-drive-fh6/releases/download/human-data-2026-11-02/episode-267339c00e99b0ae.zip"
+    },
+    {
+      "id": "episode-b6fccf2374f45558",
+      "frames": 4906,
+      "train_frames": 3015,
+      "validation_frames": 1891,
+      "segments": [
+        {
+          "path": "human/episode-b6fccf2374f45558/train_000",
+          "partition": "train",
+          "frames": 123
+        },
+        {
+          "path": "human/episode-b6fccf2374f45558/train_001",
+          "partition": "train",
+          "frames": 62
+        },
+        {
+          "path": "human/episode-b6fccf2374f45558/train_002",
+          "partition": "train",
+          "frames": 247
+        },
+        {
+          "path": "human/episode-b6fccf2374f45558/train_003",
+          "partition": "train",
+          "frames": 394
+        },
+        {
+          "path": "human/episode-b6fccf2374f45558/train_004",
+          "partition": "train",
+          "frames": 63
+        },
+        {
+          "path": "human/episode-b6fccf2374f45558/train_005",
+          "partition": "train",
+          "frames": 23
+        },
+        {
+          "path": "human/episode-b6fccf2374f45558/train_006",
+          "partition": "train",
+          "frames": 667
+        },
+        {
+          "path": "human/episode-b6fccf2374f45558/train_007",
+          "partition": "train",
+          "frames": 439
+        },
+        {
+          "path": "human/episode-b6fccf2374f45558/train_008",
+          "partition": "train",
+          "frames": 130
+        },
+        {
+          "path": "human/episode-b6fccf2374f45558/train_009",
+          "partition": "train",
+          "frames": 867
+        },
+        {
+          "path": "human/episode-b6fccf2374f45558/validation_000",
+          "partition": "validation",
+          "frames": 220
+        },
+        {
+          "path": "human/episode-b6fccf2374f45558/validation_001",
+          "partition": "validation",
+          "frames": 918
+        },
+        {
+          "path": "human/episode-b6fccf2374f45558/validation_002",
+          "partition": "validation",
+          "frames": 106
+        },
+        {
+          "path": "human/episode-b6fccf2374f45558/validation_003",
+          "partition": "validation",
+          "frames": 136
+        },
+        {
+          "path": "human/episode-b6fccf2374f45558/validation_004",
+          "partition": "validation",
+          "frames": 46
+        },
+        {
+          "path": "human/episode-b6fccf2374f45558/validation_005",
+          "partition": "validation",
+          "frames": 41
+        },
+        {
+          "path": "human/episode-b6fccf2374f45558/validation_006",
+          "partition": "validation",
+          "frames": 175
+        },
+        {
+          "path": "human/episode-b6fccf2374f45558/validation_007",
+          "partition": "validation",
+          "frames": 124
+        },
+        {
+          "path": "human/episode-b6fccf2374f45558/validation_008",
+          "partition": "validation",
+          "frames": 93
+        },
+        {
+          "path": "human/episode-b6fccf2374f45558/validation_009",
+          "partition": "validation",
+          "frames": 32
+        }
+      ],
+      "synchronization": {
+        "verified": true,
+        "video_pts_verified": true,
+        "raw_packets_verified": 95819,
+        "matched_frames": 23933,
+        "corrected_alignment_rows": 0,
+        "clock_offset_correction_s": 0.0,
+        "frame_clock_span_ms": 0.0009,
+        "median_age_ms": 10.4781,
+        "max_age_ms": 33.7415,
+        "excluded_frames_count": 2177
+      },
+      "car_ordinals": [
+        3819
+      ],
+      "preparation_version": 2,
+      "asset": "episode-b6fccf2374f45558.zip",
+      "bytes": 428445332,
+      "sha256": "278c80ee852925153de8034813ad84b306e0d84f9682390d3488b6716f2a3ba4",
+      "url": "https://github.com/fumito072/mono-drive-fh6/releases/download/human-data-2026-11-02/episode-b6fccf2374f45558.zip"
+    },
+    {
+      "id": "episode-f49bb0872a00b9ba",
+      "frames": 5101,
+      "train_frames": 3138,
+      "validation_frames": 1963,
+      "segments": [
+        {
+          "path": "human/episode-f49bb0872a00b9ba/train_000",
+          "partition": "train",
+          "frames": 982
+        },
+        {
+          "path": "human/episode-f49bb0872a00b9ba/train_001",
+          "partition": "train",
+          "frames": 51
+        },
+        {
+          "path": "human/episode-f49bb0872a00b9ba/train_002",
+          "partition": "train",
+          "frames": 164
+        },
+        {
+          "path": "human/episode-f49bb0872a00b9ba/train_003",
+          "partition": "train",
+          "frames": 371
+        },
+        {
+          "path": "human/episode-f49bb0872a00b9ba/train_004",
+          "partition": "train",
+          "frames": 153
+        },
+        {
+          "path": "human/episode-f49bb0872a00b9ba/train_005",
+          "partition": "train",
+          "frames": 154
+        },
+        {
+          "path": "human/episode-f49bb0872a00b9ba/train_006",
+          "partition": "train",
+          "frames": 150
+        },
+        {
+          "path": "human/episode-f49bb0872a00b9ba/train_007",
+          "partition": "train",
+          "frames": 22
+        },
+        {
+          "path": "human/episode-f49bb0872a00b9ba/train_008",
+          "partition": "train",
+          "frames": 154
+        },
+        {
+          "path": "human/episode-f49bb0872a00b9ba/train_009",
+          "partition": "train",
+          "frames": 83
+        },
+        {
+          "path": "human/episode-f49bb0872a00b9ba/train_010",
+          "partition": "train",
+          "frames": 87
+        },
+        {
+          "path": "human/episode-f49bb0872a00b9ba/train_011",
+          "partition": "train",
+          "frames": 49
+        },
+        {
+          "path": "human/episode-f49bb0872a00b9ba/train_012",
+          "partition": "train",
+          "frames": 64
+        },
+        {
+          "path": "human/episode-f49bb0872a00b9ba/train_013",
+          "partition": "train",
+          "frames": 96
+        },
+        {
+          "path": "human/episode-f49bb0872a00b9ba/train_014",
+          "partition": "train",
+          "frames": 53
+        },
+        {
+          "path": "human/episode-f49bb0872a00b9ba/train_015",
+          "partition": "train",
+          "frames": 130
+        },
+        {
+          "path": "human/episode-f49bb0872a00b9ba/train_016",
+          "partition": "train",
+          "frames": 375
+        },
+        {
+          "path": "human/episode-f49bb0872a00b9ba/validation_000",
+          "partition": "validation",
+          "frames": 402
+        },
+        {
+          "path": "human/episode-f49bb0872a00b9ba/validation_001",
+          "partition": "validation",
+          "frames": 222
+        },
+        {
+          "path": "human/episode-f49bb0872a00b9ba/validation_002",
+          "partition": "validation",
+          "frames": 510
+        },
+        {
+          "path": "human/episode-f49bb0872a00b9ba/validation_003",
+          "partition": "validation",
+          "frames": 338
+        },
+        {
+          "path": "human/episode-f49bb0872a00b9ba/validation_004",
+          "partition": "validation",
+          "frames": 250
+        },
+        {
+          "path": "human/episode-f49bb0872a00b9ba/validation_005",
+          "partition": "validation",
+          "frames": 132
+        },
+        {
+          "path": "human/episode-f49bb0872a00b9ba/validation_006",
+          "partition": "validation",
+          "frames": 109
+        }
+      ],
+      "synchronization": {
+        "verified": true,
+        "video_pts_verified": true,
+        "raw_packets_verified": 92005,
+        "matched_frames": 26583,
+        "corrected_alignment_rows": 0,
+        "clock_offset_correction_s": 0.0,
+        "frame_clock_span_ms": 0.0009,
+        "median_age_ms": 11.3684,
+        "max_age_ms": 25.9143,
+        "excluded_frames_count": 214
+      },
+      "car_ordinals": [
+        3819
+      ],
+      "preparation_version": 2,
+      "asset": "episode-f49bb0872a00b9ba.zip",
+      "bytes": 547791494,
+      "sha256": "9b713197c262d9d673ee444df141cfd88768b5a45386904f0f4c015c7aeae8b8",
+      "url": "https://github.com/fumito072/mono-drive-fh6/releases/download/human-data-2026-11-02/episode-f49bb0872a00b9ba.zip"
+    },
+    {
+      "id": "episode-61ae5ad2fe227f08",
+      "frames": 6617,
+      "train_frames": 4142,
+      "validation_frames": 2475,
+      "segments": [
+        {
+          "path": "human/episode-61ae5ad2fe227f08/train_000",
+          "partition": "train",
+          "frames": 211
+        },
+        {
+          "path": "human/episode-61ae5ad2fe227f08/train_001",
+          "partition": "train",
+          "frames": 91
+        },
+        {
+          "path": "human/episode-61ae5ad2fe227f08/train_002",
+          "partition": "train",
+          "frames": 748
+        },
+        {
+          "path": "human/episode-61ae5ad2fe227f08/train_003",
+          "partition": "train",
+          "frames": 456
+        },
+        {
+          "path": "human/episode-61ae5ad2fe227f08/train_004",
+          "partition": "train",
+          "frames": 46
+        },
+        {
+          "path": "human/episode-61ae5ad2fe227f08/train_005",
+          "partition": "train",
+          "frames": 166
+        },
+        {
+          "path": "human/episode-61ae5ad2fe227f08/train_006",
+          "partition": "train",
+          "frames": 422
+        },
+        {
+          "path": "human/episode-61ae5ad2fe227f08/train_007",
+          "partition": "train",
+          "frames": 297
+        },
+        {
+          "path": "human/episode-61ae5ad2fe227f08/train_008",
+          "partition": "train",
+          "frames": 527
+        },
+        {
+          "path": "human/episode-61ae5ad2fe227f08/train_009",
+          "partition": "train",
+          "frames": 53
+        },
+        {
+          "path": "human/episode-61ae5ad2fe227f08/train_010",
+          "partition": "train",
+          "frames": 1125
+        },
+        {
+          "path": "human/episode-61ae5ad2fe227f08/validation_000",
+          "partition": "validation",
+          "frames": 461
+        },
+        {
+          "path": "human/episode-61ae5ad2fe227f08/validation_001",
+          "partition": "validation",
+          "frames": 513
+        },
+        {
+          "path": "human/episode-61ae5ad2fe227f08/validation_002",
+          "partition": "validation",
+          "frames": 146
+        },
+        {
+          "path": "human/episode-61ae5ad2fe227f08/validation_003",
+          "partition": "validation",
+          "frames": 99
+        },
+        {
+          "path": "human/episode-61ae5ad2fe227f08/validation_004",
+          "partition": "validation",
+          "frames": 25
+        },
+        {
+          "path": "human/episode-61ae5ad2fe227f08/validation_005",
+          "partition": "validation",
+          "frames": 606
+        },
+        {
+          "path": "human/episode-61ae5ad2fe227f08/validation_006",
+          "partition": "validation",
+          "frames": 79
+        },
+        {
+          "path": "human/episode-61ae5ad2fe227f08/validation_007",
+          "partition": "validation",
+          "frames": 546
+        }
+      ],
+      "synchronization": {
+        "verified": true,
+        "video_pts_verified": true,
+        "raw_packets_verified": 162486,
+        "matched_frames": 54872,
+        "corrected_alignment_rows": 0,
+        "clock_offset_correction_s": 0.0,
+        "frame_clock_span_ms": 0.0009,
+        "median_age_ms": 11.6103,
+        "max_age_ms": 34.4415,
+        "excluded_frames_count": 820
+      },
+      "car_ordinals": [
+        3819
+      ],
+      "preparation_version": 2,
+      "asset": "episode-61ae5ad2fe227f08.zip",
+      "bytes": 605332462,
+      "sha256": "a4f5e6841a3f428b6cfaa7abc87140f9c93825f569a5b0bdc9f407a4cdad77f6",
+      "url": "https://github.com/fumito072/mono-drive-fh6/releases/download/human-data-2026-11-02/episode-61ae5ad2fe227f08.zip"
+    },
+    {
+      "id": "episode-998296d6dd70000a",
+      "frames": 501,
+      "train_frames": 313,
+      "validation_frames": 188,
+      "segments": [
+        {
+          "path": "human/episode-998296d6dd70000a/train_000",
+          "partition": "train",
+          "frames": 313
+        },
+        {
+          "path": "human/episode-998296d6dd70000a/validation_000",
+          "partition": "validation",
+          "frames": 188
+        }
+      ],
+      "synchronization": {
+        "verified": true,
+        "video_pts_verified": true,
+        "raw_packets_verified": 10915,
+        "matched_frames": 2407,
+        "corrected_alignment_rows": 0,
+        "clock_offset_correction_s": 0.0,
+        "frame_clock_span_ms": 0.0009,
+        "median_age_ms": 9.6903,
+        "max_age_ms": 27.5983,
+        "excluded_frames_count": 0
+      },
+      "car_ordinals": [
+        3819
+      ],
+      "preparation_version": 2,
+      "asset": "episode-998296d6dd70000a.zip",
+      "bytes": 85855976,
+      "sha256": "6879a5d52789a48cf221cbffacfc1c42f71975224e4a716eb23011de44d97578",
+      "url": "https://github.com/fumito072/mono-drive-fh6/releases/download/human-data-2026-11-02/episode-998296d6dd70000a.zip"
+    },
+    {
+      "id": "episode-5cab7ba50b3299fb",
+      "frames": 3472,
+      "train_frames": 2267,
+      "validation_frames": 1205,
+      "segments": [
+        {
+          "path": "human/episode-5cab7ba50b3299fb/train_000",
+          "partition": "train",
+          "frames": 1219
+        },
+        {
+          "path": "human/episode-5cab7ba50b3299fb/train_001",
+          "partition": "train",
+          "frames": 256
+        },
+        {
+          "path": "human/episode-5cab7ba50b3299fb/train_002",
+          "partition": "train",
+          "frames": 655
+        },
+        {
+          "path": "human/episode-5cab7ba50b3299fb/train_003",
+          "partition": "train",
+          "frames": 137
+        },
+        {
+          "path": "human/episode-5cab7ba50b3299fb/validation_000",
+          "partition": "validation",
+          "frames": 324
+        },
+        {
+          "path": "human/episode-5cab7ba50b3299fb/validation_001",
+          "partition": "validation",
+          "frames": 330
+        },
+        {
+          "path": "human/episode-5cab7ba50b3299fb/validation_002",
+          "partition": "validation",
+          "frames": 176
+        },
+        {
+          "path": "human/episode-5cab7ba50b3299fb/validation_003",
+          "partition": "validation",
+          "frames": 113
+        },
+        {
+          "path": "human/episode-5cab7ba50b3299fb/validation_004",
+          "partition": "validation",
+          "frames": 50
+        },
+        {
+          "path": "human/episode-5cab7ba50b3299fb/validation_005",
+          "partition": "validation",
+          "frames": 41
+        },
+        {
+          "path": "human/episode-5cab7ba50b3299fb/validation_006",
+          "partition": "validation",
+          "frames": 171
+        }
+      ],
+      "synchronization": {
+        "verified": true,
+        "video_pts_verified": true,
+        "raw_packets_verified": 61292,
+        "matched_frames": 17836,
+        "corrected_alignment_rows": 0,
+        "clock_offset_correction_s": 0.0,
+        "frame_clock_span_ms": 0.0009,
+        "median_age_ms": 11.0064,
+        "max_age_ms": 33.825,
+        "excluded_frames_count": 0
+      },
+      "car_ordinals": [
+        3819
+      ],
+      "preparation_version": 2,
+      "asset": "episode-5cab7ba50b3299fb.zip",
+      "bytes": 316970315,
+      "sha256": "f46967a331926e809c5ea7748c883763e0cc3c0104a0e17f9f3c209a3088643a",
+      "url": "https://github.com/fumito072/mono-drive-fh6/releases/download/human-data-2026-11-02/episode-5cab7ba50b3299fb.zip"
+    },
+    {
+      "id": "episode-1a3b13db587900d5",
+      "frames": 1353,
+      "train_frames": 920,
+      "validation_frames": 433,
+      "segments": [
+        {
+          "path": "human/episode-1a3b13db587900d5/train_000",
+          "partition": "train",
+          "frames": 920
+        },
+        {
+          "path": "human/episode-1a3b13db587900d5/validation_000",
+          "partition": "validation",
+          "frames": 39
+        },
+        {
+          "path": "human/episode-1a3b13db587900d5/validation_001",
+          "partition": "validation",
+          "frames": 44
+        },
+        {
+          "path": "human/episode-1a3b13db587900d5/validation_002",
+          "partition": "validation",
+          "frames": 350
+        }
+      ],
+      "synchronization": {
+        "verified": true,
+        "video_pts_verified": true,
+        "raw_packets_verified": 25236,
+        "matched_frames": 24240,
+        "corrected_alignment_rows": 0,
+        "clock_offset_correction_s": 0.0,
+        "frame_clock_span_ms": 0.0009,
+        "median_age_ms": 10.2244,
+        "max_age_ms": 27.8985,
+        "excluded_frames_count": 0
+      },
+      "car_ordinals": [
+        3819
+      ],
+      "preparation_version": 2,
+      "asset": "episode-1a3b13db587900d5.zip",
+      "bytes": 421581013,
+      "sha256": "13b5ac87bfbc3005f64e634b42e8b5d2ec9b7705f089f0a37518dc982de5ba03",
+      "url": "https://github.com/fumito072/mono-drive-fh6/releases/download/human-data-2026-11-02/episode-1a3b13db587900d5.zip"
+    },
+    {
+      "id": "episode-20b4dec63264be33",
+      "frames": 12543,
+      "train_frames": 7709,
+      "validation_frames": 4834,
+      "segments": [
+        {
+          "path": "human/episode-20b4dec63264be33/train_000",
+          "partition": "train",
+          "frames": 278
+        },
+        {
+          "path": "human/episode-20b4dec63264be33/train_001",
+          "partition": "train",
+          "frames": 93
+        },
+        {
+          "path": "human/episode-20b4dec63264be33/train_002",
+          "partition": "train",
+          "frames": 1298
+        },
+        {
+          "path": "human/episode-20b4dec63264be33/train_003",
+          "partition": "train",
+          "frames": 792
+        },
+        {
+          "path": "human/episode-20b4dec63264be33/train_004",
+          "partition": "train",
+          "frames": 109
+        },
+        {
+          "path": "human/episode-20b4dec63264be33/train_005",
+          "partition": "train",
+          "frames": 75
+        },
+        {
+          "path": "human/episode-20b4dec63264be33/train_006",
+          "partition": "train",
+          "frames": 122
+        },
+        {
+          "path": "human/episode-20b4dec63264be33/train_007",
+          "partition": "train",
+          "frames": 954
+        },
+        {
+          "path": "human/episode-20b4dec63264be33/train_008",
+          "partition": "train",
+          "frames": 20
+        },
+        {
+          "path": "human/episode-20b4dec63264be33/train_009",
+          "partition": "train",
+          "frames": 27
+        },
+        {
+          "path": "human/episode-20b4dec63264be33/train_010",
+          "partition": "train",
+          "frames": 634
+        },
+        {
+          "path": "human/episode-20b4dec63264be33/train_011",
+          "partition": "train",
+          "frames": 340
+        },
+        {
+          "path": "human/episode-20b4dec63264be33/train_012",
+          "partition": "train",
+          "frames": 1993
+        },
+        {
+          "path": "human/episode-20b4dec63264be33/train_013",
+          "partition": "train",
+          "frames": 59
+        },
+        {
+          "path": "human/episode-20b4dec63264be33/train_014",
+          "partition": "train",
+          "frames": 175
+        },
+        {
+          "path": "human/episode-20b4dec63264be33/train_015",
+          "partition": "train",
+          "frames": 89
+        },
+        {
+          "path": "human/episode-20b4dec63264be33/train_016",
+          "partition": "train",
+          "frames": 185
+        },
+        {
+          "path": "human/episode-20b4dec63264be33/train_017",
+          "partition": "train",
+          "frames": 412
+        },
+        {
+          "path": "human/episode-20b4dec63264be33/train_018",
+          "partition": "train",
+          "frames": 54
+        },
+        {
+          "path": "human/episode-20b4dec63264be33/validation_000",
+          "partition": "validation",
+          "frames": 552
+        },
+        {
+          "path": "human/episode-20b4dec63264be33/validation_001",
+          "partition": "validation",
+          "frames": 147
+        },
+        {
+          "path": "human/episode-20b4dec63264be33/validation_002",
+          "partition": "validation",
+          "frames": 482
+        },
+        {
+          "path": "human/episode-20b4dec63264be33/validation_003",
+          "partition": "validation",
+          "frames": 111
+        },
+        {
+          "path": "human/episode-20b4dec63264be33/validation_004",
+          "partition": "validation",
+          "frames": 105
+        },
+        {
+          "path": "human/episode-20b4dec63264be33/validation_005",
+          "partition": "validation",
+          "frames": 649
+        },
+        {
+          "path": "human/episode-20b4dec63264be33/validation_006",
+          "partition": "validation",
+          "frames": 114
+        },
+        {
+          "path": "human/episode-20b4dec63264be33/validation_007",
+          "partition": "validation",
+          "frames": 706
+        },
+        {
+          "path": "human/episode-20b4dec63264be33/validation_008",
+          "partition": "validation",
+          "frames": 246
+        },
+        {
+          "path": "human/episode-20b4dec63264be33/validation_009",
+          "partition": "validation",
+          "frames": 1075
+        },
+        {
+          "path": "human/episode-20b4dec63264be33/validation_010",
+          "partition": "validation",
+          "frames": 560
+        },
+        {
+          "path": "human/episode-20b4dec63264be33/validation_011",
+          "partition": "validation",
+          "frames": 87
+        }
+      ],
+      "synchronization": {
+        "verified": true,
+        "video_pts_verified": true,
+        "raw_packets_verified": 229992,
+        "matched_frames": 70725,
+        "corrected_alignment_rows": 0,
+        "clock_offset_correction_s": 0.0,
+        "frame_clock_span_ms": 0.0009,
+        "median_age_ms": 11.8523,
+        "max_age_ms": 31.2183,
+        "excluded_frames_count": 400
+      },
+      "car_ordinals": [
+        3819
+      ],
+      "preparation_version": 2,
+      "asset": "episode-20b4dec63264be33.zip",
+      "bytes": 1021499850,
+      "sha256": "185eccbf5fb22b0ef0013b2a07a52f503f0b3bd5c08f138bbeaaa9f6a0bf5310",
+      "url": "https://github.com/fumito072/mono-drive-fh6/releases/download/human-data-2026-11-02/episode-20b4dec63264be33.zip"
+    },
+    {
+      "id": "episode-597d9c8b41330b42",
+      "frames": 5501,
+      "train_frames": 3452,
+      "validation_frames": 2049,
+      "segments": [
+        {
+          "path": "human/episode-597d9c8b41330b42/train_000",
+          "partition": "train",
+          "frames": 608
+        },
+        {
+          "path": "human/episode-597d9c8b41330b42/train_001",
+          "partition": "train",
+          "frames": 153
+        },
+        {
+          "path": "human/episode-597d9c8b41330b42/train_002",
+          "partition": "train",
+          "frames": 1230
+        },
+        {
+          "path": "human/episode-597d9c8b41330b42/train_003",
+          "partition": "train",
+          "frames": 509
+        },
+        {
+          "path": "human/episode-597d9c8b41330b42/train_004",
+          "partition": "train",
+          "frames": 952
+        },
+        {
+          "path": "human/episode-597d9c8b41330b42/validation_000",
+          "partition": "validation",
+          "frames": 840
+        },
+        {
+          "path": "human/episode-597d9c8b41330b42/validation_001",
+          "partition": "validation",
+          "frames": 157
+        },
+        {
+          "path": "human/episode-597d9c8b41330b42/validation_002",
+          "partition": "validation",
+          "frames": 814
+        },
+        {
+          "path": "human/episode-597d9c8b41330b42/validation_003",
+          "partition": "validation",
+          "frames": 238
+        }
+      ],
+      "synchronization": {
+        "verified": true,
+        "video_pts_verified": true,
+        "raw_packets_verified": 80577,
+        "matched_frames": 22920,
+        "corrected_alignment_rows": 0,
+        "clock_offset_correction_s": 0.0,
+        "frame_clock_span_ms": 0.0009,
+        "median_age_ms": 10.062650000000001,
+        "max_age_ms": 38.2455,
+        "excluded_frames_count": 0
+      },
+      "car_ordinals": [
+        3819
+      ],
+      "preparation_version": 2,
+      "asset": "episode-597d9c8b41330b42.zip",
+      "bytes": 376226412,
+      "sha256": "0dd02e9d714f6881b3978bcaeb0d66daedc3c86ff7dc5137a6ae4261cc1d7458",
+      "url": "https://github.com/fumito072/mono-drive-fh6/releases/download/human-data-2026-11-02/episode-597d9c8b41330b42.zip"
+    },
+    {
+      "id": "episode-79deebef78b31f20",
+      "frames": 3390,
+      "train_frames": 2105,
+      "validation_frames": 1285,
+      "segments": [
+        {
+          "path": "human/episode-79deebef78b31f20/train_000",
+          "partition": "train",
+          "frames": 42
+        },
+        {
+          "path": "human/episode-79deebef78b31f20/train_001",
+          "partition": "train",
+          "frames": 346
+        },
+        {
+          "path": "human/episode-79deebef78b31f20/train_002",
+          "partition": "train",
+          "frames": 186
+        },
+        {
+          "path": "human/episode-79deebef78b31f20/train_003",
+          "partition": "train",
+          "frames": 176
+        },
+        {
+          "path": "human/episode-79deebef78b31f20/train_004",
+          "partition": "train",
+          "frames": 157
+        },
+        {
+          "path": "human/episode-79deebef78b31f20/train_005",
+          "partition": "train",
+          "frames": 126
+        },
+        {
+          "path": "human/episode-79deebef78b31f20/train_006",
+          "partition": "train",
+          "frames": 114
+        },
+        {
+          "path": "human/episode-79deebef78b31f20/train_007",
+          "partition": "train",
+          "frames": 48
+        },
+        {
+          "path": "human/episode-79deebef78b31f20/train_008",
+          "partition": "train",
+          "frames": 29
+        },
+        {
+          "path": "human/episode-79deebef78b31f20/train_009",
+          "partition": "train",
+          "frames": 40
+        },
+        {
+          "path": "human/episode-79deebef78b31f20/train_010",
+          "partition": "train",
+          "frames": 29
+        },
+        {
+          "path": "human/episode-79deebef78b31f20/train_011",
+          "partition": "train",
+          "frames": 27
+        },
+        {
+          "path": "human/episode-79deebef78b31f20/train_012",
+          "partition": "train",
+          "frames": 24
+        },
+        {
+          "path": "human/episode-79deebef78b31f20/train_013",
+          "partition": "train",
+          "frames": 101
+        },
+        {
+          "path": "human/episode-79deebef78b31f20/train_014",
+          "partition": "train",
+          "frames": 166
+        },
+        {
+          "path": "human/episode-79deebef78b31f20/train_015",
+          "partition": "train",
+          "frames": 222
+        },
+        {
+          "path": "human/episode-79deebef78b31f20/train_016",
+          "partition": "train",
+          "frames": 272
+        },
+        {
+          "path": "human/episode-79deebef78b31f20/validation_000",
+          "partition": "validation",
+          "frames": 42
+        },
+        {
+          "path": "human/episode-79deebef78b31f20/validation_001",
+          "partition": "validation",
+          "frames": 60
+        },
+        {
+          "path": "human/episode-79deebef78b31f20/validation_002",
+          "partition": "validation",
+          "frames": 62
+        },
+        {
+          "path": "human/episode-79deebef78b31f20/validation_003",
+          "partition": "validation",
+          "frames": 64
+        },
+        {
+          "path": "human/episode-79deebef78b31f20/validation_004",
+          "partition": "validation",
+          "frames": 102
+        },
+        {
+          "path": "human/episode-79deebef78b31f20/validation_005",
+          "partition": "validation",
+          "frames": 94
+        },
+        {
+          "path": "human/episode-79deebef78b31f20/validation_006",
+          "partition": "validation",
+          "frames": 26
+        },
+        {
+          "path": "human/episode-79deebef78b31f20/validation_007",
+          "partition": "validation",
+          "frames": 31
+        },
+        {
+          "path": "human/episode-79deebef78b31f20/validation_008",
+          "partition": "validation",
+          "frames": 161
+        },
+        {
+          "path": "human/episode-79deebef78b31f20/validation_009",
+          "partition": "validation",
+          "frames": 212
+        },
+        {
+          "path": "human/episode-79deebef78b31f20/validation_010",
+          "partition": "validation",
+          "frames": 431
+        }
+      ],
+      "synchronization": {
+        "verified": true,
+        "video_pts_verified": true,
+        "raw_packets_verified": 68566,
+        "matched_frames": 68389,
+        "corrected_alignment_rows": 0,
+        "clock_offset_correction_s": 0.0,
+        "frame_clock_span_ms": 0.0009,
+        "median_age_ms": 10.6558,
+        "max_age_ms": 27.5258,
+        "excluded_frames_count": 0
+      },
+      "car_ordinals": [
+        3819
+      ],
+      "preparation_version": 2,
+      "asset": "episode-79deebef78b31f20.zip",
+      "bytes": 1128222571,
+      "sha256": "ef5b5513c389604f443c16d3346de49a5b25f4f15e9da784df4a4362e59250e0",
+      "url": "https://github.com/fumito072/mono-drive-fh6/releases/download/human-data-2026-11-02/episode-79deebef78b31f20.zip"
+    },
+    {
+      "id": "episode-f7a241627a7a327f",
+      "frames": 5781,
+      "train_frames": 3667,
+      "validation_frames": 2114,
+      "segments": [
+        {
+          "path": "human/episode-f7a241627a7a327f/train_000",
+          "partition": "train",
+          "frames": 3134
+        },
+        {
+          "path": "human/episode-f7a241627a7a327f/train_001",
+          "partition": "train",
+          "frames": 533
+        },
+        {
+          "path": "human/episode-f7a241627a7a327f/validation_000",
+          "partition": "validation",
+          "frames": 51
+        },
+        {
+          "path": "human/episode-f7a241627a7a327f/validation_001",
+          "partition": "validation",
+          "frames": 257
+        },
+        {
+          "path": "human/episode-f7a241627a7a327f/validation_002",
+          "partition": "validation",
+          "frames": 60
+        },
+        {
+          "path": "human/episode-f7a241627a7a327f/validation_003",
+          "partition": "validation",
+          "frames": 861
+        },
+        {
+          "path": "human/episode-f7a241627a7a327f/validation_004",
+          "partition": "validation",
+          "frames": 885
+        }
+      ],
+      "synchronization": {
+        "verified": true,
+        "video_pts_verified": true,
+        "raw_packets_verified": 101551,
+        "matched_frames": 98544,
+        "corrected_alignment_rows": 0,
+        "clock_offset_correction_s": 0.0,
+        "frame_clock_span_ms": 0.0009,
+        "median_age_ms": 14.5254,
+        "max_age_ms": 34.8556,
+        "excluded_frames_count": 0
+      },
+      "car_ordinals": [
+        3819
+      ],
+      "preparation_version": 2,
+      "asset": "episode-f7a241627a7a327f.zip",
+      "bytes": 1617601167,
+      "sha256": "ceacd48d3bfa84460410dbac3094d8d32b7ed0447b3aa90e18a10c1499dbcc22",
+      "url": "https://github.com/fumito072/mono-drive-fh6/releases/download/human-data-2026-11-02/episode-f7a241627a7a327f.zip"
+    },
+    {
+      "id": "episode-f54c365575162f26",
+      "frames": 2504,
+      "train_frames": 1551,
+      "validation_frames": 953,
+      "segments": [
+        {
+          "path": "human/episode-f54c365575162f26/train_000",
+          "partition": "train",
+          "frames": 222
+        },
+        {
+          "path": "human/episode-f54c365575162f26/train_001",
+          "partition": "train",
+          "frames": 588
+        },
+        {
+          "path": "human/episode-f54c365575162f26/train_002",
+          "partition": "train",
+          "frames": 97
+        },
+        {
+          "path": "human/episode-f54c365575162f26/train_003",
+          "partition": "train",
+          "frames": 644
+        },
+        {
+          "path": "human/episode-f54c365575162f26/validation_000",
+          "partition": "validation",
+          "frames": 56
+        },
+        {
+          "path": "human/episode-f54c365575162f26/validation_001",
+          "partition": "validation",
+          "frames": 54
+        },
+        {
+          "path": "human/episode-f54c365575162f26/validation_002",
+          "partition": "validation",
+          "frames": 368
+        },
+        {
+          "path": "human/episode-f54c365575162f26/validation_003",
+          "partition": "validation",
+          "frames": 475
+        }
+      ],
+      "synchronization": {
+        "verified": true,
+        "video_pts_verified": true,
+        "raw_packets_verified": 43012,
+        "matched_frames": 39764,
+        "corrected_alignment_rows": 0,
+        "clock_offset_correction_s": 0.0,
+        "frame_clock_span_ms": 0.0009,
+        "median_age_ms": 14.8349,
+        "max_age_ms": 33.0028,
+        "excluded_frames_count": 1404
+      },
+      "car_ordinals": [
+        3819
+      ],
+      "preparation_version": 2,
+      "asset": "episode-f54c365575162f26.zip",
+      "bytes": 252080296,
+      "sha256": "298885208fdd3da5b91cacf1764161a1c909ba226417e1edc1df87f527437909",
+      "url": "https://github.com/fumito072/mono-drive-fh6/releases/download/human-data-2026-11-02/episode-f54c365575162f26.zip"
+    },
+    {
+      "id": "episode-06a3ffdc427eba6f",
+      "frames": 3055,
+      "train_frames": 1746,
+      "validation_frames": 1309,
+      "segments": [
+        {
+          "path": "human/episode-06a3ffdc427eba6f/train_000",
+          "partition": "train",
+          "frames": 595
+        },
+        {
+          "path": "human/episode-06a3ffdc427eba6f/train_001",
+          "partition": "train",
+          "frames": 1100
+        },
+        {
+          "path": "human/episode-06a3ffdc427eba6f/train_002",
+          "partition": "train",
+          "frames": 51
+        },
+        {
+          "path": "human/episode-06a3ffdc427eba6f/validation_000",
+          "partition": "validation",
+          "frames": 911
+        },
+        {
+          "path": "human/episode-06a3ffdc427eba6f/validation_001",
+          "partition": "validation",
+          "frames": 398
+        }
+      ],
+      "synchronization": {
+        "verified": true,
+        "video_pts_verified": true,
+        "raw_packets_verified": 63431,
+        "matched_frames": 49804,
+        "corrected_alignment_rows": 0,
+        "clock_offset_correction_s": 0.0,
+        "frame_clock_span_ms": 0.0009,
+        "median_age_ms": 14.8012,
+        "max_age_ms": 33.6651,
+        "excluded_frames_count": 1727
+      },
+      "car_ordinals": [
+        3819
+      ],
+      "preparation_version": 2,
+      "asset": "episode-06a3ffdc427eba6f.zip",
+      "bytes": 334566496,
+      "sha256": "b3f321f2827a5a62f81091f8df9459345a503a783e9c414f58685b7f58507ca1",
+      "url": "https://github.com/fumito072/mono-drive-fh6/releases/download/human-data-2026-11-02/episode-06a3ffdc427eba6f.zip"
+    },
+    {
+      "id": "episode-180c8010f659e04c",
+      "frames": 2371,
+      "train_frames": 1876,
+      "validation_frames": 495,
+      "segments": [
+        {
+          "path": "human/episode-180c8010f659e04c/train_000",
+          "partition": "train",
+          "frames": 303
+        },
+        {
+          "path": "human/episode-180c8010f659e04c/train_001",
+          "partition": "train",
+          "frames": 489
+        },
+        {
+          "path": "human/episode-180c8010f659e04c/train_002",
+          "partition": "train",
+          "frames": 199
+        },
+        {
+          "path": "human/episode-180c8010f659e04c/train_003",
+          "partition": "train",
+          "frames": 885
+        },
+        {
+          "path": "human/episode-180c8010f659e04c/validation_000",
+          "partition": "validation",
+          "frames": 495
+        }
+      ],
+      "synchronization": {
+        "verified": true,
+        "video_pts_verified": true,
+        "raw_packets_verified": 52341,
+        "matched_frames": 51719,
+        "corrected_alignment_rows": 0,
+        "clock_offset_correction_s": 0.0,
+        "frame_clock_span_ms": 0.0009,
+        "median_age_ms": 11.3236,
+        "max_age_ms": 28.0225,
+        "excluded_frames_count": 0
+      },
+      "car_ordinals": [
+        3819
+      ],
+      "preparation_version": 2,
+      "asset": "episode-180c8010f659e04c.zip",
+      "bytes": 500401459,
+      "sha256": "bb94d7cba5924c5d652b4f80bba9271f1697e76333605de8e9513ec6742da18a",
+      "url": "https://github.com/fumito072/mono-drive-fh6/releases/download/human-data-2026-11-02/episode-180c8010f659e04c.zip"
+    },
+    {
+      "id": "episode-6edc11fb4c0886b1",
+      "frames": 1762,
+      "train_frames": 1118,
+      "validation_frames": 644,
+      "segments": [
+        {
+          "path": "human/episode-6edc11fb4c0886b1/train_000",
+          "partition": "train",
+          "frames": 1118
+        },
+        {
+          "path": "human/episode-6edc11fb4c0886b1/validation_000",
+          "partition": "validation",
+          "frames": 83
+        },
+        {
+          "path": "human/episode-6edc11fb4c0886b1/validation_001",
+          "partition": "validation",
+          "frames": 227
+        },
+        {
+          "path": "human/episode-6edc11fb4c0886b1/validation_002",
+          "partition": "validation",
+          "frames": 58
+        },
+        {
+          "path": "human/episode-6edc11fb4c0886b1/validation_003",
+          "partition": "validation",
+          "frames": 90
+        },
+        {
+          "path": "human/episode-6edc11fb4c0886b1/validation_004",
+          "partition": "validation",
+          "frames": 151
+        },
+        {
+          "path": "human/episode-6edc11fb4c0886b1/validation_005",
+          "partition": "validation",
+          "frames": 35
+        }
+      ],
+      "synchronization": {
+        "verified": true,
+        "video_pts_verified": true,
+        "raw_packets_verified": 29156,
+        "matched_frames": 28924,
+        "corrected_alignment_rows": 0,
+        "clock_offset_correction_s": 0.0,
+        "frame_clock_span_ms": 0.0009,
+        "median_age_ms": 10.33485,
+        "max_age_ms": 26.7978,
+        "excluded_frames_count": 0
+      },
+      "car_ordinals": [
+        3819
+      ],
+      "preparation_version": 2,
+      "asset": "episode-6edc11fb4c0886b1.zip",
+      "bytes": 510125006,
+      "sha256": "343da30feb0e67a72d7ad03113242199e6ee5b43617c8a7299de4010e0780b80",
+      "url": "https://github.com/fumito072/mono-drive-fh6/releases/download/human-data-2026-11-02/episode-6edc11fb4c0886b1.zip"
+    },
+    {
+      "id": "episode-ccd188be7854d888",
+      "frames": 6711,
+      "train_frames": 4088,
+      "validation_frames": 2623,
+      "segments": [
+        {
+          "path": "human/episode-ccd188be7854d888/train_000",
+          "partition": "train",
+          "frames": 301
+        },
+        {
+          "path": "human/episode-ccd188be7854d888/train_001",
+          "partition": "train",
+          "frames": 33
+        },
+        {
+          "path": "human/episode-ccd188be7854d888/train_002",
+          "partition": "train",
+          "frames": 187
+        },
+        {
+          "path": "human/episode-ccd188be7854d888/train_003",
+          "partition": "train",
+          "frames": 65
+        },
+        {
+          "path": "human/episode-ccd188be7854d888/train_004",
+          "partition": "train",
+          "frames": 56
+        },
+        {
+          "path": "human/episode-ccd188be7854d888/train_005",
+          "partition": "train",
+          "frames": 20
+        },
+        {
+          "path": "human/episode-ccd188be7854d888/train_006",
+          "partition": "train",
+          "frames": 47
+        },
+        {
+          "path": "human/episode-ccd188be7854d888/train_007",
+          "partition": "train",
+          "frames": 180
+        },
+        {
+          "path": "human/episode-ccd188be7854d888/train_008",
+          "partition": "train",
+          "frames": 64
+        },
+        {
+          "path": "human/episode-ccd188be7854d888/train_009",
+          "partition": "train",
+          "frames": 139
+        },
+        {
+          "path": "human/episode-ccd188be7854d888/train_010",
+          "partition": "train",
+          "frames": 214
+        },
+        {
+          "path": "human/episode-ccd188be7854d888/train_011",
+          "partition": "train",
+          "frames": 22
+        },
+        {
+          "path": "human/episode-ccd188be7854d888/train_012",
+          "partition": "train",
+          "frames": 76
+        },
+        {
+          "path": "human/episode-ccd188be7854d888/train_013",
+          "partition": "train",
+          "frames": 20
+        },
+        {
+          "path": "human/episode-ccd188be7854d888/train_014",
+          "partition": "train",
+          "frames": 45
+        },
+        {
+          "path": "human/episode-ccd188be7854d888/train_015",
+          "partition": "train",
+          "frames": 26
+        },
+        {
+          "path": "human/episode-ccd188be7854d888/train_016",
+          "partition": "train",
+          "frames": 20
+        },
+        {
+          "path": "human/episode-ccd188be7854d888/train_017",
+          "partition": "train",
+          "frames": 580
+        },
+        {
+          "path": "human/episode-ccd188be7854d888/train_018",
+          "partition": "train",
+          "frames": 257
+        },
+        {
+          "path": "human/episode-ccd188be7854d888/train_019",
+          "partition": "train",
+          "frames": 20
+        },
+        {
+          "path": "human/episode-ccd188be7854d888/train_020",
+          "partition": "train",
+          "frames": 38
+        },
+        {
+          "path": "human/episode-ccd188be7854d888/train_021",
+          "partition": "train",
+          "frames": 63
+        },
+        {
+          "path": "human/episode-ccd188be7854d888/train_022",
+          "partition": "train",
+          "frames": 89
+        },
+        {
+          "path": "human/episode-ccd188be7854d888/train_023",
+          "partition": "train",
+          "frames": 93
+        },
+        {
+          "path": "human/episode-ccd188be7854d888/train_024",
+          "partition": "train",
+          "frames": 256
+        },
+        {
+          "path": "human/episode-ccd188be7854d888/train_025",
+          "partition": "train",
+          "frames": 201
+        },
+        {
+          "path": "human/episode-ccd188be7854d888/train_026",
+          "partition": "train",
+          "frames": 45
+        },
+        {
+          "path": "human/episode-ccd188be7854d888/train_027",
+          "partition": "train",
+          "frames": 47
+        },
+        {
+          "path": "human/episode-ccd188be7854d888/train_028",
+          "partition": "train",
+          "frames": 49
+        },
+        {
+          "path": "human/episode-ccd188be7854d888/train_029",
+          "partition": "train",
+          "frames": 23
+        },
+        {
+          "path": "human/episode-ccd188be7854d888/train_030",
+          "partition": "train",
+          "frames": 29
+        },
+        {
+          "path": "human/episode-ccd188be7854d888/train_031",
+          "partition": "train",
+          "frames": 85
+        },
+        {
+          "path": "human/episode-ccd188be7854d888/train_032",
+          "partition": "train",
+          "frames": 158
+        },
+        {
+          "path": "human/episode-ccd188be7854d888/train_033",
+          "partition": "train",
+          "frames": 55
+        },
+        {
+          "path": "human/episode-ccd188be7854d888/train_034",
+          "partition": "train",
+          "frames": 159
+        },
+        {
+          "path": "human/episode-ccd188be7854d888/train_035",
+          "partition": "train",
+          "frames": 65
+        },
+        {
+          "path": "human/episode-ccd188be7854d888/train_036",
+          "partition": "train",
+          "frames": 26
+        },
+        {
+          "path": "human/episode-ccd188be7854d888/train_037",
+          "partition": "train",
+          "frames": 187
+        },
+        {
+          "path": "human/episode-ccd188be7854d888/train_038",
+          "partition": "train",
+          "frames": 22
+        },
+        {
+          "path": "human/episode-ccd188be7854d888/train_039",
+          "partition": "train",
+          "frames": 26
+        },
+        {
+          "path": "human/episode-ccd188be7854d888/validation_000",
+          "partition": "validation",
+          "frames": 57
+        },
+        {
+          "path": "human/episode-ccd188be7854d888/validation_001",
+          "partition": "validation",
+          "frames": 382
+        },
+        {
+          "path": "human/episode-ccd188be7854d888/validation_002",
+          "partition": "validation",
+          "frames": 22
+        },
+        {
+          "path": "human/episode-ccd188be7854d888/validation_003",
+          "partition": "validation",
+          "frames": 38
+        },
+        {
+          "path": "human/episode-ccd188be7854d888/validation_004",
+          "partition": "validation",
+          "frames": 296
+        },
+        {
+          "path": "human/episode-ccd188be7854d888/validation_005",
+          "partition": "validation",
+          "frames": 275
+        },
+        {
+          "path": "human/episode-ccd188be7854d888/validation_006",
+          "partition": "validation",
+          "frames": 157
+        },
+        {
+          "path": "human/episode-ccd188be7854d888/validation_007",
+          "partition": "validation",
+          "frames": 756
+        },
+        {
+          "path": "human/episode-ccd188be7854d888/validation_008",
+          "partition": "validation",
+          "frames": 31
+        },
+        {
+          "path": "human/episode-ccd188be7854d888/validation_009",
+          "partition": "validation",
+          "frames": 489
+        },
+        {
+          "path": "human/episode-ccd188be7854d888/validation_010",
+          "partition": "validation",
+          "frames": 88
+        },
+        {
+          "path": "human/episode-ccd188be7854d888/validation_011",
+          "partition": "validation",
+          "frames": 32
+        }
+      ],
+      "synchronization": {
+        "verified": true,
+        "video_pts_verified": true,
+        "raw_packets_verified": 115380,
+        "matched_frames": 112681,
+        "corrected_alignment_rows": 0,
+        "clock_offset_correction_s": 0.0,
+        "frame_clock_span_ms": 0.0009,
+        "median_age_ms": 14.7178,
+        "max_age_ms": 32.2992,
+        "excluded_frames_count": 1647
+      },
+      "car_ordinals": [
+        3819
+      ],
+      "preparation_version": 2,
+      "asset": "episode-ccd188be7854d888.zip",
+      "bytes": 1721577883,
+      "sha256": "7f21d76c80f829a9a77617bd42cd7e912873c7351f7f5b85cef78ecadefb7ce3",
+      "url": "https://github.com/fumito072/mono-drive-fh6/releases/download/human-data-2026-11-02/episode-ccd188be7854d888.zip"
+    },
+    {
+      "id": "episode-c661cc37e31b7aa8",
+      "frames": 132,
+      "train_frames": 79,
+      "validation_frames": 53,
+      "segments": [
+        {
+          "path": "human/episode-c661cc37e31b7aa8/train_000",
+          "partition": "train",
+          "frames": 41
+        },
+        {
+          "path": "human/episode-c661cc37e31b7aa8/train_001",
+          "partition": "train",
+          "frames": 38
+        },
+        {
+          "path": "human/episode-c661cc37e31b7aa8/validation_000",
+          "partition": "validation",
+          "frames": 53
+        }
+      ],
+      "synchronization": {
+        "verified": true,
+        "video_pts_verified": true,
+        "raw_packets_verified": 2022,
+        "matched_frames": 1249,
+        "corrected_alignment_rows": 0,
+        "clock_offset_correction_s": 0.0,
+        "frame_clock_span_ms": 0.0009,
+        "median_age_ms": 12.0179,
+        "max_age_ms": 46.653,
+        "excluded_frames_count": 0
+      },
+      "car_ordinals": [
+        4222
+      ],
+      "preparation_version": 2,
+      "asset": "episode-c661cc37e31b7aa8.zip",
+      "bytes": 14632917,
+      "sha256": "6ae55a3b8f05428d7ccf3325c67932f08f11d9f3046d483be62ff33337b6f0b4",
+      "url": "https://github.com/fumito072/mono-drive-fh6/releases/download/human-data-2026-11-02/episode-c661cc37e31b7aa8.zip"
+    }
+  ],
+  "total_frames": 258042,
+  "total_bytes": 33853721144
+}

@@ -34,3 +34,8 @@ models/*
 credentials*.json
 token*.json
 configs/*.local.json
+
+# Explicitly curated public dataset metadata (image archives remain Releases).
+!teacher_data/
+!teacher_data/*.json
+!teacher_data/*.md

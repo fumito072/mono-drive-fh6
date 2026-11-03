@@ -40,7 +40,7 @@ def main():
                     time.sleep(1)
                 if child.returncode:raise RuntimeError('Video decode failed; see '+str(folder/'decode.log'))
             images=sorted(frames.glob('*.jpg'));pairs=[];previous=None
-            for image in images:
+            for frame_index,image in enumerate(images):
                 stamp=int(image.stem)/1000.;patch=motion_patch(cv2.imread(str(image)))
                 if previous:
                     prior_path,prior_stamp,prior_patch=previous
@@ -48,6 +48,9 @@ def main():
                     if motion:pairs.append({'previous':str(prior_path.resolve()),'current':str(image.resolve()),
                         'time_s':stamp,'dt_s':stamp-prior_stamp,**motion})
                 previous=image,stamp,patch
+                if frame_index%200==0:
+                    write_json(out/'state.json',{'phase':'estimating_image_motion','video':index+1,'videos':len(records),
+                        'frame':frame_index+1,'frames':len(images),'motion_pairs':total+len(pairs),'time':time.time()})
             pair_file=folder/'pairs.json';write_json(pair_file,pairs)
             write_json(complete,{'source_id':identity,'frames':len(images),'pairs':len(pairs),'pairs_file':str(pair_file.resolve()),
                 'split':'validation' if recording_split(identity)=='test' else 'train',

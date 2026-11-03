@@ -150,6 +150,10 @@ def import_folder(folder, target, ledger, max_bytes, reserve, now):
     before = signature(files)
     metadata = read_json(folder / 'session.json', {})
     if not complete(metadata):
+        from .control_evidence import inspect_controls
+        evidence=inspect_controls(folder)
+        if evidence['verdict']=='header_only_no_recorded_controls':
+            raise ValueError('No recorded control samples: telemetry.csv has only its header and telemetry.raw has only its 8-byte header')
         raise ValueError('Session is unfinished, synthetic, or contains recorder errors')
     total = sum(p.stat().st_size for p in files)
     if total > max_bytes or shutil.disk_usage(target).free < total + reserve:
@@ -240,7 +244,9 @@ def sync_once(root, now=None):
             errors.append(dict(source=str(path), error=str(error)))
     write_json(ledger_path, ledger)
     result = dict(time=now, phase='watching', source=str(source), imported_sessions=imported,
-                  waiting_for_complete_sync=waiting, errors=errors, expected_account=config.get('expected_account'),
+                  waiting_for_complete_sync=waiting, errors=errors,
+                  missing_control_sessions=sum(e['error'].startswith('No recorded control samples:') for e in errors),
+                  expected_account=config.get('expected_account'),
                   account_verified=bool(config.get('expected_account') and config.get('desktop_account_verified')==config.get('expected_account')),
                   account_verified_at=config.get('desktop_account_verified_at'),
                   account_verification_method='Drive desktop UI at setup; no access to OAuth credentials',

@@ -23,5 +23,9 @@
   "matching_video_size_with_valid_control_recordings": 0,
   "new_control_data_recovered": 0,
   "limits": "This audit covers accessible sources. It cannot inspect another recording PC or unavailable backups.",
-  "conclusion": "Missing samples are not repaired by inventing controls. Existing verified recordings remain usable."
+  "conclusion": "Missing samples are not repaired by inventing controls. Existing verified recordings remain usable.",
+  "additional_named_control_files_in_downloads_desktop_documents": 0,
+  "trashed_control_files_found": 0,
+  "existing_legacy_control_csv_rows": 18836,
+  "legacy_csv_covers_failed_recordings": false
 }

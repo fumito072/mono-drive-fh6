@@ -51,6 +51,19 @@ class DriveImportTests(unittest.TestCase):
             self.assertTrue(result['errors'])
             self.assertFalse(list((root.parent/'Play-data').glob('drive_*')))
 
+    def test_empty_controls_are_reported_explicitly_without_changing_source(self):
+        with TemporaryDirectory() as temp:
+            root,source=self.setup_tree(temp);folder=source/'empty_recording';folder.mkdir()
+            for name in FILES:(folder/name).write_bytes(b'placeholder')
+            (folder/'session.json').write_text(json.dumps(dict(status='error',synthetic_demo=False,errors=['no packets'])))
+            (folder/'telemetry.raw').write_bytes(b'FH6UDP1\n')
+            (folder/'telemetry.csv').write_text('steer,throttle,brake\n')
+            before={p.name:p.read_bytes() for p in folder.iterdir()}
+            sync_once(root,0);result=sync_once(root,61)
+            self.assertEqual(result['missing_control_sessions'],1)
+            self.assertEqual(result['imported_sessions'],0)
+            self.assertEqual(before,{p.name:p.read_bytes() for p in folder.iterdir()})
+
     def test_changed_archive_waits_again(self):
         with TemporaryDirectory() as temp:
             root, source = self.setup_tree(temp)

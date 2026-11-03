@@ -1,11 +1,21 @@
 import unittest
 import numpy as np
-from mono_drive.temporal_steering import window_indices,targets,sequence_arrays,metrics,accept
+from mono_drive.temporal_steering import window_indices,targets,sequence_arrays,metrics,accept,resample_history
 from mono_drive.forza_temporal import bounded_preview,TemporalSteering
 from mono_drive.forza_scene import ScenePlan
 
 
 class TemporalTests(unittest.TestCase):
+    def test_irregular_history_preserves_seconds_and_lags_controls(self):
+        times=np.arange(0,2.2,.3)
+        rows=[(float(t),np.full(256,t,np.float32),t*10,t/10) for t in times]
+        f,e,info=resample_history(rows)
+        expected=times[-1]-np.arange(8,-1,-1)*.2
+        np.testing.assert_allclose(f[:,0],expected,atol=1e-6)
+        np.testing.assert_allclose(e[:,1],(expected-.2)/10,atol=1e-6)
+        self.assertAlmostEqual(info['history_seconds'],1.8)
+        self.assertIsNone(resample_history(rows[:4]))
+        self.assertIsNone(resample_history([rows[0],*rows[3:]]))
     def test_windows_never_cross_time_gaps_or_invalid_telemetry(self):
         t=np.arange(40)*.2;s=np.full(40,50.);u=np.zeros(40);age=np.zeros(40)
         good=window_indices(t,s,u,age);self.assertGreater(len(good),15)

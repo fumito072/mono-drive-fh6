@@ -81,6 +81,17 @@ class RouteMemoryTests(unittest.TestCase):
                                 dict(position=[0,0,20],yaw=0.,speed=30.))
             self.assertEqual(result.limit,0.)
 
+    def test_clear_current_painted_lane_precedes_old_route_consensus(self):
+        with TemporaryDirectory() as folder:
+            routes=self.write(folder)
+            data=json.loads(routes.file.read_text());first=data['segments'][0];first['start']=100.
+            data['segments'].append(dict(first,id=2,start=200.));routes.file.write_text(json.dumps(data))
+            plan=replace(self.plan(),reason='paint_pair',quality=.8,inferred=False,painted_boundaries=6)
+            scene=dict(road=np.full((216,384),255,np.uint8),cars=[])
+            result=routes.apply(plan,scene,dict(position=[0,0,20],yaw=0.,speed=30.))
+            self.assertIs(result,plan)
+            self.assertEqual(routes.status['action'],'current_painted_lane')
+
     def test_turn_keeps_visible_forward_arc_when_later_route_faces_behind(self):
         with TemporaryDirectory() as folder:
             routes=self.write(folder)

@@ -8,6 +8,37 @@ FUTURE = 3
 FEATURES = 256
 
 
+def resample_history(rows,period=.2,max_gap=.5):
+    """Regular past-only features from irregular capture; never use future data."""
+    if len(rows)<5:return None
+    times=np.asarray([r[0] for r in rows],float)
+    if np.any(np.diff(times)<=0):return None
+    query=times[-1]-np.arange(HISTORY,-1,-1)*period
+    if times[0]>query[0]+1e-6:return None
+    start=max(0,int(np.searchsorted(times,query[0],side='right'))-1)
+    times=times[start:];selected=rows[start:]
+    if np.max(np.diff(times))>max_gap:return None
+    features=np.asarray([r[1] for r in selected],np.float32)
+    speed=np.asarray([r[2] for r in selected],float)
+    steer=np.asarray([r[3] for r in selected],float)
+    if features.shape!=(len(times),FEATURES) or not np.isfinite(features).all():return None
+    if not np.isfinite(speed).all() or not np.isfinite(steer).all():return None
+    x=np.stack([np.interp(query[1:],times,features[:,i]) for i in range(FEATURES)],1).astype(np.float32)
+    ego=np.stack((np.interp(query[1:],times,speed)/100.,np.interp(query[:-1],times,steer)),1).astype(np.float32)
+    return x,ego,{'max_observation_gap_s':float(np.max(np.diff(times))),'history_seconds':float(query[-1]-query[0]),'source_frames':len(times)}
+
+
+def jitter_inputs(features,ego,all_rows=False):
+    """Simulate intermittent missing interior frames, retaining the current frame."""
+    import torch
+    f=features.clone();e=ego.clone()
+    mask=torch.ones(len(f),dtype=torch.bool,device=f.device) if all_rows else torch.rand(len(f),device=f.device)<.25
+    for i in (1,3,5,7):
+        f[mask,i]=(features[mask,i-1]+features[mask,i+1])*.5
+        e[mask,i]=(ego[mask,i-1]+ego[mask,i+1])*.5
+    return f,e
+
+
 def recording_split(recording):
     # Entire recordings are excluded from temporal-head training for this test.
     return 'test' if int(hashlib.sha256(recording.encode()).hexdigest()[:8],16)%7==0 else None

@@ -107,6 +107,15 @@ class SuccessfulRouteMemory:
         self.last_path=None
         if plan.reason in ('offroad_surface','sidewalk_boundary','median_boundary','wrong_way'):
             return plan
+        if (not plan.inferred and plan.reason in ('paint_pair','paint_corridor') and
+                plan.quality>=.8 and plan.painted_boundaries>=5 and len(plan.lane_edges)>=3):
+            edges=np.asarray(plan.lane_edges,float)
+            near=edges[np.argmin(np.abs(edges[:,0]-6.))]
+            width=near[2]-near[1];centre=(near[1]+near[2])/2.
+            if (2.6<=width<=4.8 and abs(centre)<=1. and
+                    self.validate(plan.path,plan,scene,ego,enforce_lane=True)):
+                self.status=dict(action='current_painted_lane',segments=len(self.segments))
+                return plan
         candidates=self.candidates(ego)
         now=time.monotonic()
         candidates.sort(key=lambda item:(item[1]!=self.committed_id,item[0]))

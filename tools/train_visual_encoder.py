@@ -8,7 +8,7 @@ from mono_drive.camera import Camera,ReferenceView,REF_CAMERA
 from mono_drive.pathnet import net_input_u8
 from mono_drive.temporal_steering import HISTORY,FUTURE,recording_split,window_indices
 from mono_drive.visual_learning import visual_targets,visual_scores,accept_visual
-from mono_drive.forza_local_learning import write_json
+from mono_drive.forza_local_learning import read_json,write_json
 
 
 def main():
@@ -18,13 +18,17 @@ def main():
     p=argparse.ArgumentParser();p.add_argument('--manifest',type=Path,default=ROOT/'out/human-dataset.json')
     p.add_argument('--out',type=Path,required=True);p.add_argument('--epochs',type=int,default=8)
     p.add_argument('--samples-per-epoch',type=int,default=24000);p.add_argument('--batch',type=int,default=32)
+    p.add_argument('--motion-manifest',type=Path,help='Optional weak image-motion pairs; never steering labels')
     a=p.parse_args();a.out.mkdir(parents=True,exist_ok=True)
     if not 1<=a.epochs<=50 or not 1000<=a.samples_per_epoch<=200000 or not 1<=a.batch<=256:raise ValueError('Invalid training budget')
     source=json.loads(a.manifest.read_text(encoding='utf-8'));source_revision=source.get('source_revision',source['revision'])
+    motion_data=read_json(a.motion_manifest,{}) if a.motion_manifest else {}
+    motion_revision=motion_data.get('revision')
     base_path=ROOT/'models/pathnet.onnx';base_hash=hashlib.sha256(base_path.read_bytes()).hexdigest()
     if (a.out/'report.json').exists():
         previous=json.loads((a.out/'report.json').read_text(encoding='utf-8'))
-        if previous.get('phase')=='complete' and previous.get('source_revision')==source_revision and previous.get('base_sha256')==base_hash:
+        if (previous.get('phase')=='complete' and previous.get('source_revision')==source_revision and
+                previous.get('base_sha256')==base_hash and previous.get('motion_revision')==motion_revision):
             print('Reusing completed visual comparison',flush=True);return
     write_json(a.out/'progress.json',{'phase':'loading','source_revision':source_revision,'time':time.time()})
     cv2.setNumThreads(1);torch.set_num_threads(4);torch.manual_seed(83);rng=np.random.default_rng(83)
@@ -55,6 +59,11 @@ def main():
     validation=examples['validation']
     if len(validation)>6000:validation=[validation[i] for i in np.linspace(0,len(validation)-1,6000,dtype=int)]
     weights=np.asarray([3. if abs(x[3][0])>.04 else 1. for x in examples['train']]);weights/=weights.sum()
+    motion_pairs=[]
+    if a.motion_manifest:
+        for video in motion_data.get('videos',[]):
+            if video.get('split')=='train':motion_pairs.extend(read_json(video['pairs_file'],[]))
+        if len(motion_pairs)<100:raise ValueError('Too few independent weak motion pairs')
     base=build_pathnet();load_onnx_into(base,str(base_path))
     original=nn.Sequential(base.body,*list(base.head.children())[:3]).eval()
     frozen=copy.deepcopy(original).to(device).requires_grad_(False)
@@ -64,15 +73,22 @@ def main():
     adapted[2].requires_grad_(True)
     def head():return nn.Sequential(nn.LayerNorm(257),nn.Linear(257,128),nn.GELU(),nn.Linear(128,2),nn.Tanh()).to(device)
     heads=[head(),head()];heads[1].load_state_dict(heads[0].state_dict())
+    motion_head=nn.Sequential(nn.LayerNorm(512),nn.Linear(512,128),nn.GELU(),nn.Linear(128,3)).to(device) if motion_pairs else None
     opt=[torch.optim.AdamW([{'params':[x for x in adapted.parameters() if x.requires_grad],'lr':2e-5},
                            {'params':heads[0].parameters(),'lr':4e-4}],weight_decay=.01),
          torch.optim.AdamW(heads[1].parameters(),lr=4e-4,weight_decay=.01)]
+    if motion_head is not None:opt[0].add_param_group({'params':motion_head.parameters(),'lr':2e-4})
     schedulers=[torch.optim.lr_scheduler.CosineAnnealingLR(o,a.epochs) for o in opt]
     best=[float('inf'),float('inf')];saved=[None,None];history=[]
     def decode(item):
         path,directory,speed,label=item;image=cv2.imread(str(path))
         if image is None:raise ValueError('Missing teacher image')
         return net_input_u8(views[directory].warp(image)),speed,label
+    def decode_motion(item):
+        from mono_drive.video_motion_learning import motion_patch
+        previous=cv2.imread(item['previous']);current=cv2.imread(item['current'])
+        if previous is None or current is None:raise ValueError('Missing weak motion frame')
+        return motion_patch(previous),motion_patch(current),item['target'],item['confidence']
     with ThreadPoolExecutor(max_workers=6) as pool:
         def batch(items,augment=False):
             decoded=list(pool.map(decode,items));x=np.stack([v[0] for v in decoded]).astype(np.float32)/255.
@@ -95,6 +111,16 @@ def main():
                 for n,feature in enumerate((adapted(x),fixed)):
                     prediction=heads[n](torch.cat((feature,s),1))
                     loss=nn.functional.smooth_l1_loss(prediction[:,0],y[:,0],beta=.05)+.25*nn.functional.smooth_l1_loss(prediction[:,1],y[:,1],beta=.1)
+                    if n==0 and motion_head is not None and steps%4==0:
+                        choices=rng.integers(0,len(motion_pairs),size=max(4,a.batch//2))
+                        weak=list(pool.map(decode_motion,[motion_pairs[i] for i in choices]))
+                        pa=torch.from_numpy(np.stack([v[0] for v in weak]).astype(np.float32)/255.).to(device)
+                        pb=torch.from_numpy(np.stack([v[1] for v in weak]).astype(np.float32)/255.).to(device)
+                        target=torch.tensor([v[2] for v in weak],device=device,dtype=torch.float32)*4.
+                        confidence=torch.tensor([v[3] for v in weak],device=device,dtype=torch.float32)
+                        forecast=motion_head(torch.cat((adapted(pa),adapted(pb)),1))
+                        weak_loss=nn.functional.smooth_l1_loss(forecast,target,beta=.1,reduction='none').mean(1)
+                        loss+=.04*(weak_loss*confidence).mean()
                     opt[n].zero_grad();loss.backward();torch.nn.utils.clip_grad_norm_(list(heads[n].parameters())+(list(adapted.parameters()) if n==0 else []),2.);opt[n].step()
                     losses[n]+=float(loss.detach())
                 steps+=1
@@ -125,6 +151,7 @@ def main():
             'excluded_test_recordings':len(set(excluded_test)),'comparison':['fine_tuned_visual_encoder','frozen_visual_encoder'],
             'validation':[x['score'] for x in saved],'epochs':a.epochs,'samples_per_epoch':a.samples_per_epoch,
             'targets':['future_mean_Data_Out_steer','future_heading_change'],'history':history,'onnx_max_difference':difference,
+            'motion_revision':motion_revision,'weak_motion_training_pairs':len(motion_pairs),'weak_motion_weight':.04 if motion_pairs else 0.,
             'selected':'adapted' if accepted else 'original','time':time.time(),
             'note':'Validation selects visual features only. Separate recording-level temporal and live checks remain mandatory.'}
     write_json(a.out/'report.json',report);write_json(a.out/'progress.json',{'phase':'complete','accepted_visual':accepted,'time':time.time()})

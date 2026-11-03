@@ -17,7 +17,7 @@ def main():
     report=read_json(a.visual_dir/'report.json',{})
     if not report.get('accepted_visual'):
         write_json(state,{'phase':'visual_candidate_rejected','time':time.time()});return
-    cache=ROOT/'out/temporal-visual-refined'
+    cache=ROOT/'out/temporal-refined'/a.out.name
     commands=[
         [sys.executable,'tools/prepare_temporal_driving.py','--manifest',str(a.manifest),'--out',str(cache),'--visual-encoder-dir',str(a.visual_dir)],
         [sys.executable,'tools/train_temporal_steering.py','--cache',str(cache),'--out',str(a.out),'--epochs','24','--samples-per-epoch','120000'],

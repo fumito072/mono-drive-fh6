@@ -3,7 +3,7 @@ import argparse,json,math,sys,time
 from pathlib import Path
 import numpy as np
 ROOT=Path(__file__).resolve().parents[1];sys.path.insert(0,str(ROOT))
-from mono_drive.temporal_steering import HISTORY,targets,sequence_arrays,build_models,metrics,accept
+from mono_drive.temporal_steering import HISTORY,targets,sequence_arrays,build_models,metrics,accept,jitter_inputs
 
 
 def write(path,value):
@@ -54,12 +54,13 @@ def main():
     optimizers=[torch.optim.AdamW(m.parameters(),lr=8e-4,weight_decay=.01) for m in models]
     schedulers=[torch.optim.lr_scheduler.CosineAnnealingLR(o,a.epochs) for o in optimizers]
     best=[math.inf,math.inf];states=[None,None];history=[]
-    def predict(model,name,ablate=False):
+    def predict(model,name,ablate=False,jitter=False):
         model.eval();results=[];truth=[];prior=[]
         with torch.inference_mode():
             for f,e,y in DataLoader(datasets[name],batch_size=512,num_workers=0):
                 if ablate:
                     f=f[:,-1:,:].expand_as(f);e=e[:,-1:,:].expand_as(e)
+                if jitter:f,e=jitter_inputs(f,e,all_rows=True)
                 results.extend(model(f.to(device),e.to(device))[:,-1].cpu().numpy())
                 truth.extend(y[:,-1].numpy());prior.extend(e[:,-1,1].numpy())
         ids=[];group=0;last=None
@@ -73,6 +74,7 @@ def main():
         total=np.zeros(2);batches=0
         for f,e,y in train:
             f,e,y=(v.to(device) for v in (f,e,y));batches+=1
+            f,e=jitter_inputs(f,e)
             for n,(model,opt) in enumerate(zip(models,optimizers)):
                 prediction=model(f,e)[:,-2:]
                 loss=torch.nn.functional.smooth_l1_loss(prediction,y,beta=.05)
@@ -92,7 +94,9 @@ def main():
     for n,m in enumerate(models):
         m.load_state_dict(states[n]);values=predict(m,'test');predictions.append(values);test.append(metrics(*values))
     ablated=metrics(*predict(models[0],'test',ablate=True))
-    permitted=accept(test[0],test[1]) and test[0]['active_mae']<=ablated['active_mae']*.99
+    jittered=metrics(*predict(models[0],'test',jitter=True))
+    permitted=(accept(test[0],test[1]) and test[0]['active_mae']<=ablated['active_mae']*.99 and
+               jittered['mae']<=test[0]['mae']*1.15 and jittered['active_mae']<=test[0]['active_mae']*1.15)
     report={'phase':'complete','architecture_version':2,'accepted_offline':permitted,'created_at':time.time(),'encoder':str((a.cache/'encoder.onnx').resolve()),
             'encoder_source_fingerprint':manifest.get('base_sha256'),'visual_adaptation':manifest.get('visual_adaptation'),
             'dataset_revision':manifest['revision'],'history_frames':HISTORY,'sample_hz':5,'target':'mean applied steer over next 0.2-0.6 seconds',
@@ -101,6 +105,7 @@ def main():
             'labels':'Clock-verified Data Out state, not raw hardware commands','samples':{k:len(v) for k,v in split.items()},
             'test_temporal':test[0],'test_single_frame':test[1],'history':history,
             'test_without_real_history':ablated,'parameter_counts':[sum(p.numel() for p in m.parameters()) for m in models],
+            'test_interpolated_history':jittered,'history_resampling_checked':True,
             'deployment':'candidate only; requires runtime shadow and bounded trial'}
     class Export(torch.nn.Module):
         def __init__(self,m):super().__init__();self.m=m

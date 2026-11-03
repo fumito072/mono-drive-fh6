@@ -10,6 +10,7 @@ from .camera import Camera,REF_CAMERA,ReferenceView
 from .pathnet import net_input
 from .forza_local_learning import read_json,write_json
 from .forza_vehicle import steering_angle
+from .temporal_steering import resample_history
 
 
 def clearance(plan,speed,steer):
@@ -68,7 +69,7 @@ class TemporalSteering:
         self.root=Path(root) if root else Path(__file__).resolve().parents[1]
         self.config=self.root/'configs/temporal_steering.json'
         self.pool=ThreadPoolExecutor(max_workers=1,thread_name_prefix='temporal-loader')
-        self.future=None;self.models=None;self.next_check=0.;self.next_frame=0.;self.rows=deque(maxlen=10)
+        self.future=None;self.models=None;self.next_check=0.;self.next_frame=0.;self.rows=deque(maxlen=40)
         self.view=None;self.previous=None;self.last_position=None;self.last_yaw=None
         self.last_prediction=None
         self.next_write=0.;self.counters={'eligible':0,'agreeing':0,'applied':0}
@@ -138,27 +139,28 @@ class TemporalSteering:
                 self.view=ReferenceView(Camera.from_dict(cfg['camera']),REF_CAMERA,frame_size=(frame.shape[1],frame.shape[0]));self.rows.clear()
             encoder,head,report=self.models
             feature=encoder.run(None,{'image':net_input(self.view.warp(frame))[None]})[0][0]
-            steer=float(telemetry.get('steer',0))/127.
-            if self.rows and not .12<=now-self.rows[-1][0]<=.31:self.rows.clear()
+            steer=float(np.clip(float(telemetry.get('steer',0))/127.,-1.,1.))
+            if self.rows and now-self.rows[-1][0]>.5:self.rows.clear()
             self.rows.append((now,feature,speed,steer))
-            if len(self.rows)<10:
+            history=resample_history(list(self.rows))
+            if history is None:
                 self.publish_status(now,'collecting_history',history_frames=len(self.rows),model_dir=str(self.folder))
                 return plan
-            rows=list(self.rows)
-            features=np.stack([x[1] for x in rows[1:]])[None].astype(np.float32)
-            ego=np.array([[rows[i][2]/100.,rows[i-1][3]] for i in range(1,10)],np.float32)[None]
+            features,ego,timing=history;features=features[None];ego=ego[None]
             predicted=float(head.run(None,{'features':features,'ego':ego})[0].reshape(-1)[0])
-            self.last_prediction=(now,predicted)
+            resampling_valid=timing['max_observation_gap_s']<=.31 or report.get('history_resampling_checked') is True
+            self.last_prediction=(now,predicted) if resampling_valid else None
             hypothetical,reason=bounded_preview(plan,predicted,speed,scene.get('raw_road',scene.get('road')))
             eligible=reason in ('applied','no_change','disagreement','lane_veto','road_veto')
             self.counters['eligible']+=int(eligible)
             self.counters['agreeing']+=int(eligible and abs(predicted-plan.steer)<=.12)
-            applied=(self.mode in ('trial','active') and report.get('accepted_offline') is True and reason=='applied')
+            applied=(self.mode in ('trial','active') and report.get('accepted_offline') is True and resampling_valid and reason=='applied')
             if applied:self.counters['applied']+=1
             self.status={'phase':self.mode,'time':time.time(),'predicted_steer':predicted,'baseline_steer':plan.steer,
                          'model_dir':str(self.folder),
                          'proposed_steer':hypothetical.steer,'applied':applied,'reason':reason,
-                         'accepted_offline':bool(report.get('accepted_offline')),'history_seconds':now-rows[0][0],
+                         'accepted_offline':bool(report.get('accepted_offline')),**timing,
+                         'resampling_validated':bool(resampling_valid),
                          'speed_kmh':speed,**self.counters}
             if now>=self.next_write:
                 self.next_write=now+.5;write_json(self.root/'out/temporal-steering-state.json',self.status)

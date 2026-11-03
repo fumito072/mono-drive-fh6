@@ -42,6 +42,16 @@ def write_json(path,value):
             time.sleep(.025)
 
 
+def close_game_resources(*resources):
+    """A failed capture shutdown must not leave the telemetry port occupied."""
+    errors=[]
+    for resource in resources:
+        if resource is None:continue
+        try:resource.close()
+        except Exception as exc:errors.append(dict(resource=type(resource).__name__,error=str(exc)))
+    if errors:write_json(OUT/'recovery-cleanup-error.json',dict(time=time.time(),errors=errors))
+
+
 def port_busy(port):
     with socket.socket(socket.AF_INET,socket.SOCK_DGRAM) as sock:
         try:
@@ -113,9 +123,12 @@ class MenuRecognizer:
         gray=cv2.cvtColor(cv2.resize(frame,(1920,1080)),cv2.COLOR_BGR2GRAY)
         x,y=map(int,player)
         region=gray[max(0,y-310):min(1080,y-70),max(0,x-300):min(1920,x+300)]
-        h,w=self.player_card.shape
+        # The selected account is stable; the car name/class changes when the
+        # user swaps cars. Match only the account row of the captured card.
+        template=self.player_card[:58]
+        h,w=template.shape
         return bool(region.shape[0]>=h and region.shape[1]>=w and
-                    cv2.matchTemplate(region,self.player_card,cv2.TM_CCOEFF_NORMED).max()>.95)
+                    cv2.matchTemplate(region,template,cv2.TM_CCOEFF_NORMED).max()>.95)
 
     def place_is_selected(self,frame):
         if self.place_logo is None:
@@ -299,11 +312,7 @@ def recover_controller_dialog():
                 return True
         raise RuntimeError('Controller was reconnected but a verified free-roam screen did not return')
     finally:
-        if telemetry is not None:
-            telemetry.close()
-        if pad is not None:
-            pad.close()
-        capture.close()
+        close_game_resources(telemetry,pad,capture)
 
 
 def observe_resumable_free_roam():
@@ -338,8 +347,7 @@ def observe_resumable_free_roam():
     except (OSError,RuntimeError):
         return False
     finally:
-        if capture is not None:capture.close()
-        if telemetry is not None:telemetry.close()
+        close_game_resources(capture,telemetry)
 
 
 def restore_road(destination=None):
@@ -352,16 +360,17 @@ def restore_road(destination=None):
     stop_driver_for_menu('Observed automatic road recovery')
     folder = OUT/time.strftime('rescue_%Y%m%d_%H%M%S')
     folder.mkdir()
-    capture,pad,recognizer,telemetry = GameCapture(),PadChannel(),MenuRecognizer(),Telemetry(20066)
-    if varied_route:
-        from .forza_scene import SceneReader
-        from .forza_routes import paved_arrival
-        scene_reader=SceneReader()
+    capture=pad=telemetry=None
     from .forza_routes import road_probe_offsets
     offsets=road_probe_offsets() if varied_route else [(0.,0.)]
     probe_index=0
     selected_map_point=None
     try:
+        capture=GameCapture();pad=PadChannel();recognizer=MenuRecognizer();telemetry=Telemetry(20066)
+        if varied_route:
+            from .forza_scene import SceneReader
+            from .forza_routes import paved_arrival
+            scene_reader=SceneReader()
         time.sleep(.5)
         telemetry.poll()
         frame,_ = capture.grab()
@@ -391,6 +400,11 @@ def restore_road(destination=None):
             if recognizer.classify(frame)!='map':
                 raise RuntimeError('Map disappeared while selecting a known location')
             cursor,player=recognizer.map_points(frame)
+            # Hovering our own marker hides the thin ring. The independently
+            # matched player card identifies this selected marker precisely;
+            # a generic place/event card cannot provide this position.
+            if cursor is None and player is not None and recognizer.player_is_selected(frame,player):
+                cursor=player
             goal_pixel=anchor.locate(frame,offsets[probe_index]) if varied_route else anchor.locate(frame)
             cv2.imwrite(str(folder/f'navigation-{attempt:02d}.jpg'),frame)
             with (folder/'navigation.jsonl').open('a',encoding='utf-8') as log:
@@ -411,7 +425,7 @@ def restore_road(destination=None):
             if cursor is None:
                 # A recognized map plus geographic landmarks permits bounded
                 # navigation, even when a location/event card hides the ring.
-                # Never infer a cursor from a card or activate its A action.
+                # Unmatched cards cannot supply a cursor or authorize A.
                 if clear_attempts >= (8 if varied_route or last_cursor is not None else 3):
                     raise RuntimeError('Map cursor remained hidden after bounded navigation attempts')
                 clear_attempts+=1
@@ -473,9 +487,7 @@ def restore_road(destination=None):
         write_json(folder/'result.json',dict(before=origin,after=telemetry.last,success=False))
         raise RuntimeError('Fast travel did not return to fresh free-roam telemetry')
     finally:
-        pad.close()
-        capture.close()
-        telemetry.close()
+        close_game_resources(pad,capture,telemetry)
 
 
 def road_recovery_reason(now,surface,manual):

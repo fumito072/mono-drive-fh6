@@ -11,6 +11,15 @@ from mono_drive.forza_static import static_risk
 
 
 class SessionTests(unittest.TestCase):
+    def test_capture_shutdown_failure_still_releases_telemetry(self):
+        from mono_drive.forza_session import close_game_resources
+        capture,telemetry=MagicMock(),MagicMock()
+        capture.close.side_effect=RuntimeError('capture already stopped')
+        with TemporaryDirectory() as folder,patch('mono_drive.forza_session.OUT',Path(folder)):
+            close_game_resources(capture,telemetry)
+            self.assertTrue((Path(folder)/'recovery-cleanup-error.json').exists())
+        telemetry.close.assert_called_once()
+
     def test_read_only_resume_requires_fresh_paved_free_roam_and_sends_no_buttons(self):
         from mono_drive.forza_session import observe_resumable_free_roam
         for screen,fresh,paved,expected in [('unknown',True,True,True),
@@ -175,6 +184,14 @@ class SessionTests(unittest.TestCase):
         recognizer=MenuRecognizer()
         self.assertTrue(recognizer.player_is_selected(frame,[966.5,539.5]))
         self.assertFalse(recognizer.player_is_selected(np.zeros_like(frame),[966.5,539.5]))
+
+    def test_player_selection_survives_a_changed_vehicle_card(self):
+        recognizer=MenuRecognizer()
+        frame=np.zeros((1080,1920,3),np.uint8)
+        name=recognizer.player_card[:58]
+        frame[200:258,600:600+name.shape[1]]=cv2.cvtColor(name,cv2.COLOR_GRAY2BGR)
+        self.assertTrue(recognizer.player_is_selected(frame,[807.,480.]))
+        self.assertFalse(recognizer.player_is_selected(np.full_like(frame,255),[807.,480.]))
 
     def test_reverse_timing_does_not_relax_forward_frame_requirement(self):
         from mono_drive.forza import control_frame_fresh

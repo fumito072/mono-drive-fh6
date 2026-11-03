@@ -1,0 +1,31 @@
+{
+  "phase": "inconclusive",
+  "samples": 11,
+  "agreement_fraction": 0.6363636363636364,
+  "baseline": {
+    "driving_seconds": 48.010000228881836,
+    "distance_m": 277.51812896423246,
+    "mean_kmh": 20.809524255536633,
+    "fraction_55_to_65": 0.0,
+    "stopped_seconds": 4.47599983215332,
+    "observed_lane_seconds": 12.319000244140625,
+    "estimated_centered_fraction": 0.6299212852919099,
+    "estimated_center_offset_rmse_m": 0.9215462503509861,
+    "offroad_seconds": 2.305999994277954,
+    "wrongway_seconds": 0.0,
+    "inferred_seconds": 30.397000074386597,
+    "steer_rate_p95": 1.4132697386031046,
+    "pedal_rate_p95": 1.1127922741628173,
+    "path_models": [
+      "pathnet_fh6_20261029_221828.onnx"
+    ],
+    "measurement_note": "Lane centre is a camera estimate; unknown or inferred lanes do not count as centered."
+  },
+  "hold_route": false,
+  "time": 1793682581.9160578,
+  "model_dir": "models/temporal_candidates/residual_20261103",
+  "reason": "baseline_offroad_before_control_trial",
+  "applied_samples": 0,
+  "controls_changed": false,
+  "target_achieved": false
+}

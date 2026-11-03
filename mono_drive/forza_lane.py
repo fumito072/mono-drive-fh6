@@ -92,6 +92,10 @@ class LaneFusion:
         self.failure_guard.route_memory=self.route_memory
         from .forza_learned_path import LearnedPathPrior
         self.learned_prior=LearnedPathPrior()
+        from . import forza_temporal
+        if semantic:
+            importlib.reload(forza_temporal)
+        self.temporal=forza_temporal.TemporalSteering()
         self.legacy_veto_status='not_requested'
 
     def bridge_scene(self, scene, telemetry, now):
@@ -247,6 +251,7 @@ class LaneFusion:
                 plan=replace(plan,limit=0.,road_limit=0.,reason='wrong_way',guard_state='wrong_way')
             plan=self.surface_guard.apply(plan,scene,telemetry,now,correct=False)
             plan=self.failure_guard.apply(plan,scene,telemetry,final=True)
+            plan=self.temporal.update(frame,telemetry,plan,scene,now)
             reference=self.route_memory.last_path
             self.route_memory.status['retained']=bool(reference is not None and
                 reference.shape==plan.path.shape and np.allclose(reference,plan.path,atol=.05))

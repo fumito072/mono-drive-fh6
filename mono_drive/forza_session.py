@@ -548,6 +548,9 @@ def worker():
                 launch([str(ROOT/'.train-venv/Scripts/python.exe'),'tools/train_forza_continuous.py'],'continuous-training')
             if not port_busy(20074):
                 launch([str(ROOT/'.train-venv/Scripts/python.exe'),'-m','mono_drive.forza_data_worker'],'human-data-worker')
+            if (read_json(ROOT/'configs/temporal_steering.json',{}).get('enabled') is True
+                    and not (OUT/'training.stop').exists() and not port_busy(20083)):
+                launch([str(ROOT/'.train-venv/Scripts/python.exe'),'-m','mono_drive.forza_temporal_worker'],'temporal-worker')
             if config.get('vlm_enabled',False) and not (OUT/'vlm.stop').exists() and not port_busy(20072):
                 launch([str(ROOT/'.train-venv/Scripts/python.exe'),'-m','mono_drive.forza_vlm'],'vlm')
             fresh = now-heartbeat.get('time',0)<8

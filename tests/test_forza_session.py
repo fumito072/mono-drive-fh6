@@ -11,6 +11,15 @@ from mono_drive.forza_static import static_risk
 
 
 class SessionTests(unittest.TestCase):
+    def test_game_failure_keeps_learning_but_explicit_stop_and_deadline_end_it(self):
+        from mono_drive.forza_session_policy import stop_background_workers
+        continuous={'continuous':True,'started_at':1.}
+        self.assertFalse(stop_background_workers(continuous,100.))
+        self.assertTrue(stop_background_workers(continuous,100.,explicit_stop=True))
+        self.assertTrue(stop_background_workers(continuous,100.,storage_limit=True))
+        self.assertFalse(stop_background_workers({'ends_at':200.},100.))
+        self.assertTrue(stop_background_workers({'ends_at':100.},100.))
+
     def test_fixed_destination_inside_selected_player_icon_does_not_oscillate(self):
         from mono_drive.forza_session import restore_road
         with TemporaryDirectory() as directory:

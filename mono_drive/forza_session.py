@@ -14,7 +14,7 @@ import sys
 import time
 import cv2
 import numpy as np
-from .forza_session_policy import session_active
+from .forza_session_policy import session_active,stop_background_workers
 from .forza_speed import cruise_limit
 
 ROOT = Path(__file__).resolve().parents[1]
@@ -670,12 +670,16 @@ def worker():
                 free_gib=round(shutil.disk_usage(ROOT).free/1024**3,1)))
             time.sleep(2)
         state = 'stopped_by_user' if STOP.exists() else state if state=='storage_limit' else 'completed'
+    except Exception as exc:
+        state,error='needs_attention',str(exc)
+        raise
     finally:
         write_json(OUT/'control.json',dict(action='hold',max_kmh=cruise_limit(ROOT)))
         (OUT/'supervisor.stop').write_text('Bounded session finished')
-        (OUT/'training.stop').write_text('Bounded session finished')
-        (OUT/'vision.stop').write_text('Bounded session finished')
-        (OUT/'vlm.stop').write_text('Bounded session finished')
+        if stop_background_workers(config,time.time(),STOP.exists(),state=='storage_limit'):
+            (OUT/'training.stop').write_text('Bounded session finished')
+            (OUT/'vision.stop').write_text('Bounded session finished')
+            (OUT/'vlm.stop').write_text('Bounded session finished')
         write_json(STATE,dict(**config,pid=os.getpid(),time=time.time(),state=state,recoveries=recoveries,error=error))
         write_json(OUT/'longrun-summary.json',read_json(STATE))
         if os.name=='nt':

@@ -3,7 +3,7 @@ import argparse,json,subprocess,sys,time
 from pathlib import Path
 import numpy as np
 ROOT=Path(__file__).resolve().parents[1];sys.path.insert(0,str(ROOT))
-from mono_drive.temporal_steering import HISTORY,targets,sequence_arrays
+from mono_drive.temporal_steering import HISTORY,targets,sequence_arrays,extended_indices
 
 
 def main():
@@ -21,11 +21,13 @@ def main():
     manifest=json.loads((cache/'manifest.json').read_text(encoding='utf-8'))
     if report['dataset_revision']!=manifest['revision']:raise ValueError('Video cache does not match this model')
     stride=int(manifest.get('temporal_stride',1));fps=float(manifest.get('source_sample_hz',5.))
+    history_frames=int(report.get('history_frames',HISTORY))
     best=None
     for item in manifest['segments']:
         if item['split']!='test':continue
         with np.load(item['file']) as f:
             steer=f['steer'];indices=f['indices']
+            if history_frames>HISTORY:indices=extended_indices(indices,len(steer),history_frames,stride)
             if len(steer)<120:continue
             for start in indices[::20]:
                 end=min(len(steer)-3*stride-1,start+int(20*fps))
@@ -37,12 +39,15 @@ def main():
     with np.load(item['file']) as f:data={k:f[k].copy() for k in f.files}
     session=ort.InferenceSession(str(model/'steering.onnx'),providers=['CPUExecutionProvider'])
     image_files=sorted((Path(item['source'])/'frames').glob('*.jpg'))
-    times=data['times'];steer=data['steer'];speed=data['speed'];features=data['features'];valid=set(data['indices'].tolist())
+    times=data['times'];steer=data['steer'];speed=data['speed'];features=data['features']
+    indices=data['indices']
+    if history_frames>HISTORY:indices=extended_indices(indices,len(steer),history_frames,stride)
+    valid=set(indices.tolist())
     records=[]
     for i in range(start,end):
         prediction=None
         if i in valid:
-            x,ego,_=sequence_arrays(features,speed,steer,i,stride)
+            x,ego,_=sequence_arrays(features,speed,steer,i,stride,history_frames)
             prediction=float(session.run(None,{'features':x[None],'ego':ego[None]})[0].reshape(-1)[0])
         records.append({'index':i,'time':float(times[i]),'steer':float(steer[i]),'speed':float(speed[i]),
                         'prediction':prediction,'future_teacher':float(targets(steer,i,stride)[-1]),
@@ -74,7 +79,7 @@ def main():
                 if value is not None:line.append(point(row['forecast_time'] if key!='steer' else row['time'],value))
             if len(line)>1:draw.line(line,fill=color,width=3)
         x=point(current['time'],0)[0];draw.line((x,y0,x,y1),fill='white',width=2)
-        draw.text((x0,920),f'時間（秒）  予測には現在と過去約1.6秒の映像のみ使用。元記録から抽出した約{fps:g}fps映像。',font=small,fill='white')
+        draw.text((x0,920),f'時間（秒）  予測には現在と過去約{(history_frames-1)/5:g}秒の映像のみ使用。元記録から抽出した約{fps:g}fps映像。',font=small,fill='white')
         for t in np.linspace(t0,t1,7):draw.text((point(t,0)[0]-12,755),f'{t:.1f}',font=small,fill='white')
         process.stdin.write(np.asarray(canvas).tobytes())
     process.stdin.close();error=process.stderr.read();code=process.wait()

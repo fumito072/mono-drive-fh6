@@ -14,6 +14,28 @@ def write(path,value):
     raise OSError('Could not save report')
 
 
+def export_steering_model(model,features,ego,path):
+    """Export an evaluation-mode tree; the wrapper must also be in eval mode."""
+    import torch
+    import onnxruntime as ort
+    class Export(torch.nn.Module):
+        def __init__(self,m):super().__init__();self.m=m
+        def forward(self,features,ego):return self.m(features,ego)[:,-1:]
+    # Export restores the wrapper's original mode recursively. An unconfigured
+    # wrapper defaults to training and would re-enable dropout for comparison.
+    wrapped=Export(model.cpu()).eval()
+    inputs=(torch.from_numpy(features),torch.from_numpy(ego))
+    torch.onnx.export(wrapped,inputs,str(path),input_names=['features','ego'],
+                      output_names=['steer'],opset_version=17,dynamo=False)
+    session=ort.InferenceSession(str(path),providers=['CPUExecutionProvider'])
+    got=session.run(None,{'features':features,'ego':ego})[0]
+    with torch.inference_mode():reference=wrapped(*inputs).numpy()
+    difference=float(np.max(np.abs(got-reference)))
+    if not np.isfinite(got).all() or not np.isfinite(reference).all() or difference>1e-4:
+        raise ValueError(f'ONNX output mismatch: {difference}')
+    return difference
+
+
 def main():
     import torch
     from torch.utils.data import Dataset,DataLoader,WeightedRandomSampler
@@ -129,8 +151,9 @@ def main():
             if last is None or s!=last[0] or i!=last[1]+1:group+=1
             ids.append(group);last=(s,i)
         return np.array(results),np.array(truth),np.array(prior),np.array(ids)
-    stop_reason='epoch_budget'
-    for epoch in range(start_epoch,a.epochs):
+    patience_reached=(a.patience and start_epoch>=warmup+8 and start_epoch-best_epoch[0]>=a.patience)
+    stop_reason='validation_patience' if patience_reached else 'epoch_budget'
+    for epoch in range(start_epoch,start_epoch if patience_reached else a.epochs):
         if (ROOT/'out/training.stop').exists() or (ROOT/'out/longrun.stop').exists():raise SystemExit('Explicit stop')
         write(a.out/'training-progress.json',{'phase':'training','epoch':epoch+1,'epochs':a.epochs,'batches':0,'time':time.time()})
         for m in models:m.train()
@@ -210,18 +233,8 @@ def main():
             'test_without_real_history':ablated,'parameter_counts':[sum(p.numel() for p in m.parameters()) for m in models],
             'test_interpolated_history':jittered,'history_resampling_checked':True,
             'deployment':'candidate only; requires runtime shadow and bounded trial'}
-    class Export(torch.nn.Module):
-        def __init__(self,m):super().__init__();self.m=m
-        def forward(self,features,ego):return self.m(features,ego)[:,-1:]
-    wrapped=Export(models[0].cpu().eval());f,e,_=datasets['test'][0]
-    torch.onnx.export(wrapped,(torch.from_numpy(f[None]),torch.from_numpy(e[None])),str(a.out/'steering.onnx'),
-                      input_names=['features','ego'],output_names=['steer'],opset_version=17,dynamo=False)
-    import onnxruntime as ort
-    session=ort.InferenceSession(str(a.out/'steering.onnx'),providers=['CPUExecutionProvider'])
-    got=session.run(None,{'features':f[None],'ego':e[None]})[0]
-    ref=wrapped(torch.from_numpy(f[None]),torch.from_numpy(e[None])).detach().numpy()
-    report['onnx_max_difference']=float(np.max(np.abs(got-ref)))
-    if report['onnx_max_difference']>1e-4:raise ValueError('ONNX output mismatch')
+    f,e,_=datasets['test'][0]
+    report['onnx_max_difference']=export_steering_model(models[0],f[None],e[None],a.out/'steering.onnx')
     torch.save(states[0],a.out/'steering-state.pt')
     import shutil
     shutil.copy2(a.cache/'encoder.onnx',a.out/'encoder.onnx')

@@ -94,6 +94,7 @@ def main():
     ablated=metrics(*predict(models[0],'test',ablate=True))
     permitted=accept(test[0],test[1]) and test[0]['active_mae']<=ablated['active_mae']*.99
     report={'phase':'complete','architecture_version':2,'accepted_offline':permitted,'created_at':time.time(),'encoder':str((a.cache/'encoder.onnx').resolve()),
+            'encoder_sha256':manifest.get('base_sha256'),'visual_adaptation':manifest.get('visual_adaptation'),
             'dataset_revision':manifest['revision'],'history_frames':HISTORY,'sample_hz':5,'target':'mean applied steer over next 0.2-0.6 seconds',
             'source_sample_hz':manifest.get('source_sample_hz',5.),'temporal_stride':stride,
             'epochs':a.epochs,'samples_per_epoch':min(a.samples_per_epoch,len(weights)),

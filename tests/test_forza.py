@@ -13,6 +13,36 @@ from unittest.mock import patch
 
 
 class ForzaTests(unittest.TestCase):
+    def test_initial_rearm_survives_brief_gaps_between_fresh_captures(self):
+        class Window:
+            def target(self,background=False): return {}
+            def down(self,key): raise AssertionError('No keyboard polling')
+        class Pad:
+            def set(self,*args,**kwargs): pass
+            def close(self): pass
+        telemetry=SimpleNamespace(fresh=lambda:True,
+            last=dict(race=True,gear=1,forward_kmh=0.,speed=0.))
+        with patch('mono_drive.forza_background.AnalogGamepad',Pad):
+            actuator=Actuator(Window(),telemetry,True,background=True)
+        actuator.set_enabled(True)
+        actuator.publish((0.,.2,0.),False,False,time.monotonic())
+        actuator.start()
+        try:
+            time.sleep(.12)
+            self.assertFalse(actuator.armed)
+            actuator.updated=time.monotonic()-.7
+            time.sleep(.16)
+            self.assertFalse(actuator.armed)  # Never drive on a stale frame.
+            actuator.publish((0.,.2,0.),False,False,time.monotonic())
+            time.sleep(.05)
+            self.assertTrue(actuator.armed)
+            actuator.updated=time.monotonic()-3.
+            time.sleep(.03)
+            self.assertFalse(actuator.armed)
+            self.assertEqual(actuator.rearm_frames,0)
+        finally:
+            actuator.stop_event.set();actuator.join()
+
     def test_background_worker_survives_missing_initial_telemetry(self):
         class Window:
             def target(self,background=False):return {}

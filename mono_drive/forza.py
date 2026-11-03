@@ -443,13 +443,13 @@ class Actuator(threading.Thread):
                     self.stable_since = None
                 elif escape_key or not ready:
                     self.soft_rearm=bool(self.requested and live_game and now-self.updated<2.
-                                         and (self.armed or self.soft_rearm))
+                                         and (self.armed or self.soft_rearm or self.rearm_frames>0))
                     if not self.soft_rearm:
                         self.recently_ready=None
+                        self.stable_since = None
+                        self.rearm_frames=0
+                        self.rearm_capture=None
                     self.armed = False
-                    self.stable_since = None
-                    self.rearm_frames=0
-                    self.rearm_capture=None
                     self.reason = ('Escape/menu' if escape_key else
                                    'game unavailable' if not focus else
                                    'telemetry stale' if not self.telemetry.fresh() else 'image/decision stale')

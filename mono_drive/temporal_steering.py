@@ -13,7 +13,7 @@ def recording_split(recording):
     return 'test' if int(hashlib.sha256(recording.encode()).hexdigest()[:8],16)%7==0 else None
 
 
-def window_indices(times, speed, steer, ages, history=HISTORY, future=FUTURE):
+def window_indices(times, speed, steer, ages, history=HISTORY, future=FUTURE,sample_hz=5.):
     times,speed,steer,ages=(np.asarray(v) for v in (times,speed,steer,ages))
     n=len(times)
     if not all(len(v)==n for v in (speed,steer,ages)):raise ValueError('Unaligned telemetry')
@@ -23,25 +23,26 @@ def window_indices(times, speed, steer, ages, history=HISTORY, future=FUTURE):
     for i in range(history,n-future):
         lo=i-history;hi=i+future+1
         dt=np.diff(times[lo:hi])
-        if valid[lo:hi].all() and np.all((dt>=.12)&(dt<=.31)):
+        if valid[lo:hi].all() and np.all((dt>=.6/sample_hz)&(dt<=1.55/sample_hz)):
             result.append(i)
     return np.asarray(result,dtype=np.int32)
 
 
-def targets(steer, index):
+def targets(steer, index,stride=1):
     """Mean Data Out steer in the next 0.2–0.6 s, and the previous target."""
     steer=np.asarray(steer)
-    return np.asarray([np.mean(steer[index:index+FUTURE]),
-                       np.mean(steer[index+1:index+FUTURE+1])],np.float32)
+    future=index+np.arange(1,FUTURE+1)*stride
+    return np.asarray([np.mean(steer[future-stride]),np.mean(steer[future])],np.float32)
 
 
-def sequence_arrays(features,speed,steer,index):
+def sequence_arrays(features,speed,steer,index,stride=1):
     """Inputs end at t; controls in the input end one step before t."""
-    begin=index-HISTORY+1
-    if begin<1 or index+FUTURE>=len(steer):raise ValueError('Incomplete temporal window')
-    x=np.asarray(features[begin:index+1],np.float32)
-    ego=np.stack([np.asarray(speed[begin:index+1])/100.,steer[begin-1:index]],axis=1).astype(np.float32)
-    return x,ego,targets(steer,index)
+    begin=index-(HISTORY-1)*stride
+    if begin<stride or index+FUTURE*stride>=len(steer):raise ValueError('Incomplete temporal window')
+    selected=np.arange(begin,index+1,stride)
+    x=np.asarray(features[selected],np.float32)
+    ego=np.stack([np.asarray(speed)[selected]/100.,np.asarray(steer)[selected-stride]],axis=1).astype(np.float32)
+    return x,ego,targets(steer,index,stride)
 
 
 def build_models(mean=None,std=None):

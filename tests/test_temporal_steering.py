@@ -22,6 +22,24 @@ class TemporalTests(unittest.TestCase):
         xx,ee,yy=sequence_arrays(f,speed,u,12)
         np.testing.assert_array_equal(x,xx);np.testing.assert_array_equal(e,ee)
         self.assertFalse(np.array_equal(y,yy))
+    def test_dense_source_preserves_real_history_and_forecast_times(self):
+        times=np.arange(80)*.1;features=np.repeat(times[:,None],256,axis=1)
+        speed=np.full(80,60.);steer=np.arange(80)/100.
+        good=window_indices(times,speed,steer,np.zeros(80),history=18,future=6,sample_hz=10.)
+        self.assertIn(30,good)
+        x,ego,label=sequence_arrays(features,speed,steer,30,stride=2)
+        np.testing.assert_allclose(x[:,0],np.arange(14,31,2)*.1)
+        np.testing.assert_allclose(ego[:,1],steer[np.arange(12,29,2)])
+        np.testing.assert_allclose(label,[np.mean(steer[[30,32,34]]),np.mean(steer[[32,34,36]])])
+        steer[30:]=-1;features[31:]=100
+        xx,ee,_=sequence_arrays(features,speed,steer,30,stride=2)
+        np.testing.assert_array_equal(x,xx);np.testing.assert_array_equal(ego,ee)
+    def test_expanded_training_keeps_validation_fixed_and_separate(self):
+        from mono_drive.human_recorder import partition_ranges
+        old=partition_ranges(1800);dense=partition_ranges(1800,True)
+        self.assertEqual(old[1],dense[1])
+        self.assertGreater(dense[0][2],old[0][2])
+        self.assertGreaterEqual(dense[1][1]-dense[0][2],8.)
     def test_preview_never_changes_speed_or_crosses_lane(self):
         z=np.array([3.,6.,9.,12.,16.]);p=ScenePlan(np.column_stack((z,np.zeros(5))),0.,60.,.95,1,0,'paint_pair',1.,
             lane_edges=tuple((x,-2.,2.) for x in z))

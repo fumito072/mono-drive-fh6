@@ -9,7 +9,7 @@ import numpy as np
 ROOT=Path(__file__).resolve().parents[1];sys.path.insert(0,str(ROOT));sys.path.insert(0,str(ROOT/'tools'))
 from mono_drive.camera import Camera,REF_CAMERA,ReferenceView
 from mono_drive.pathnet import net_input_u8
-from mono_drive.temporal_steering import recording_split,window_indices
+from mono_drive.temporal_steering import HISTORY,FUTURE,recording_split,window_indices
 
 def write(path,value):
     p=Path(path);tmp=p.with_suffix('.tmp');tmp.write_text(json.dumps(value,indent=2),encoding='utf-8')
@@ -41,6 +41,9 @@ def main():
         encoder.to(device)
     source=json.loads(a.manifest.read_text(encoding='utf-8'));result={'revision':source['revision'],'base_sha256':encoder_hash,
         'encoder':str(export.resolve()),'source':'clock-verified WRX Data Out','segments':[],'excluded':[]}
+    sample_hz=float(source.get('sample_hz',5.));stride=round(sample_hz/5.)
+    if sample_hz not in (5.,10.):raise ValueError('Unsupported source sampling rate')
+    result.update(source_sample_hz=sample_hz,temporal_stride=stride)
     start=time.time()
     with ThreadPoolExecutor(max_workers=max(1,min(8,a.workers))) as pool:
         for number,episode in enumerate(source['episodes']):
@@ -56,9 +59,10 @@ def main():
                     if not len(images)==len(actions)==len(poses):raise ValueError('Image/action/pose counts differ')
                     n=len(images);times=np.array([float(r['video_pts_s']) for r in actions]);speed=np.array([float(r['kmh']) for r in poses],np.float32)
                     steer=np.array([float(r['applied_steer']) for r in actions],np.float32);ages=np.array([float(r['age_ms']) for r in actions])
-                    indices=window_indices(times,speed,steer,ages)
+                    indices=window_indices(times,speed,steer,ages,history=HISTORY*stride,future=FUTURE*stride,sample_hz=sample_hz)
                     if len(indices)<20:continue
                     signature=hashlib.sha256(b''.join((folder/name).read_bytes() for name in ('camera.json','poses.csv','actions.csv'))).hexdigest()
+                    if stride!=1:signature=hashlib.sha256((signature+f'-stride-{stride}').encode()).hexdigest()
                     reusable=False
                     if target.exists():
                         with np.load(target) as existing:

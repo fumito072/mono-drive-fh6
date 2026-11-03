@@ -137,7 +137,7 @@ def audit(folder,cache):
     return result
 
 
-def selected_groups(align,telemetry,lo,hi,stride):
+def selected_groups(align,telemetry,lo,hi,stride,minimum_dt=.18):
     """Never create a future-trajectory label across missing/menu/teleport data."""
     groups=[];group=[];last_time=-1.;previous=None
     for r in align:
@@ -153,7 +153,7 @@ def selected_groups(align,telemetry,lo,hi,stride):
             if group:groups.append(group)
             group=[];previous=None;last_time=-1.
             continue
-        if t-last_time<.18:continue
+        if t-last_time<minimum_dt:continue
         position=np.array([float(sample['Position'+a]) for a in 'XYZ'])
         if previous is not None:
             old_t,old_position,old_sample=previous
@@ -194,37 +194,46 @@ def sampled_frames(source,folder,media,frame_count,stride):
     return cache,stride,width,height
 
 
-def prepare(root,record):
+def partition_ranges(duration,expand_training=False):
+    valid_start=duration*.72
+    train_end=valid_start-8. if expand_training else duration*.47
+    if valid_start-train_end<8.-1e-8 or train_end<=3. or duration-1<=valid_start:
+        raise ValueError('Recording too short for disjoint temporal holdout')
+    return [('train',3.,train_end),('validation',valid_start,duration-1)]
+
+
+def prepare(root,record,*,sample_hz=5.,expand_training=False):
     """Keep verified VFR identities and split every invalid temporal interval."""
     from .forza_local_learning import write_json
     root=Path(root);source=Path(record['path'])
+    if sample_hz not in (5.,10.):raise ValueError('Supported preparation rates are 5 and 10 Hz')
     def unchanged():
         return {n:[(source/n).stat().st_size,(source/n).stat().st_mtime_ns] for n in FILES}==record['fingerprint']
     if not unchanged():raise ValueError('Source changed after synchronization audit')
     source_revision=hashlib.sha256(json.dumps(record['fingerprint'],sort_keys=True).encode()).hexdigest()[:16]
-    revision=hashlib.sha256((source_revision+f'-segments-{PREPARATION_VERSION}').encode()).hexdigest()[:16]
-    folder=root/f'datasets/human/{source.name}_{source_revision}';manifest=folder/'manifest.json'
+    variant='' if sample_hz==5. and not expand_training else f'-hz{sample_hz:g}-expanded{int(expand_training)}'
+    revision=hashlib.sha256((source_revision+f'-segments-{PREPARATION_VERSION}'+variant).encode()).hexdigest()[:16]
+    folder=root/f'datasets/human/{source.name}_{source_revision}';manifest=folder/f'manifest{variant}.json'
     if manifest.exists():
         existing=json.loads(manifest.read_text(encoding='utf-8'))
         if existing.get('preparation_version')==PREPARATION_VERSION:return existing
-    duration=record['media']['duration_s'];train_end=duration*.47;valid_start=duration*.72
-    if valid_start-train_end<8:raise ValueError('Recording too short for disjoint temporal holdout')
+    duration=record['media']['duration_s'];ranges=partition_ranges(duration,expand_training)
     frames=table(source/'frames.csv')
     align=table(record.get('verified_alignment',source/'aligned.csv'))
     telemetry={int(r['seq']):r for r in table(source/'telemetry.csv')}
-    stride=max(1,round(float(record['media'].get('measured_hz',record['media']['fps']))/5.))
-    parts={name:selected_groups(align,telemetry,lo,hi,stride) for name,lo,hi in
-           [('train',3.,train_end),('validation',valid_start,duration-1)]}
+    stride=max(1,round(float(record['media'].get('measured_hz',record['media']['fps']))/sample_hz))
+    parts={name:selected_groups(align,telemetry,lo,hi,stride,minimum_dt=.9/sample_hz) for name,lo,hi in ranges}
     if not all(parts.values()):raise ValueError('Not enough contiguous nonslipping frames in both temporal partitions')
     rawframes,image_stride,width,height=sampled_frames(source,folder,record['media'],len(frames),stride)
     camera=dict(json.loads((root/'configs/forza_horizon6.json').read_text(encoding='utf-8'))['camera'])
     camera.update(width=width,height=height,name='Native recorder: initial camera estimate, retained car provenance')
     if record['car_ordinals']==[4222]:camera.update(right_m=.35,name='Reviewed car 4222: right-side cockpit, initial camera estimate')
-    result=dict(recording=source.name,revision=revision,preparation_version=PREPARATION_VERSION,
+    result=dict(recording=source.name,revision=revision,preparation_version=PREPARATION_VERSION,sample_hz=sample_hz,
+                source_duration_s=duration,training_range=list(ranges[0][1:]),validation_range=list(ranges[1][1:]),
                 train=[],validation=[],frames=0,car_ordinals=record['car_ordinals'],synchronization=record['synchronization'])
     for partition,groups in parts.items():
         for number,group in enumerate(groups):
-            target=folder/f'segments-v2/{partition}_{number:03d}';(target/'frames').mkdir(parents=True,exist_ok=True)
+            target=folder/f'segments-v2{variant}/{partition}_{number:03d}';(target/'frames').mkdir(parents=True,exist_ok=True)
             with (target/'poses.csv').open('w',newline='',encoding='utf-8') as f,(target/'actions.csv').open('w',newline='',encoding='utf-8') as af:
                 writer=csv.writer(f);writer.writerow(['frame','t','x','y','z','yaw_deg','pitch_deg','kmh'])
                 actions=csv.writer(af);actions.writerow(['frame','video_pts_s','telemetry_seq','age_ms','throttle','brake','applied_steer'])

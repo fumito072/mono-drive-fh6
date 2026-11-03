@@ -24,6 +24,8 @@ python tools/download_model_weights.py --small-only --output .
 
 公開は性能検証への合格を意味しません。
 
+追加の時系列操舵モデルと検証結果は [2026-11-03の実験リリース](https://github.com/fumito072/mono-drive-fh6/releases/tag/temporal-steering-2026-11-03) にあります。初回候補は全体精度の基準を満たさず不採用です。重みの公開と運転への採用は別に扱います。
+
 - `active_runtime_baseline_at_snapshot`: 書き出し時に実行設定が指していたモデル。
 - `live_trial_rolled_back`: 実走で問題があり切り戻したモデル。通常の走行用に選ばないでください。
 - `offline_evaluation_in_progress_at_snapshot`: 書き出し時に比較検証中だった最新候補。

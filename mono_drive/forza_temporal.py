@@ -75,6 +75,11 @@ class TemporalSteering:
         self.status={'phase':'waiting_for_model'};self.mode='shadow';self.folder=None;self.loading=None;self.enabled=False
     def __del__(self):
         if hasattr(self,'pool'):self.pool.shutdown(wait=False,cancel_futures=True)
+    def publish_status(self,now,phase,**details):
+        if now>=self.next_write:
+            self.next_write=now+.5
+            self.status=dict(self.status,phase=phase,time=time.time(),**details)
+            write_json(self.root/'out/temporal-steering-state.json',self.status)
     def update(self,frame,telemetry,plan,scene,now):
         if now>=self.next_check:
             self.next_check=now+2.;config=read_json(self.config,{})
@@ -96,10 +101,14 @@ class TemporalSteering:
             self.future=None;self.loading=None
         if not self.enabled:
             self.rows.clear();self.last_prediction=None;return plan
-        if self.models is None:return plan
+        if self.models is None:
+            self.publish_status(now,self.status.get('phase','waiting_for_model'))
+            return plan
         if self.mode not in ('shadow','trial','active'):self.rows.clear();return plan
         if telemetry.get('car_ordinal')!=3819 or telemetry.get('gear',0)<=0 or telemetry.get('race_position',0):
-            self.rows.clear();self.last_prediction=None;return plan
+            self.rows.clear();self.last_prediction=None
+            self.publish_status(now,'waiting_for_forward_driving',history_frames=0)
+            return plan
         if now<self.next_frame:
             # Hold the preview across intermediate controller frames; applying
             # it on only the 5 Hz inference frame would create artificial pulses.
@@ -113,7 +122,9 @@ class TemporalSteering:
             position=np.asarray(telemetry['position'],dtype=float)
             yaw=float(telemetry['yaw']);speed=float(telemetry['speed'])
             if (not np.isfinite(position).all() or not math.isfinite(yaw) or not 8<=speed<=140):
-                self.rows.clear();self.last_prediction=None;self.last_position=None;return plan
+                self.rows.clear();self.last_prediction=None;self.last_position=None
+                self.publish_status(now,'waiting_for_motion',speed_kmh=speed,history_frames=0)
+                return plan
             if self.last_position is not None:
                 turn=math.atan2(math.sin(yaw-self.last_yaw),math.cos(yaw-self.last_yaw))
                 if np.linalg.norm(position-self.last_position)>max(8.,speed/3.6*.6) or abs(turn)>.4:
@@ -127,7 +138,9 @@ class TemporalSteering:
             steer=float(telemetry.get('steer',0))/127.
             if self.rows and not .12<=now-self.rows[-1][0]<=.31:self.rows.clear()
             self.rows.append((now,feature,speed,steer))
-            if len(self.rows)<10:return plan
+            if len(self.rows)<10:
+                self.publish_status(now,'collecting_history',history_frames=len(self.rows),model_dir=str(self.folder))
+                return plan
             rows=list(self.rows)
             features=np.stack([x[1] for x in rows[1:]])[None].astype(np.float32)
             ego=np.array([[rows[i][2]/100.,rows[i-1][3]] for i in range(1,10)],np.float32)[None]
@@ -151,4 +164,5 @@ class TemporalSteering:
             return hypothetical if applied else plan
         except Exception as e:
             self.rows.clear();self.last_prediction=None;self.status={'phase':'observation_failed','error':str(e)}
+            self.publish_status(now,'observation_failed')
             return plan

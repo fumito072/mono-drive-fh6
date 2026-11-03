@@ -19,11 +19,14 @@ def main():
     from torch.utils.data import Dataset,DataLoader,WeightedRandomSampler
     p=argparse.ArgumentParser();p.add_argument('--cache',type=Path,default=ROOT/'out/temporal-human')
     p.add_argument('--out',type=Path,default=ROOT/'models/temporal-20261103')
-    p.add_argument('--epochs',type=int,default=12);p.add_argument('--wait',action='store_true');a=p.parse_args()
+    p.add_argument('--epochs',type=int,default=12);p.add_argument('--samples-per-epoch',type=int,default=80000)
+    p.add_argument('--wait',action='store_true');a=p.parse_args()
+    if not 1<=a.epochs<=100 or not 1000<=a.samples_per_epoch<=1000000:raise ValueError('Invalid training budget')
     while not (a.cache/'manifest.json').exists():
         if not a.wait:raise FileNotFoundError('Prepare temporal features first')
         time.sleep(3)
     manifest=json.loads((a.cache/'manifest.json').read_text(encoding='utf-8'));a.out.mkdir(parents=True,exist_ok=True)
+    stride=int(manifest.get('temporal_stride',1))
     write(a.out/'training-progress.json',{'phase':'loading','architecture_version':2,'time':time.time()})
     torch.manual_seed(27);np.random.seed(27);torch.set_num_threads(4)
     device='cuda' if torch.cuda.is_available() else 'cpu'
@@ -41,11 +44,11 @@ def main():
         def __len__(self):return len(self.index)
         def __getitem__(self,n):
             s,i=self.index[n];row=segments[s]
-            return sequence_arrays(row['features'],row['speed'],row['steer'],i)
+            return sequence_arrays(row['features'],row['speed'],row['steer'],i,stride)
     datasets={k:Sequences(k) for k in split}
-    labels=np.array([float(targets(segments[s]['steer'],i)[-1]) for s,i in split['train']])
+    labels=np.array([float(targets(segments[s]['steer'],i,stride)[-1]) for s,i in split['train']])
     weights=np.where(np.abs(labels)>.04,3.,1.)
-    sampler=WeightedRandomSampler(torch.from_numpy(weights),min(80000,len(weights)),replacement=True)
+    sampler=WeightedRandomSampler(torch.from_numpy(weights),min(a.samples_per_epoch,len(weights)),replacement=True)
     train=DataLoader(datasets['train'],batch_size=256,sampler=sampler,num_workers=0)
     models=list(build_models(mean,std));models=[m.to(device) for m in models]
     optimizers=[torch.optim.AdamW(m.parameters(),lr=8e-4,weight_decay=.01) for m in models]
@@ -92,6 +95,8 @@ def main():
     permitted=accept(test[0],test[1]) and test[0]['active_mae']<=ablated['active_mae']*.99
     report={'phase':'complete','architecture_version':2,'accepted_offline':permitted,'created_at':time.time(),'encoder':str((a.cache/'encoder.onnx').resolve()),
             'dataset_revision':manifest['revision'],'history_frames':HISTORY,'sample_hz':5,'target':'mean applied steer over next 0.2-0.6 seconds',
+            'source_sample_hz':manifest.get('source_sample_hz',5.),'temporal_stride':stride,
+            'epochs':a.epochs,'samples_per_epoch':min(a.samples_per_epoch,len(weights)),
             'labels':'Clock-verified Data Out state, not raw hardware commands','samples':{k:len(v) for k,v in split.items()},
             'test_temporal':test[0],'test_single_frame':test[1],'history':history,
             'test_without_real_history':ablated,'parameter_counts':[sum(p.numel() for p in m.parameters()) for m in models],

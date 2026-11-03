@@ -24,6 +24,10 @@ while not (folder/'report.json').exists():
     if (OUT/'training.stop').exists() or (OUT/'longrun.stop').exists():raise SystemExit('Explicit stop')
     time.sleep(3)
 report=read(folder/'report.json')
+if not report.get('accepted_offline'):
+    write(OUT/'temporal-live-evaluation.json',{'phase':'offline_rejected','time':time.time(),
+        'model_dir':str(folder),'reason':'overall_accuracy_gate','controls_changed':False})
+    raise SystemExit(0)
 config=read(CONFIG);config['model_dir']=str(folder.relative_to(ROOT));write(CONFIG,config)
 mode('shadow');begin=time.time();initial=None
 while True:

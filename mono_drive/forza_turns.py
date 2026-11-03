@@ -99,11 +99,13 @@ class TurnCoordinator:
         self.direction=0
         self.cue=None
         self.cue_at=0.
+        self.exit_candidate=None
 
     def update(self,frame,scene,ego,now,plan):
         from .forza_minimap import road_hint
-        from .forza_scene import ScenePlan,project,visible_road_evidence,road_value
+        from .forza_scene import ScenePlan,project,visible_road_evidence,road_value,road_geometry_through_traffic
         road=visible_road_evidence(scene['road'],frame)
+        road=road_geometry_through_traffic(road,scene.get('cars',[]))
         cue=road_arrow(frame,scene.get('raw_road',road))
         if cue is not None:
             self.cue,self.cue_at=cue,now
@@ -111,11 +113,19 @@ class TurnCoordinator:
         hint=road_hint(frame,intent=intent)
         end=road_end(road)
         direction=intent if intent in (-1,1) else (1 if hint and hint.turn_angle>.8 else -1 if hint and hint.turn_angle<-.8 else 0)
-        # A minimap branch alone often resembles a U-turn while passing a
-        # driveway. Require a recently seen painted arrow before committing
-        # to a sustained intersection turn.
+        # A minimap branch alone often resembles a driveway. With no arrow,
+        # require a persistent map direction, visible exit, and a road end.
         supported=(intent in (-1,1) and self.cue.confidence>=.80 and
                    hint and direction*hint.turn_angle>.7 and exit_visible(frame,road,direction))
+        visible_exit=(direction in (-1,1) and hint and getattr(hint,'confidence',0)>=.65 and
+                      end is not None and end<=10. and exit_visible(frame,road,direction))
+        if visible_exit:
+            if self.exit_candidate is None or self.exit_candidate[0]!=direction:
+                self.exit_candidate=(direction,now,1)
+            else:self.exit_candidate=(direction,self.exit_candidate[1],self.exit_candidate[2]+1)
+        else:self.exit_candidate=None
+        if self.exit_candidate and now-self.exit_candidate[1]>=.8 and self.exit_candidate[2]>=3:
+            supported=True
         if self.started is None:
             if not supported or end is None or end>16:
                 return plan

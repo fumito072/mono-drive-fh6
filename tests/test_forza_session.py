@@ -39,7 +39,6 @@ class SessionTests(unittest.TestCase):
                 capture.close.assert_called_once()
                 telemetry.close.assert_called_once()
 
-    @unittest.skip("Requires private local game captures; excluded from the public source release")
     def test_keyboard_map_is_recognized_without_changing_camera(self):
         self.assertEqual(MenuRecognizer().classify(cv2.imread(str(ROOT/'out/menu-current.jpg'))),'map')
         self.assertEqual(MenuRecognizer().classify(np.zeros((1080,1920,3),np.uint8)),'unknown')
@@ -84,7 +83,6 @@ class SessionTests(unittest.TestCase):
         stop.assert_not_called()
         pad.assert_not_called()
 
-    @unittest.skip("Requires private local game captures; excluded from the public source release")
     def test_controller_disconnect_template_is_specific(self):
         recognizer=MenuRecognizer()
         self.assertEqual(recognizer.classify(cv2.imread(str(ROOT/'out/monitor-0740.jpg'))),
@@ -124,7 +122,6 @@ class SessionTests(unittest.TestCase):
                 pad.press.assert_not_called()
                 pad.close.assert_called_once()
 
-    @unittest.skip("Requires private local game captures; excluded from the public source release")
     def test_map_cursor_can_be_above_the_pause_menu_tiles(self):
         frame=cv2.imread(str(ROOT/'out/recovery-check-0510.jpg'))
         np.testing.assert_allclose(MenuRecognizer.ring_cursor(frame),[861.,122.],atol=3.)
@@ -157,7 +154,6 @@ class SessionTests(unittest.TestCase):
             self.assertTrue(all(call.args[1]>0 for call in pad.move_map.call_args_list))
             pad.press.assert_not_called()
 
-    @unittest.skip("Requires private local game captures; excluded from the public source release")
     def test_place_card_does_not_invent_a_cursor(self):
         frame=cv2.imread(str(ROOT/'out/recovery-check-0440.jpg'))
         recognizer=MenuRecognizer()
@@ -168,14 +164,12 @@ class SessionTests(unittest.TestCase):
         self.assertIsNone(recognizer.map_points(card)[0])
         self.assertFalse(recognizer.place_is_selected(np.zeros_like(frame)))
 
-    @unittest.skip("Requires private local game captures; excluded from the public source release")
     def test_missing_hud_and_menu_are_not_completed_road_recovery(self):
         recognizer=MenuRecognizer()
         self.assertTrue(recognizer.driving_ready(cv2.imread(str(ROOT/'tests/fixtures/fh6/driving-hud.jpg'))))
         self.assertFalse(recognizer.driving_ready(np.zeros((1080,1920,3),np.uint8)))
         self.assertFalse(recognizer.driving_ready(cv2.imread(str(ROOT/'out/recovery-cursor-clear.jpg'))))
 
-    @unittest.skip("Requires private local game captures; excluded from the public source release")
     def test_selected_player_card_is_a_known_cursor_state(self):
         frame=cv2.imread(str(ROOT/'out/recovery-check-0425.jpg'))
         recognizer=MenuRecognizer()
@@ -220,7 +214,6 @@ class SessionTests(unittest.TestCase):
         finally:
             pad.sock.close()
 
-    @unittest.skip("Requires private local game captures; excluded from the public source release")
     def test_fixed_destination_survives_pan_and_zoom(self):
         anchor=FixedMapAnchor(ROOT/'models/ui/fh6/return-point.json')
         matrix=np.array([[.75,0.,150.],[0.,.75,60.]])
@@ -287,6 +280,20 @@ class SessionTests(unittest.TestCase):
             turns=TurnCoordinator()
             self.assertIs(turns.update(frame,scene,dict(yaw=0.),0.,plan),plan)
             self.assertIsNone(turns.started)
+
+    def test_persistent_visible_exit_at_a_road_end_can_turn_without_arrow(self):
+        from types import SimpleNamespace
+        frame=np.zeros((1080,1920,3),np.uint8)
+        scene=dict(road=np.full((216,384),255,np.uint8),cars=[])
+        with patch('mono_drive.forza_minimap.road_hint',return_value=SimpleNamespace(turn_angle=-1.5,confidence=.7)), \
+             patch('mono_drive.forza_turns.road_arrow',return_value=None), \
+             patch('mono_drive.forza_turns.road_end',return_value=6.), \
+             patch('mono_drive.forza_turns.exit_visible',return_value=True):
+            turns=TurnCoordinator();plan=object()
+            self.assertIs(turns.update(frame,scene,dict(yaw=0.),0.,plan),plan)
+            self.assertIs(turns.update(frame,scene,dict(yaw=0.),.4,plan),plan)
+            result=turns.update(frame,scene,dict(yaw=0.),.9,plan)
+            self.assertEqual(result.reason,'intersection_turn');self.assertLess(result.steer,0)
 
     def test_static_barrier_is_checked_independently_of_traffic(self):
         road=np.full((216,384),255,np.uint8)

@@ -1,0 +1,55 @@
+<!doctype html>
+<html lang="ja">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <meta name="color-scheme" content="dark">
+  <title>学習モニター | Mono Drive</title>
+  <link rel="stylesheet" href="/dashboard.css">
+  <script src="/dashboard.js" defer></script>
+</head>
+<body>
+<main>
+  <header>
+    <div><p class="eyebrow">MONO DRIVE / LOCAL LEARNING</p><h1>学習モニター</h1><p class="sub">このPCで進む学習を、リアルタイムで確認</p></div>
+    <div class="connection"><span id="connection" class="badge muted">接続中</span><p id="updated">ログを取得しています</p></div>
+  </header>
+  <div id="offline" class="offline" hidden>表示の更新が止まりました。最後に取得した値を表示しています。</div>
+  <div class="top-grid">
+    <section class="panel progress-panel">
+      <div class="row"><h2 id="model-name">4秒の映像履歴モデル</h2><span id="learning-state" class="badge muted">確認中</span></div>
+      <div class="epoch"><strong id="completed">—</strong><span>/ <b id="maximum">48</b> 周 完了</span></div>
+      <div class="progress-track" role="progressbar" id="progressbar" aria-label="完了した学習の周数" aria-valuemin="0" aria-valuemax="48" aria-valuenow="0"><div id="progress-fill"></div></div>
+      <p class="stage" id="stage">学習段階を確認しています</p><p class="muted small" id="progress-note">最大48周。検証が改善しなくなった場合は早めに終了します。</p>
+      <div class="checkpoint"><span class="muted">途中保存</span><strong id="checkpoint">—</strong><span class="muted" id="retry"></span></div>
+    </section>
+    <aside class="panel gpu-panel">
+      <div class="row"><h2>GPUの稼働</h2><span class="micro">15秒ごとに計測</span></div>
+      <div class="gpu-value"><strong id="gpu-use">—</strong><span>%</span></div>
+      <div class="mini-track"><div id="gpu-fill"></div></div>
+      <dl><div><dt>GPUメモリー</dt><dd id="gpu-memory">—</dd></div><div><dt>温度</dt><dd id="gpu-temperature">—</dd></div></dl>
+      <p class="muted small">ゲーム・認識・学習を含むGPU全体の値</p>
+    </aside>
+  </div>
+  <div class="middle-grid">
+    <section class="panel chart-panel">
+      <div class="chart-heading"><div><h2>学習に使っていないデータでの誤差</h2><p class="muted small">低いほど、記録された操作に近い予測です。</p></div>
+      <label class="select-label">表示する指標<select id="metric"><option value="mae">全体の操舵誤差</option><option value="active_mae">曲がる場面の操舵誤差</option><option value="delta_mae">操作の変化の誤差</option></select></label></div>
+      <div id="legend" class="legend"></div>
+      <div class="chart-container" id="chart-container"><svg id="chart" viewBox="0 0 700 270" role="img" aria-label="周数ごとの検証誤差"></svg><p id="chart-empty" hidden>最初の検証結果を待っています。</p></div>
+      <div class="chart-bottom"><span id="best">—</span><span class="muted small">出典：各周終了時の検証ログ</span></div>
+      <p id="warmup-note" class="muted small">時系列モデルの線は、初期調整が終わる9周目から表示します。</p>
+    </section>
+    <aside class="panel jobs-panel"><h2>並行して進んでいる処理</h2><div id="jobs"><p class="muted">状態を取得しています</p></div></aside>
+  </div>
+  <section class="data-section">
+    <div class="row"><div><h2>今回の学習データ</h2><p class="muted small" id="source-frames">—</p></div><span class="badge muted">評価用データは分離</span></div>
+    <div id="data-bar" class="data-bar"><i id="bar-train"></i><i id="bar-validation"></i><i id="bar-test"></i></div>
+    <div class="data-counts"><div><span class="data-label train">学習</span><strong id="train-count">—</strong><small>重みの更新に使用</small></div><div><span class="data-label validation">検証</span><strong id="validation-count">—</strong><small>最良の学習回を選択</small></div><div><span class="data-label test">最終テスト</span><strong id="test-count">—</strong><small>学習終了後の比較に使用</small></div></div>
+  </section>
+  <section class="drive-section"><div><h2>ゲームでの実験</h2><p id="drive-status">状態を確認しています</p></div><div class="drive-speed"><strong id="drive-speed">—</strong><span>km/h</span></div><div class="drive-target"><span class="muted small">目標</span><strong id="drive-target">60 km/h</strong></div><div class="evaluation"><span class="muted small">新モデルの走行評価</span><strong id="evaluation">—</strong></div></section>
+  <footer><p id="source-note">このPCのログを読み込んでいます。</p><button id="pause" type="button">表示の更新を一時停止</button></footer>
+  <p class="footnote">この画面の表示を一時停止しても、学習処理は継続します。</p>
+</main>
+</body>
+</html>

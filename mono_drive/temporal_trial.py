@@ -59,6 +59,7 @@ def trial_passed(baseline,trial,applied,incidents):
     if any(not isinstance(trial.get(k),(float,int)) or not math.isfinite(trial[k]) for k in required):return False
     if any(not isinstance(baseline.get(k),(float,int)) or not math.isfinite(baseline[k]) for k in ('mean_kmh','steer_rate_p95','pedal_rate_p95')):return False
     if applied<30 or incidents or trial['driving_seconds']<120 or trial['observed_lane_seconds']<20:return False
+    if trial['observed_lane_seconds']/trial['driving_seconds']<.25:return False
     if baseline.get('path_models')!=trial.get('path_models'):return False
     if trial['offroad_seconds']>.1 or trial['wrongway_seconds']>.1:return False
     if trial['estimated_centered_fraction'] is None or trial['estimated_centered_fraction']<max(.8,(baseline['estimated_centered_fraction'] or 0)-.03):return False
@@ -70,5 +71,6 @@ def trial_passed(baseline,trial,applied,incidents):
 
 def target_achieved(trial,incidents):
     return bool(not incidents and trial['driving_seconds']>=120 and trial['observed_lane_seconds']>=30 and
+        trial['observed_lane_seconds']/trial['driving_seconds']>=.7 and
         50<=(trial['mean_kmh'] or 0)<=65 and (trial['fraction_55_to_65'] or 0)>=.5 and
         (trial['estimated_centered_fraction'] or 0)>=.85 and trial['offroad_seconds']<=.1 and trial['wrongway_seconds']<=.1)

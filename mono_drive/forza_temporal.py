@@ -131,6 +131,11 @@ class TemporalSteering:
             return plan
         self.next_frame=now+.19
         try:
+            observed=float(telemetry.get('frame_capture_time',now))
+            if not math.isfinite(observed) or not 0<=now-observed<=.5:
+                self.rows.clear();self.last_prediction=None
+                self.publish_status(now,'waiting_for_fresh_frame');return plan
+            if self.rows and observed<=self.rows[-1][0]:return plan
             position=np.asarray(telemetry['position'],dtype=float)
             yaw=float(telemetry['yaw']);speed=float(telemetry['speed'])
             if (not np.isfinite(position).all() or not math.isfinite(yaw) or not 8<=speed<=140):
@@ -148,8 +153,8 @@ class TemporalSteering:
             encoder,head,report=self.models
             feature=encoder.run(None,{'image':net_input(self.view.warp(frame))[None]})[0][0]
             steer=float(np.clip(float(telemetry.get('steer',0))/127.,-1.,1.))
-            if self.rows and now-self.rows[-1][0]>.5:self.rows.clear()
-            self.rows.append((now,feature,speed,steer))
+            if self.rows and observed-self.rows[-1][0]>.5:self.rows.clear()
+            self.rows.append((observed,feature,speed,steer))
             history=resample_history(list(self.rows))
             if history is None:
                 self.publish_status(now,'collecting_history',history_frames=len(self.rows),model_dir=str(self.folder))
@@ -165,6 +170,7 @@ class TemporalSteering:
             applied=(self.mode in ('trial','active') and report.get('accepted_offline') is True and resampling_valid and reason=='applied')
             if applied:self.counters['applied']+=1
             self.status={'phase':self.mode,'time':time.time(),'predicted_steer':predicted,'baseline_steer':plan.steer,
+                         'observation_age_s':now-observed,
                          'model_dir':str(self.folder),
                          'proposed_steer':hypothetical.steer,'applied':applied,'reason':reason,
                          'accepted_offline':bool(report.get('accepted_offline')),**timing,

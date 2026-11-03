@@ -780,7 +780,7 @@ def main():
                     except Exception as exc:
                         print('Lane reload rejected:', exc, flush=True)
                 try:
-                    guidance = lane_fusion.update(frame, decision, value, time.monotonic()) if left_lane else None
+                    guidance = lane_fusion.update(frame, decision, dict(value,frame_capture_time=frame_time), time.monotonic()) if left_lane else None
                 except (ValueError,IndexError,FloatingPointError) as error:
                     guidance = None
                     if now-report > 1:

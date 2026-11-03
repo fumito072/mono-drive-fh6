@@ -1,0 +1,229 @@
+{
+  "phase": "complete",
+  "accepted_visual": true,
+  "source_revision": "8b9e6755771117c8518a59790fb6a0acd60c5faa39acbced10d0296a7df13fb7",
+  "dataset_revision": "8b9e6755771117c8518a59790fb6a0acd60c5faa39acbced10d0296a7df13fb7",
+  "base_sha256": "81e5b67cfec55feb232a76e6cc9857759d51c279f1b789a3862935e59ec6b861",
+  "samples": {
+    "train": 98591,
+    "validation": 52363
+  },
+  "validation_used": 6000,
+  "excluded_test_recordings": 7,
+  "comparison": [
+    "fine_tuned_visual_encoder",
+    "frozen_visual_encoder"
+  ],
+  "validation": [
+    {
+      "samples": 6000,
+      "steer_mae": 0.07467568908843775,
+      "turn_mae": 0.1603906704363968,
+      "heading_mae": 0.04733164763293858,
+      "steer_bias": 0.0033849203659871516
+    },
+    {
+      "samples": 6000,
+      "steer_mae": 0.08273799836270822,
+      "turn_mae": 0.18393448975806218,
+      "heading_mae": 0.056865553279320524,
+      "steer_bias": -0.0014452648381799616
+    }
+  ],
+  "epochs": 8,
+  "samples_per_epoch": 24000,
+  "targets": [
+    "future_mean_Data_Out_steer",
+    "future_heading_change"
+  ],
+  "history": [
+    {
+      "epoch": 1,
+      "loss": [
+        0.10277735244731108,
+        0.11382658452788989
+      ],
+      "validation": [
+        {
+          "samples": 6000,
+          "steer_mae": 0.08295882422503201,
+          "turn_mae": 0.16442464549560915,
+          "heading_mae": 0.057915642722958335,
+          "steer_bias": 0.016456279280168625
+        },
+        {
+          "samples": 6000,
+          "steer_mae": 0.08358251834656888,
+          "turn_mae": 0.1876138761977769,
+          "heading_mae": 0.06063031759813773,
+          "steer_bias": 0.004447046358060713
+        }
+      ]
+    },
+    {
+      "epoch": 2,
+      "loss": [
+        0.08865542010962964,
+        0.10645371842384338
+      ],
+      "validation": [
+        {
+          "samples": 6000,
+          "steer_mae": 0.07787496160816712,
+          "turn_mae": 0.16137717634957788,
+          "heading_mae": 0.05297210166260993,
+          "steer_bias": 0.005711372868002703
+        },
+        {
+          "samples": 6000,
+          "steer_mae": 0.08470474846148864,
+          "turn_mae": 0.18605019004824683,
+          "heading_mae": 0.05876902816947383,
+          "steer_bias": 0.015443808851860618
+        }
+      ]
+    },
+    {
+      "epoch": 3,
+      "loss": [
+        0.0859797089000543,
+        0.10680258287489414
+      ],
+      "validation": [
+        {
+          "samples": 6000,
+          "steer_mae": 0.07626095800461674,
+          "turn_mae": 0.16179778500948533,
+          "heading_mae": 0.049267207059491606,
+          "steer_bias": -0.009111063764479089
+        },
+        {
+          "samples": 6000,
+          "steer_mae": 0.08620978899608114,
+          "turn_mae": 0.18149150458890553,
+          "heading_mae": 0.05833000823726322,
+          "steer_bias": 9.666879508586134e-05
+        }
+      ]
+    },
+    {
+      "epoch": 4,
+      "loss": [
+        0.08316351127376159,
+        0.1048352086097002
+      ],
+      "validation": [
+        {
+          "samples": 6000,
+          "steer_mae": 0.07905236452800454,
+          "turn_mae": 0.15692202184270604,
+          "heading_mae": 0.05220682814808204,
+          "steer_bias": -0.004833579504260948
+        },
+        {
+          "samples": 6000,
+          "steer_mae": 0.08273799836270822,
+          "turn_mae": 0.18393448975806218,
+          "heading_mae": 0.056865553279320524,
+          "steer_bias": -0.0014452648381799616
+        }
+      ]
+    },
+    {
+      "epoch": 5,
+      "loss": [
+        0.07997487668444712,
+        0.10258956608672937
+      ],
+      "validation": [
+        {
+          "samples": 6000,
+          "steer_mae": 0.07467568908843775,
+          "turn_mae": 0.1603906704363968,
+          "heading_mae": 0.04733164763293858,
+          "steer_bias": 0.0033849203659871516
+        },
+        {
+          "samples": 6000,
+          "steer_mae": 0.08677027212631946,
+          "turn_mae": 0.1802890600993868,
+          "heading_mae": 0.058311197769053004,
+          "steer_bias": 0.011469540887662636
+        }
+      ]
+    },
+    {
+      "epoch": 6,
+      "loss": [
+        0.07789336435248455,
+        0.10154013439019521
+      ],
+      "validation": [
+        {
+          "samples": 6000,
+          "steer_mae": 0.0785258750293336,
+          "turn_mae": 0.1561431355562815,
+          "heading_mae": 0.04990291591284247,
+          "steer_bias": -0.0037773742561257677
+        },
+        {
+          "samples": 6000,
+          "steer_mae": 0.0885535329070505,
+          "turn_mae": 0.18004893159224822,
+          "heading_mae": 0.06029614431923323,
+          "steer_bias": -0.016116912777263983
+        }
+      ]
+    },
+    {
+      "epoch": 7,
+      "loss": [
+        0.07758042068779468,
+        0.10185874942938487
+      ],
+      "validation": [
+        {
+          "samples": 6000,
+          "steer_mae": 0.07690828257029837,
+          "turn_mae": 0.15747756357911238,
+          "heading_mae": 0.04881181544762143,
+          "steer_bias": -0.006690542526902088
+        },
+        {
+          "samples": 6000,
+          "steer_mae": 0.08602545715362066,
+          "turn_mae": 0.1806108849612059,
+          "heading_mae": 0.05779940009051381,
+          "steer_bias": -0.010726260984665715
+        }
+      ]
+    },
+    {
+      "epoch": 8,
+      "loss": [
+        0.0767827216933171,
+        0.10049626244107882
+      ],
+      "validation": [
+        {
+          "samples": 6000,
+          "steer_mae": 0.07608504670059484,
+          "turn_mae": 0.15732602377286908,
+          "heading_mae": 0.04858932388531353,
+          "steer_bias": 0.004993452405959639
+        },
+        {
+          "samples": 6000,
+          "steer_mae": 0.08503367371072817,
+          "turn_mae": 0.17968037929358002,
+          "heading_mae": 0.057566503528961185,
+          "steer_bias": 0.008110128639018513
+        }
+      ]
+    }
+  ],
+  "onnx_max_difference": 1.1920928955078125e-06,
+  "selected": "adapted",
+  "time": 1793679389.7002387,
+  "note": "Validation selects visual features only. Separate recording-level temporal and live checks remain mandatory."
+}

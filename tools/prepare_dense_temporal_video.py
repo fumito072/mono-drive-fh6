@@ -1,6 +1,6 @@
 """Extract 10 Hz verified video with a fixed, disjoint validation interval."""
 import hashlib,json,sys,time
-from concurrent.futures import ThreadPoolExecutor
+from concurrent.futures import ThreadPoolExecutor,as_completed
 from pathlib import Path
 
 ROOT=Path(__file__).resolve().parents[1];sys.path.insert(0,str(ROOT))
@@ -20,7 +20,9 @@ def main():
         try:return prepare(ROOT,record,sample_hz=10.,expand_training=True),None
         except Exception as e:return None,{'recording':record['recording'],'error':str(e)}
     with ThreadPoolExecutor(max_workers=2) as pool:
-        for result,error in pool.map(one,records):
+        futures=[pool.submit(one,record) for record in records]
+        for future in as_completed(futures):
+            result,error=future.result()
             if error:errors.append(error)
             else:results.append(result)
             progress={'phase':'extracting','complete':len(results)+len(errors),'total':len(records),
@@ -28,6 +30,8 @@ def main():
             write_json(ROOT/'out/temporal-dense-prepare-state.json',progress)
             print(json.dumps(progress),flush=True)
     if not results:raise ValueError('No verified dense video could be prepared')
+    results.sort(key=lambda episode:episode['recording'])
+    errors.sort(key=lambda error:error['recording'])
     revision=hashlib.sha256(json.dumps([e['revision'] for e in results],sort_keys=True).encode()).hexdigest()
     manifest={'revision':revision,'source_revision':dataset.get('revision'),'sample_hz':10.,'episodes':results,
               'frames':sum(x['frames'] for x in results),'pending':errors,'time':time.time(),

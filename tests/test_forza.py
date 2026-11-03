@@ -13,6 +13,29 @@ from unittest.mock import patch
 
 
 class ForzaTests(unittest.TestCase):
+    def test_forward_request_keeps_rt_when_automatic_is_stopped_in_reverse(self):
+        class Window:
+            def target(self,background=False): return {}
+            def down(self,key): raise AssertionError('No keyboard polling')
+        class Pad:
+            reports=[]
+            def set(self,command,handbrake=False,buttons=()):
+                self.reports.append((command,buttons))
+            def close(self): pass
+        telemetry=SimpleNamespace(fresh=lambda:True,
+            last=dict(race=True,gear=0,forward_kmh=0.,speed=0.))
+        with patch('mono_drive.forza_background.AnalogGamepad',Pad):
+            actuator=Actuator(Window(),telemetry,True,background=True)
+        actuator.requested=actuator.armed=True
+        actuator.publish((0.,.25,0.),False,False,time.monotonic())
+        actuator.start()
+        try:
+            time.sleep(.06)
+            self.assertTrue(any(command[1]>.0 for command,_ in actuator.pad.reports))
+            self.assertTrue(all('B' not in buttons for _,buttons in actuator.pad.reports))
+        finally:
+            actuator.stop_event.set();actuator.join()
+
     def test_initial_rearm_survives_brief_gaps_between_fresh_captures(self):
         class Window:
             def target(self,background=False): return {}
@@ -183,8 +206,8 @@ class ForzaTests(unittest.TestCase):
         a.start()
         try:
             time.sleep(.04)
-            self.assertEqual(a.pad.command,(0.,0.,0.))
-            self.assertEqual(a.pad.buttons,('B',))
+            self.assertEqual(a.pad.command,(0.,.3,0.))
+            self.assertEqual(a.pad.buttons,())
             telem.last['gear'] = 1
             time.sleep(.04)
             self.assertEqual(a.pad.command,(0.,.3,0.))

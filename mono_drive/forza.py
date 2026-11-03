@@ -491,17 +491,9 @@ class Actuator(threading.Thread):
                         command = forward_only(command, live_value)
                     if self.pad:
                         gear_buttons = ()
-                        if (self.armed and forward_requested and not allow_reverse and not emergency and
-                                live_value.get('gear',1) == 0 and
-                                abs(live_value.get('forward_kmh',0)) < .3):
-                            command = (0.,0.,0.)
-                            handbrake = abs(live_value.get('forward_kmh',0)) > .3
-                            if not handbrake:
-                                if now-self.gear_request_at >= 1.:
-                                    self.gear_request_at = now
-                                if now-self.gear_request_at < .15:
-                                    gear_buttons = ('B',)
-                                    handbrake = False
+                        # On automatic transmission RT selects forward from R.
+                        # Suppressing RT until gear changes creates a deadlock;
+                        # B is a manual-shift input and cannot resolve it.
                         if self.armed and not allow_reverse:
                             stick = steering_servo.step(command[0],live_value.get('steer',0)/127.,dt,
                                                         self.steer_inner,self.steer_outer)
@@ -701,7 +693,9 @@ def main():
                                 raise ValueError('Invalid reverse steering')
                             if recovery_distance is not None and not .3 <= recovery_distance <= 10.:
                                 raise ValueError('Back distance outside allowed range')
-                            if holding:
+                            # A new forward/hold request supersedes an unfinished
+                            # reverse manoeuvre, including its gear-selection gate.
+                            if action != 'recover':
                                 recovery.phase = ''
                             args.forward_test = duration if action == 'test' else None
                             actuator.handbrake = holding

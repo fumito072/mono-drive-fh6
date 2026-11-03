@@ -9,7 +9,9 @@ from mono_drive.forza_supervisor import stop_worker
 def main():
     p=argparse.ArgumentParser();p.add_argument('--visual-dir',type=Path,required=True)
     p.add_argument('--manifest',type=Path,required=True);p.add_argument('--out',type=Path,required=True)
-    a=p.parse_args();state=ROOT/'out/visual-refinement-state.json'
+    p.add_argument('--state',type=Path,default=ROOT/'out/visual-refinement-state.json')
+    p.add_argument('--variant',choices=['base','residual'],default='base')
+    a=p.parse_args();state=a.state
     def stopped():return (ROOT/'out/training.stop').exists() or (ROOT/'out/longrun.stop').exists()
     while not (a.visual_dir/'report.json').exists():
         if stopped():return
@@ -20,7 +22,7 @@ def main():
     cache=ROOT/'out/temporal-refined'/a.out.name
     commands=[
         [sys.executable,'tools/prepare_temporal_driving.py','--manifest',str(a.manifest),'--out',str(cache),'--visual-encoder-dir',str(a.visual_dir)],
-        [sys.executable,'tools/train_temporal_steering.py','--cache',str(cache),'--out',str(a.out),'--epochs','24','--samples-per-epoch','120000'],
+        [sys.executable,'tools/train_temporal_steering.py','--cache',str(cache),'--out',str(a.out),'--epochs','24','--samples-per-epoch','120000','--variant',a.variant],
         [sys.executable,'tools/evaluate_temporal_live.py','--model-dir',str(a.out)],
     ]
     flags=subprocess.CREATE_NO_WINDOW|subprocess.BELOW_NORMAL_PRIORITY_CLASS if os.name=='nt' else 0

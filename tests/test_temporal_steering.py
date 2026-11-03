@@ -40,6 +40,26 @@ class TemporalTests(unittest.TestCase):
         self.assertEqual(old[1],dense[1])
         self.assertGreater(dense[0][2],old[0][2])
         self.assertGreaterEqual(dense[1][1]-dense[0][2],8.)
+    def test_15fps_source_keeps_about_10fps_on_real_clock(self):
+        from mono_drive.human_recorder import selected_groups
+        rows=[];telemetry={}
+        for i in range(150):
+            rows.append(dict(frame_index=i,frame_t_ns=round(i/15*1e9),video_pts_us=round(i/15*1e6),telemetry_seq=i,valid='1'))
+            telemetry[i]=dict(IsRaceOn=1,RacePosition=0,LapNumber=0,speed_kmh=36,TimestampMS=round(i/15*1000),
+                PositionX=i/15*10,PositionY=0,PositionZ=0,
+                **{'TireSlipRatio'+w:0 for w in ('FrontLeft','FrontRight','RearLeft','RearRight')})
+        groups=selected_groups(rows,telemetry,0,10,1,target_hz=10.,available_hz=15.)
+        self.assertEqual(len(groups),1);self.assertTrue(99<=len(groups[0])<=101)
+        t=np.array([int(row['video_pts_us'])/1e6 for row,_ in groups[0]])
+        self.assertLess(np.max(np.abs(np.diff(t,2))),.08)
+        indices=window_indices(t,np.full(len(t),36.),np.zeros(len(t)),np.zeros(len(t)),history=18,future=6,sample_hz=10.)
+        self.assertGreater(len(indices),60)
+    def test_vfr_half_period_steps_keep_correct_full_history_span(self):
+        t=np.arange(80)*.1;t[1::2]-=.05
+        indices=window_indices(t,np.full(80,50.),np.zeros(80),np.zeros(80),history=18,future=6,sample_hz=10.)
+        self.assertEqual(len(indices),56)
+        stretched=t*1.4
+        self.assertEqual(len(window_indices(stretched,np.full(80,50.),np.zeros(80),np.zeros(80),history=18,future=6,sample_hz=10.)),0)
     def test_preview_never_changes_speed_or_crosses_lane(self):
         z=np.array([3.,6.,9.,12.,16.]);p=ScenePlan(np.column_stack((z,np.zeros(5))),0.,60.,.95,1,0,'paint_pair',1.,
             lane_edges=tuple((x,-2.,2.) for x in z))

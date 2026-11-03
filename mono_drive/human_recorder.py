@@ -137,9 +137,9 @@ def audit(folder,cache):
     return result
 
 
-def selected_groups(align,telemetry,lo,hi,stride,minimum_dt=.18):
+def selected_groups(align,telemetry,lo,hi,stride,minimum_dt=.18,target_hz=None,available_hz=None):
     """Never create a future-trajectory label across missing/menu/teleport data."""
-    groups=[];group=[];last_time=-1.;previous=None
+    groups=[];group=[];last_time=-1.;previous=None;next_sample=None
     for r in align:
         t=int(r['video_pts_us'])/1e6
         if not lo<=t<hi or int(r['frame_index'])%stride:continue
@@ -151,9 +151,16 @@ def selected_groups(align,telemetry,lo,hi,stride,minimum_dt=.18):
                    and float(sample['speed_kmh'])>=8 and slip<=.5)
         if not valid or sample is None:
             if group:groups.append(group)
-            group=[];previous=None;last_time=-1.
+            group=[];previous=None;last_time=-1.;next_sample=None
             continue
-        if t-last_time<minimum_dt:continue
+        if target_hz is None:
+            if t-last_time<minimum_dt:continue
+        else:
+            # Use a clock grid, not a greedy minimum interval: at 15 fps a
+            # 10 Hz subset must alternate one and two source-frame gaps.
+            if next_sample is None:next_sample=t
+            if t<next_sample-.5/available_hz-1e-8:continue
+            next_sample=max(next_sample+1./target_hz,t+.5/target_hz)
         position=np.array([float(sample['Position'+a]) for a in 'XYZ'])
         if previous is not None:
             old_t,old_position,old_sample=previous
@@ -211,7 +218,7 @@ def prepare(root,record,*,sample_hz=5.,expand_training=False):
         return {n:[(source/n).stat().st_size,(source/n).stat().st_mtime_ns] for n in FILES}==record['fingerprint']
     if not unchanged():raise ValueError('Source changed after synchronization audit')
     source_revision=hashlib.sha256(json.dumps(record['fingerprint'],sort_keys=True).encode()).hexdigest()[:16]
-    variant='' if sample_hz==5. and not expand_training else f'-hz{sample_hz:g}-expanded{int(expand_training)}'
+    variant='' if sample_hz==5. and not expand_training else f'-hz{sample_hz:g}-expanded{int(expand_training)}-clockgrid2'
     revision=hashlib.sha256((source_revision+f'-segments-{PREPARATION_VERSION}'+variant).encode()).hexdigest()[:16]
     folder=root/f'datasets/human/{source.name}_{source_revision}';manifest=folder/f'manifest{variant}.json'
     if manifest.exists():
@@ -221,8 +228,10 @@ def prepare(root,record,*,sample_hz=5.,expand_training=False):
     frames=table(source/'frames.csv')
     align=table(record.get('verified_alignment',source/'aligned.csv'))
     telemetry={int(r['seq']):r for r in table(source/'telemetry.csv')}
-    stride=max(1,round(float(record['media'].get('measured_hz',record['media']['fps']))/sample_hz))
-    parts={name:selected_groups(align,telemetry,lo,hi,stride,minimum_dt=.9/sample_hz) for name,lo,hi in ranges}
+    measured=float(record['media'].get('measured_hz',record['media']['fps']))
+    stride=max(1,round(measured/sample_hz)) if sample_hz==5. else max(1,int(measured/sample_hz))
+    timing={} if sample_hz==5. else {'target_hz':sample_hz,'available_hz':measured/stride}
+    parts={name:selected_groups(align,telemetry,lo,hi,stride,minimum_dt=.9/sample_hz,**timing) for name,lo,hi in ranges}
     if not all(parts.values()):raise ValueError('Not enough contiguous nonslipping frames in both temporal partitions')
     rawframes,image_stride,width,height=sampled_frames(source,folder,record['media'],len(frames),stride)
     camera=dict(json.loads((root/'configs/forza_horizon6.json').read_text(encoding='utf-8'))['camera'])

@@ -9,11 +9,13 @@ from mono_drive.forza_local_learning import read_json,write_json
 
 
 def main():
+    write_json(ROOT/'out/temporal-dense-prepare-state.json',{'phase':'starting','time':time.time()})
     dataset=read_json(ROOT/'out/human-dataset.json',{})
     admitted={e['recording'] for e in dataset.get('episodes',[]) if e.get('car_ordinals')==[3819] and e.get('synchronization',{}).get('verified')}
     records=[read_json(ROOT/'out/human-data-audit'/f'{name}.json',{}) for name in sorted(admitted)]
     records=[r for r in records if r.get('path_candidate_eligible') and r.get('car_ordinals')==[3819]]
     results=[];errors=[];start=time.time()
+    write_json(ROOT/'out/temporal-dense-prepare-state.json',{'phase':'extracting','complete':0,'total':len(records),'time':start})
     def one(record):
         try:return prepare(ROOT,record,sample_hz=10.,expand_training=True),None
         except Exception as e:return None,{'recording':record['recording'],'error':str(e)}

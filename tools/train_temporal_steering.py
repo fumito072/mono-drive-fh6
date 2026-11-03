@@ -120,5 +120,12 @@ def main():
     np.savez(a.out/'test-predictions.npz',temporal=predictions[0][0],single=predictions[1][0],target=predictions[0][1],previous=predictions[0][2],segments=predictions[0][3])
     write(a.out/'training-progress.json',{'phase':'complete','accepted_offline':permitted,'test_temporal':test[0],'test_single_frame':test[1]})
     print(json.dumps(report),flush=True)
+    import subprocess
+    clip=ROOT/'out/temporal-report'/a.out.name
+    try:
+        subprocess.run([sys.executable,str(ROOT/'tools/render_temporal_report.py'),'--model-dir',str(a.out),
+                        '--cache',str(a.cache),'--out',str(clip)],cwd=ROOT,check=True)
+    except (OSError,subprocess.CalledProcessError) as error:
+        write(a.out/'video-report-error.json',{'error':str(error),'model_still_validated':True})
 
 if __name__=='__main__':main()

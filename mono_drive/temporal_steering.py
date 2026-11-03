@@ -23,7 +23,14 @@ def window_indices(times, speed, steer, ages, history=HISTORY, future=FUTURE,sam
     for i in range(history,n-future):
         lo=i-history;hi=i+future+1
         dt=np.diff(times[lo:hi])
-        if valid[lo:hi].all() and np.all((dt>=.6/sample_hz)&(dt<=1.55/sample_hz)):
+        max_dt=(1.55 if sample_hz==5. else 2.1)/sample_hz
+        # A 60 Hz VFR capture may select alternating 50/150 ms steps around
+        # the 10 Hz grid. Preserve those real frames when the complete history
+        # and forecast spans still match; no interpolated frame is introduced.
+        min_dt=(.6 if sample_hz==5. else .3)/sample_hz
+        span_ok=(sample_hz==5. or (abs(times[i]-times[lo]-history/sample_hz)<=.12 and
+                                 abs(times[hi-1]-times[i]-future/sample_hz)<=.12))
+        if span_ok and valid[lo:hi].all() and np.all((dt>=min_dt)&(dt<=max_dt)):
             result.append(i)
     return np.asarray(result,dtype=np.int32)
 

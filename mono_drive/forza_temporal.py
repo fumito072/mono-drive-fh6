@@ -78,7 +78,10 @@ class TemporalSteering:
     def publish_status(self,now,phase,**details):
         if now>=self.next_write:
             self.next_write=now+.5
-            self.status=dict(self.status,phase=phase,time=time.time(),**details)
+            state=dict(phase=phase,time=time.time(),**self.counters)
+            if self.folder is not None:state['model_dir']=str(self.folder)
+            if phase in ('load_failed','observation_failed') and 'error' in self.status:state['error']=self.status['error']
+            state.update(details);self.status=state
             write_json(self.root/'out/temporal-steering-state.json',self.status)
     def update(self,frame,telemetry,plan,scene,now):
         if now>=self.next_check:

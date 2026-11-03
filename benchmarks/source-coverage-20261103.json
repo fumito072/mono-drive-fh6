@@ -1,0 +1,30 @@
+{
+  "date": "2026-11-03",
+  "method": "Drive session metadata; deduplicate by start time, frame count and video size. Segment duration is the sum of verified segment time ranges.",
+  "drive_unique_sessions": 108,
+  "drive_metadata_hours": 37.798901648194445,
+  "complete_sessions": 68,
+  "complete_session_hours": 23.40377978133333,
+  "recorder_error_sessions": 38,
+  "recorder_error_hours": 14.395121866861112,
+  "recorder_error": "All 38 report no decoded FH6 packets; their video alone is not a steering-label source.",
+  "locally_audited_media_hours": 23.32539222222222,
+  "initial_temporal_recordings": 60,
+  "initial_temporal_frames": 242032,
+  "initial_segment_hours": {
+    "train": 8.886164116388894,
+    "validation": 4.935932710833331,
+    "test": 1.332849412222222
+  },
+  "initial_supervised_windows": {
+    "train": 97970,
+    "validation": 52056,
+    "test": 13914
+  },
+  "next_recipe": "10 Hz source sampling, fixed validation interval, eight-second train/validation guard, 24 epochs, up to 120000 sequences per epoch",
+  "notes": [
+    "Initial counts are not all original footage.",
+    "Next recipe is still processing; no completed dense-model result is claimed.",
+    "No unsynchronized or missing controls are invented."
+  ]
+}

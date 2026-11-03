@@ -3,19 +3,24 @@ import argparse,json,subprocess,sys,time
 from pathlib import Path
 import numpy as np
 ROOT=Path(__file__).resolve().parents[1];sys.path.insert(0,str(ROOT))
-from mono_drive.temporal_steering import HISTORY,targets
+from mono_drive.temporal_steering import HISTORY,targets,sequence_arrays
 
 
 def main():
     import cv2,onnxruntime as ort
     from PIL import Image,ImageDraw,ImageFont
-    p=argparse.ArgumentParser();p.add_argument('--wait',action='store_true');a=p.parse_args()
-    model=ROOT/'models/temporal-20261103';cache=ROOT/'out/temporal-human';out=ROOT/'out/temporal-report';out.mkdir(exist_ok=True)
+    p=argparse.ArgumentParser();p.add_argument('--wait',action='store_true')
+    p.add_argument('--model-dir',type=Path,default=ROOT/'models/temporal-20261103')
+    p.add_argument('--cache',type=Path,default=ROOT/'out/temporal-human')
+    p.add_argument('--out',type=Path,default=ROOT/'out/temporal-report');a=p.parse_args()
+    model=a.model_dir;cache=a.cache;out=a.out;out.mkdir(parents=True,exist_ok=True)
     while not (model/'report.json').exists():
         if not a.wait:raise FileNotFoundError('Temporal training has not completed')
         time.sleep(3)
     report=json.loads((model/'report.json').read_text(encoding='utf-8'))
     manifest=json.loads((cache/'manifest.json').read_text(encoding='utf-8'))
+    if report['dataset_revision']!=manifest['revision']:raise ValueError('Video cache does not match this model')
+    stride=int(manifest.get('temporal_stride',1));fps=float(manifest.get('source_sample_hz',5.))
     best=None
     for item in manifest['segments']:
         if item['split']!='test':continue
@@ -23,7 +28,7 @@ def main():
             steer=f['steer'];indices=f['indices']
             if len(steer)<120:continue
             for start in indices[::20]:
-                end=min(len(steer)-4,start+100)
+                end=min(len(steer)-3*stride-1,start+int(20*fps))
                 if end-start<80:continue
                 score=float(np.std(steer[start:end]))
                 if best is None or score>best[0]:best=(score,item,int(start),int(end))
@@ -37,17 +42,15 @@ def main():
     for i in range(start,end):
         prediction=None
         if i in valid:
-            begin=i-HISTORY+1
-            x=features[begin:i+1].astype(np.float32)[None]
-            ego=np.stack([speed[begin:i+1]/100.,steer[begin-1:i]],1).astype(np.float32)[None]
-            prediction=float(session.run(None,{'features':x,'ego':ego})[0].reshape(-1)[0])
+            x,ego,_=sequence_arrays(features,speed,steer,i,stride)
+            prediction=float(session.run(None,{'features':x[None],'ego':ego[None]})[0].reshape(-1)[0])
         records.append({'index':i,'time':float(times[i]),'steer':float(steer[i]),'speed':float(speed[i]),
-                        'prediction':prediction,'future_teacher':float(targets(steer,i)[-1]),
-                        'forecast_time':float(np.mean(times[i+1:i+4]))})
+                        'prediction':prediction,'future_teacher':float(targets(steer,i,stride)[-1]),
+                        'forecast_time':float(np.mean(times[i+np.arange(1,4)*stride]))})
     (out/'timeline.json').write_text(json.dumps({'split':'unseen_recording_test','records':records,'test':report['test_temporal']},indent=2),encoding='utf-8')
     font=ImageFont.truetype('C:/Windows/Fonts/meiryo.ttc',21);small=ImageFont.truetype('C:/Windows/Fonts/meiryo.ttc',16)
     filename=out/'steering-comparison.mp4'
-    command=['ffmpeg','-y','-v','error','-f','rawvideo','-pixel_format','rgb24','-video_size','1280x960','-framerate','5',
+    command=['ffmpeg','-y','-v','error','-f','rawvideo','-pixel_format','rgb24','-video_size','1280x960','-framerate',str(fps),
              '-i','pipe:0','-an','-c:v','libx264','-preset','fast','-crf','20','-pix_fmt','yuv420p',str(filename)]
     process=subprocess.Popen(command,stdin=subprocess.PIPE,stdout=subprocess.DEVNULL,stderr=subprocess.PIPE)
     x0,x1,y0,y1=75,1240,786,910;t0,t1=times[start],times[end-1]+.5
@@ -71,7 +74,7 @@ def main():
                 if value is not None:line.append(point(row['forecast_time'] if key!='steer' else row['time'],value))
             if len(line)>1:draw.line(line,fill=color,width=3)
         x=point(current['time'],0)[0];draw.line((x,y0,x,y1),fill='white',width=2)
-        draw.text((x0,920),'時間（秒）  予測には現在と過去1.6秒の映像のみ使用。元記録から抽出した約5fps映像。',font=small,fill='white')
+        draw.text((x0,920),f'時間（秒）  予測には現在と過去約1.6秒の映像のみ使用。元記録から抽出した約{fps:g}fps映像。',font=small,fill='white')
         for t in np.linspace(t0,t1,7):draw.text((point(t,0)[0]-12,755),f'{t:.1f}',font=small,fill='white')
         process.stdin.write(np.asarray(canvas).tobytes())
     process.stdin.close();error=process.stderr.read();code=process.wait()

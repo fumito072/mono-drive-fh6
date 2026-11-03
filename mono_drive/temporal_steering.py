@@ -83,7 +83,7 @@ def sequence_arrays(features,speed,steer,index,stride=1):
     return x,ego,targets(steer,index,stride)
 
 
-def build_models(mean=None,std=None):
+def build_models(mean=None,std=None,variant='base'):
     import torch
     from torch import nn
     mean=np.zeros(FEATURES,np.float32) if mean is None else np.asarray(mean,np.float32)
@@ -115,7 +115,21 @@ def build_models(mean=None,std=None):
             self.head=nn.Sequential(nn.Linear(FEATURES+2,180),nn.Tanh(),nn.Linear(180,112),nn.Tanh(),nn.Linear(112,1),nn.Tanh())
         def forward(self,features,ego):
             return self.head(self.inputs(features,ego)).squeeze(-1)
-    return Temporal(),SingleFrame()
+    baseline=SingleFrame()
+    if variant=='residual':
+        import copy
+        class ResidualTemporal(Base):
+            def __init__(self):
+                super().__init__();self.current=copy.deepcopy(baseline.head)
+                self.project=nn.Sequential(nn.Linear(FEATURES+2,64),nn.Tanh())
+                self.memory=nn.GRU(64,32,batch_first=True);self.correction=nn.Linear(32,1)
+                nn.init.zeros_(self.correction.weight);nn.init.zeros_(self.correction.bias)
+            def forward(self,features,ego):
+                inputs=self.inputs(features,ego);base=self.current(inputs).squeeze(-1)
+                memory,_=self.memory(self.project(inputs))
+                return torch.clamp(base+.15*torch.tanh(self.correction(memory).squeeze(-1)),-1.,1.)
+        return ResidualTemporal(),baseline
+    return Temporal(),baseline
 
 
 def metrics(prediction,target,previous,segments):

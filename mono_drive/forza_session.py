@@ -384,7 +384,7 @@ def restore_road(destination=None):
         clear_attempts=0
         search_attempts=0
         last_cursor=None
-        for attempt in range(64 if varied_route else 24):
+        for attempt in range(64):
             frame,_ = capture.grab()
             if recognizer.classify(frame)=='fast_travel':
                 break
@@ -412,10 +412,10 @@ def restore_road(destination=None):
                 # A recognized map plus geographic landmarks permits bounded
                 # navigation, even when a location/event card hides the ring.
                 # Never infer a cursor from a card or activate its A action.
-                if clear_attempts >= (8 if varied_route else 3):
+                if clear_attempts >= (8 if varied_route or last_cursor is not None else 3):
                     raise RuntimeError('Map cursor remained hidden after bounded navigation attempts')
                 clear_attempts+=1
-                if varied_route and last_cursor is not None:
+                if last_cursor is not None:
                     delta=goal_pixel-last_cursor
                     axes=map_stick(delta,deadzone=2.)
                     if np.linalg.norm(delta)<6:
@@ -427,10 +427,10 @@ def restore_road(destination=None):
                 continue
             last_cursor=cursor
             distance=float(np.linalg.norm(goal_pixel-cursor))
-            if distance>(4. if varied_route else 16.):
+            if distance>4.:
                 delta=goal_pixel-cursor
-                axes=map_stick(delta,deadzone=2. if varied_route else 10.)
-                duration=min(.3,max(.05,distance/240.)) if varied_route else min(.3,max(.08,distance/800.))
+                axes=map_stick(delta,deadzone=2.)
+                duration=min(.3,max(.05,distance/240.))
                 pad.move_map(axes[0],-axes[1],duration)
                 time.sleep(.2)
             else:

@@ -20,14 +20,17 @@ def main():
     p=argparse.ArgumentParser();p.add_argument('--cache',type=Path,default=ROOT/'out/temporal-human')
     p.add_argument('--out',type=Path,default=ROOT/'models/temporal-20261103')
     p.add_argument('--epochs',type=int,default=12);p.add_argument('--samples-per-epoch',type=int,default=80000)
+    p.add_argument('--variant',choices=['base','residual'],default='base')
     p.add_argument('--wait',action='store_true');a=p.parse_args()
     if not 1<=a.epochs<=100 or not 1000<=a.samples_per_epoch<=1000000:raise ValueError('Invalid training budget')
+    if a.variant=='residual' and a.epochs<3:raise ValueError('Residual training needs baseline warmup and correction epochs')
     while not (a.cache/'manifest.json').exists():
         if not a.wait:raise FileNotFoundError('Prepare temporal features first')
         time.sleep(3)
     manifest=json.loads((a.cache/'manifest.json').read_text(encoding='utf-8'));a.out.mkdir(parents=True,exist_ok=True)
     stride=int(manifest.get('temporal_stride',1))
-    write(a.out/'training-progress.json',{'phase':'loading','architecture_version':2,'time':time.time()})
+    version=3 if a.variant=='residual' else 2
+    write(a.out/'training-progress.json',{'phase':'loading','architecture_version':version,'time':time.time()})
     torch.manual_seed(27);np.random.seed(27);torch.set_num_threads(4)
     device='cuda' if torch.cuda.is_available() else 'cpu'
     segments=[];split={k:[] for k in ('train','validation','test')}
@@ -50,7 +53,9 @@ def main():
     weights=np.where(np.abs(labels)>.04,3.,1.)
     sampler=WeightedRandomSampler(torch.from_numpy(weights),min(a.samples_per_epoch,len(weights)),replacement=True)
     train=DataLoader(datasets['train'],batch_size=256,sampler=sampler,num_workers=0)
-    models=list(build_models(mean,std));models=[m.to(device) for m in models]
+    models=list(build_models(mean,std,a.variant));models=[m.to(device) for m in models]
+    warmup=min(8,max(1,a.epochs//3))
+    initial_temporal={k:v.detach().cpu().clone() for k,v in models[0].state_dict().items()}
     optimizers=[torch.optim.AdamW(m.parameters(),lr=8e-4,weight_decay=.01) for m in models]
     schedulers=[torch.optim.lr_scheduler.CosineAnnealingLR(o,a.epochs) for o in optimizers]
     best=[math.inf,math.inf];states=[None,None];history=[]
@@ -71,11 +76,22 @@ def main():
     for epoch in range(a.epochs):
         if (ROOT/'out/training.stop').exists() or (ROOT/'out/longrun.stop').exists():raise SystemExit('Explicit stop')
         for m in models:m.train()
+        if a.variant=='residual' and epoch==warmup:
+            models[1].load_state_dict(states[1]);models[1].requires_grad_(False)
+            models[0].load_state_dict(initial_temporal)
+            models[0].current.load_state_dict(models[1].head.state_dict());models[0].current.requires_grad_(False)
+            optimizers[0]=torch.optim.AdamW([p for p in models[0].parameters() if p.requires_grad],lr=8e-4,weight_decay=.01)
+            schedulers[0]=torch.optim.lr_scheduler.CosineAnnealingLR(optimizers[0],max(1,a.epochs-warmup))
+            scores=metrics(*predict(models[0],'validation'))
+            best[0]=scores['mae']+.5*scores['active_mae']+.25*scores['delta_mae']
+            states[0]={k:v.detach().cpu().clone() for k,v in models[0].state_dict().items()}
+            models[0].train()
         total=np.zeros(2);batches=0
         for f,e,y in train:
             f,e,y=(v.to(device) for v in (f,e,y));batches+=1
             f,e=jitter_inputs(f,e)
             for n,(model,opt) in enumerate(zip(models,optimizers)):
+                if a.variant=='residual' and ((epoch<warmup and n==0) or (epoch>=warmup and n==1)):continue
                 prediction=model(f,e)[:,-2:]
                 loss=torch.nn.functional.smooth_l1_loss(prediction,y,beta=.05)
                 loss+=.35*torch.nn.functional.smooth_l1_loss(prediction[:,1]-prediction[:,0],y[:,1]-y[:,0],beta=.025)
@@ -85,9 +101,10 @@ def main():
         for n,m in enumerate(models):
             scores=metrics(*predict(m,'validation'));record['validation'].append(scores)
             criterion=scores['mae']+.5*scores['active_mae']+.25*scores['delta_mae']
-            if criterion<best[n]:
+            selecting=not (a.variant=='residual' and epoch<warmup and n==0)
+            if selecting and criterion<best[n]:
                 best[n]=criterion;states[n]={k:v.detach().cpu().clone() for k,v in m.state_dict().items()}
-            schedulers[n].step()
+            if not (a.variant=='residual' and ((epoch<warmup and n==0) or (epoch>=warmup and n==1))):schedulers[n].step()
         history.append(record);write(a.out/'training-progress.json',{'phase':'training','epoch':epoch+1,'epochs':a.epochs,'last':record})
         print(json.dumps(record),flush=True)
     test=[];predictions=[]
@@ -97,7 +114,8 @@ def main():
     jittered=metrics(*predict(models[0],'test',jitter=True))
     permitted=(accept(test[0],test[1]) and test[0]['active_mae']<=ablated['active_mae']*.99 and
                jittered['mae']<=test[0]['mae']*1.15 and jittered['active_mae']<=test[0]['active_mae']*1.15)
-    report={'phase':'complete','architecture_version':2,'accepted_offline':permitted,'created_at':time.time(),'encoder':str((a.cache/'encoder.onnx').resolve()),
+    report={'phase':'complete','architecture_version':version,'variant':a.variant,'baseline_warmup_epochs':warmup if a.variant=='residual' else None,
+            'accepted_offline':permitted,'created_at':time.time(),'encoder':str((a.cache/'encoder.onnx').resolve()),
             'encoder_source_fingerprint':manifest.get('base_sha256'),'visual_adaptation':manifest.get('visual_adaptation'),
             'dataset_revision':manifest['revision'],'history_frames':HISTORY,'sample_hz':5,'target':'mean applied steer over next 0.2-0.6 seconds',
             'source_sample_hz':manifest.get('source_sample_hz',5.),'temporal_stride':stride,

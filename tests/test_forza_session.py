@@ -11,6 +11,36 @@ from mono_drive.forza_static import static_risk
 
 
 class SessionTests(unittest.TestCase):
+    def test_fixed_destination_inside_selected_player_icon_does_not_oscillate(self):
+        from mono_drive.forza_session import restore_road
+        with TemporaryDirectory() as directory:
+            clock=[10.];screen=['map']
+            capture,recognizer,pad,telemetry,anchor=[MagicMock() for _ in range(5)]
+            capture.grab.side_effect=lambda:(np.zeros((1080,1920,3),np.uint8),clock[0])
+            recognizer.classify.side_effect=lambda frame:screen[0]
+            recognizer.map_points.return_value=(None,np.array([958.5,546.5]))
+            recognizer.player_is_selected.return_value=True
+            recognizer.driving_ready.return_value=True
+            anchor.locate.return_value=np.array([952.35,558.75]);anchor.config={'name':'known paved road'}
+            anchor.arrived.return_value=True
+            telemetry.fresh.return_value=True
+            telemetry.last=dict(race=True,race_position=0,lap_number=0,position=[1.,2.,3.])
+            pad.press.side_effect=lambda button:screen.__setitem__(0,'fast_travel' if button=='X' else 'unknown')
+            with patch('mono_drive.forza_session.OUT',Path(directory)), \
+                 patch('mono_drive.forza_session.STOP',Path(directory)/'stop'), \
+                 patch('mono_drive.forza_session.time.monotonic',side_effect=lambda:clock[0]), \
+                 patch('mono_drive.forza_session.time.sleep',side_effect=lambda delay:clock.__setitem__(0,clock[0]+delay)), \
+                 patch('mono_drive.forza_session.cv2.imwrite'), \
+                 patch('mono_drive.forza_session.stop_driver_for_menu'), \
+                 patch('mono_drive.forza_session.PadChannel',return_value=pad), \
+                 patch('mono_drive.forza_session.MenuRecognizer',return_value=recognizer), \
+                 patch('mono_drive.forza_background.GameCapture',return_value=capture), \
+                 patch('mono_drive.forza.Telemetry',return_value=telemetry), \
+                 patch('mono_drive.forza_map_anchor.FixedMapAnchor',return_value=anchor):
+                result=restore_road()
+            self.assertTrue(result['success']);pad.move_map.assert_not_called()
+            self.assertEqual([call.args for call in pad.press.call_args_list],[('X',),('A',)])
+
     def test_capture_shutdown_failure_still_releases_telemetry(self):
         from mono_drive.forza_session import close_game_resources
         capture,telemetry=MagicMock(),MagicMock()

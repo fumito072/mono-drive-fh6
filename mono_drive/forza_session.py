@@ -400,10 +400,11 @@ def restore_road(destination=None):
             if recognizer.classify(frame)!='map':
                 raise RuntimeError('Map disappeared while selecting a known location')
             cursor,player=recognizer.map_points(frame)
+            player_selected=cursor is None and player is not None and recognizer.player_is_selected(frame,player)
             # Hovering our own marker hides the thin ring. The independently
             # matched player card identifies this selected marker precisely;
             # a generic place/event card cannot provide this position.
-            if cursor is None and player is not None and recognizer.player_is_selected(frame,player):
+            if player_selected:
                 cursor=player
             goal_pixel=anchor.locate(frame,offsets[probe_index]) if varied_route else anchor.locate(frame)
             cv2.imwrite(str(folder/f'navigation-{attempt:02d}.jpg'),frame)
@@ -441,7 +442,12 @@ def restore_road(destination=None):
                 continue
             last_cursor=cursor
             distance=float(np.linalg.norm(goal_pixel-cursor))
-            if distance>4.:
+            # Inside the selected player icon the map snaps to that icon, so
+            # sub-icon stick adjustments oscillate. Only the fixed, previously
+            # verified destination permits this small selection tolerance;
+            # arrival still has to pass its measured world-position check.
+            tolerance=16. if player_selected and not varied_route else 4.
+            if distance>tolerance:
                 delta=goal_pixel-cursor
                 axes=map_stick(delta,deadzone=2.)
                 duration=min(.3,max(.05,distance/240.))

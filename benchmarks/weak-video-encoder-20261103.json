@@ -1,0 +1,232 @@
+{
+  "phase": "complete",
+  "accepted_visual": true,
+  "source_revision": "8b9e6755771117c8518a59790fb6a0acd60c5faa39acbced10d0296a7df13fb7",
+  "dataset_revision": "8b9e6755771117c8518a59790fb6a0acd60c5faa39acbced10d0296a7df13fb7",
+  "base_sha256": "81e5b67cfec55feb232a76e6cc9857759d51c279f1b789a3862935e59ec6b861",
+  "samples": {
+    "train": 98591,
+    "validation": 52363
+  },
+  "validation_used": 6000,
+  "excluded_test_recordings": 7,
+  "comparison": [
+    "fine_tuned_visual_encoder",
+    "frozen_visual_encoder"
+  ],
+  "validation": [
+    {
+      "samples": 6000,
+      "steer_mae": 0.0752636783770431,
+      "turn_mae": 0.1605037959223135,
+      "heading_mae": 0.04817458550943166,
+      "steer_bias": -0.002694884220404977
+    },
+    {
+      "samples": 6000,
+      "steer_mae": 0.0836821162080887,
+      "turn_mae": 0.18751858004148972,
+      "heading_mae": 0.06134492556411012,
+      "steer_bias": 0.006397855009306416
+    }
+  ],
+  "epochs": 8,
+  "samples_per_epoch": 24000,
+  "targets": [
+    "future_mean_Data_Out_steer",
+    "future_heading_change"
+  ],
+  "history": [
+    {
+      "epoch": 1,
+      "loss": [
+        0.1035533442273736,
+        0.1138084915926059
+      ],
+      "validation": [
+        {
+          "samples": 6000,
+          "steer_mae": 0.08297884602934937,
+          "turn_mae": 0.16433579070272197,
+          "heading_mae": 0.05762313594445989,
+          "steer_bias": 0.01717374896311473
+        },
+        {
+          "samples": 6000,
+          "steer_mae": 0.0836821162080887,
+          "turn_mae": 0.18751858004148972,
+          "heading_mae": 0.06134492556411012,
+          "steer_bias": 0.006397855009306416
+        }
+      ]
+    },
+    {
+      "epoch": 2,
+      "loss": [
+        0.0894281084438165,
+        0.10650520415604114
+      ],
+      "validation": [
+        {
+          "samples": 6000,
+          "steer_mae": 0.08254704852655413,
+          "turn_mae": 0.16326303870152556,
+          "heading_mae": 0.05583122705446113,
+          "steer_bias": 0.017512468040290212
+        },
+        {
+          "samples": 6000,
+          "steer_mae": 0.08528827205056344,
+          "turn_mae": 0.18409671744109,
+          "heading_mae": 0.05884131889099026,
+          "steer_bias": 0.00045941734219377396
+        }
+      ]
+    },
+    {
+      "epoch": 3,
+      "loss": [
+        0.08654150902976593,
+        0.10617740444342295
+      ],
+      "validation": [
+        {
+          "samples": 6000,
+          "steer_mae": 0.08357449725903765,
+          "turn_mae": 0.16147797923946078,
+          "heading_mae": 0.05340672854487995,
+          "steer_bias": 0.02802338586055945
+        },
+        {
+          "samples": 6000,
+          "steer_mae": 0.08884369042215015,
+          "turn_mae": 0.18219192438322773,
+          "heading_mae": 0.061642691789831665,
+          "steer_bias": 0.017847001711100652
+        }
+      ]
+    },
+    {
+      "epoch": 4,
+      "loss": [
+        0.0844728826781114,
+        0.10556963505844275
+      ],
+      "validation": [
+        {
+          "samples": 6000,
+          "steer_mae": 0.0752636783770431,
+          "turn_mae": 0.1605037959223135,
+          "heading_mae": 0.04817458550943166,
+          "steer_bias": -0.002694884220404977
+        },
+        {
+          "samples": 6000,
+          "steer_mae": 0.08771136936945549,
+          "turn_mae": 0.18713199498468214,
+          "heading_mae": 0.06502390216381859,
+          "steer_bias": 0.028048123322373917
+        }
+      ]
+    },
+    {
+      "epoch": 5,
+      "loss": [
+        0.0796864044641455,
+        0.10125726635257402
+      ],
+      "validation": [
+        {
+          "samples": 6000,
+          "steer_mae": 0.08000840463508696,
+          "turn_mae": 0.15717349410978218,
+          "heading_mae": 0.050451676062231,
+          "steer_bias": 0.009338068205387875
+        },
+        {
+          "samples": 6000,
+          "steer_mae": 0.08898303090126138,
+          "turn_mae": 0.18078782526102055,
+          "heading_mae": 0.06057555544284736,
+          "steer_bias": 0.02188426804722015
+        }
+      ]
+    },
+    {
+      "epoch": 6,
+      "loss": [
+        0.07866490307201941,
+        0.1013649175564448
+      ],
+      "validation": [
+        {
+          "samples": 6000,
+          "steer_mae": 0.07526835479393292,
+          "turn_mae": 0.15855010569045802,
+          "heading_mae": 0.048545750797402,
+          "steer_bias": 0.00047539040956568596
+        },
+        {
+          "samples": 6000,
+          "steer_mae": 0.08660191057146585,
+          "turn_mae": 0.17946058058134173,
+          "heading_mae": 0.05917018081597242,
+          "steer_bias": -0.00523262838392111
+        }
+      ]
+    },
+    {
+      "epoch": 7,
+      "loss": [
+        0.07880179077883562,
+        0.10253553631405035
+      ],
+      "validation": [
+        {
+          "samples": 6000,
+          "steer_mae": 0.07946633644520383,
+          "turn_mae": 0.15568119856609494,
+          "heading_mae": 0.049787980795622556,
+          "steer_bias": 0.0017193303952905505
+        },
+        {
+          "samples": 6000,
+          "steer_mae": 0.08474527195652869,
+          "turn_mae": 0.17988466725269026,
+          "heading_mae": 0.05742373468328414,
+          "steer_bias": -0.0005064559379728355
+        }
+      ]
+    },
+    {
+      "epoch": 8,
+      "loss": [
+        0.07712481078753869,
+        0.10043899399538835
+      ],
+      "validation": [
+        {
+          "samples": 6000,
+          "steer_mae": 0.07759730514165131,
+          "turn_mae": 0.156139568643536,
+          "heading_mae": 0.049873871870299825,
+          "steer_bias": 0.0007087625931890216
+        },
+        {
+          "samples": 6000,
+          "steer_mae": 0.08576202424628233,
+          "turn_mae": 0.17874361031416572,
+          "heading_mae": 0.058322213519002235,
+          "steer_bias": 0.004200029836045966
+        }
+      ]
+    }
+  ],
+  "onnx_max_difference": 2.1457672119140625e-06,
+  "motion_revision": "3f2c37f7b789f2a907af404cd078cc7d298dd57cba5f5d69f2dea0f759ef0697",
+  "weak_motion_training_pairs": 2733,
+  "weak_motion_weight": 0.04,
+  "selected": "adapted",
+  "time": 1793683439.0344217,
+  "note": "Validation selects visual features only. Separate recording-level temporal and live checks remain mandatory."
+}

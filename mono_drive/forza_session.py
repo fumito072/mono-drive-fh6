@@ -243,6 +243,18 @@ def map_stick(delta,deadzone=10.):
     return np.where(np.abs(delta)>deadzone,np.sign(delta)*magnitude,0.)
 
 
+def map_move_duration(distance):
+    # Observed 0.4 stick input moves about 500 pixels/second. Shorter
+    # pulses prevent alternating across a nearby saved road indefinitely.
+    return min(.25,max(.025,float(distance)/650.))
+
+
+def recovery_retry_delay(failures):
+    # Keep independent learning and recovery alive after a failed UI attempt.
+    # Each attempt remains bounded and requires recognised game screens.
+    return min(300.,30.*2**min(4,max(0,int(failures)-1)))
+
+
 def wait_frame(capture,recognizer,wanted,seconds,folder,label):
     until = time.monotonic()+seconds
     while time.monotonic()<until and not STOP.exists():
@@ -448,6 +460,7 @@ def restore_road(destination=None):
                 time.sleep(.5)
                 continue
             last_cursor=cursor
+            clear_attempts=0
             distance=float(np.linalg.norm(goal_pixel-cursor))
             # Inside the selected player icon the map snaps to that icon, so
             # sub-icon stick adjustments oscillate. Only the fixed, previously
@@ -457,7 +470,7 @@ def restore_road(destination=None):
             if distance>tolerance:
                 delta=goal_pixel-cursor
                 axes=map_stick(delta,deadzone=2.)
-                duration=min(.3,max(.05,distance/240.))
+                duration=map_move_duration(distance)
                 pad.move_map(axes[0],-axes[1],duration)
                 time.sleep(.2)
             else:
@@ -623,7 +636,7 @@ def worker():
                     recovery_failures=3
                     state,error='needs_attention',str(exc)
             stalled = fresh and watch.update(now,heartbeat.get('position'))
-            retry_ready=state=='needs_attention' and recovery_failures<3 and now>=retry_at
+            retry_ready=state=='needs_attention' and now>=retry_at
             carriageway=read_json(OUT/'carriageway-state.json',{})
             wrongway=now-carriageway.get('time',0)<3. and carriageway.get('wrongway_confirmed') is True
             manual=read_json(OUT/'road-recovery-request.json',{})
@@ -667,11 +680,12 @@ def worker():
                 except Exception as exc:
                     state,error = 'needs_attention',str(exc)
                     recovery_failures+=1
-                    retry_at=time.time()+30.
+                    retry_at=time.time()+recovery_retry_delay(recovery_failures)
             elif state not in ('needs_attention','recovering_to_road'):
                 state = 'running' if fresh and has_pose else 'waiting_for_game'
             write_json(STATE,dict(**config,pid=os.getpid(),time=now,state=state,recoveries=recoveries,
                 last_incident=None if last_incident is None else dict(id=last_incident['id'],**last_incident['diagnosis']),
+                recovery_failures=recovery_failures,recovery_retry_at=retry_at if state=='needs_attention' else None,
                 error=error,driver=heartbeat,training=read_json(OUT/'training-state.json',{}),
                 video_monitor=read_json(OUT/'vlm-state.json',{}),
                 free_gib=round(shutil.disk_usage(ROOT).free/1024**3,1)))

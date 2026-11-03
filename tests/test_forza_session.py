@@ -11,6 +11,14 @@ from mono_drive.forza_static import static_risk
 
 
 class SessionTests(unittest.TestCase):
+    def test_near_map_targets_use_short_pulses_and_retries_stay_bounded(self):
+        from mono_drive.forza_session import map_move_duration,recovery_retry_delay
+        self.assertLess(map_move_duration(31),.05)
+        self.assertEqual(map_move_duration(0),.025)
+        self.assertEqual(map_move_duration(1000),.25)
+        self.assertEqual([recovery_retry_delay(n) for n in range(1,8)],
+                         [30.,60.,120.,240.,300.,300.,300.])
+
     def test_game_failure_keeps_learning_but_explicit_stop_and_deadline_end_it(self):
         from mono_drive.forza_session_policy import stop_background_workers
         continuous={'continuous':True,'started_at':1.}

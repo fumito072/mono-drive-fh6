@@ -1,0 +1,27 @@
+{
+  "date": "2026-11-03",
+  "scope": "Configured teacher-data Drive folder, nested folders, local recording archive and project copies.",
+  "drive_folders_scanned": 119,
+  "drive_items_scanned": 812,
+  "control_files_in_drive": 220,
+  "failed_recordings": 38,
+  "raw_file_sizes_bytes": [
+    8
+  ],
+  "csv_file_sizes_bytes": [
+    1693
+  ],
+  "csv_contains_header_only": true,
+  "raw_contains_header_only": true,
+  "valid_alignment_rows_in_failed_recordings": 0,
+  "video_frames_in_failed_recordings": 1073905,
+  "control_revision_files_checked": 78,
+  "files_with_previous_revision": 0,
+  "shortcuts_checked": 28,
+  "shortcut_targets_outside_scanned_folder": 0,
+  "overlapping_same_clock_control_streams": 0,
+  "matching_video_size_with_valid_control_recordings": 0,
+  "new_control_data_recovered": 0,
+  "limits": "This audit covers accessible sources. It cannot inspect another recording PC or unavailable backups.",
+  "conclusion": "Missing samples are not repaired by inventing controls. Existing verified recordings remain usable."
+}

@@ -3,7 +3,7 @@ import argparse
 from concurrent.futures import ThreadPoolExecutor
 import csv,hashlib,json,os
 from pathlib import Path
-import sys,time
+import sys,time,subprocess
 import numpy as np
 
 ROOT=Path(__file__).resolve().parents[1];sys.path.insert(0,str(ROOT));sys.path.insert(0,str(ROOT/'tools'))
@@ -24,12 +24,32 @@ def main():
     p=argparse.ArgumentParser();p.add_argument('--manifest',type=Path,default=ROOT/'out/human-dataset.json')
     p.add_argument('--out',type=Path,default=ROOT/'out/temporal-human');p.add_argument('--base',type=Path,default=ROOT/'models/pathnet.onnx')
     p.add_argument('--batch',type=int,default=256);p.add_argument('--workers',type=int,default=8)
+    p.add_argument('--visual-encoder-dir',type=Path)
     a=p.parse_args();a.out.mkdir(parents=True,exist_ok=True)
+    source=json.loads(a.manifest.read_text(encoding='utf-8'))
+    config_path=ROOT/'configs/temporal_steering.json'
+    config=json.loads(config_path.read_text(encoding='utf-8')) if config_path.exists() else {}
+    visual_dir=a.visual_encoder_dir
+    if visual_dir is None and config.get('visual_finetune') is True and source.get('sample_hz')==10.:
+        revision=source.get('source_revision',source['revision'])
+        visual_dir=ROOT/'models/visual_encoders'/revision[:16]
+        subprocess.run([sys.executable,str(ROOT/'tools/train_visual_encoder.py'),'--manifest',str(a.manifest),
+                        '--out',str(visual_dir)],cwd=ROOT,check=True)
     cv2.setNumThreads(1);torch.set_num_threads(4)
     device='cuda' if torch.cuda.is_available() else 'cpu'
     base=build_pathnet();load_onnx_into(base,str(a.base))
     encoder=torch.nn.Sequential(base.body,*list(base.head.children())[:3]).eval().to(device)
     encoder_hash=hashlib.sha256(a.base.read_bytes()).hexdigest()
+    visual_report=None
+    if visual_dir is not None:
+        visual_report=json.loads((visual_dir/'report.json').read_text(encoding='utf-8'))
+        if visual_report.get('phase')!='complete' or visual_report.get('source_revision')!=source.get('source_revision',source['revision']):
+            raise ValueError('Visual encoder does not match this data source')
+        if visual_report.get('base_sha256')!=encoder_hash:raise ValueError('Visual encoder base differs')
+        if visual_report.get('accepted_visual') is True:
+            state=visual_dir/'encoder-state.pt'
+            encoder.load_state_dict(torch.load(state,map_location=device,weights_only=True))
+            encoder_hash=hashlib.sha256((encoder_hash+hashlib.sha256(state.read_bytes()).hexdigest()).encode()).hexdigest()
     export=a.out/'encoder.onnx'
     marker=a.out/'encoder-source.json'
     try:exported_hash=json.loads(marker.read_text(encoding='utf-8')).get('base_sha256')
@@ -39,8 +59,10 @@ def main():
                           dynamic_axes={'image':{0:'batch'},'features':{0:'batch'}},opset_version=17,dynamo=False)
         write(marker,{'base_sha256':encoder_hash})
         encoder.to(device)
-    source=json.loads(a.manifest.read_text(encoding='utf-8'));result={'revision':source['revision'],'base_sha256':encoder_hash,
+    result={'revision':source['revision'],'base_sha256':encoder_hash,
         'encoder':str(export.resolve()),'source':'clock-verified WRX Data Out','segments':[],'excluded':[]}
+    result['visual_adaptation']=None if visual_report is None else {'accepted':visual_report.get('accepted_visual'),
+        'report':str((visual_dir/'report.json').resolve()),'source_revision':visual_report.get('source_revision')}
     sample_hz=float(source.get('sample_hz',5.));stride=round(sample_hz/5.)
     if sample_hz not in (5.,10.):raise ValueError('Unsupported source sampling rate')
     result.update(source_sample_hz=sample_hz,temporal_stride=stride)

@@ -2,5 +2,6 @@
   "enabled": false,
   "mode": "shadow",
   "model_dir": "models/temporal-20261103",
-  "note": "Enable only after preparing verified human data; initial predictions are observed without controlling the car."
+  "note": "Enable only after preparing verified human data; initial predictions are observed without controlling the car.",
+  "visual_finetune": true
 }

@@ -89,6 +89,13 @@ class MenuRecognizer:
         self.root = root or ROOT/'models'/'ui'/'fh6'
         self.specs = read_json(self.root/'templates.json',{})
         self.images = {name:cv2.imread(str(self.root/spec['file']),0) for name,spec in self.specs.items()}
+        # Keyboard hints differ from the controller hints in older model packs.
+        # Ship the verified hint crop with the code, without changing user packs.
+        keyboard_map=ROOT/'assets'/'ui'/'fh6'/'map-keyboard-v2.png'
+        if root is None and keyboard_map.exists():
+            self.specs['map_keyboard_v2']=dict(screen='map',rect=[270,990,462,1027],
+                search_rect=[240,980,490,1040])
+            self.images['map_keyboard_v2']=cv2.imread(str(keyboard_map),0)
         self.player_card=cv2.imread(str(self.root/'player-card.png'),0)
         self.place_logo=cv2.imread(str(self.root/'place-card-logo.png'),0)
         self.driving_hud=cv2.imread(str(self.root/'driving-hud.png'),0)

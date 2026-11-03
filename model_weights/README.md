@@ -28,6 +28,10 @@ python tools/download_model_weights.py --small-only --output .
 
 [教師映像で調整した画像特徴モデル](https://github.com/fumito072/mono-drive-fh6/releases/tag/visual-encoder-2026-11-03) とその比較結果も公開しています。画像部分の検証基準は通過していますが、組み合わせる時系列ヘッドは再学習が必要です。以前の操舵モデルへ画像特徴だけを入れ替えないでください。
 
+追加した[残差型の時系列候補](https://github.com/fumito072/mono-drive-fh6/releases/tag/residual-temporal-2026-11-03)は独立テストを通過しましたが、最初のゲーム内観測では従来の運転側で逸脱・停止が生じ、操舵補正の採用は保留です。
+
+操作量が保存されていない録画を画像運動の補助学習に使った[画像特徴](https://github.com/fumito072/mono-drive-fh6/releases/tag/weak-video-encoder-2026-11-03)と、[対応する時系列候補](https://github.com/fumito072/mono-drive-fh6/releases/tag/weak-video-temporal-2026-11-03)も公開しています。後者は独立テストを通過し、ゲーム内で予測を照合中です。以前の人間操作ありデータだけで学習した残差候補より良い成績にはまだ達していません。位置・速度・操作量が欠ける録画から、それらの実測値を作り出したものではありません。
+
 - `active_runtime_baseline_at_snapshot`: 書き出し時に実行設定が指していたモデル。
 - `live_trial_rolled_back`: 実走で問題があり切り戻したモデル。通常の走行用に選ばないでください。
 - `offline_evaluation_in_progress_at_snapshot`: 書き出し時に比較検証中だった最新候補。

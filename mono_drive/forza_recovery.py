@@ -20,8 +20,9 @@ class Recovery:
         self.reverse_only = False
         self.reverse_steer = 0.
         self.last_moving_at = None
+        self.manual = False
 
-    def begin(self, value, direction, now, retry=False, distance_m=None, reverse_only=False, reverse_steer=0.):
+    def begin(self, value, direction, now, retry=False, distance_m=None, reverse_only=False, reverse_steer=0., manual=False):
         self.attempt = self.attempt+1 if retry else 1
         self.back_limit = float(distance_m) if distance_m is not None else min(8.,4.+2.*(self.attempt-1))
         self.origin = list(value['position'])
@@ -31,7 +32,12 @@ class Recovery:
         self.backed_m = 0.
         self.reverse_only = reverse_only
         self.reverse_steer = reverse_steer
+        self.manual = manual
         self.stall_since = None
+
+    def surface_blocks(self,mode,requested=False):
+        return mode in ('offroad_surface','sidewalk_boundary','known_failed_approach') and not (
+            requested or (self.phase and self.manual))
 
     def observe_stall(self, value, requested_gas, now, guidance_ok=True, traffic_blocked=False):
         if value['speed'] > 2.:

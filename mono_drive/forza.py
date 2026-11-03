@@ -834,7 +834,7 @@ def main():
                     direction = lane_module.road_direction(frame)
                     guidance_ok = guidance is not None and guidance.source not in ('road_reentry','minimap_supported')
                     traffic_blocked = decision.mode == 'traffic_stop' or bool(collision and collision.emergency)
-                    surface_blocked=decision.mode in ('offroad_surface','sidewalk_boundary','known_failed_approach')
+                    surface_blocked=recovery.surface_blocks(decision.mode,recovery_requested)
                     if surface_blocked:
                         recovery.phase=''
                     if speed_controller.relaunch.blocks_reverse:
@@ -842,7 +842,7 @@ def main():
                     if not surface_blocked and (recovery_requested or (not recovery.phase and not speed_controller.relaunch.blocks_reverse and recovery.observe_stall(value, actuator.command[1], recovery_now,
                                                             guidance_ok=guidance_ok,traffic_blocked=traffic_blocked))):
                         recovery.begin(value, direction, recovery_now, distance_m=recovery_distance,reverse_only=reverse_only,
-                                       reverse_steer=reverse_steer)
+                                       reverse_steer=reverse_steer,manual=recovery_requested)
                         recovery_requested = False
                     recovered = recovery.update(value, guidance, direction, recovery_now)
                     if recovered is not None:

@@ -9,6 +9,7 @@ class DrivingMetrics:
         self.seconds=self.speed_sum=self.distance=self.near=self.stopped=0.
         self.lane_time=self.centered=self.offset_square=0.
         self.offroad=self.wrongway=self.inferred=0.;self.steer_rates=[];self.pedal_rates=[]
+        self.models=set()
     def consume(self,rows,run):
         if run!=self.run:self.previous=None;self.run=run
         for row in rows:
@@ -18,6 +19,7 @@ class DrivingMetrics:
             eligible=(row.get('armed') and row.get('state')=='driving' and not row.get('recovery_phase')
                 and not row.get('race_position',0) and row.get('car_ordinal')==3819 and row.get('gear',0)>0)
             if not eligible:self.previous=None;continue
+            if row.get('path_model'):self.models.add(row['path_model'])
             old=self.previous;self.previous=row
             if not old:continue
             dt=t-float(old['t'])
@@ -47,6 +49,7 @@ class DrivingMetrics:
             'offroad_seconds':self.offroad,'wrongway_seconds':self.wrongway,'inferred_seconds':self.inferred,
             'steer_rate_p95':float(np.percentile(self.steer_rates,95)) if self.steer_rates else None,
             'pedal_rate_p95':float(np.percentile(self.pedal_rates,95)) if self.pedal_rates else None,
+            'path_models':sorted(self.models),
             'measurement_note':'Lane centre is a camera estimate; unknown or inferred lanes do not count as centered.'}
 
 
@@ -56,6 +59,7 @@ def trial_passed(baseline,trial,applied,incidents):
     if any(not isinstance(trial.get(k),(float,int)) or not math.isfinite(trial[k]) for k in required):return False
     if any(not isinstance(baseline.get(k),(float,int)) or not math.isfinite(baseline[k]) for k in ('mean_kmh','steer_rate_p95','pedal_rate_p95')):return False
     if applied<30 or incidents or trial['driving_seconds']<120 or trial['observed_lane_seconds']<20:return False
+    if baseline.get('path_models')!=trial.get('path_models'):return False
     if trial['offroad_seconds']>.1 or trial['wrongway_seconds']>.1:return False
     if trial['estimated_centered_fraction'] is None or trial['estimated_centered_fraction']<max(.8,(baseline['estimated_centered_fraction'] or 0)-.03):return False
     if trial['mean_kmh']<max(10.,(baseline['mean_kmh'] or 0)-2.):return False

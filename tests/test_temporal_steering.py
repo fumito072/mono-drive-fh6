@@ -6,6 +6,17 @@ from mono_drive.forza_scene import ScenePlan
 
 
 class TemporalTests(unittest.TestCase):
+    def test_counter_restore_happens_before_waiting_status_is_published(self):
+        import json,tempfile
+        from pathlib import Path
+        with tempfile.TemporaryDirectory() as folder:
+            root=Path(folder);(root/'out').mkdir();(root/'configs').mkdir()
+            model=root/'models/example'
+            (root/'configs/temporal_steering.json').write_text(json.dumps({'model_dir':'models/example'}))
+            (root/'out/temporal-steering-state.json').write_text(json.dumps({'model_dir':str(model.resolve()),'eligible':50,'agreeing':45,'applied':3}))
+            observer=TemporalSteering(root);observer.publish_status(1.,'waiting_for_model')
+            saved=json.loads((root/'out/temporal-steering-state.json').read_text())
+            self.assertEqual(saved['eligible'],50);self.assertEqual(saved['model_dir'],str(model.resolve()))
     def test_irregular_history_preserves_seconds_and_lags_controls(self):
         times=np.arange(0,2.2,.3)
         rows=[(float(t),np.full(256,t,np.float32),t*10,t/10) for t in times]

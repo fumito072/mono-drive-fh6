@@ -14,6 +14,10 @@ class RouteRotation:
         self.rng=rng or random.Random()
 
     def choose(self,now,recoveries,force=False):
+        evaluation=read_json(self.root/'out/temporal-live-evaluation.json',{})
+        if (not force and evaluation.get('hold_route') is True and
+                now-evaluation.get('time',0)<10. and evaluation.get('phase') in ('shadow','trial')):
+            return None
         config=read_json(self.root/'configs/free_roam_routes.json',{})
         if config.get('enabled') is not True:return None
         if not force and now<self.state.get('retry_at',0.):return None

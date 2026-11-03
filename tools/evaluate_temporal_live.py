@@ -22,6 +22,7 @@ def collect(metrics):
 
 
 def save(folder,**values):
+    values['hold_route']=values.get('phase') in ('shadow','trial')
     values.update(time=time.time(),model_dir=str(folder));write_json(STATE,values)
     archive=OUT/'temporal-live-evaluations';archive.mkdir(exist_ok=True)
     write_json(archive/(folder.name+'.json'),values)

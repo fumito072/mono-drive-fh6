@@ -74,13 +74,20 @@ class TemporalSteering:
         self.last_prediction=None
         self.next_write=0.;self.counters={'eligible':0,'agreeing':0,'applied':0}
         self.status={'phase':'waiting_for_model'};self.mode='shadow';self.folder=None;self.loading=None;self.enabled=False
+        self.counted_folder=None
+        previous=read_json(self.root/'out/temporal-steering-state.json',{})
+        config=read_json(self.config,{})
+        selected=(self.root/config.get('model_dir','models/temporal-20261103')).resolve()
+        if previous.get('model_dir')==str(selected):
+            self.counted_folder=selected
+            self.counters={k:max(0,int(previous.get(k,0))) for k in self.counters}
     def __del__(self):
         if hasattr(self,'pool'):self.pool.shutdown(wait=False,cancel_futures=True)
     def publish_status(self,now,phase,**details):
         if now>=self.next_write:
             self.next_write=now+.5
             state=dict(phase=phase,time=time.time(),**self.counters)
-            if self.folder is not None:state['model_dir']=str(self.folder)
+            if self.folder is not None or self.counted_folder is not None:state['model_dir']=str(self.folder or self.counted_folder)
             if phase in ('load_failed','observation_failed') and 'error' in self.status:state['error']=self.status['error']
             state.update(details);self.status=state
             write_json(self.root/'out/temporal-steering-state.json',self.status)
@@ -97,10 +104,11 @@ class TemporalSteering:
             try:
                 self.models=self.future.result();self.folder=self.loading;self.rows.clear()
                 self.last_prediction=None
-                self.counters={'eligible':0,'agreeing':0,'applied':0};self.status={'phase':'loaded'}
+                if self.counted_folder!=self.folder:self.counters={'eligible':0,'agreeing':0,'applied':0}
+                self.counted_folder=self.folder;self.status={'phase':'loaded'}
                 previous=read_json(self.root/'out/temporal-steering-state.json',{})
                 if previous.get('model_dir')==str(self.folder):
-                    self.counters={k:max(0,int(previous.get(k,0))) for k in self.counters}
+                    self.counters={k:max(self.counters[k],int(previous.get(k,0))) for k in self.counters}
             except Exception as e:self.status={'phase':'load_failed','error':str(e)}
             self.future=None;self.loading=None
         if not self.enabled:

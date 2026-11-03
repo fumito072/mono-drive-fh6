@@ -8,12 +8,12 @@ FUTURE = 3
 FEATURES = 256
 
 
-def resample_history(rows,period=.2,max_gap=.5):
+def resample_history(rows,period=.2,max_gap=.5,history=HISTORY):
     """Regular past-only features from irregular capture; never use future data."""
     if len(rows)<5:return None
     times=np.asarray([r[0] for r in rows],float)
     if np.any(np.diff(times)<=0):return None
-    query=times[-1]-np.arange(HISTORY,-1,-1)*period
+    query=times[-1]-np.arange(history,-1,-1)*period
     if times[0]>query[0]+1e-6:return None
     start=max(0,int(np.searchsorted(times,query[0],side='right'))-1)
     times=times[start:];selected=rows[start:]
@@ -33,7 +33,7 @@ def jitter_inputs(features,ego,all_rows=False):
     import torch
     f=features.clone();e=ego.clone()
     mask=torch.ones(len(f),dtype=torch.bool,device=f.device) if all_rows else torch.rand(len(f),device=f.device)<.25
-    for i in (1,3,5,7):
+    for i in range(1,features.shape[1]-1,2):
         f[mask,i]=(features[mask,i-1]+features[mask,i+1])*.5
         e[mask,i]=(ego[mask,i-1]+ego[mask,i+1])*.5
     return f,e
@@ -73,14 +73,44 @@ def targets(steer, index,stride=1):
     return np.asarray([np.mean(steer[future-stride]),np.mean(steer[future])],np.float32)
 
 
-def sequence_arrays(features,speed,steer,index,stride=1):
+def sequence_arrays(features,speed,steer,index,stride=1,history=HISTORY):
     """Inputs end at t; controls in the input end one step before t."""
-    begin=index-(HISTORY-1)*stride
+    begin=index-(history-1)*stride
     if begin<stride or index+FUTURE*stride>=len(steer):raise ValueError('Incomplete temporal window')
     selected=np.arange(begin,index+1,stride)
     x=np.asarray(features[selected],np.float32)
     ego=np.stack([np.asarray(speed)[selected]/100.,np.asarray(steer)[selected-stride]],axis=1).astype(np.float32)
     return x,ego,targets(steer,index,stride)
+
+
+def extended_indices(indices,length,history=21,stride=1):
+    """Require every original valid window covering the longer past/future."""
+    indices=np.asarray(indices,dtype=np.int64)
+    left=(history-HISTORY)*stride;right=6*stride
+    if left<0:raise ValueError('Long history cannot be shorter than the original')
+    valid=np.zeros(length,dtype=bool);valid[indices]=True
+    bad=np.r_[0,np.cumsum(~valid)]
+    lo=indices-left;hi=indices+right+1
+    inside=(lo>=0)&(hi<=length);chosen=indices[inside]
+    return chosen[(bad[hi[inside]]-bad[lo[inside]])==0].astype(np.int32)
+
+
+def forecast_targets(steer,index,stride=1):
+    """Recorded steering only: previous/near, then 0.8–1.2 and 1.4–1.8 s."""
+    steer=np.asarray(steer)
+    return np.r_[targets(steer,index,stride),
+                 [np.mean(steer[index+np.arange(start,start+3)*stride]) for start in (4,7)]].astype(np.float32)
+
+
+def curriculum_weights(labels):
+    """Balance direction/onset from training labels, with bounded weights."""
+    labels=np.asarray(labels,float)
+    turning=np.abs(labels[:,1])>.04
+    changing=np.abs(labels[:,1]-labels[:,0])>.025
+    weights=np.where(turning,2.,1.)+np.where(changing,1.5,0.)
+    for mask in (labels[:,1]<-.04,labels[:,1]>.04):
+        if mask.any():weights[mask]*=min(2.,max(1.,turning.sum()/(2*mask.sum())))
+    return np.clip(weights,1.,6.)
 
 
 def build_models(mean=None,std=None,variant='base'):
@@ -116,6 +146,35 @@ def build_models(mean=None,std=None,variant='base'):
         def forward(self,features,ego):
             return self.head(self.inputs(features,ego)).squeeze(-1)
     baseline=SingleFrame()
+    if variant=='deep':
+        import copy
+        from torch.nn import functional as F
+        class CausalBlock(nn.Module):
+            def __init__(self,dilation):
+                super().__init__();self.padding=2*dilation;self.norm=nn.LayerNorm(96)
+                self.first=nn.Conv1d(96,96,3,dilation=dilation)
+                self.second=nn.Conv1d(96,96,3,dilation=dilation);self.drop=nn.Dropout(.1)
+            def forward(self,x):
+                y=self.norm(x).transpose(1,2)
+                y=self.drop(F.gelu(self.first(F.pad(y,(self.padding,0)))))
+                y=self.drop(self.second(F.pad(y,(self.padding,0))))
+                return x+y.transpose(1,2)
+        class DeepTemporal(Base):
+            def __init__(self):
+                super().__init__();self.current=copy.deepcopy(baseline.head)
+                self.project=nn.Sequential(nn.Linear(FEATURES+2,96),nn.LayerNorm(96),nn.GELU())
+                self.memory=nn.Sequential(*[CausalBlock(d) for d in (1,2,4,8)])
+                self.forecast=nn.Linear(96,3)
+                nn.init.zeros_(self.forecast.weight);nn.init.zeros_(self.forecast.bias)
+            def training_outputs(self,features,ego):
+                inputs=self.inputs(features,ego)
+                forecast=self.forecast(self.memory(self.project(inputs)))
+                current=self.current(inputs).squeeze(-1)
+                near=torch.clamp(current+.15*torch.tanh(forecast[:,:,0]),-1.,1.)
+                return near,torch.tanh(forecast[:,:,1:])
+            def forward(self,features,ego):
+                return self.training_outputs(features,ego)[0]
+        return DeepTemporal(),baseline
     if variant=='residual':
         import copy
         class ResidualTemporal(Base):

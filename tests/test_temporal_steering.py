@@ -6,6 +6,49 @@ from mono_drive.forza_scene import ScenePlan
 
 
 class TemporalTests(unittest.TestCase):
+    def test_deep_model_is_causal_and_starts_from_the_single_frame_head(self):
+        try:import torch
+        except ImportError:self.skipTest('Training runtime is not installed')
+        from mono_drive.temporal_steering import build_models
+        previous_threads=torch.get_num_threads();torch.set_num_threads(2)
+        try:
+            torch.manual_seed(3);model,baseline=build_models(variant='deep')
+            model.eval();baseline.eval();features=torch.randn(2,21,256);ego=torch.randn(2,21,2)
+            self.assertTrue(torch.allclose(model(features,ego),baseline(features,ego)))
+            with torch.no_grad():model.forecast.weight.normal_(0,.05)
+            prediction=model(features,ego);changed=features.clone();changed[:,11:]+=5
+            self.assertTrue(torch.allclose(prediction[:,:11],model(changed,ego)[:,:11],atol=1e-6))
+            near,far=model.training_outputs(features,ego)
+            self.assertEqual(tuple(far.shape),(2,21,2))
+            (near.square().mean()+far.square().mean()).backward()
+            self.assertIsNotNone(model.memory[0].first.weight.grad)
+        finally:torch.set_num_threads(previous_threads)
+
+    def test_long_context_filters_gaps_and_keeps_future_out_of_inputs(self):
+        from mono_drive.temporal_steering import extended_indices,forecast_targets
+        indices=np.arange(9,117)
+        good=extended_indices(indices,120,21)
+        self.assertEqual(good[0],21);self.assertEqual(good[-1],110)
+        gap=extended_indices(indices[indices!=60],120,21)
+        self.assertTrue(all(not i-12<=60<=i+6 for i in gap))
+        features=np.zeros((120,256));speed=np.full(120,60.);steer=np.arange(120)/120.
+        a,e,y=sequence_arrays(features,speed,steer,40,history=21)
+        self.assertEqual(a.shape,(21,256));self.assertAlmostEqual(e[-1,1],steer[39])
+        target=forecast_targets(steer,40)
+        np.testing.assert_allclose(target[2:],[np.mean(steer[44:47]),np.mean(steer[47:50])])
+        features[41:]=100;steer[40:]=-1
+        aa,ee,_=sequence_arrays(features,speed,steer,40,history=21)
+        np.testing.assert_array_equal(a,aa);np.testing.assert_array_equal(e,ee)
+    def test_long_context_resampling_and_bounded_curriculum(self):
+        from mono_drive.temporal_steering import curriculum_weights
+        rows=[(i*.2,np.full(256,i*.2,np.float32),60.,0.) for i in range(24)]
+        f,e,info=resample_history(rows,history=21)
+        self.assertEqual(f.shape,(21,256));self.assertAlmostEqual(info['history_seconds'],4.2)
+        self.assertIsNone(resample_history(rows[-15:],history=21))
+        labels=np.array([[0,0]]*20+[[0,.2]]*5+[[.2,.2]]*5+[[0,-.2]])
+        weights=curriculum_weights(labels)
+        self.assertTrue(np.all((weights>=1)&(weights<=6)))
+        self.assertGreater(weights[20],weights[25]);self.assertGreaterEqual(weights[-1],weights[20])
     def test_counter_restore_happens_before_waiting_status_is_published(self):
         import json,tempfile
         from pathlib import Path

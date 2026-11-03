@@ -1,0 +1,35 @@
+{
+  "status": "running",
+  "architecture_version": 4,
+  "history_frames": 21,
+  "history_seconds": 4.0,
+  "source_frames": 762944,
+  "supervised_windows": {
+    "train": 428735,
+    "validation": 150939,
+    "test": 57244
+  },
+  "maximum_epochs": 48,
+  "validation_patience": 8,
+  "samples_per_epoch": 160000,
+  "batch_size": 128,
+  "reference_model": "residual_20261103",
+  "main_target_seconds": [
+    0.2,
+    0.6
+  ],
+  "auxiliary_target_seconds": [
+    [
+      0.8,
+      1.2
+    ],
+    [
+      1.4,
+      1.8
+    ]
+  ],
+  "checkpoint_resume": true,
+  "weights_published": false,
+  "dataset_revision": "c0f71b78c76ccb784eeed920d8c95499c1a9b998fe1229a676190c644e445050",
+  "reference_comparison_on_same_examples_required": true
+}

@@ -1,3 +1,4 @@
 # 学び直し(tools/train_pathnet.py・tools/train_obstacle.py)に要るもの。GPU 版の torch は https://pytorch.org の手順で
 torch>=2.1
 onnx>=1.14
+psutil>=5.9

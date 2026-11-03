@@ -56,10 +56,12 @@ def load_models(folder):
     from .runtime import make_session
     report=read_json(folder/'report.json',{})
     if report.get('phase')!='complete':raise ValueError('Temporal training incomplete')
+    history_frames=int(report.get('history_frames',9))
+    if not 9<=history_frames<=41 or report.get('sample_hz',5)!=5:raise ValueError('Unsupported temporal history')
     encoder=make_session(str(folder/'encoder.onnx'),'cpu',threads=2,gpu_ok=False)
     head=make_session(str(folder/'steering.onnx'),'cpu',threads=2,gpu_ok=False)
     f=encoder.run(None,{'image':np.zeros((1,3,128,320),np.float32)})[0]
-    y=head.run(None,{'features':np.zeros((1,9,256),np.float32),'ego':np.zeros((1,9,2),np.float32)})[0]
+    y=head.run(None,{'features':np.zeros((1,history_frames,256),np.float32),'ego':np.zeros((1,history_frames,2),np.float32)})[0]
     if f.shape!=(1,256) or not np.isfinite(f).all() or not np.isfinite(y).all():raise ValueError('Invalid temporal model output')
     return encoder,head,report
 
@@ -69,7 +71,7 @@ class TemporalSteering:
         self.root=Path(root) if root else Path(__file__).resolve().parents[1]
         self.config=self.root/'configs/temporal_steering.json'
         self.pool=ThreadPoolExecutor(max_workers=1,thread_name_prefix='temporal-loader')
-        self.future=None;self.models=None;self.next_check=0.;self.next_frame=0.;self.rows=deque(maxlen=40)
+        self.future=None;self.models=None;self.next_check=0.;self.next_frame=0.;self.rows=deque(maxlen=96)
         self.view=None;self.previous=None;self.last_position=None;self.last_yaw=None
         self.last_prediction=None
         self.next_write=0.;self.counters={'eligible':0,'agreeing':0,'applied':0}
@@ -155,7 +157,7 @@ class TemporalSteering:
             steer=float(np.clip(float(telemetry.get('steer',0))/127.,-1.,1.))
             if self.rows and observed-self.rows[-1][0]>.5:self.rows.clear()
             self.rows.append((observed,feature,speed,steer))
-            history=resample_history(list(self.rows))
+            history=resample_history(list(self.rows),history=int(report.get('history_frames',9)))
             if history is None:
                 self.publish_status(now,'collecting_history',history_frames=len(self.rows),model_dir=str(self.folder))
                 return plan

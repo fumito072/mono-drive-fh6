@@ -1,0 +1,1294 @@
+{
+  "phase": "complete",
+  "architecture_version": 3,
+  "variant": "residual",
+  "baseline_warmup_epochs": 8,
+  "accepted_offline": true,
+  "created_at": 1793682009.2664523,
+  "encoder": "encoder.onnx",
+  "encoder_source_fingerprint": "75115dd4e18ac44c46901fcab642a7234a56ffb56ed82dbd7ddb80cb3dd41348",
+  "visual_adaptation": {
+    "accepted": true,
+    "report": "visual-encoder-20261103.json",
+    "source_revision": "8b9e6755771117c8518a59790fb6a0acd60c5faa39acbced10d0296a7df13fb7"
+  },
+  "dataset_revision": "8b9e6755771117c8518a59790fb6a0acd60c5faa39acbced10d0296a7df13fb7",
+  "history_frames": 9,
+  "sample_hz": 5,
+  "target": "mean applied steer over next 0.2-0.6 seconds",
+  "source_sample_hz": 5.0,
+  "temporal_stride": 1,
+  "epochs": 24,
+  "samples_per_epoch": 97970,
+  "labels": "Clock-verified Data Out state, not raw hardware commands",
+  "samples": {
+    "train": 97970,
+    "validation": 52056,
+    "test": 13914
+  },
+  "test_temporal": {
+    "samples": 13914,
+    "mae": 0.06496188665488842,
+    "active_samples": 4556,
+    "active_mae": 0.14082699005729257,
+    "bias": 0.004064363175443487,
+    "delta_mae": 0.04459040899842296,
+    "prediction_step_mae": 0.01974603605516367,
+    "hold_mae": 0.09367724579765435,
+    "turns": {
+      "negative": {
+        "samples": 2324,
+        "mae": 0.15537198753876708
+      },
+      "positive": {
+        "samples": 2232,
+        "mae": 0.12568246759002252
+      }
+    }
+  },
+  "test_single_frame": {
+    "samples": 13914,
+    "mae": 0.06656152960578049,
+    "active_samples": 4556,
+    "active_mae": 0.14336962527127603,
+    "bias": 0.007052502170125816,
+    "delta_mae": 0.04684603501661008,
+    "prediction_step_mae": 0.021932770863895442,
+    "hold_mae": 0.09367724579765435,
+    "turns": {
+      "negative": {
+        "samples": 2324,
+        "mae": 0.158236515776018
+      },
+      "positive": {
+        "samples": 2232,
+        "mae": 0.12788994178874
+      }
+    }
+  },
+  "history": [
+    {
+      "epoch": 1,
+      "loss": [
+        0.0,
+        0.08921233370083119
+      ],
+      "validation": [
+        {
+          "samples": 52056,
+          "mae": 0.16971818882721817,
+          "active_samples": 17179,
+          "active_mae": 0.31287165461970445,
+          "bias": 0.053269431240173956,
+          "delta_mae": 0.06420266839149469,
+          "prediction_step_mae": 0.04284285748405961,
+          "hold_mae": 0.0894757696356629,
+          "turns": {
+            "negative": {
+              "samples": 8634,
+              "mae": 0.35332952386934957
+            },
+            "positive": {
+              "samples": 8545,
+              "mae": 0.27199239855166046
+            }
+          }
+        },
+        {
+          "samples": 52056,
+          "mae": 0.07389041670235046,
+          "active_samples": 17179,
+          "active_mae": 0.15871947218513388,
+          "bias": -0.0018506647680549798,
+          "delta_mae": 0.04517403358681794,
+          "prediction_step_mae": 0.022714758732852846,
+          "hold_mae": 0.0894757696356629,
+          "turns": {
+            "negative": {
+              "samples": 8634,
+              "mae": 0.15867179376071833
+            },
+            "positive": {
+              "samples": 8545,
+              "mae": 0.158767647201682
+            }
+          }
+        }
+      ]
+    },
+    {
+      "epoch": 2,
+      "loss": [
+        0.0,
+        0.08428381360075181
+      ],
+      "validation": [
+        {
+          "samples": 52056,
+          "mae": 0.16971818882721817,
+          "active_samples": 17179,
+          "active_mae": 0.31287165461970445,
+          "bias": 0.053269431240173956,
+          "delta_mae": 0.06420266839149469,
+          "prediction_step_mae": 0.04284285748405961,
+          "hold_mae": 0.0894757696356629,
+          "turns": {
+            "negative": {
+              "samples": 8634,
+              "mae": 0.35332952386934957
+            },
+            "positive": {
+              "samples": 8545,
+              "mae": 0.27199239855166046
+            }
+          }
+        },
+        {
+          "samples": 52056,
+          "mae": 0.07437158649964566,
+          "active_samples": 17179,
+          "active_mae": 0.1501961587979941,
+          "bias": -0.001501348303676753,
+          "delta_mae": 0.047153264290005964,
+          "prediction_step_mae": 0.0259298026143628,
+          "hold_mae": 0.0894757696356629,
+          "turns": {
+            "negative": {
+              "samples": 8634,
+              "mae": 0.15268854103318974
+            },
+            "positive": {
+              "samples": 8545,
+              "mae": 0.14767781728615337
+            }
+          }
+        }
+      ]
+    },
+    {
+      "epoch": 3,
+      "loss": [
+        0.0,
+        0.0822712746169175
+      ],
+      "validation": [
+        {
+          "samples": 52056,
+          "mae": 0.16971818882721817,
+          "active_samples": 17179,
+          "active_mae": 0.31287165461970445,
+          "bias": 0.053269431240173956,
+          "delta_mae": 0.06420266839149469,
+          "prediction_step_mae": 0.04284285748405961,
+          "hold_mae": 0.0894757696356629,
+          "turns": {
+            "negative": {
+              "samples": 8634,
+              "mae": 0.35332952386934957
+            },
+            "positive": {
+              "samples": 8545,
+              "mae": 0.27199239855166046
+            }
+          }
+        },
+        {
+          "samples": 52056,
+          "mae": 0.07572535311104936,
+          "active_samples": 17179,
+          "active_mae": 0.14697971904236048,
+          "bias": 0.006783104019001517,
+          "delta_mae": 0.04788090399709616,
+          "prediction_step_mae": 0.027244722204785285,
+          "hold_mae": 0.0894757696356629,
+          "turns": {
+            "negative": {
+              "samples": 8634,
+              "mae": 0.15555431824038557
+            },
+            "positive": {
+              "samples": 8545,
+              "mae": 0.13831581155543848
+            }
+          }
+        }
+      ]
+    },
+    {
+      "epoch": 4,
+      "loss": [
+        0.0,
+        0.08062016936724242
+      ],
+      "validation": [
+        {
+          "samples": 52056,
+          "mae": 0.16971818882721817,
+          "active_samples": 17179,
+          "active_mae": 0.31287165461970445,
+          "bias": 0.053269431240173956,
+          "delta_mae": 0.06420266839149469,
+          "prediction_step_mae": 0.04284285748405961,
+          "hold_mae": 0.0894757696356629,
+          "turns": {
+            "negative": {
+              "samples": 8634,
+              "mae": 0.35332952386934957
+            },
+            "positive": {
+              "samples": 8545,
+              "mae": 0.27199239855166046
+            }
+          }
+        },
+        {
+          "samples": 52056,
+          "mae": 0.07256898462319193,
+          "active_samples": 17179,
+          "active_mae": 0.14712537998469938,
+          "bias": -0.0005366916711367989,
+          "delta_mae": 0.04707842620123599,
+          "prediction_step_mae": 0.026038395008319525,
+          "hold_mae": 0.0894757696356629,
+          "turns": {
+            "negative": {
+              "samples": 8634,
+              "mae": 0.15006918136970981
+            },
+            "positive": {
+              "samples": 8545,
+              "mae": 0.1441509175905297
+            }
+          }
+        }
+      ]
+    },
+    {
+      "epoch": 5,
+      "loss": [
+        0.0,
+        0.07890033070241191
+      ],
+      "validation": [
+        {
+          "samples": 52056,
+          "mae": 0.16971818882721817,
+          "active_samples": 17179,
+          "active_mae": 0.31287165461970445,
+          "bias": 0.053269431240173956,
+          "delta_mae": 0.06420266839149469,
+          "prediction_step_mae": 0.04284285748405961,
+          "hold_mae": 0.0894757696356629,
+          "turns": {
+            "negative": {
+              "samples": 8634,
+              "mae": 0.35332952386934957
+            },
+            "positive": {
+              "samples": 8545,
+              "mae": 0.27199239855166046
+            }
+          }
+        },
+        {
+          "samples": 52056,
+          "mae": 0.06834176308154563,
+          "active_samples": 17179,
+          "active_mae": 0.148565350845203,
+          "bias": -0.005963111853302151,
+          "delta_mae": 0.04528264294071233,
+          "prediction_step_mae": 0.023790939773013945,
+          "hold_mae": 0.0894757696356629,
+          "turns": {
+            "negative": {
+              "samples": 8634,
+              "mae": 0.14912075973658095
+            },
+            "positive": {
+              "samples": 8545,
+              "mae": 0.14800415712160359
+            }
+          }
+        }
+      ]
+    },
+    {
+      "epoch": 6,
+      "loss": [
+        0.0,
+        0.07720383978388017
+      ],
+      "validation": [
+        {
+          "samples": 52056,
+          "mae": 0.16971818882721817,
+          "active_samples": 17179,
+          "active_mae": 0.31287165461970445,
+          "bias": 0.053269431240173956,
+          "delta_mae": 0.06420266839149469,
+          "prediction_step_mae": 0.04284285748405961,
+          "hold_mae": 0.0894757696356629,
+          "turns": {
+            "negative": {
+              "samples": 8634,
+              "mae": 0.35332952386934957
+            },
+            "positive": {
+              "samples": 8545,
+              "mae": 0.27199239855166046
+            }
+          }
+        },
+        {
+          "samples": 52056,
+          "mae": 0.0688412074353494,
+          "active_samples": 17179,
+          "active_mae": 0.14609344148102782,
+          "bias": -0.0020375923453328526,
+          "delta_mae": 0.04618214363765567,
+          "prediction_step_mae": 0.025102899444946113,
+          "hold_mae": 0.0894757696356629,
+          "turns": {
+            "negative": {
+              "samples": 8634,
+              "mae": 0.14733919930345785
+            },
+            "positive": {
+              "samples": 8545,
+              "mae": 0.14483470853323835
+            }
+          }
+        }
+      ]
+    },
+    {
+      "epoch": 7,
+      "loss": [
+        0.0,
+        0.07688698021806874
+      ],
+      "validation": [
+        {
+          "samples": 52056,
+          "mae": 0.16971818882721817,
+          "active_samples": 17179,
+          "active_mae": 0.31287165461970445,
+          "bias": 0.053269431240173956,
+          "delta_mae": 0.06420266839149469,
+          "prediction_step_mae": 0.04284285748405961,
+          "hold_mae": 0.0894757696356629,
+          "turns": {
+            "negative": {
+              "samples": 8634,
+              "mae": 0.35332952386934957
+            },
+            "positive": {
+              "samples": 8545,
+              "mae": 0.27199239855166046
+            }
+          }
+        },
+        {
+          "samples": 52056,
+          "mae": 0.06882301223049664,
+          "active_samples": 17179,
+          "active_mae": 0.1468214050618023,
+          "bias": 0.004960934378334998,
+          "delta_mae": 0.045981878968523064,
+          "prediction_step_mae": 0.02494365878461929,
+          "hold_mae": 0.0894757696356629,
+          "turns": {
+            "negative": {
+              "samples": 8634,
+              "mae": 0.15456822286725905
+            },
+            "positive": {
+              "samples": 8545,
+              "mae": 0.13899390068119216
+            }
+          }
+        }
+      ]
+    },
+    {
+      "epoch": 8,
+      "loss": [
+        0.0,
+        0.07602002324813652
+      ],
+      "validation": [
+        {
+          "samples": 52056,
+          "mae": 0.16971818882721817,
+          "active_samples": 17179,
+          "active_mae": 0.31287165461970445,
+          "bias": 0.053269431240173956,
+          "delta_mae": 0.06420266839149469,
+          "prediction_step_mae": 0.04284285748405961,
+          "hold_mae": 0.0894757696356629,
+          "turns": {
+            "negative": {
+              "samples": 8634,
+              "mae": 0.35332952386934957
+            },
+            "positive": {
+              "samples": 8545,
+              "mae": 0.27199239855166046
+            }
+          }
+        },
+        {
+          "samples": 52056,
+          "mae": 0.0713440799554832,
+          "active_samples": 17179,
+          "active_mae": 0.1437123701063363,
+          "bias": 0.0023002747256134115,
+          "delta_mae": 0.04771705936705555,
+          "prediction_step_mae": 0.0271633786038517,
+          "hold_mae": 0.0894757696356629,
+          "turns": {
+            "negative": {
+              "samples": 8634,
+              "mae": 0.14914493061015616
+            },
+            "positive": {
+              "samples": 8545,
+              "mae": 0.13822322705309106
+            }
+          }
+        }
+      ]
+    },
+    {
+      "epoch": 9,
+      "loss": [
+        0.0755213485841029,
+        0.0
+      ],
+      "validation": [
+        {
+          "samples": 52056,
+          "mae": 0.0690512059729448,
+          "active_samples": 17179,
+          "active_mae": 0.14370561183344774,
+          "bias": -0.0039822346556074835,
+          "delta_mae": 0.04448072633747278,
+          "prediction_step_mae": 0.02300095766111332,
+          "hold_mae": 0.0894757696356629,
+          "turns": {
+            "negative": {
+              "samples": 8634,
+              "mae": 0.14526748584794633
+            },
+            "positive": {
+              "samples": 8545,
+              "mae": 0.1421274702019462
+            }
+          }
+        },
+        {
+          "samples": 52056,
+          "mae": 0.0688412074353494,
+          "active_samples": 17179,
+          "active_mae": 0.14609344148102782,
+          "bias": -0.0020375923453328526,
+          "delta_mae": 0.04618214363765567,
+          "prediction_step_mae": 0.025102899444946113,
+          "hold_mae": 0.0894757696356629,
+          "turns": {
+            "negative": {
+              "samples": 8634,
+              "mae": 0.14733919930345785
+            },
+            "positive": {
+              "samples": 8545,
+              "mae": 0.14483470853323835
+            }
+          }
+        }
+      ]
+    },
+    {
+      "epoch": 10,
+      "loss": [
+        0.07365916511797718,
+        0.0
+      ],
+      "validation": [
+        {
+          "samples": 52056,
+          "mae": 0.06756789390024144,
+          "active_samples": 17179,
+          "active_mae": 0.1447573496884492,
+          "bias": -0.001764443753941178,
+          "delta_mae": 0.04303575856490898,
+          "prediction_step_mae": 0.02135920300020995,
+          "hold_mae": 0.0894757696356629,
+          "turns": {
+            "negative": {
+              "samples": 8634,
+              "mae": 0.1467607942543309
+            },
+            "positive": {
+              "samples": 8545,
+              "mae": 0.14273303835061155
+            }
+          }
+        },
+        {
+          "samples": 52056,
+          "mae": 0.0688412074353494,
+          "active_samples": 17179,
+          "active_mae": 0.14609344148102782,
+          "bias": -0.0020375923453328526,
+          "delta_mae": 0.04618214363765567,
+          "prediction_step_mae": 0.025102899444946113,
+          "hold_mae": 0.0894757696356629,
+          "turns": {
+            "negative": {
+              "samples": 8634,
+              "mae": 0.14733919930345785
+            },
+            "positive": {
+              "samples": 8545,
+              "mae": 0.14483470853323835
+            }
+          }
+        }
+      ]
+    },
+    {
+      "epoch": 11,
+      "loss": [
+        0.0723191620611802,
+        0.0
+      ],
+      "validation": [
+        {
+          "samples": 52056,
+          "mae": 0.06774140384796934,
+          "active_samples": 17179,
+          "active_mae": 0.1429504004000338,
+          "bias": -0.0034361604467797523,
+          "delta_mae": 0.043033486782621554,
+          "prediction_step_mae": 0.021490315855401582,
+          "hold_mae": 0.0894757696356629,
+          "turns": {
+            "negative": {
+              "samples": 8634,
+              "mae": 0.1441436193280868
+            },
+            "positive": {
+              "samples": 8545,
+              "mae": 0.1417447535627243
+            }
+          }
+        },
+        {
+          "samples": 52056,
+          "mae": 0.0688412074353494,
+          "active_samples": 17179,
+          "active_mae": 0.14609344148102782,
+          "bias": -0.0020375923453328526,
+          "delta_mae": 0.04618214363765567,
+          "prediction_step_mae": 0.025102899444946113,
+          "hold_mae": 0.0894757696356629,
+          "turns": {
+            "negative": {
+              "samples": 8634,
+              "mae": 0.14733919930345785
+            },
+            "positive": {
+              "samples": 8545,
+              "mae": 0.14483470853323835
+            }
+          }
+        }
+      ]
+    },
+    {
+      "epoch": 12,
+      "loss": [
+        0.0709242219635463,
+        0.0
+      ],
+      "validation": [
+        {
+          "samples": 52056,
+          "mae": 0.06834917895447322,
+          "active_samples": 17179,
+          "active_mae": 0.14266879928226028,
+          "bias": -0.002635421674529961,
+          "delta_mae": 0.043320145024264,
+          "prediction_step_mae": 0.022057518660629945,
+          "hold_mae": 0.0894757696356629,
+          "turns": {
+            "negative": {
+              "samples": 8634,
+              "mae": 0.1441956292091487
+            },
+            "positive": {
+              "samples": 8545,
+              "mae": 0.14112606673822817
+            }
+          }
+        },
+        {
+          "samples": 52056,
+          "mae": 0.0688412074353494,
+          "active_samples": 17179,
+          "active_mae": 0.14609344148102782,
+          "bias": -0.0020375923453328526,
+          "delta_mae": 0.04618214363765567,
+          "prediction_step_mae": 0.025102899444946113,
+          "hold_mae": 0.0894757696356629,
+          "turns": {
+            "negative": {
+              "samples": 8634,
+              "mae": 0.14733919930345785
+            },
+            "positive": {
+              "samples": 8545,
+              "mae": 0.14483470853323835
+            }
+          }
+        }
+      ]
+    },
+    {
+      "epoch": 13,
+      "loss": [
+        0.06954359541362633,
+        0.0
+      ],
+      "validation": [
+        {
+          "samples": 52056,
+          "mae": 0.07054754419582682,
+          "active_samples": 17179,
+          "active_mae": 0.1417425671262761,
+          "bias": -0.0037263514156633377,
+          "delta_mae": 0.04362954004201802,
+          "prediction_step_mae": 0.022560410062599016,
+          "hold_mae": 0.0894757696356629,
+          "turns": {
+            "negative": {
+              "samples": 8634,
+              "mae": 0.14308148958465539
+            },
+            "positive": {
+              "samples": 8545,
+              "mae": 0.14038969919115066
+            }
+          }
+        },
+        {
+          "samples": 52056,
+          "mae": 0.0688412074353494,
+          "active_samples": 17179,
+          "active_mae": 0.14609344148102782,
+          "bias": -0.0020375923453328526,
+          "delta_mae": 0.04618214363765567,
+          "prediction_step_mae": 0.025102899444946113,
+          "hold_mae": 0.0894757696356629,
+          "turns": {
+            "negative": {
+              "samples": 8634,
+              "mae": 0.14733919930345785
+            },
+            "positive": {
+              "samples": 8545,
+              "mae": 0.14483470853323835
+            }
+          }
+        }
+      ]
+    },
+    {
+      "epoch": 14,
+      "loss": [
+        0.06836846020490943,
+        0.0
+      ],
+      "validation": [
+        {
+          "samples": 52056,
+          "mae": 0.07054207500031294,
+          "active_samples": 17179,
+          "active_mae": 0.14239717846989602,
+          "bias": -0.0030554204212038215,
+          "delta_mae": 0.04378103842112587,
+          "prediction_step_mae": 0.022778105295393158,
+          "hold_mae": 0.0894757696356629,
+          "turns": {
+            "negative": {
+              "samples": 8634,
+              "mae": 0.14289778521114058
+            },
+            "positive": {
+              "samples": 8545,
+              "mae": 0.14189135768535469
+            }
+          }
+        },
+        {
+          "samples": 52056,
+          "mae": 0.0688412074353494,
+          "active_samples": 17179,
+          "active_mae": 0.14609344148102782,
+          "bias": -0.0020375923453328526,
+          "delta_mae": 0.04618214363765567,
+          "prediction_step_mae": 0.025102899444946113,
+          "hold_mae": 0.0894757696356629,
+          "turns": {
+            "negative": {
+              "samples": 8634,
+              "mae": 0.14733919930345785
+            },
+            "positive": {
+              "samples": 8545,
+              "mae": 0.14483470853323835
+            }
+          }
+        }
+      ]
+    },
+    {
+      "epoch": 15,
+      "loss": [
+        0.06784605115224114,
+        0.0
+      ],
+      "validation": [
+        {
+          "samples": 52056,
+          "mae": 0.07060872699770913,
+          "active_samples": 17179,
+          "active_mae": 0.14266958102105545,
+          "bias": -0.003429444702352806,
+          "delta_mae": 0.04411086275089491,
+          "prediction_step_mae": 0.023155754796900754,
+          "hold_mae": 0.0894757696356629,
+          "turns": {
+            "negative": {
+              "samples": 8634,
+              "mae": 0.14386577889095056
+            },
+            "positive": {
+              "samples": 8545,
+              "mae": 0.1414609242148911
+            }
+          }
+        },
+        {
+          "samples": 52056,
+          "mae": 0.0688412074353494,
+          "active_samples": 17179,
+          "active_mae": 0.14609344148102782,
+          "bias": -0.0020375923453328526,
+          "delta_mae": 0.04618214363765567,
+          "prediction_step_mae": 0.025102899444946113,
+          "hold_mae": 0.0894757696356629,
+          "turns": {
+            "negative": {
+              "samples": 8634,
+              "mae": 0.14733919930345785
+            },
+            "positive": {
+              "samples": 8545,
+              "mae": 0.14483470853323835
+            }
+          }
+        }
+      ]
+    },
+    {
+      "epoch": 16,
+      "loss": [
+        0.06664222837778358,
+        0.0
+      ],
+      "validation": [
+        {
+          "samples": 52056,
+          "mae": 0.07069930642587592,
+          "active_samples": 17179,
+          "active_mae": 0.1434365928264373,
+          "bias": -0.00307633463953814,
+          "delta_mae": 0.044188599609565865,
+          "prediction_step_mae": 0.02330439290581384,
+          "hold_mae": 0.0894757696356629,
+          "turns": {
+            "negative": {
+              "samples": 8634,
+              "mae": 0.14526667533747534
+            },
+            "positive": {
+              "samples": 8545,
+              "mae": 0.14158744918684665
+            }
+          }
+        },
+        {
+          "samples": 52056,
+          "mae": 0.0688412074353494,
+          "active_samples": 17179,
+          "active_mae": 0.14609344148102782,
+          "bias": -0.0020375923453328526,
+          "delta_mae": 0.04618214363765567,
+          "prediction_step_mae": 0.025102899444946113,
+          "hold_mae": 0.0894757696356629,
+          "turns": {
+            "negative": {
+              "samples": 8634,
+              "mae": 0.14733919930345785
+            },
+            "positive": {
+              "samples": 8545,
+              "mae": 0.14483470853323835
+            }
+          }
+        }
+      ]
+    },
+    {
+      "epoch": 17,
+      "loss": [
+        0.06563049546070883,
+        0.0
+      ],
+      "validation": [
+        {
+          "samples": 52056,
+          "mae": 0.07145680190977448,
+          "active_samples": 17179,
+          "active_mae": 0.14417801801493726,
+          "bias": -0.0010339366555876016,
+          "delta_mae": 0.04441168763132467,
+          "prediction_step_mae": 0.02364893213070951,
+          "hold_mae": 0.0894757696356629,
+          "turns": {
+            "negative": {
+              "samples": 8634,
+              "mae": 0.14680007198807182
+            },
+            "positive": {
+              "samples": 8545,
+              "mae": 0.141528654175962
+            }
+          }
+        },
+        {
+          "samples": 52056,
+          "mae": 0.0688412074353494,
+          "active_samples": 17179,
+          "active_mae": 0.14609344148102782,
+          "bias": -0.0020375923453328526,
+          "delta_mae": 0.04618214363765567,
+          "prediction_step_mae": 0.025102899444946113,
+          "hold_mae": 0.0894757696356629,
+          "turns": {
+            "negative": {
+              "samples": 8634,
+              "mae": 0.14733919930345785
+            },
+            "positive": {
+              "samples": 8545,
+              "mae": 0.14483470853323835
+            }
+          }
+        }
+      ]
+    },
+    {
+      "epoch": 18,
+      "loss": [
+        0.06440267877230134,
+        0.0
+      ],
+      "validation": [
+        {
+          "samples": 52056,
+          "mae": 0.07069066497454485,
+          "active_samples": 17179,
+          "active_mae": 0.14459114674318008,
+          "bias": -7.114674877799063e-05,
+          "delta_mae": 0.044375477444329826,
+          "prediction_step_mae": 0.023555658248831778,
+          "hold_mae": 0.0894757696356629,
+          "turns": {
+            "negative": {
+              "samples": 8634,
+              "mae": 0.14820078424807293
+            },
+            "positive": {
+              "samples": 8545,
+              "mae": 0.14094391324789105
+            }
+          }
+        },
+        {
+          "samples": 52056,
+          "mae": 0.0688412074353494,
+          "active_samples": 17179,
+          "active_mae": 0.14609344148102782,
+          "bias": -0.0020375923453328526,
+          "delta_mae": 0.04618214363765567,
+          "prediction_step_mae": 0.025102899444946113,
+          "hold_mae": 0.0894757696356629,
+          "turns": {
+            "negative": {
+              "samples": 8634,
+              "mae": 0.14733919930345785
+            },
+            "positive": {
+              "samples": 8545,
+              "mae": 0.14483470853323835
+            }
+          }
+        }
+      ]
+    },
+    {
+      "epoch": 19,
+      "loss": [
+        0.06439149141428364,
+        0.0
+      ],
+      "validation": [
+        {
+          "samples": 52056,
+          "mae": 0.07142728844800182,
+          "active_samples": 17179,
+          "active_mae": 0.14417022625124387,
+          "bias": -0.002036553079876725,
+          "delta_mae": 0.044656228687106975,
+          "prediction_step_mae": 0.023947746543302093,
+          "hold_mae": 0.0894757696356629,
+          "turns": {
+            "negative": {
+              "samples": 8634,
+              "mae": 0.14686344779670504
+            },
+            "positive": {
+              "samples": 8545,
+              "mae": 0.14144895359781948
+            }
+          }
+        },
+        {
+          "samples": 52056,
+          "mae": 0.0688412074353494,
+          "active_samples": 17179,
+          "active_mae": 0.14609344148102782,
+          "bias": -0.0020375923453328526,
+          "delta_mae": 0.04618214363765567,
+          "prediction_step_mae": 0.025102899444946113,
+          "hold_mae": 0.0894757696356629,
+          "turns": {
+            "negative": {
+              "samples": 8634,
+              "mae": 0.14733919930345785
+            },
+            "positive": {
+              "samples": 8545,
+              "mae": 0.14483470853323835
+            }
+          }
+        }
+      ]
+    },
+    {
+      "epoch": 20,
+      "loss": [
+        0.063722904781293,
+        0.0
+      ],
+      "validation": [
+        {
+          "samples": 52056,
+          "mae": 0.07163814600708684,
+          "active_samples": 17179,
+          "active_mae": 0.14423093884683208,
+          "bias": -0.0006743994721549262,
+          "delta_mae": 0.04461315295322679,
+          "prediction_step_mae": 0.0239073841140197,
+          "hold_mae": 0.0894757696356629,
+          "turns": {
+            "negative": {
+              "samples": 8634,
+              "mae": 0.14796919184622434
+            },
+            "positive": {
+              "samples": 8545,
+              "mae": 0.14045375026909623
+            }
+          }
+        },
+        {
+          "samples": 52056,
+          "mae": 0.0688412074353494,
+          "active_samples": 17179,
+          "active_mae": 0.14609344148102782,
+          "bias": -0.0020375923453328526,
+          "delta_mae": 0.04618214363765567,
+          "prediction_step_mae": 0.025102899444946113,
+          "hold_mae": 0.0894757696356629,
+          "turns": {
+            "negative": {
+              "samples": 8634,
+              "mae": 0.14733919930345785
+            },
+            "positive": {
+              "samples": 8545,
+              "mae": 0.14483470853323835
+            }
+          }
+        }
+      ]
+    },
+    {
+      "epoch": 21,
+      "loss": [
+        0.06365311122438615,
+        0.0
+      ],
+      "validation": [
+        {
+          "samples": 52056,
+          "mae": 0.07119134867573385,
+          "active_samples": 17179,
+          "active_mae": 0.14519668265272392,
+          "bias": -0.0020742714375998473,
+          "delta_mae": 0.04456607833778449,
+          "prediction_step_mae": 0.023831788600917125,
+          "hold_mae": 0.0894757696356629,
+          "turns": {
+            "negative": {
+              "samples": 8634,
+              "mae": 0.14797584288810334
+            },
+            "positive": {
+              "samples": 8545,
+              "mae": 0.142388576219457
+            }
+          }
+        },
+        {
+          "samples": 52056,
+          "mae": 0.0688412074353494,
+          "active_samples": 17179,
+          "active_mae": 0.14609344148102782,
+          "bias": -0.0020375923453328526,
+          "delta_mae": 0.04618214363765567,
+          "prediction_step_mae": 0.025102899444946113,
+          "hold_mae": 0.0894757696356629,
+          "turns": {
+            "negative": {
+              "samples": 8634,
+              "mae": 0.14733919930345785
+            },
+            "positive": {
+              "samples": 8545,
+              "mae": 0.14483470853323835
+            }
+          }
+        }
+      ]
+    },
+    {
+      "epoch": 22,
+      "loss": [
+        0.06321623364059795,
+        0.0
+      ],
+      "validation": [
+        {
+          "samples": 52056,
+          "mae": 0.07172274712426138,
+          "active_samples": 17179,
+          "active_mae": 0.14448984440664758,
+          "bias": -0.0009268783833146041,
+          "delta_mae": 0.04471067899470331,
+          "prediction_step_mae": 0.02404491972254986,
+          "hold_mae": 0.0894757696356629,
+          "turns": {
+            "negative": {
+              "samples": 8634,
+              "mae": 0.1479192576404572
+            },
+            "positive": {
+              "samples": 8545,
+              "mae": 0.14102471229889893
+            }
+          }
+        },
+        {
+          "samples": 52056,
+          "mae": 0.0688412074353494,
+          "active_samples": 17179,
+          "active_mae": 0.14609344148102782,
+          "bias": -0.0020375923453328526,
+          "delta_mae": 0.04618214363765567,
+          "prediction_step_mae": 0.025102899444946113,
+          "hold_mae": 0.0894757696356629,
+          "turns": {
+            "negative": {
+              "samples": 8634,
+              "mae": 0.14733919930345785
+            },
+            "positive": {
+              "samples": 8545,
+              "mae": 0.14483470853323835
+            }
+          }
+        }
+      ]
+    },
+    {
+      "epoch": 23,
+      "loss": [
+        0.06311846629524355,
+        0.0
+      ],
+      "validation": [
+        {
+          "samples": 52056,
+          "mae": 0.0716893631727731,
+          "active_samples": 17179,
+          "active_mae": 0.14457503903861282,
+          "bias": -0.0012286738042558945,
+          "delta_mae": 0.04469339047733042,
+          "prediction_step_mae": 0.024007937919916046,
+          "hold_mae": 0.0894757696356629,
+          "turns": {
+            "negative": {
+              "samples": 8634,
+              "mae": 0.14785098113749923
+            },
+            "positive": {
+              "samples": 8545,
+              "mae": 0.14126497653635592
+            }
+          }
+        },
+        {
+          "samples": 52056,
+          "mae": 0.0688412074353494,
+          "active_samples": 17179,
+          "active_mae": 0.14609344148102782,
+          "bias": -0.0020375923453328526,
+          "delta_mae": 0.04618214363765567,
+          "prediction_step_mae": 0.025102899444946113,
+          "hold_mae": 0.0894757696356629,
+          "turns": {
+            "negative": {
+              "samples": 8634,
+              "mae": 0.14733919930345785
+            },
+            "positive": {
+              "samples": 8545,
+              "mae": 0.14483470853323835
+            }
+          }
+        }
+      ]
+    },
+    {
+      "epoch": 24,
+      "loss": [
+        0.06360180212996959,
+        0.0
+      ],
+      "validation": [
+        {
+          "samples": 52056,
+          "mae": 0.0717104768575983,
+          "active_samples": 17179,
+          "active_mae": 0.14470771225426948,
+          "bias": -0.0012883766657929493,
+          "delta_mae": 0.0446796060524804,
+          "prediction_step_mae": 0.0239940290279443,
+          "hold_mae": 0.0894757696356629,
+          "turns": {
+            "negative": {
+              "samples": 8634,
+              "mae": 0.14789442200264666
+            },
+            "positive": {
+              "samples": 8545,
+              "mae": 0.14148781149739545
+            }
+          }
+        },
+        {
+          "samples": 52056,
+          "mae": 0.0688412074353494,
+          "active_samples": 17179,
+          "active_mae": 0.14609344148102782,
+          "bias": -0.0020375923453328526,
+          "delta_mae": 0.04618214363765567,
+          "prediction_step_mae": 0.025102899444946113,
+          "hold_mae": 0.0894757696356629,
+          "turns": {
+            "negative": {
+              "samples": 8634,
+              "mae": 0.14733919930345785
+            },
+            "positive": {
+              "samples": 8545,
+              "mae": 0.14483470853323835
+            }
+          }
+        }
+      ]
+    }
+  ],
+  "test_without_real_history": {
+    "samples": 13914,
+    "mae": 0.06624178893111471,
+    "active_samples": 4556,
+    "active_mae": 0.1437512157967108,
+    "bias": 0.005788270987198583,
+    "delta_mae": 0.048916081869450866,
+    "prediction_step_mae": 0.024512449882314453,
+    "hold_mae": 0.09367724579765435,
+    "turns": {
+      "negative": {
+        "samples": 2324,
+        "mae": 0.15841660907277846
+      },
+      "positive": {
+        "samples": 2232,
+        "mae": 0.1284813349841744
+      }
+    }
+  },
+  "parameter_counts": [
+    93022,
+    67005
+  ],
+  "test_interpolated_history": {
+    "samples": 13914,
+    "mae": 0.06510121639251848,
+    "active_samples": 4556,
+    "active_mae": 0.14127723831702868,
+    "bias": 0.0045315471114715155,
+    "delta_mae": 0.04597364363939872,
+    "prediction_step_mae": 0.02191528892437108,
+    "hold_mae": 0.09367724579765435,
+    "turns": {
+      "negative": {
+        "samples": 2324,
+        "mae": 0.1561722416734173
+      },
+      "positive": {
+        "samples": 2232,
+        "mae": 0.12576828320939107
+      }
+    }
+  },
+  "history_resampling_checked": true,
+  "deployment": "candidate only; requires runtime shadow and bounded trial",
+  "onnx_max_difference": 3.725290298461914e-08
+}

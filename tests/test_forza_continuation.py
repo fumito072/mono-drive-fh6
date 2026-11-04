@@ -13,6 +13,25 @@ def lane():
 
 
 class ContinuationTests(unittest.TestCase):
+    def test_heading_fallback_retains_visible_lane_and_geometric_speed(self):
+        from mono_drive.forza_continuation import retain_observed_lane
+        from mono_drive.forza_lane_guard import LaneDepartureGuard
+        measured=replace(lane(),limit=60.,road_limit=60.,quality=.6,
+            lane_edges=tuple((z,-1.75,1.75) for z in lane().path[:,0]))
+        guessed=replace(lane(),steer=-.5,limit=25.,inferred=True)
+        bounded=retain_observed_lane(guessed,measured,40.)
+        guarded=LaneDepartureGuard().apply(bounded,40.)
+        self.assertEqual(guarded.lane_edges,measured.lane_edges)
+        self.assertAlmostEqual(guarded.steer,0.,places=2)
+        self.assertEqual(guarded.limit,60.)
+        near_edge=replace(measured,lane_edges=tuple((z,-.6,2.9) for z in lane().path[:,0]))
+        corrected=LaneDepartureGuard().apply(retain_observed_lane(guessed,near_edge,40.),40.)
+        self.assertLessEqual(corrected.limit,12.)
+        self.assertGreaterEqual(corrected.steer,0.)
+        self.assertIs(retain_observed_lane(guessed,lane(),40.),guessed)
+        stopped=retain_observed_lane(guessed,replace(measured,limit=0.,road_limit=0.),40.)
+        self.assertEqual(stopped.limit,0.)
+
     def test_short_uncertainty_cap_coasts_before_slowing_but_hazards_do_not_wait(self):
         d=SimpleNamespace(confidence=.6,steer=0.,target_kmh=25.,mode='lane_inferred',
                           reverse=False,uncertainty_limited=True)

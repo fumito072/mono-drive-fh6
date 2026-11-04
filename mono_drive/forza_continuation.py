@@ -89,3 +89,21 @@ def continue_unmarked(plan,speed):
         return plan
     reason=plan.reason if plan.reason in ('traffic_stop','static_stop') else 'lane_inferred'
     return replace(plan,inferred=True,reason=reason,quality=max(.55,plan.quality))
+
+
+def retain_observed_lane(inferred, observed, speed):
+    """A heading fallback may not erase boundaries from the same exposure.
+
+    Re-centre on that observed corridor and recompute its geometric speed.
+    The caller must run footprint and surface checks on the returned plan.
+    Truly missing boundaries retain the existing uncertain-speed fallback.
+    """
+    if not observed.lane_edges:
+        return inferred
+    from .forza_lateral import center_lane_plan
+    from .forza_scene import curve_speed
+    bounded=center_lane_plan(replace(inferred,lane_edges=observed.lane_edges),speed)
+    geometry=curve_speed(bounded.path,speed)[0]
+    original=observed.road_limit if observed.road_limit is not None else observed.limit
+    limit=min(original,geometry)
+    return replace(bounded,limit=limit,road_limit=limit,uncertainty_limited=False)

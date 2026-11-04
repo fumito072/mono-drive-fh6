@@ -134,6 +134,11 @@ class LaneFusion:
 
     def update(self, frame, model, telemetry, now):
         if self.semantic:
+            # Do not report a prior frame's safe margin when this frame never
+            # reached the predictive controller.
+            self.predictive.margin=None
+            self.predictive.target=None
+            self.predictive.curvature=0.
             from .forza_scene import project
             scene = self.scene_reader.read(now)
             if scene is None:
@@ -212,6 +217,7 @@ class LaneFusion:
             # Avoidance may change both path and wheel angle. Validate the final
             # requested motion, not the pre-avoidance plan.
             if plan.reason not in ('intersection_turn','offroad_surface','sidewalk_boundary'):
+                boundary_reference=plan
                 if len(plan.path)>=3 and plan.lane_edges:
                     plan = self.predictive.apply(plan,telemetry,now,self.memory.uncertainty)
                 plan = self.departure_guard.apply(plan,telemetry['speed'])
@@ -220,7 +226,12 @@ class LaneFusion:
                         self.route_memory.status.get('action')!='successful_route'):
                     # Weak lane estimates are a prior, not a reason to park.
                     from .forza_minimap import road_hint
-                    plan=self.continuation.predict(scene,telemetry,now,hint=road_hint(planning_frame))
+                    from .forza_continuation import retain_observed_lane
+                    inferred=self.continuation.predict(scene,telemetry,now,hint=road_hint(planning_frame))
+                    plan=retain_observed_lane(inferred,boundary_reference,telemetry['speed'])
+                    if len(plan.path)>=3 and plan.lane_edges:
+                        plan=self.predictive.apply(plan,telemetry,now,self.memory.uncertainty)
+                        plan=self.departure_guard.apply(plan,telemetry['speed'])
                     self.memory.state='inferred'
                 if avoiding and plan.guard_state in ('correcting','recentering'):
                     # If an evasive wheel angle is rejected, its optimistic

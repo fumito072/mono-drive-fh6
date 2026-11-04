@@ -218,6 +218,7 @@ class LaneFusion:
             # requested motion, not the pre-avoidance plan.
             if plan.reason not in ('intersection_turn','offroad_surface','sidewalk_boundary'):
                 boundary_reference=plan
+                prediction_state=(self.predictive.previous,self.predictive.updated)
                 if len(plan.path)>=3 and plan.lane_edges:
                     plan = self.predictive.apply(plan,telemetry,now,self.memory.uncertainty)
                 plan = self.departure_guard.apply(plan,telemetry['speed'])
@@ -230,6 +231,7 @@ class LaneFusion:
                     inferred=self.continuation.predict(scene,telemetry,now,hint=road_hint(planning_frame))
                     plan=retain_observed_lane(inferred,boundary_reference,telemetry['speed'])
                     if len(plan.path)>=3 and plan.lane_edges:
+                        self.predictive.previous,self.predictive.updated=prediction_state
                         plan=self.predictive.apply(plan,telemetry,now,self.memory.uncertainty)
                         plan=self.departure_guard.apply(plan,telemetry['speed'])
                     self.memory.state='inferred'

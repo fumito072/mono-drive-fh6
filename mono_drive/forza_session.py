@@ -79,7 +79,10 @@ class ProgressWatch:
         self.seconds,self.radius = seconds,radius
         self.samples = deque()
 
-    def update(self,now,position):
+    def update(self,now,position,enabled=True):
+        if not enabled:
+            self.samples.clear()
+            return False
         if position is None:
             return False
         self.samples.append((now,np.asarray(position,dtype=float)))
@@ -587,6 +590,8 @@ def worker():
                 break
             heartbeat = read_json(OUT/'driver-heartbeat.json',{})
             control = read_json(OUT/'control.json',{})
+            if control.get('action')!='drive':
+                stop_watch=StopWatch()
             if not port_busy(20070) and should_restart_driver(state,control):
                 request('drive',cruise_limit(ROOT))
             if not port_busy(20069):
@@ -643,7 +648,8 @@ def worker():
                     ui_failures+=1
                     recovery_failures=3
                     state,error='needs_attention',str(exc)
-            stalled = fresh and watch.update(now,heartbeat.get('position'))
+            stalled = watch.update(now,heartbeat.get('position'),
+                                   enabled=fresh and control.get('action')=='drive')
             retry_ready=state=='needs_attention' and now>=retry_at
             carriageway=read_json(OUT/'carriageway-state.json',{})
             wrongway=now-carriageway.get('time',0)<3. and carriageway.get('wrongway_confirmed') is True

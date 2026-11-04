@@ -277,6 +277,15 @@ class SessionTests(unittest.TestCase):
         for t in range(181):
             self.assertFalse(watch.update(t,[t*2,0,0]))
 
+    def test_held_recovery_time_does_not_count_as_a_new_driving_stall(self):
+        watch=ProgressWatch()
+        watch.update(0,[0,0,0])
+        watch.update(59,[0,0,0])
+        self.assertFalse(watch.update(60,[0,0,0],enabled=False))
+        self.assertFalse(watch.update(120,[0,0,0]))
+        self.assertFalse(watch.update(179,[0,0,0]))
+        self.assertTrue(watch.update(180,[0,0,0]))
+
     def test_automated_menus_cannot_change_the_camera(self):
         pad=PadChannel()
         try:

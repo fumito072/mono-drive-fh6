@@ -13,6 +13,12 @@ class RouteRotation:
         self.state=read_json(self.file,{})
         self.rng=rng or random.Random()
 
+    def resumed(self,now):
+        # Give a resumed drive time to establish progress before a scheduled
+        # route change. Explicit route requests still override this grace.
+        self.state['resume_not_before']=now+300.
+        write_json(self.file,self.state)
+
     def choose(self,now,recoveries,force=False):
         evaluation=read_json(self.root/'out/temporal-live-evaluation.json',{})
         if (not force and evaluation.get('hold_route') is True and
@@ -20,7 +26,7 @@ class RouteRotation:
             return None
         config=read_json(self.root/'configs/free_roam_routes.json',{})
         if config.get('enabled') is not True:return None
-        if not force and now<self.state.get('retry_at',0.):return None
+        if not force and now<max(self.state.get('retry_at',0.),self.state.get('resume_not_before',0.)):return None
         elapsed=now-self.state.get('changed_at',0.)
         repeats=recoveries-self.state.get('recoveries_at_change',recoveries)
         interval=max(300.,float(config.get('interval_seconds',900.)))

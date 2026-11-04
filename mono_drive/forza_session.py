@@ -61,6 +61,13 @@ def port_busy(port):
             return True
 
 
+def should_restart_driver(state,control):
+    # A menu recovery explicitly holds the driver while it owns the pad.
+    # A missing supervisor is not permission to cancel that hold.
+    return control.get('action')=='drive' and state not in (
+        'needs_attention','recovering_to_road','changing_route')
+
+
 def launch(command,log):
     with (OUT/(log+'.log')).open('a') as output,(OUT/(log+'.err')).open('a') as error:
         return subprocess.Popen(command,cwd=ROOT,stdout=output,stderr=error,
@@ -567,6 +574,7 @@ def worker():
             now = time.time()
             if config.get('resume_requested_at',0)>resume_requested_at:
                 resume_requested_at=config['resume_requested_at']
+                rotation.resumed(now)
                 watch=ProgressWatch()
                 stop_watch=StopWatch()
                 recovery_failures=ui_failures=0
@@ -579,7 +587,7 @@ def worker():
                 break
             heartbeat = read_json(OUT/'driver-heartbeat.json',{})
             control = read_json(OUT/'control.json',{})
-            if not port_busy(20070) and state!='needs_attention':
+            if not port_busy(20070) and should_restart_driver(state,control):
                 request('drive',cruise_limit(ROOT))
             if not port_busy(20069):
                 (OUT/'training.stop').unlink(missing_ok=True)

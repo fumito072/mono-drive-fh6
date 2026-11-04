@@ -271,8 +271,10 @@ class SpeedController:
         self.measured_acceleration = 0.
         self.desired_acceleration = 0.
         self.relaunch = RelaunchAssist()
+        from .forza_longitudinal import LongitudinalResponse
+        self.longitudinal = LongitudinalResponse()
 
-    def step(self, decision, speed, limit, threshold, dt):
+    def step(self, decision, speed, limit, threshold, dt, car_ordinal=None):
         dt = max(0., min(.5, dt))
         if self.previous_speed is None:
             if self.target==0.:
@@ -324,7 +326,8 @@ class SpeedController:
         brake = min(.30, (-braking_error-4)*.045) if self.overspeed > 1. else 0.
         # Start coasting when a lower limit is observed. The smoothed setpoint
         # must not keep adding throttle before braking late for the same bend.
-        throttle = min(.6,max(0.,.04+self.desired_acceleration/4.+.06*acceleration_error+self.trim)) if desired > 0. and error > -.8 and desired >= speed-.8 else 0.
+        feedforward=self.longitudinal.feedforward(self.desired_acceleration,speed,car_ordinal)
+        throttle = min(.6,max(0.,feedforward+.06*acceleration_error+self.trim)) if desired > 0. and error > -.8 and desired >= speed-.8 else 0.
         steer = max(-.65, min(.65, decision.steer))
         self.last_steer = steer
         if decision.mode == 'traffic_stop':
@@ -793,7 +796,7 @@ def main():
                 elapsed = time.monotonic()-t0
                 control_now = time.monotonic()
                 actuator.command = forward_only(speed_controller.step(decision, value['speed'], settings['max_kmh'],
-                    settings['min_confidence'], control_now-control_tick), value)
+                    settings['min_confidence'], control_now-control_tick, value.get('car_ordinal')), value)
                 control_tick = control_now
                 if args.forward_test is not None:
                     actuator.command = (test_steer, test_throttle if value['forward_kmh'] < settings['max_kmh'] else 0., 0.)
@@ -893,6 +896,9 @@ def main():
                                      car_ordinal=value['car_ordinal'],vehicle=vehicle_response.name,
                                      mode=decision.mode,target_kmh=decision.target_kmh,
                                      cruise_kmh=settings['max_kmh'],relaunch=speed_controller.relaunch.status(),
+                                     longitudinal_response=dict(car_ordinal=speed_controller.longitudinal.ordinal,
+                                         calibrated=speed_controller.longitudinal.parameters is not None,
+                                         parameters=speed_controller.longitudinal.parameters),
                                      path_model=str(live_model.active),model_hot_reload=True,model_runtime=live_model.status,
                                      learned_path=lane_fusion.learned_prior.status if semantic else None,
                                      lane_margin_m=lane_fusion.scene_planner.latest.guard_margin_m if semantic and lane_fusion.scene_planner.latest else None,

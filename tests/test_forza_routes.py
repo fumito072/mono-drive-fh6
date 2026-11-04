@@ -38,6 +38,15 @@ class RouteTests(unittest.TestCase):
             (root/'source.jpg').unlink()
             self.assertIsNone(pool.choose(1500,0,force=True))
 
+    def test_resume_grace_defers_scheduled_route_but_allows_explicit_request(self):
+        with TemporaryDirectory() as tmp:
+            root=Path(tmp);pool=self.setup_pool(root)
+            pool.resumed(1000)
+            self.assertIsNone(pool.choose(1001,0))
+            self.assertIsNotNone(pool.choose(1001,0,force=True))
+            self.assertIsNone(RouteRotation(root).choose(1299,0))
+            self.assertIsNotNone(pool.choose(1300,0))
+
     def test_arrival_needs_fresh_paved_footprint(self):
         self.assertFalse(paved_arrival(None,10))
         good=dict(captured=9.9,road=np.full((216,384),255,np.uint8))

@@ -11,6 +11,14 @@ from mono_drive.forza_static import static_risk
 
 
 class SessionTests(unittest.TestCase):
+    def test_menu_recovery_hold_cannot_be_cancelled_by_supervisor_restart(self):
+        from mono_drive.forza_session import should_restart_driver
+        for action in ('hold','recover','test'):
+            self.assertFalse(should_restart_driver('running',{'action':action}))
+        for state in ('needs_attention','recovering_to_road','changing_route'):
+            self.assertFalse(should_restart_driver(state,{'action':'drive'}))
+        self.assertTrue(should_restart_driver('running',{'action':'drive'}))
+
     def test_near_map_targets_use_short_pulses_and_retries_stay_bounded(self):
         from mono_drive.forza_session import map_move_duration,recovery_retry_delay
         self.assertLess(map_move_duration(31),.05)
